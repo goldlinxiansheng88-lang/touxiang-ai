@@ -1,3 +1,4 @@
+@echo off
 REM 进入项目目录
 cd /d "E:\touxiangAI"
 
