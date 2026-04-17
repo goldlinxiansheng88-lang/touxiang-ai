@@ -1,0 +1,126 @@
+{
+  "home": {
+    "title": "AuraShift",
+    "tagline": "나만의 아우라를 찾아보세요",
+    "login": "로그인",
+    "account": "계정"
+  },
+  "scene": {
+    "AVATAR": "아바타",
+    "WALLPAPER": "배경화면",
+    "FASHION": "패션",
+    "POSTER": "포스터",
+    "TRAVEL": "여행",
+    "DAILY": "데일리"
+  },
+  "styleItems": {
+    "GHIBLI": { "name": "부드러운 몽환", "subtitle": "지브리 감성", "proof": "🔥 120만 뷰" },
+    "PIXAR": { "name": "3D 픽사", "subtitle": "픽사 CGI", "proof": "⭐ 90만+" },
+    "OIL_PAINTING": { "name": "유화 초상", "subtitle": "인상파", "proof": "🔥 80만 뷰" },
+    "CYBERPUNK": { "name": "네온 엣지", "subtitle": "사이버펑크", "proof": "⭐ 50만+" },
+    "SHONEN_ANIME": { "name": "액션 애니", "subtitle": "소년 만화", "proof": "🔥 60만 뷰" },
+    "VAMP_ROMANTIC": { "name": "다크 글래머", "subtitle": "로맨틱 고딕", "proof": "⭐ 40만+" },
+    "GLITCHY_GLAM": { "name": "글리치 글램", "subtitle": "아방가르드", "proof": "🔥 35만 뷰" },
+    "POETCORE": { "name": "포에트코어", "subtitle": "다크 아카데미아", "proof": "⭐ 30만+" },
+    "EXTRA_CELESTIAL": { "name": "코스믹", "subtitle": "홀로그래픽", "proof": "🔥 45만 뷰" },
+    "GLAMORATTI": { "name": "파워 글램", "subtitle": "80년대", "proof": "⭐ 28만+" },
+    "COTTAGECORE": { "name": "햇살 초원", "subtitle": "코티지코어", "proof": "🔥 52만 뷰" },
+    "SOFT_GRUNGE": { "name": "소프트 그런지", "subtitle": "90년대 그런지", "proof": "⭐ 31만+" },
+    "WHIMSIGOTHIC": { "name": "신비한 오라", "subtitle": "위미시고딕", "proof": "🔥 29만 뷰" },
+    "Y2K": { "name": "Y2K 팝", "subtitle": "크롬 Y2K", "proof": "⭐ 41만+" },
+    "VINTAGE_POLAROID": { "name": "빈티지 폴라로이드", "subtitle": "1970년대 웜톤", "proof": "🔥 36만 뷰" }
+  },
+  "auth": {
+    "titleLogin": "AuraShift 로그인",
+    "titleAccount": "계정",
+    "signedIn": "로그인됨",
+    "logout": "로그아웃",
+    "loggingOut": "로그아웃 중…",
+    "loginTab": "로그인",
+    "registerTab": "가입",
+    "email": "이메일",
+    "password": "비밀번호(8자 이상)",
+    "emailPlaceholder": "you@example.com",
+    "passwordPlaceholder": "••••••••",
+    "submitting": "처리 중…",
+    "emailLogin": "이메일로 로그인",
+    "registerAndLogin": "가입 후 로그인",
+    "or": "또는",
+    "google": "Google로 계속",
+    "microsoft": "Microsoft / Outlook으로 계속",
+    "oauthHint": "OAuth 리디렉션 URL을 Google Cloud / Azure에서 설정:",
+    "loginFailed": "로그인에 실패했습니다. 이메일과 비밀번호를 확인하세요."
+  },
+  "overlay": {
+    "subtitle": "당신의 아우라를 조용히 완성하고 있어요. 조금만 더 함께 머물러 주세요.",
+    "muteAmbient": "분위기 소리 끄기",
+    "unmuteAmbient": "분위기 소리 켜기"
+  },
+  "submitPhrases": [
+    "오라를 읽는 중…",
+    "별이 정렬됩니다…",
+    "오라를 형성하는 중…",
+    "오라가 깨어납니다…",
+    "주파수 동기화…",
+    "거의 완료 — 이미지를 유지하세요",
+    "숨을 고르세요. 캔버스가 당신을 듣고 있어요…",
+    "당신의 순간이 모양을 잡고 있어요…"
+  ],
+  "loading": {
+    "defaultHeadline": "에너지를 읽는 중…",
+    "defaultRotating": "별이 정렬됩니다…",
+    "failed": "문제가 발생했습니다",
+    "tryAgain": "다시 시도하세요.",
+    "hints": [
+      "에너지를 읽는 중…",
+      "별이 정렬됩니다…",
+      "오라를 전달하는 중…",
+      "우주의 속삭임…",
+      "바이브 로딩 중…",
+      "주파수를 그리는 중…",
+      "본질을 해독하는 중…",
+      "오라 시프트 진행 중…"
+    ]
+  },
+  "result": {
+    "title": "나의 오라",
+    "tapReveal": "탭하여 공개",
+    "unlock": "🔓 $2.99 전체 오라 잠금 해제",
+    "save": "💾 저장",
+    "pinterest": "📌 Pinterest",
+    "tryAnother": "🔄 다른 스타일 시도"
+  },
+  "flow": {
+    "styleSelectTitle": "스타일 선택",
+    "pickImageFirst": "홈에서 먼저 장면을 선택하고 사진을 업로드하세요.",
+    "createFailedApi": "작업을 만들 수 없습니다. {msg}"
+  },
+  "quick": { "title": "빠른 선택", "scene": "장면", "style": "스타일", "generate": "생성" },
+  "common": {
+    "loading": "로딩 중…",
+    "refresh": "새로고침",
+    "prev": "이전",
+    "next": "다음",
+    "totalPage": "총 {total}건 · {page}페이지",
+    "noData": "데이터 없음",
+    "yes": "예",
+    "no": "아니오",
+    "optional": "선택",
+    "randomIfEmpty": "비어 있으면 무작위",
+    "paidAt": "결제 {time}",
+    "requestFailed": "요청 실패",
+    "networkError": "네트워크 오류"
+  },
+  "axios": {
+    "htmlError": "API가 JSON 대신 HTML을 반환했습니다(① FastAPI 미실행 또는 포트 불일치 ② frontend/.env.development의 VITE_API_PROXY_TARGET ③ 프로덕션 /api 프록시). HTTP {status}"
+  },
+  "errors": {
+    "authCallback": "로그인 실패: {msg}",
+    "createTask": "작업을 만들 수 없습니다. {msg}"
+  },
+  "lang": { "selector": "언어", "search": "언어 검색…" },
+  "meta": {
+    "pageTitle": "AuraShift — 나만의 아우라를 찾아보세요",
+    "adminTitle": "AuraShift 관리"
+  }
+}

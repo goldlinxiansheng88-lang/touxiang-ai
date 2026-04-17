@@ -1,0 +1,126 @@
+{
+  "home": {
+    "title": "AuraShift",
+    "tagline": "找到你的氣場",
+    "login": "登入",
+    "account": "帳號"
+  },
+  "scene": {
+    "AVATAR": "頭像",
+    "WALLPAPER": "桌布",
+    "FASHION": "時尚",
+    "POSTER": "海報",
+    "TRAVEL": "旅行",
+    "DAILY": "日常"
+  },
+  "styleItems": {
+    "GHIBLI": { "name": "柔美夢幻", "subtitle": "吉卜力風", "proof": "🔥 120 萬次瀏覽" },
+    "PIXAR": { "name": "3D 皮克斯", "subtitle": "皮克斯 CGI", "proof": "⭐ 90 萬+" },
+    "OIL_PAINTING": { "name": "油畫肖像", "subtitle": "印象派", "proof": "🔥 80 萬次瀏覽" },
+    "CYBERPUNK": { "name": "霓虹邊緣", "subtitle": "賽博龐克", "proof": "⭐ 50 萬+" },
+    "SHONEN_ANIME": { "name": "熱血動漫", "subtitle": "少年漫", "proof": "🔥 60 萬次瀏覽" },
+    "VAMP_ROMANTIC": { "name": "暗黑魅力", "subtitle": "浪漫哥德", "proof": "⭐ 40 萬+" },
+    "GLITCHY_GLAM": { "name": "故障魅力", "subtitle": "前衛", "proof": "🔥 35 萬次瀏覽" },
+    "POETCORE": { "name": "詩人核", "subtitle": "暗黑學院", "proof": "⭐ 30 萬+" },
+    "EXTRA_CELESTIAL": { "name": "宇宙感", "subtitle": "全息", "proof": "🔥 45 萬次瀏覽" },
+    "GLAMORATTI": { "name": "強力魅力", "subtitle": "80 年代", "proof": "⭐ 28 萬+" },
+    "COTTAGECORE": { "name": "陽光草甸", "subtitle": "田園風", "proof": "🔥 52 萬次瀏覽" },
+    "SOFT_GRUNGE": { "name": "軟頹廢", "subtitle": "90 年代頹廢", "proof": "⭐ 31 萬+" },
+    "WHIMSIGOTHIC": { "name": "神秘氣場", "subtitle": "奇幻哥德", "proof": "🔥 29 萬次瀏覽" },
+    "Y2K": { "name": "Y2K 流行", "subtitle": "鉻色千禧", "proof": "⭐ 41 萬+" },
+    "VINTAGE_POLAROID": { "name": "復古拍立得", "subtitle": "1970 年代暖調", "proof": "🔥 36 萬次瀏覽" }
+  },
+  "auth": {
+    "titleLogin": "登入 AuraShift",
+    "titleAccount": "帳號",
+    "signedIn": "已登入",
+    "logout": "登出",
+    "loggingOut": "登出中…",
+    "loginTab": "登入",
+    "registerTab": "註冊",
+    "email": "電子郵件",
+    "password": "密碼（至少 8 碼）",
+    "emailPlaceholder": "you@example.com",
+    "passwordPlaceholder": "••••••••",
+    "submitting": "送出中…",
+    "emailLogin": "以電子郵件登入",
+    "registerAndLogin": "註冊並登入",
+    "or": "或",
+    "google": "使用 Google 登入",
+    "microsoft": "使用 Microsoft / Outlook 登入",
+    "oauthHint": "請在 Google Cloud / Azure 設定 OAuth 重新導向網址：",
+    "loginFailed": "登入失敗，請確認電子郵件與密碼"
+  },
+  "overlay": {
+    "subtitle": "正為你把氣場拉近、成像——請再與我們一起停留片刻。",
+    "muteAmbient": "關閉氛圍音效",
+    "unmuteAmbient": "開啟氛圍音效"
+  },
+  "submitPhrases": [
+    "正在讀取你的能量…",
+    "星軌正在溫柔對齊…",
+    "為你的氣場賦形中…",
+    "Aura 正在甦醒…",
+    "頻率正在與畫面共振…",
+    "就快好了——保持想像",
+    "深呼吸，畫面正在回應你…",
+    "屬於你的那一刻，正在顯影…"
+  ],
+  "loading": {
+    "defaultHeadline": "正在讀取你的能量…",
+    "defaultRotating": "星軌正在對齊…",
+    "failed": "出錯了",
+    "tryAgain": "請重試。",
+    "hints": [
+      "正在讀取你的能量…",
+      "星軌正在對齊…",
+      "正在接引你的氣場…",
+      "來自宇宙的細語…",
+      "你的氛圍載入中…",
+      "正在描繪你的頻率…",
+      "正在解析你的本質…",
+      "氣場轉換進行中…"
+    ]
+  },
+  "result": {
+    "title": "你的 Aura",
+    "tapReveal": "點擊揭曉",
+    "unlock": "🔓 $2.99 解鎖完整 Aura",
+    "save": "💾 儲存",
+    "pinterest": "📌 Pinterest",
+    "tryAnother": "🔄 換種風格"
+  },
+  "flow": {
+    "styleSelectTitle": "選擇你的風格",
+    "pickImageFirst": "請先從首頁選擇場景並上傳圖片。",
+    "createFailedApi": "無法建立任務。{msg}"
+  },
+  "quick": { "title": "快速選擇", "scene": "場景", "style": "風格", "generate": "生成" },
+  "common": {
+    "loading": "載入中…",
+    "refresh": "重新整理",
+    "prev": "上一頁",
+    "next": "下一頁",
+    "totalPage": "共 {total} 條，第 {page} 頁",
+    "noData": "暫無資料",
+    "yes": "是",
+    "no": "否",
+    "optional": "可選",
+    "randomIfEmpty": "空則隨機",
+    "paidAt": "付：{time}",
+    "requestFailed": "請求失敗",
+    "networkError": "網路錯誤"
+  },
+  "axios": {
+    "htmlError": "API 回傳了 HTML 而非 JSON（常見：① 本機未啟動 FastAPI 或埠不是 8000 ② 請在 frontend/.env.development 設定 VITE_API_PROXY_TARGET ③ 生產環境需設定反向代理 /api）。HTTP {status}"
+  },
+  "errors": {
+    "authCallback": "登入失敗：{msg}",
+    "createTask": "無法建立任務。{msg}"
+  },
+  "lang": { "selector": "語言", "search": "搜尋語言…" },
+  "meta": {
+    "pageTitle": "AuraShift — 找到你的氣場",
+    "adminTitle": "AuraShift 管理後台"
+  }
+}

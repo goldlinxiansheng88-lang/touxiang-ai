@@ -1,0 +1,134 @@
+{
+  "home": {
+    "title": "AuraShift",
+    "tagline": "Find Your Aura",
+    "login": "Log in",
+    "account": "Account"
+  },
+  "scene": {
+    "AVATAR": "Avatar",
+    "WALLPAPER": "Wallpaper",
+    "FASHION": "Fashion",
+    "POSTER": "Poster",
+    "TRAVEL": "Travel",
+    "DAILY": "Daily"
+  },
+  "styleItems": {
+    "GHIBLI": { "name": "Soft & Dreamy", "subtitle": "Ghibli-inspired", "proof": "🔥 1.2M views" },
+    "PIXAR": { "name": "3D Pixar", "subtitle": "Pixar CGI", "proof": "⭐ 900k+" },
+    "OIL_PAINTING": { "name": "Oil Portrait", "subtitle": "Impressionist", "proof": "🔥 800k views" },
+    "CYBERPUNK": { "name": "Neon Edge", "subtitle": "Cyberpunk", "proof": "⭐ 500k+" },
+    "SHONEN_ANIME": { "name": "Action Anime", "subtitle": "Shonen", "proof": "🔥 600k views" },
+    "VAMP_ROMANTIC": { "name": "Dark Glamour", "subtitle": "Romantic goth", "proof": "⭐ 400k+" },
+    "GLITCHY_GLAM": { "name": "Glitch Glam", "subtitle": "Avant-garde", "proof": "🔥 350k views" },
+    "POETCORE": { "name": "Poetcore", "subtitle": "Dark academia", "proof": "⭐ 300k+" },
+    "EXTRA_CELESTIAL": { "name": "Cosmic", "subtitle": "Holographic", "proof": "🔥 450k views" },
+    "GLAMORATTI": { "name": "Power Glam", "subtitle": "80s power", "proof": "⭐ 280k+" },
+    "COTTAGECORE": { "name": "Sunlit Meadow", "subtitle": "Cottagecore", "proof": "🔥 520k views" },
+    "SOFT_GRUNGE": { "name": "Soft Grunge", "subtitle": "90s grunge", "proof": "⭐ 310k+" },
+    "WHIMSIGOTHIC": { "name": "Mystic Aura", "subtitle": "Whimsigothic", "proof": "🔥 290k views" },
+    "Y2K": { "name": "Y2K Pop", "subtitle": "Chrome Y2K", "proof": "⭐ 410k+" },
+    "VINTAGE_POLAROID": { "name": "Retro Polaroid", "subtitle": "1970s warm", "proof": "🔥 360k views" }
+  },
+  "auth": {
+    "titleLogin": "Sign in to AuraShift",
+    "titleAccount": "Account",
+    "signedIn": "Signed in",
+    "logout": "Log out",
+    "loggingOut": "Signing out…",
+    "loginTab": "Sign in",
+    "registerTab": "Register",
+    "email": "Email",
+    "password": "Password (min. 8 characters)",
+    "emailPlaceholder": "you@example.com",
+    "passwordPlaceholder": "••••••••",
+    "submitting": "Submitting…",
+    "emailLogin": "Sign in with email",
+    "registerAndLogin": "Register and sign in",
+    "or": "or",
+    "google": "Continue with Google",
+    "microsoft": "Continue with Microsoft / Outlook",
+    "oauthHint": "For OAuth, configure redirect URLs in Google Cloud / Azure as",
+    "loginFailed": "Sign-in failed. Check your email and password."
+  },
+  "overlay": {
+    "subtitle": "We’re bringing your aura into focus — stay with us for just a moment.",
+    "muteAmbient": "Mute atmosphere sound",
+    "unmuteAmbient": "Play atmosphere sound"
+  },
+  "submitPhrases": [
+    "Reading your aura…",
+    "The stars are gently aligning…",
+    "Shaping your aura…",
+    "Aura awakening…",
+    "Frequency syncing with the frame…",
+    "Almost there — hold the vision",
+    "Breathe. The canvas is listening…",
+    "Your moment is taking shape…"
+  ],
+  "loading": {
+    "defaultHeadline": "Reading your energy…",
+    "defaultRotating": "The stars are aligning…",
+    "failed": "Something went wrong",
+    "tryAgain": "Please try again.",
+    "hints": [
+      "Reading your energy…",
+      "The stars are aligning…",
+      "Channeling your aura…",
+      "Whispers from the cosmos…",
+      "Your vibe is loading…",
+      "Painting your frequency…",
+      "Decoding your essence…",
+      "Aura shift in progress…"
+    ]
+  },
+  "result": {
+    "title": "Your Aura",
+    "tapReveal": "Tap to reveal",
+    "unlock": "🔓 $2.99 Unlock Full Aura",
+    "save": "💾 Save",
+    "pinterest": "📌 Pinterest",
+    "tryAnother": "🔄 Try Another Style"
+  },
+  "flow": {
+    "styleSelectTitle": "Choose your style",
+    "pickImageFirst": "Please pick a photo from the home scene first.",
+    "createFailedApi": "Could not create the task. {msg}"
+  },
+  "quick": {
+    "title": "Quick pick",
+    "scene": "Scene",
+    "style": "Style",
+    "generate": "Generate"
+  },
+  "common": {
+    "loading": "Loading…",
+    "refresh": "Refresh",
+    "prev": "Previous",
+    "next": "Next",
+    "totalPage": "Total {total} · page {page}",
+    "noData": "No data",
+    "yes": "Yes",
+    "no": "No",
+    "optional": "Optional",
+    "randomIfEmpty": "Random if empty",
+    "paidAt": "Paid {time}",
+    "requestFailed": "Request failed",
+    "networkError": "Network error"
+  },
+  "axios": {
+    "htmlError": "The API returned HTML instead of JSON (common causes: ① FastAPI not running or wrong port ② set VITE_API_PROXY_TARGET in frontend/.env.development ③ configure /api reverse proxy in production). HTTP {status}"
+  },
+  "errors": {
+    "authCallback": "Sign-in failed: {msg}",
+    "createTask": "Could not create the task. {msg}"
+  },
+  "lang": {
+    "selector": "Language",
+    "search": "Search languages…"
+  },
+  "meta": {
+    "pageTitle": "AuraShift — Find Your Aura",
+    "adminTitle": "AuraShift Admin"
+  }
+}

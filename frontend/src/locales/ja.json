@@ -1,0 +1,134 @@
+{
+  "home": {
+    "title": "AuraShift",
+    "tagline": "あなたのオーラを見つけよう",
+    "login": "ログイン",
+    "account": "アカウント"
+  },
+  "scene": {
+    "AVATAR": "アバター",
+    "WALLPAPER": "壁紙",
+    "FASHION": "ファッション",
+    "POSTER": "ポスター",
+    "TRAVEL": "旅行",
+    "DAILY": "デイリー"
+  },
+  "styleItems": {
+    "GHIBLI": { "name": "しっとり幻想", "subtitle": "ジブリ風", "proof": "🔥 120万再生" },
+    "PIXAR": { "name": "3D ピクサー", "subtitle": "ピクサー CGI", "proof": "⭐ 90万+" },
+    "OIL_PAINTING": { "name": "油絵ポートレート", "subtitle": "印象派", "proof": "🔥 80万再生" },
+    "CYBERPUNK": { "name": "ネオンエッジ", "subtitle": "サイバーパンク", "proof": "⭐ 50万+" },
+    "SHONEN_ANIME": { "name": "アクションアニメ", "subtitle": "少年漫画", "proof": "🔥 60万再生" },
+    "VAMP_ROMANTIC": { "name": "ダークグラマー", "subtitle": "ロマンゴス", "proof": "⭐ 40万+" },
+    "GLITCHY_GLAM": { "name": "グリッチグラム", "subtitle": "アバンギャルド", "proof": "🔥 35万再生" },
+    "POETCORE": { "name": "ポエトコア", "subtitle": "ダークアカデミア", "proof": "⭐ 30万+" },
+    "EXTRA_CELESTIAL": { "name": "コスミック", "subtitle": "ホログラフィック", "proof": "🔥 45万再生" },
+    "GLAMORATTI": { "name": "パワーグラム", "subtitle": "80年代", "proof": "⭐ 28万+" },
+    "COTTAGECORE": { "name": "陽だまり草原", "subtitle": "コテージコア", "proof": "🔥 52万再生" },
+    "SOFT_GRUNGE": { "name": "ソフトグランジ", "subtitle": "90年代グランジ", "proof": "⭐ 31万+" },
+    "WHIMSIGOTHIC": { "name": "ミスティックオーラ", "subtitle": "ウィミジゴシック", "proof": "🔥 29万再生" },
+    "Y2K": { "name": "Y2K ポップ", "subtitle": "クローム Y2K", "proof": "⭐ 41万+" },
+    "VINTAGE_POLAROID": { "name": "ヴィンテージポラロイド", "subtitle": "1970年代ウォーム", "proof": "🔥 36万再生" }
+  },
+  "auth": {
+    "titleLogin": "AuraShift にログイン",
+    "titleAccount": "アカウント",
+    "signedIn": "ログイン済み",
+    "logout": "ログアウト",
+    "loggingOut": "ログアウト中…",
+    "loginTab": "ログイン",
+    "registerTab": "新規登録",
+    "email": "メール",
+    "password": "パスワード（8文字以上）",
+    "emailPlaceholder": "you@example.com",
+    "passwordPlaceholder": "••••••••",
+    "submitting": "送信中…",
+    "emailLogin": "メールでログイン",
+    "registerAndLogin": "登録してログイン",
+    "or": "または",
+    "google": "Google で続行",
+    "microsoft": "Microsoft / Outlook で続行",
+    "oauthHint": "OAuth のリダイレクト URL を Google Cloud / Azure で設定：",
+    "loginFailed": "ログインに失敗しました。メールとパスワードを確認してください。"
+  },
+  "overlay": {
+    "subtitle": "あなたのオーラを静かに立ち上げています。もう少しだけ、ここにいてください。",
+    "muteAmbient": "雰囲気の音をオフ",
+    "unmuteAmbient": "雰囲気の音をオン"
+  },
+  "submitPhrases": [
+    "オーラを読み取っています…",
+    "星が整列しています…",
+    "オーラを形作っています…",
+    "オーラが目覚めます…",
+    "周波数を同期しています…",
+    "もうすぐです — イメージを保って",
+    "深呼吸を。キャンバスが耳を澄ませています…",
+    "あなたの瞬間が、形になっています…"
+  ],
+  "loading": {
+    "defaultHeadline": "エネルギーを読み取っています…",
+    "defaultRotating": "星が整列しています…",
+    "failed": "問題が発生しました",
+    "tryAgain": "もう一度お試しください。",
+    "hints": [
+      "エネルギーを読み取っています…",
+      "星が整列しています…",
+      "オーラをチャネリング…",
+      "宇宙からのささやき…",
+      "あなたのバイブを読み込み中…",
+      "周波数を描いています…",
+      "本質を解読中…",
+      "オーラシフト進行中…"
+    ]
+  },
+  "result": {
+    "title": "あなたのオーラ",
+    "tapReveal": "タップして表示",
+    "unlock": "🔓 $2.99 フルオーラを解除",
+    "save": "💾 保存",
+    "pinterest": "📌 Pinterest",
+    "tryAnother": "🔄 別のスタイルを試す"
+  },
+  "flow": {
+    "styleSelectTitle": "スタイルを選ぶ",
+    "pickImageFirst": "ホームでシーンを選び、先に写真をアップロードしてください。",
+    "createFailedApi": "タスクを作成できませんでした。{msg}"
+  },
+  "quick": {
+    "title": "クイック選択",
+    "scene": "シーン",
+    "style": "スタイル",
+    "generate": "生成"
+  },
+  "common": {
+    "loading": "読み込み中…",
+    "refresh": "更新",
+    "prev": "前へ",
+    "next": "次へ",
+    "totalPage": "計 {total} 件 · {page} ページ",
+    "noData": "データなし",
+    "yes": "はい",
+    "no": "いいえ",
+    "optional": "任意",
+    "randomIfEmpty": "空ならランダム",
+    "paidAt": "支払い {time}",
+    "requestFailed": "リクエスト失敗",
+    "networkError": "ネットワークエラー"
+  },
+  "axios": {
+    "htmlError": "API が JSON ではなく HTML を返しました（① FastAPI が未起動またはポート違い ② frontend/.env.development の VITE_API_PROXY_TARGET ③ 本番の /api プロキシ）。HTTP {status}"
+  },
+  "errors": {
+    "authCallback": "ログインに失敗しました：{msg}",
+    "createTask": "タスクを作成できませんでした。{msg}"
+  },
+  "lang": {
+    "selector": "言語",
+    "search": "言語を検索…"
+  },
+  "meta": {
+    "pageTitle": "AuraShift — あなたのオーラを見つけよう",
+    "adminTitle": "AuraShift 管理"
+  }
+}

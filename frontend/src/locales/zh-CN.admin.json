@@ -1,0 +1,297 @@
+{
+  "admin": {
+    "layout": {
+      "console": "控制台",
+      "subtitle": "管理后台",
+      "navDash": "数据中心",
+      "navUsers": "用户管理",
+      "navOrders": "订单管理",
+      "navAffiliates": "代理管理",
+      "navConfig": "系统配置",
+      "navLogs": "终端运行日志",
+      "configToggleExpand": "显示全部分类",
+      "configToggleCollapse": "收起子菜单"
+    },
+    "sidebar": {
+      "accessControl": "访问控制",
+      "passwordLineBefore": "与后端",
+      "passwordLineAfter": "一致",
+      "passwordHint": "与后端",
+      "passwordPlaceholder": "管理密码",
+      "saveAuth": "保存授权",
+      "authorized": "已授权 · 可加载与保存",
+      "unauthorized": "未授权时接口返回 401"
+    },
+    "secretInput": {
+      "show": "显示内容",
+      "hide": "隐藏内容"
+    },
+    "badge": {
+      "requiredFlow": "主流程依赖项：上线跑通生成、存储、队列等前，建议在配置库或 .env 中已就绪",
+      "optionalFlow": "可选：例如未开通收款、或使用内置默认值"
+    },
+    "dashboard": {
+      "title": "数据中心",
+      "hintHeaders": "· 请求头",
+      "authBanner": "请先在<strong>左侧栏底部</strong>填写管理密码并点「保存授权」，下方指标才会加载。",
+      "refresh": "刷新数据",
+      "metricTasks": "今日任务量（近似活跃）",
+      "metricQueued": "排队任务",
+      "metricSuccess": "成功率",
+      "metricRevenue": "今日收入 (USD)",
+      "metricCost": "算力成本 (USD)",
+      "err401": "401：令牌无效或未设置。请核对后端 ADMIN_PASSWORD。",
+      "errConnect": "无法连接后端：请确认已启动 API（默认 http://127.0.0.1:8000）且代理正常。"
+    },
+    "users": {
+      "title": "用户管理",
+      "authBanner": "请先在<strong>左侧栏底部</strong>填写管理密码并点「保存授权」。",
+      "refresh": "刷新",
+      "colId": "用户 ID",
+      "colDevice": "设备 ID",
+      "colIp": "IP",
+      "colVip": "VIP",
+      "colCreated": "创建时间",
+      "err401": "401：请先完成左侧保存授权。",
+      "vipYes": "是",
+      "vipNo": "否"
+    },
+    "orders": {
+      "title": "订单管理",
+      "authBanner": "请先在<strong>左侧栏底部</strong>填写管理密码并点「保存授权」。",
+      "statusLabel": "状态",
+      "statusAll": "全部",
+      "refresh": "刷新",
+      "colOrderId": "订单 ID",
+      "colAmount": "金额",
+      "colStatus": "状态",
+      "colTaskId": "任务 ID",
+      "colUserId": "用户 ID",
+      "colTimes": "创建 / 支付时间",
+      "err401": "401：请先完成左侧保存授权。"
+    },
+    "logs": {
+      "title": "终端运行日志",
+      "hintSse": "（SSE 实时同步）· 快照",
+      "authBanner": "请先在<strong>左侧栏底部</strong>填写管理密码并点「保存授权」，才能拉取日志。",
+      "modeLive": "实时同步（SSE，推荐）",
+      "modePoll": "每 5 秒轮询",
+      "refreshSnap": "立即刷新（快照）",
+      "loading": "加载中…",
+      "connected": "● 已连接",
+      "connecting": "连接中…",
+      "currentFile": "当前文件：",
+      "emptyLog": "（尚无日志行；请确认后端 RUNTIME_LOG_FILE 与重定向。）",
+      "err401": "401：令牌无效或未设置。请核对后端 ADMIN_PASSWORD。",
+      "errConnect": "无法连接后端：请确认已启动 API 且代理正常。",
+      "streamFail": "流式连接失败",
+      "rotated": "检测到日志文件被截断或轮转，已清空视图；等待新内容。"
+    },
+    "affiliates": {
+      "title": "代理管理",
+      "authBanner": "请先在<strong>左侧栏底部</strong>填写管理密码并点「保存授权」。",
+      "createTitle": "新建代理",
+      "name": "名称",
+      "code": "邀请码",
+      "rate": "佣金比例（0~1）",
+      "placeholderOptional": "可选",
+      "placeholderRandom": "空则随机",
+      "submit": "创建",
+      "submitting": "提交中…",
+      "refreshList": "刷新列表",
+      "colCode": "邀请码",
+      "colName": "名称",
+      "colRate": "佣金比例",
+      "colBalance": "余额 / 累计",
+      "colCreated": "创建时间",
+      "createdOk": "已创建：{code}，推广链接参数 {link}",
+      "err401": "401：请先完成左侧保存授权。"
+    },
+    "config": {
+      "title": "系统配置",
+      "intro": "保存后写配置库并刷新缓存；数据库 / Redis / 主密钥会同步 <code class=\"rounded bg-stone-100 px-0.5 text-[10px]\">backend/.env</code>。若数据库尚未连通，仍可先保存这三项到 .env；后端会刷新配置并重建数据库连接池，试连成功后<strong class=\"font-medium text-stone-700\">再点一次保存</strong>即可把其余项写入库。卡片上的「必填」表示<strong class=\"font-medium text-stone-700\">该配置项对主流程重要</strong>；数据库与 Redis 为<strong class=\"font-medium text-stone-700\">整段连接串</strong>保存。独立 Celery 等进程若单独读 .env，仍需各自重启。",
+      "showAllGroups": "显示全部分类",
+      "authBanner": "未授权：左侧栏底部填写管理密码并<strong>保存授权</strong>（与 <code class=\"bg-amber-100 px-0.5 rounded\">ADMIN_PASSWORD</code> 一致）。",
+      "goAuth": "去授权区",
+      "schemaSyncing": "正在与后端同步配置分类…（若长时间无响应将保留内置分类）",
+      "valuesLoading": "正在拉取当前配置值…",
+      "save": "保存更改",
+      "saving": "保存中…",
+      "discardReload": "放弃并重载",
+      "required": "必填",
+      "optional": "选填",
+      "valueKindTitle": "本项含义：",
+      "sourcePrefix": "来源 ·",
+      "readonlyPlaceholderAuth": "正在拉取脱敏预览；若仍为空请先左侧「保存授权」",
+      "readonlyPlaceholderEmpty": "（空）",
+      "dbUrlHelp": "粘贴云平台「Direct connection」或自建库的整段 URL（postgresql://…），保存后写入 database_url。勿填 Supabase 的 Project URL / anon key。",
+      "redisUrlHelp": "整段 Redis 地址（redis:// 或 rediss://），保存后写入 redis_url。",
+      "phDb": "postgresql://用户:密码@主机:5432/库名",
+      "phRedis": "redis://主机:6379/0",
+      "connecting": "连接中…",
+      "connect": "连接",
+      "readonlyHelp": "只读项（须在服务器 .env 修改并重启）。<strong class=\"text-stone-700\">点击输入框可全选复制</strong>；支持项可点右侧「连接」检测（使用服务器当前配置）。",
+      "noChanges": "没有修改项。",
+      "leaveUnsavedConfirm": "有未保存的配置修改，确定离开此页？",
+      "saveAuthFirst": "请先在左侧栏填写管理密码并点击「保存授权」。",
+      "saveAuthFirstShort": "请先在左侧栏保存管理密码授权。",
+      "sources": {
+        "env": "环境变量（只读）",
+        "database": "数据库",
+        "env_default": "环境变量默认（可写入库后覆盖）",
+        "pending_auth": "尚未授权：请在左侧栏保存管理密码"
+      },
+      "maskedPlaceholderSet": "已配置，留空保持不变；填写新值则覆盖",
+      "maskedPlaceholderOptional": "可选"
+    },
+    "groups": {
+      "db": {
+        "label": "数据库与 API 基础",
+        "short": "数据库",
+        "hint": "数据库、Redis、主密钥可在下方填写并保存。若 API 当前连不上 PostgreSQL，会先把这三项写入 backend/.env 并尝试用新连接串在本进程内建连；成功则<strong class=\"font-medium text-stone-700\">再保存一次</strong>即可写入配置库。勿留 [YOUR-PASSWORD] 等占位；仍失败请看提示中的错误摘要或打开同域 /health/db。"
+      },
+      "claude": {
+        "label": "彩虹屁大模型（文案）",
+        "short": "彩虹屁模型",
+        "hint": "文案能力依赖 Claude API Key；未配置则彩虹屁相关能力不可用。"
+      },
+      "image": {
+        "label": "图片生成大模型",
+        "short": "生图大模型",
+        "hint": "头像 / 风格图依赖 API Key 与根地址；未配置则无法出图。"
+      },
+      "storage": {
+        "label": "存储配置",
+        "short": "存储配置",
+        "hint": "生成结果需写入对象存储；Access/Secret/桶/区域为主流程必填项。"
+      },
+      "payment": {
+        "label": "支付与会员",
+        "short": "支付配置",
+        "hint": "Stripe 收款、解锁高清、分销佣金比例等。"
+      },
+      "adminPanel": {
+        "label": "管理后台",
+        "short": "管理后台",
+        "hint": "左侧栏「管理密码」与 ADMIN_PASSWORD 一致，用于调用管理接口。"
+      },
+      "biz": {
+        "label": "业务参数",
+        "short": "其他",
+        "hint": "免费次数、运营策略相关数值。"
+      }
+    },
+    "valueKinds": {
+      "database_url": "整段连接串（postgresql://…）",
+      "redis_url": "整段连接串（redis://…）",
+      "encryption_key": "Fernet 主密钥",
+      "public_base_url": "HTTPS 根地址",
+      "frontend_url": "HTTPS 根地址",
+      "claude_api_key": "API Key",
+      "image_api_key": "API Key",
+      "image_api_endpoint": "API 根 URL",
+      "s3_access_key": "Access Key",
+      "s3_secret_key": "Secret Key",
+      "s3_bucket_name": "存储桶名称",
+      "s3_region": "Region 代码",
+      "stripe_secret_key": "Secret Key（sk_…）",
+      "stripe_webhook_secret": "Webhook 密钥（whsec_…）",
+      "checkout_amount_usd": "美元金额（数字）",
+      "commission_default_rate": "比例 0～1",
+      "admin_email": "邮箱地址",
+      "admin_password": "口令",
+      "free_daily_limit": "正整数"
+    },
+    "items": {
+      "database_url": {
+        "label": "PostgreSQL",
+        "description": "整段连接串（postgresql://…）。若当前尚无法连库，仍可在此保存：将先同步到 backend/.env 并尝试重建连接；试连成功后再保存一次即可写入其余项。"
+      },
+      "redis_url": {
+        "label": "Redis",
+        "description": "整段 Redis 地址（redis://…）；保存后写入配置库与 .env。"
+      },
+      "encryption_key": {
+        "label": "Fernet 加密主密钥",
+        "description": "保存后写入配置库与 .env；修改后建议重启 API。"
+      },
+      "public_base_url": {
+        "label": "后端 API 公网根地址",
+        "description": "拼上传图片、Webhook 等绝对 URL，如 https://api.xxx.com"
+      },
+      "frontend_url": {
+        "label": "前端站点根地址",
+        "description": "Stripe 支付完成回跳、用户可见链接，如 https://app.xxx.com"
+      },
+      "claude_api_key": {
+        "label": "Claude API Key",
+        "description": "Anthropic：用于生成 aura 解读、彩虹屁文案等（与图片模型分开配置）。"
+      },
+      "image_api_key": {
+        "label": "图像生成 API Key",
+        "description": "Replicate / SDXL 等图像推理服务的密钥。"
+      },
+      "image_api_endpoint": {
+        "label": "图像 API 根地址",
+        "description": "如 Replicate OpenAPI 前缀 https://api.replicate.com/v1"
+      },
+      "s3_access_key": {
+        "label": "对象存储 Access Key",
+        "description": "生成结果图、缩略图存放（S3 兼容）。"
+      },
+      "s3_secret_key": {
+        "label": "对象存储 Secret Key",
+        "description": "与上配对。"
+      },
+      "s3_bucket_name": {
+        "label": "存储桶名称",
+        "description": "Bucket 名。"
+      },
+      "s3_region": {
+        "label": "区域 Region",
+        "description": "如 us-east-1。"
+      },
+      "stripe_secret_key": {
+        "label": "Stripe Secret Key",
+        "description": "收款。"
+      },
+      "stripe_webhook_secret": {
+        "label": "Stripe Webhook 签名密钥",
+        "description": "Webhook 校验。"
+      },
+      "checkout_amount_usd": {
+        "label": "单次解锁价格 (USD)",
+        "description": "用户付费解锁高清等，单位美元，如 2.99。"
+      },
+      "commission_default_rate": {
+        "label": "分销默认佣金比例",
+        "description": "0～1 小数，如 0.30 表示 30%。"
+      },
+      "admin_email": {
+        "label": "管理员联系邮箱",
+        "description": "展示/对账用。"
+      },
+      "admin_password": {
+        "label": "管理后台口令",
+        "description": "与页面顶部「管理令牌」相同；对应环境变量 ADMIN_PASSWORD。"
+      },
+      "free_daily_limit": {
+        "label": "免费用户每日生成次数",
+        "description": "整数，防刷。"
+      }
+    },
+    "errors": {
+      "e401": "401：管理口令不正确。左侧「管理密码」须与后端 ADMIN_PASSWORD 一致，填好后点保存授权。",
+      "e503": "503：服务暂不可用（多为数据库不可达）。请检查 backend/.env 的 DATABASE_URL 与 PostgreSQL。",
+      "e500json": "后端未返回 detail 字段。",
+      "e500html": "响应可能为 HTML 错误页（代理/网关）。",
+      "e500body": "500：服务端异常。{hint}请在后端运行窗口查看完整报错；并可在浏览器 F12 → Network → 点开失败请求 → Response 查看正文。数据库自检：打开同源的 /health/db（无需登录）。",
+      "timeoutHint": "{msg}。请确认：① 后端 uvicorn 在 8000 运行；② REDIS_URL 指向可访问的 Redis（云或本机）；③ 已重启 API。",
+      "schemaFallback": "后端未返回分类，已用内置布局。",
+      "schemaFallbackErr": "拉取线上分类失败（{err}），已用内置分类。请检查 API、代理与后端日志。",
+      "fallbackShort": "后端未返回分类，已用内置布局。",
+      "requestFailed": "请求失败",
+      "networkNoResponse": "浏览器未收到后端响应（常见于开发模式下 API 未启动或端口不对）。请先启动 FastAPI（默认 http://127.0.0.1:8000），并保证与 Vite 代理目标 VITE_API_PROXY_TARGET 一致。"
+    }
+  }
+}
