@@ -133,9 +133,32 @@ export async function getTask(taskId: string) {
   return data;
 }
 
-export async function createCheckout(taskId: string) {
-  const { data } = await api.post<{ checkout_url: string }>("/api/payments/create-checkout", {
+export type PaymentMethodsResponse = {
+  methods: { id: string; enabled: boolean; label: string }[];
+  checkout_amount_usd: string;
+  checkout_amount_usdt: string;
+  usdt_network: string;
+  default_provider: string | null;
+};
+
+export type CreateCheckoutResponse =
+  | { provider: "stripe"; checkout_url: string }
+  | { provider: "lemon_squeezy"; checkout_url: string }
+  | {
+      provider: "usdt";
+      checkout_url: null;
+      usdt: { order_id: string; address: string; network: string; amount: string };
+    };
+
+export async function getPaymentMethods() {
+  const { data } = await api.get<PaymentMethodsResponse>("/api/payments/methods");
+  return data;
+}
+
+export async function createCheckout(taskId: string, provider?: string) {
+  const { data } = await api.post<CreateCheckoutResponse>("/api/payments/create-checkout", {
     task_id: taskId,
+    ...(provider ? { provider } : {}),
   });
   return data;
 }

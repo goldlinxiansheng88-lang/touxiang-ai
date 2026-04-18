@@ -12,6 +12,7 @@ from sqlalchemy.exc import IntegrityError, SQLAlchemyError
 from sqlalchemy.orm import Session
 
 from app.models import Affiliate, Order, PayoutRequest, SystemConfig, Task, User
+from app.services.payment_finalize import finalize_order_paid
 from app.schemas.admin import ConfigBatchPatch, ConnectionTestBody, CreateAffiliateBody, PayoutActionBody
 from app.config import clear_settings_cache, get_settings
 from app.data.config_registry import CONFIG_ENTRIES, GROUP_HINTS, GROUP_ORDER, entry_by_key, should_encrypt_on_write
@@ -229,10 +230,33 @@ def list_orders(
                 "commission_earned": float(o.commission_earned) if o.commission_earned is not None else None,
                 "created_at": o.created_at.isoformat() if o.created_at else None,
                 "paid_at": o.paid_at.isoformat() if o.paid_at else None,
+                "payment_channel": o.payment_channel,
             }
             for o in rows
         ],
     }
+
+
+@router.post("/orders/{order_id}/mark-paid")
+def mark_order_paid_manual(db: DbSession, order_id: str):
+    """链上 USDT 等需人工核对到账后，在此将订单标为已付。"""
+    try:
+        oid = uuid.UUID(order_id)
+    except ValueError:
+        raise HTTPException(status_code=400, detail="Invalid order_id")
+    order = db.query(Order).filter(Order.id == oid).first()
+    if not order:
+        raise HTTPException(status_code=404, detail="Order not found")
+    if order.status == "PAID":
+        return {"ok": True, "already_paid": True}
+    if (order.payment_channel or "") != "usdt":
+        raise HTTPException(
+            status_code=400,
+            detail="Only USDT (pending) orders can be confirmed this way",
+        )
+    finalize_order_paid(db, order)
+    db.commit()
+    return {"ok": True, "already_paid": False}
 
 
 @router.get("/tasks")

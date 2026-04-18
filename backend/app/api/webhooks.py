@@ -1,12 +1,15 @@
+import hashlib
+import hmac
+import json
 import uuid
-from datetime import datetime, timezone
 
 import stripe
 from fastapi import APIRouter, HTTPException, Request
 
 from app.config import get_settings
-from app.models import Affiliate, AffiliateClick, Order, Task
+from app.models import Order
 from app.services import config_service
+from app.services.payment_finalize import finalize_order_paid
 from app.database import SessionLocal
 
 router = APIRouter(prefix="/api/webhooks", tags=["webhooks"])
@@ -46,36 +49,59 @@ async def stripe_webhook(request: Request):
         if not task_id:
             return {"received": True}
 
-        task = db.query(Task).filter(Task.id == uuid.UUID(task_id)).first()
-        if task:
-            task.is_paid = True
+        tid = uuid.UUID(task_id)
         if order_id:
             order = db.query(Order).filter(Order.id == uuid.UUID(order_id)).first()
             if order:
-                order.status = "PAID"
-                order.paid_at = datetime.now(timezone.utc)
+                finalize_order_paid(db, order)
+            else:
+                task = db.query(Task).filter(Task.id == tid).first()
+                if task:
+                    task.is_paid = True
+        else:
+            task = db.query(Task).filter(Task.id == tid).first()
+            if task:
+                task.is_paid = True
 
-                if order.affiliate_id:
-                    aff = db.query(Affiliate).filter(Affiliate.id == order.affiliate_id).first()
-                    if aff:
-                        rate = float(aff.commission_rate)
-                        commission = float(order.amount) * rate
-                        order.commission_earned = commission
-                        aff.wallet_balance = float(aff.wallet_balance or 0) + commission
-                        aff.total_earned = float(aff.total_earned or 0) + commission
+        db.commit()
+        return {"received": True}
+    finally:
+        db.close()
 
-                    now = datetime.now(timezone.utc)
-                    for c in (
-                        db.query(AffiliateClick)
-                        .filter(
-                            AffiliateClick.user_id == order.user_id,
-                            AffiliateClick.affiliate_id == order.affiliate_id,
-                            AffiliateClick.converted_at.is_(None),
-                        )
-                        .all()
-                    ):
-                        c.converted_at = now
 
+@router.post("/lemon-squeezy")
+async def lemon_squeezy_webhook(request: Request):
+    payload = await request.body()
+    sig = (request.headers.get("X-Signature") or "").strip()
+    db = SessionLocal()
+    try:
+        secret = (config_service.get("lemon_squeezy_webhook_secret", default="", db=db) or "").strip()
+        if not secret:
+            raise HTTPException(status_code=503, detail="Lemon Squeezy webhook secret not configured")
+        expected = hmac.new(secret.encode("utf-8"), payload, hashlib.sha256).hexdigest()
+        if not hmac.compare_digest(expected, sig):
+            raise HTTPException(status_code=400, detail="Invalid signature")
+
+        body = json.loads(payload.decode("utf-8"))
+        meta = body.get("meta") or {}
+        custom = meta.get("custom_data") or {}
+        task_id = custom.get("task_id")
+        order_id = custom.get("order_id")
+        data_obj = body.get("data") or {}
+        attrs = data_obj.get("attributes") or {}
+        if (attrs.get("status") or "").lower() != "paid":
+            return {"received": True}
+        if not task_id or not order_id:
+            return {"received": True}
+        try:
+            tid = uuid.UUID(str(task_id))
+            oid = uuid.UUID(str(order_id))
+        except ValueError:
+            return {"received": True}
+
+        order = db.query(Order).filter(Order.id == oid, Order.task_id == tid).first()
+        if order:
+            finalize_order_paid(db, order)
         db.commit()
         return {"received": True}
     finally:

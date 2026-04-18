@@ -64,10 +64,13 @@
       "refresh": "刷新",
       "colOrderId": "订单 ID",
       "colAmount": "金额",
+      "colChannel": "通道",
       "colStatus": "状态",
       "colTaskId": "任务 ID",
       "colUserId": "用户 ID",
       "colTimes": "创建 / 支付时间",
+      "confirmUsdt": "确认收款",
+      "confirming": "处理中…",
       "err401": "401：请先完成左侧保存授权。"
     },
     "logs": {
@@ -168,7 +171,7 @@
       "payment": {
         "label": "支付与会员",
         "short": "支付配置",
-        "hint": "Stripe 收款、解锁高清、分销佣金比例等。"
+        "hint": "Stripe / Lemon Squeezy / USDT 任选配置；填好密钥或地址后前台即显示对应方式。"
       },
       "adminPanel": {
         "label": "管理后台",
@@ -196,7 +199,14 @@
       "s3_region": "Region 代码",
       "stripe_secret_key": "Secret Key（sk_…）",
       "stripe_webhook_secret": "Webhook 密钥（whsec_…）",
+      "lemon_squeezy_api_key": "API Key（Bearer）",
+      "lemon_squeezy_store_id": "数字 ID",
+      "lemon_squeezy_variant_id": "变体 ID",
+      "lemon_squeezy_webhook_secret": "Webhook 签名串",
+      "usdt_receive_address": "链上地址",
+      "usdt_network": "网络名称",
       "checkout_amount_usd": "美元金额（数字）",
+      "checkout_amount_usdt": "USDT 数量（数字）",
       "commission_default_rate": "比例 0～1",
       "admin_email": "邮箱地址",
       "admin_password": "口令",
@@ -259,9 +269,37 @@
         "label": "Stripe Webhook 签名密钥",
         "description": "Webhook 校验。"
       },
+      "lemon_squeezy_api_key": {
+        "label": "Lemon Squeezy API Key",
+        "description": "Settings → API。"
+      },
+      "lemon_squeezy_store_id": {
+        "label": "Lemon Squeezy Store ID",
+        "description": "商店 ID。"
+      },
+      "lemon_squeezy_variant_id": {
+        "label": "Lemon Squeezy Variant ID",
+        "description": "商品变体 ID。"
+      },
+      "lemon_squeezy_webhook_secret": {
+        "label": "Lemon Squeezy Webhook 签名密钥",
+        "description": "回调 URL：https://你的 API/api/webhooks/lemon-squeezy"
+      },
+      "usdt_receive_address": {
+        "label": "USDT 收款地址",
+        "description": "链上地址；到账后在「订单」页点确认收款。"
+      },
+      "usdt_network": {
+        "label": "USDT 网络",
+        "description": "如 TRC20。"
+      },
       "checkout_amount_usd": {
         "label": "单次解锁价格 (USD)",
         "description": "用户付费解锁高清等，单位美元，如 2.99。"
+      },
+      "checkout_amount_usdt": {
+        "label": "USDT 应付数量",
+        "description": "链上应付 USDT；可与美元标价不同。"
       },
       "commission_default_rate": {
         "label": "分销默认佣金比例",

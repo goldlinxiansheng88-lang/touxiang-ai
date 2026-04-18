@@ -27,6 +27,8 @@ TESTABLE_KEYS = frozenset(
         "s3_bucket_name",
         "s3_region",
         "stripe_secret_key",
+        "lemon_squeezy_api_key",
+        "usdt_receive_address",
     }
 )
 
@@ -202,6 +204,36 @@ def run_connection_test(
             return True, "连接成功（Stripe 密钥有效）"
         except Exception as e:
             return False, f"连接失败：{e!s}"[:500]
+
+    if key == "lemon_squeezy_api_key":
+        api_key = resolve_value(key, body_value, db)
+        store_id = _related_get(related, "lemon_squeezy_store_id", db)
+        if not api_key:
+            return False, "未填写 Lemon Squeezy API Key"
+        if not store_id:
+            return False, "请同时填写 Store ID 后再测"
+        try:
+            r = httpx.get(
+                f"https://api.lemonsqueezy.com/v1/stores/{store_id}",
+                headers={
+                    "Accept": "application/vnd.api+json",
+                    "Authorization": f"Bearer {api_key}",
+                },
+                timeout=20.0,
+            )
+            if r.status_code == 200:
+                return True, "连接成功（Lemon Squeezy 密钥有效）"
+            if r.status_code in (401, 403):
+                return False, "连接失败：密钥无效或无权限"
+            return False, f"连接失败：HTTP {r.status_code}"
+        except httpx.RequestError as e:
+            return False, f"网络错误：{e!s}"[:500]
+
+    if key == "usdt_receive_address":
+        addr = resolve_value(key, body_value, db)
+        if not addr or len(addr.strip()) < 8:
+            return False, "请填写收款地址"
+        return True, "地址已填写（链上到账后请在订单页手动确认收款）"
 
     raise ValueError("此项暂不支持连通性检测")
 

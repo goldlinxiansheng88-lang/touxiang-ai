@@ -47,6 +47,7 @@
           <tr>
             <th class="px-4 py-3 font-medium">{{ t("admin.orders.colOrderId") }}</th>
             <th class="px-4 py-3 font-medium">{{ t("admin.orders.colAmount") }}</th>
+            <th class="px-4 py-3 font-medium">{{ t("admin.orders.colChannel") }}</th>
             <th class="px-4 py-3 font-medium">{{ t("admin.orders.colStatus") }}</th>
             <th class="px-4 py-3 font-medium">{{ t("admin.orders.colTaskId") }}</th>
             <th class="px-4 py-3 font-medium">{{ t("admin.orders.colUserId") }}</th>
@@ -61,7 +62,21 @@
           >
             <td class="px-4 py-3 font-mono text-xs text-stone-800">{{ row.id }}</td>
             <td class="px-4 py-3 font-medium text-stone-900">{{ row.amount }} {{ row.currency }}</td>
-            <td class="px-4 py-3">{{ row.status }}</td>
+            <td class="px-4 py-3 text-xs text-stone-700">{{ row.payment_channel ?? "—" }}</td>
+            <td class="px-4 py-3">
+              <div class="flex flex-wrap items-center gap-2">
+                <span>{{ row.status }}</span>
+                <button
+                  v-if="row.status === 'PENDING' && row.payment_channel === 'usdt'"
+                  type="button"
+                  class="rounded-lg border border-stone-200 bg-white px-2 py-1 text-[11px] font-medium text-stone-800 shadow-sm hover:bg-stone-50 disabled:opacity-40"
+                  :disabled="confirmingId === row.id"
+                  @click="confirmUsdt(row.id)"
+                >
+                  {{ confirmingId === row.id ? t("admin.orders.confirming") : t("admin.orders.confirmUsdt") }}
+                </button>
+              </div>
+            </td>
             <td class="max-w-[120px] truncate px-4 py-3 font-mono text-xs" :title="row.task_id">{{ row.task_id }}</td>
             <td class="max-w-[120px] truncate px-4 py-3 font-mono text-xs" :title="row.user_id">{{ row.user_id }}</td>
             <td class="px-4 py-3 text-xs text-stone-600">
@@ -70,7 +85,7 @@
             </td>
           </tr>
           <tr v-if="items.length === 0">
-            <td colspan="6" class="px-4 py-12 text-center text-sm text-stone-500">{{ t("common.noData") }}</td>
+            <td colspan="7" class="px-4 py-12 text-center text-sm text-stone-500">{{ t("common.noData") }}</td>
           </tr>
         </tbody>
       </table>
@@ -104,7 +119,7 @@
 import { onMounted, onUnmounted, ref } from "vue";
 import { useI18n } from "vue-i18n";
 
-import { fetchAdminOrders, type AdminOrderRow } from "@/api/adminClient";
+import { fetchAdminOrders, markAdminOrderPaid, type AdminOrderRow } from "@/api/adminClient";
 import { useAdminAuthStore } from "@/stores/adminAuth";
 
 const { t } = useI18n();
@@ -116,6 +131,7 @@ const total = ref(0);
 const page = ref(1);
 const pageSize = 20;
 const statusFilter = ref("");
+const confirmingId = ref<string | null>(null);
 
 function formatErr(e: unknown): string {
   if (typeof e === "object" && e !== null && "response" in e) {
@@ -130,6 +146,19 @@ function formatErr(e: unknown): string {
 function onFilterChange() {
   page.value = 1;
   reload();
+}
+
+async function confirmUsdt(orderId: string) {
+  confirmingId.value = orderId;
+  error.value = "";
+  try {
+    await markAdminOrderPaid(orderId);
+    await reload();
+  } catch (e) {
+    error.value = formatErr(e);
+  } finally {
+    confirmingId.value = null;
+  }
 }
 
 async function reload() {

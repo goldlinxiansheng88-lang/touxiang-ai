@@ -93,6 +93,8 @@ class Order(Base):
     task_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("tasks.id"), nullable=False)
     user_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("users.id"), nullable=False)
     stripe_session_id: Mapped[Optional[str]] = mapped_column(String(255), unique=True, nullable=True)
+    #: stripe | lemon_squeezy | usdt
+    payment_channel: Mapped[Optional[str]] = mapped_column(String(32), nullable=True)
     amount: Mapped[float] = mapped_column(Numeric(10, 2), nullable=False)
     currency: Mapped[str] = mapped_column(String(3), default="usd")
     status: Mapped[str] = mapped_column(String(30), default="PENDING")

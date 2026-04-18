@@ -59,6 +59,7 @@ export type AdminOrderRow = {
   commission_earned: number | null;
   created_at: string | null;
   paid_at: string | null;
+  payment_channel: string | null;
 };
 
 export async function fetchAdminOrders(params: {
@@ -69,6 +70,13 @@ export async function fetchAdminOrders(params: {
   const { data } = await adminHttp.get<{ total: number; page: number; items: AdminOrderRow[] }>(
     "/api/admin/orders",
     { params },
+  );
+  return data;
+}
+
+export async function markAdminOrderPaid(orderId: string) {
+  const { data } = await adminHttp.post<{ ok: boolean; already_paid?: boolean }>(
+    `/api/admin/orders/${orderId}/mark-paid`,
   );
   return data;
 }

@@ -459,6 +459,10 @@ function relatedForTest(primary: string): Record<string, string> | undefined {
     }
     return Object.keys(o).length ? o : undefined;
   }
+  if (primary === "lemon_squeezy_api_key") {
+    const sid = valueForTest("lemon_squeezy_store_id");
+    return sid ? { lemon_squeezy_store_id: sid } : undefined;
+  }
   return undefined;
 }
 
