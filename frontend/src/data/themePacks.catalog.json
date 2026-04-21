@@ -1,0 +1,1922 @@
+{
+  "packs": {
+    "co": [
+      {
+        "nameEn": "Silhouette Vows",
+        "nameZh": "逆光誓约",
+        "subEn": "Sunset rim light",
+        "subZh": "日落轮廓光",
+        "prompt": "romantic couple silhouette at golden hour, emotional closeness, cinematic rim light",
+        "proof": "🔥",
+        "image": "https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Chinese Bridal Xiuhe",
+        "nameZh": "中式秀禾",
+        "subEn": "Traditional red palette",
+        "subZh": "传统红金配色",
+        "prompt": "couple in Chinese xiùhé wedding attire, ornate embroidery, soft studio light",
+        "proof": "⭐",
+        "image": "https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Korean Light Gown",
+        "nameZh": "韩式轻婚纱",
+        "subEn": "Airy tulle",
+        "subZh": "轻盈薄纱",
+        "prompt": "K-style pre-wedding couple, pastel tulle, clean beauty lighting",
+        "proof": "✨",
+        "image": "https://images.unsplash.com/photo-1591604466107-ec97de577aff?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Seaside Dusk",
+        "nameZh": "海边暮色",
+        "subEn": "Ocean breeze",
+        "subZh": "海风与浪色",
+        "prompt": "couple on shoreline at blue hour, wind in hair, teal-orange grade",
+        "proof": "💫",
+        "image": "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Neon City Night",
+        "nameZh": "都市霓虹夜",
+        "subEn": "Rain reflections",
+        "subZh": "雨后路面反光",
+        "prompt": "couple under city neon, shallow depth, urban romance",
+        "proof": "🌟",
+        "image": "https://images.unsplash.com/photo-1621801306185-8c0ccf9c8eb8?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Film Home Date",
+        "nameZh": "胶片居家约会",
+        "subEn": "Grain & warmth",
+        "subZh": "颗粒暖调",
+        "prompt": "couple in sunlit apartment, 35mm film grain, candid intimacy",
+        "proof": "🔥",
+        "image": "https://images.unsplash.com/photo-1599462616558-2b75fd26a283?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Snow Lantern Walk",
+        "nameZh": "雪地点灯漫步",
+        "subEn": "Cold sparkle",
+        "subZh": "冷色高光",
+        "prompt": "couple in winter street with lanterns, breath vapor, soft bokeh",
+        "proof": "⭐",
+        "image": "https://images.unsplash.com/photo-1606216794079-73f85bbd57d5?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Café Window Gaze",
+        "nameZh": "咖啡馆对视",
+        "subEn": "Steam & glass",
+        "subZh": "玻璃与蒸汽",
+        "prompt": "couple across café table, window reflections, cozy palette",
+        "proof": "✨",
+        "image": "https://images.unsplash.com/photo-1606216794074-735e91aa2c92?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Forest Ceremony",
+        "nameZh": "森系婚礼",
+        "subEn": "Dappled green",
+        "subZh": "斑驳绿意",
+        "prompt": "couple in pine forest clearing, dappled sunlight, organic tones",
+        "proof": "💫",
+        "image": "https://images.unsplash.com/photo-1596457221755-b96bc3a6df18?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Retro HK Glam",
+        "nameZh": "复古港风双",
+        "subEn": "Teal & amber",
+        "subZh": "青橙港味",
+        "prompt": "couple in 90s Hong Kong film look, teal shadows, amber highlights",
+        "proof": "🌟",
+        "image": "https://images.unsplash.com/photo-1550784718-990c6de52adf?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Church Stained Light",
+        "nameZh": "教堂彩窗光",
+        "subEn": "Volumetric shafts",
+        "subZh": "体积光束",
+        "prompt": "couple in chapel with stained glass color cast, solemn romance",
+        "proof": "🔥",
+        "image": "https://images.unsplash.com/photo-1546032996-6dfacbacbf3f?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Campsite Firelight",
+        "nameZh": "露营篝火夜",
+        "subEn": "Ember glow",
+        "subZh": "余烬暖脸",
+        "prompt": "couple by tent and campfire, low key warm fill, adventure mood",
+        "proof": "⭐",
+        "image": "https://images.unsplash.com/photo-1460978812857-470ed1c77af0?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Travel Street Snap",
+        "nameZh": "旅行街拍",
+        "subEn": "Motion hints",
+        "subZh": "轻微动感",
+        "prompt": "couple walking busy market abroad, documentary framing, vivid colors",
+        "proof": "✨",
+        "image": "https://images.unsplash.com/photo-1630526720753-aa4e71acf67d?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Slow Morning Home",
+        "nameZh": "居家晨间",
+        "subEn": "Sheer curtains",
+        "subZh": "纱帘柔光",
+        "prompt": "couple in bedhead morning light, linen sheets, tender calm",
+        "proof": "💫",
+        "image": "https://images.unsplash.com/photo-1563808599481-34a342e44508?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Garden Pavilion",
+        "nameZh": "园林画境",
+        "subEn": "Misty rockery",
+        "subZh": "假山薄雾",
+        "prompt": "couple in classical Chinese garden, mist, jade-green palette",
+        "proof": "🌟",
+        "image": "https://images.unsplash.com/photo-1739932885077-61c18f3339e5?auto=format&w=400&h=600&fit=crop&q=85"
+      }
+    ],
+    "ca": [
+      {
+        "nameEn": "3D Chibi Pop",
+        "nameZh": "3D Q版萌态",
+        "subEn": "Soft SSS",
+        "subZh": "次表面散射",
+        "prompt": "stylized 3D chibi portrait, soft subsurface scattering, candy colors",
+        "proof": "🔥",
+        "image": "https://images.unsplash.com/photo-1726068438246-ca37df89903d?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Cel Anime Clean",
+        "nameZh": "赛璐璐清透",
+        "subEn": "Hard edge light",
+        "subZh": "硬边光",
+        "prompt": "classic cel-shaded anime portrait, crisp line art, flat color blocks",
+        "proof": "⭐",
+        "image": "https://images.unsplash.com/photo-1635988071254-5112b0ccbfb6?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "US Comic Bold",
+        "nameZh": "美漫粗线张力",
+        "subEn": "Halftone dots",
+        "subZh": "网点纸感",
+        "prompt": "American comic ink portrait, bold outlines, halftone shading",
+        "proof": "✨",
+        "image": "https://images.unsplash.com/photo-1658435389571-8284df9dd20a?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Rubber Hose Retro",
+        "nameZh": "橡皮管复古",
+        "subEn": "Bouncy limbs",
+        "subZh": "夸张肢体",
+        "prompt": "1930s rubber hose cartoon style portrait, bendy exaggeration",
+        "proof": "💫",
+        "image": "https://images.unsplash.com/photo-1655753842861-bc0f280a8f51?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Watercolor Storybook",
+        "nameZh": "水彩绘本",
+        "subEn": "Bleeding edges",
+        "subZh": "晕染边缘",
+        "prompt": "children's book watercolor portrait, soft pigment blooms",
+        "proof": "🌟",
+        "image": "https://images.unsplash.com/photo-1597493072127-871a710924ac?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Claymation Feel",
+        "nameZh": "黏土定格感",
+        "subEn": "Thumbprint texture",
+        "subZh": "指纹肌理",
+        "prompt": "stop-motion clay look portrait, tactile surface, warm key",
+        "proof": "🔥",
+        "image": "https://images.unsplash.com/photo-1635988553656-666afd2b45b3?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Pixel RPG Sprite",
+        "nameZh": "像素RPG立绘",
+        "subEn": "Limited palette",
+        "subZh": "限制调色板",
+        "prompt": "16-bit RPG portrait sprite upscale, crisp pixels, fantasy frame",
+        "proof": "⭐",
+        "image": "https://images.unsplash.com/photo-1574955245353-db597db70666?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Sticker Flat",
+        "nameZh": "贴纸扁平风",
+        "subEn": "Bold outline",
+        "subZh": "粗描边",
+        "prompt": "kawaii sticker aesthetic portrait, thick white outline, pastel flats",
+        "proof": "✨",
+        "image": "https://images.unsplash.com/photo-1692860412915-d3fbf3476e89?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Disney Fairytale",
+        "nameZh": "童话公主光",
+        "subEn": "Prismatic flare",
+        "subZh": "棱镜光斑",
+        "prompt": "fairytale princess cartoon lighting, magical sparkles",
+        "proof": "💫",
+        "image": "https://images.unsplash.com/photo-1692860412296-edaf7cd02823?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Pixar-ish 3D",
+        "nameZh": "皮克斯式立体",
+        "subEn": "Big eyes",
+        "subZh": "大眼睛",
+        "prompt": "friendly 3D cartoon portrait, expressive eyes, soft global illumination",
+        "proof": "🌟",
+        "image": "https://images.unsplash.com/photo-1692860412802-40419369550f?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Vaporwave Toon",
+        "nameZh": "蒸汽波卡通",
+        "subEn": "Chrome & grid",
+        "subZh": "铬与网格",
+        "prompt": "vaporwave cartoon bust, chrome highlights, retro grid horizon",
+        "proof": "🔥",
+        "image": "https://images.unsplash.com/photo-1576438977080-b015e72145d8?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Neon Outline Toon",
+        "nameZh": "霓虹勾线卡通",
+        "subEn": "Bloom edges",
+        "subZh": "发光边",
+        "prompt": "neon outline cartoon portrait, dark background, electric hues",
+        "proof": "⭐",
+        "image": "https://images.unsplash.com/photo-1692860412087-8f43ebdbb030?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Paper Cut Layers",
+        "nameZh": "剪纸叠层",
+        "subEn": "Shadow depth",
+        "subZh": "层叠阴影",
+        "prompt": "layered paper cut-out style portrait, craft texture, pop colors",
+        "proof": "✨",
+        "image": "https://images.unsplash.com/photo-1692860411764-1a242bbc4a23?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Doodle Kawaii",
+        "nameZh": "简笔萌系",
+        "subEn": "Loose lines",
+        "subZh": "松线稿",
+        "prompt": "hand-drawn doodle kawaii portrait, imperfect charm, bright fills",
+        "proof": "💫",
+        "image": "https://images.unsplash.com/photo-1654802529548-323c10fc2a5e?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Flash Web Retro",
+        "nameZh": "FLASH网页复古",
+        "subEn": "Vector UI",
+        "subZh": "矢量界面",
+        "prompt": "early-2000s flash cartoon avatar vibe, vector UI accents",
+        "proof": "🌟",
+        "image": "https://images.unsplash.com/photo-1687375634595-3d9a5e872b58?auto=format&w=400&h=600&fit=crop&q=85"
+      }
+    ],
+    "an": [
+      {
+        "nameEn": "Shonen Split Light",
+        "nameZh": "少年漫分叉光",
+        "subEn": "Hard shadow",
+        "subZh": "硬阴影",
+        "prompt": "shonen anime portrait, dramatic split lighting, intense gaze",
+        "proof": "🔥",
+        "image": "https://images.unsplash.com/photo-1684966401086-601c899589dd?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Makoto Sky Air",
+        "nameZh": "新海诚空气感",
+        "subEn": "Lens flare",
+        "subZh": "镜头眩光",
+        "prompt": "anime portrait with vast sky, atmospheric perspective, subtle flare",
+        "proof": "⭐",
+        "image": "https://images.unsplash.com/photo-1623010759866-91c6c657141e?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Otome Soft Bloom",
+        "nameZh": "乙女柔光 bloom",
+        "subEn": "Rose haze",
+        "subZh": "玫瑰雾",
+        "prompt": "otome game style portrait, soft bloom, romantic eyelashes",
+        "proof": "✨",
+        "image": "https://images.unsplash.com/photo-1630857539167-e68ecccf3854?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Mecha Pilot Rim",
+        "nameZh": "机战驾驶舱边光",
+        "subEn": "HUD tint",
+        "subZh": "HUD 色偏",
+        "prompt": "mecha pilot anime portrait, cockpit rim light, cool sci-fi UI",
+        "proof": "💫",
+        "image": "https://images.unsplash.com/photo-1709607012883-f56686091dbf?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Kyoto Animation Skin",
+        "nameZh": "京阿尼式肤色",
+        "subEn": "Pastel room",
+        "subZh": "淡彩室内",
+        "prompt": "slice-of-life anime portrait, delicate skin tones, warm room",
+        "proof": "🌟",
+        "image": "https://images.unsplash.com/photo-1759476530066-94bee6a30c40?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Dark Isekai",
+        "nameZh": "暗黑异世界",
+        "subEn": "Purple mist",
+        "subZh": "紫雾",
+        "prompt": "dark fantasy isekai portrait, glowing sigils, moody contrast",
+        "proof": "🔥",
+        "image": "https://images.unsplash.com/photo-1683934808546-cfea6e3d7d56?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Healing Watercolor Anime",
+        "nameZh": "治愈水彩上色",
+        "subEn": "Paper tooth",
+        "subZh": "纸纹",
+        "prompt": "gentle watercolor anime portrait, soft edges, pastoral calm",
+        "proof": "⭐",
+        "image": "https://images.unsplash.com/photo-1620862161205-ad45a124805b?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Battle Shonen Spark",
+        "nameZh": "热血高光星火",
+        "subEn": "Speed lines",
+        "subZh": "速度线",
+        "prompt": "battle anime portrait, motion lines, hot highlights",
+        "proof": "✨",
+        "image": "https://images.unsplash.com/photo-1749224359039-dc8cbc62be8d?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Chibi Two-Head",
+        "nameZh": "Q版二头身",
+        "subEn": "Oversize head",
+        "subZh": "大头比",
+        "prompt": "super-deformed chibi anime portrait, cute proportions, sparkle eyes",
+        "proof": "💫",
+        "image": "https://images.unsplash.com/photo-1644870514769-455231387881?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Shojo Petal Shower",
+        "nameZh": "少女漫花瓣雨",
+        "subEn": "Pastel petals",
+        "subZh": "粉瓣",
+        "prompt": "shojo manga portrait, falling petals, dreamy backlight",
+        "proof": "🌟",
+        "image": "https://images.unsplash.com/photo-1534125804993-544a1148a064?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Cybernetic Edge",
+        "nameZh": "赛博义体边缘光",
+        "subEn": "Chrome skin lines",
+        "subZh": "金属肌理线",
+        "prompt": "cyberpunk anime portrait, chrome body lines, magenta rim",
+        "proof": "🔥",
+        "image": "https://images.unsplash.com/photo-1759476533830-8cc4b219f0c8?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Demon Slayer Texture",
+        "nameZh": "炭笔鬼灭肌理",
+        "subEn": "Paper grain",
+        "subZh": "纸颗粒",
+        "prompt": "dark shonen ink texture portrait, hatching, ember sparks",
+        "proof": "⭐",
+        "image": "https://images.unsplash.com/photo-1616732231015-29571c3557cb?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Retro OVA Grain",
+        "nameZh": "复古OVA颗粒",
+        "subEn": "VHS noise",
+        "subZh": "VHS 噪点",
+        "prompt": "1980s OVA anime portrait, film grain, muted vintage grade",
+        "proof": "✨",
+        "image": "https://images.unsplash.com/photo-1707699489102-41d526b8666a?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Star Sigil Magic",
+        "nameZh": "星阵魔法背景",
+        "subEn": "Constellation",
+        "subZh": "星座连线",
+        "prompt": "magical girl anime portrait, star circle background, glow",
+        "proof": "💫",
+        "image": "https://images.unsplash.com/photo-1634735274669-113558eb6b8a?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Poolside School Arc",
+        "nameZh": "泳池校季光影",
+        "subEn": "Caustics",
+        "subZh": "焦散水纹",
+        "prompt": "school anime portrait by pool, caustic light patterns, summer",
+        "proof": "🌟",
+        "image": "https://images.unsplash.com/photo-1628935291759-bbaf33a66dc6?auto=format&w=400&h=600&fit=crop&q=85"
+      }
+    ],
+    "re": [
+      {
+        "nameEn": "80s Synth Portrait",
+        "nameZh": "80年代合成器肖像",
+        "subEn": "Neon grid",
+        "subZh": "霓虹网格",
+        "prompt": "1980s retro portrait, synthwave grid, magenta-cyan glow",
+        "proof": "🔥",
+        "image": "https://images.unsplash.com/photo-1645081522795-231884bfcbfc?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "VHS Tracking Mood",
+        "nameZh": "VHS 跟踪线情绪",
+        "subEn": "Chromatic drift",
+        "subZh": "色偏漂移",
+        "prompt": "VHS artifact portrait, tracking errors, nostalgic blur",
+        "proof": "⭐",
+        "image": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Polaroid 1978",
+        "nameZh": "1978 拍立得",
+        "subEn": "Warm fade",
+        "subZh": "暖褪色",
+        "prompt": "1970s polaroid portrait, cream whites, burnt orange shadows",
+        "proof": "✨",
+        "image": "https://images.unsplash.com/photo-1535295972055-1c762f4483e5?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "CRT Scanline Studio",
+        "nameZh": "CRT 扫描线棚拍",
+        "subEn": "Phosphor green",
+        "subZh": "磷绿偏色",
+        "prompt": "CRT monitor aesthetic portrait, subtle scanlines, green cast",
+        "proof": "💫",
+        "image": "https://images.unsplash.com/photo-1531123414780-f74242c2b052?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Disco Ball Glitter",
+        "nameZh": "迪斯科球碎光",
+        "subEn": "Silver spark",
+        "subZh": "银碎闪",
+        "prompt": "disco era portrait, glitter makeup, mirror ball specks",
+        "proof": "🌟",
+        "image": "https://images.unsplash.com/photo-1504199367641-aba8151af406?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Cassette Boombox",
+        "nameZh": "卡带收音机街头",
+        "subEn": "Teal shadow",
+        "subZh": "青阴影",
+        "prompt": "80s street portrait with boombox, oversized jacket, teal grade",
+        "proof": "🔥",
+        "image": "https://images.unsplash.com/photo-1583264277168-58ceba4b84e7?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Arcade Neon",
+        "nameZh": "街机霓虹肖像",
+        "subEn": "Coin-op glow",
+        "subZh": "投币机光",
+        "prompt": "arcade neon portrait, cabinet reflections on face, saturated",
+        "proof": "⭐",
+        "image": "https://images.unsplash.com/photo-1600603406200-5b2a104684ac?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Drive-In Dusk",
+        "nameZh": "汽车影院暮色",
+        "subEn": "Car chrome",
+        "subZh": "车身镀铬",
+        "prompt": "1950s drive-in retro portrait, chrome bumper reflections, dusk sky",
+        "proof": "✨",
+        "image": "https://images.unsplash.com/photo-1542596768-5d1d21f1cf98?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Newsprint Halftone",
+        "nameZh": "报纸网点人像",
+        "subEn": "Mono press",
+        "subZh": "单色印刷",
+        "prompt": "vintage newspaper halftone portrait, rough ink dots",
+        "proof": "💫",
+        "image": "https://images.unsplash.com/photo-1576558656222-ba66febe3dec?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Super 8 Home Movie",
+        "nameZh": "超8家庭电影",
+        "subEn": "Warm jitter",
+        "subZh": "暖抖动感",
+        "prompt": "super 8 film portrait, handheld micro-jitter, sun flares",
+        "proof": "🌟",
+        "image": "https://images.unsplash.com/photo-1624224416603-c908080780b1?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Floppy Disk Office",
+        "nameZh": "软盘办公室复古",
+        "subEn": "Beige PC",
+        "subZh": "米色微机",
+        "prompt": "90s office retro portrait, beige CRT, floppy disk props",
+        "proof": "🔥",
+        "image": "https://images.unsplash.com/photo-1623717217554-72ca676de535?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Roller Rink Pink",
+        "nameZh": "轮滑场粉紫",
+        "subEn": "Floor gloss",
+        "subZh": "地板高光",
+        "prompt": "roller disco retro portrait, glossy floor reflections, pink fog",
+        "proof": "⭐",
+        "image": "https://images.unsplash.com/photo-1669689290695-7f0efe5d4c8e?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Mall Food Court",
+        "nameZh": "商场美食广场",
+        "subEn": "Fluorescent flat",
+        "subZh": "荧光灯平光",
+        "prompt": "90s mall portrait, food court lighting, nostalgic flatness",
+        "proof": "✨",
+        "image": "https://images.unsplash.com/photo-1575632312417-71da8ed4992d?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Blockbuster Friday",
+        "nameZh": "租片店周五夜",
+        "subEn": "Shelf bokeh",
+        "subZh": "货架虚化",
+        "prompt": "video rental store retro portrait, shelf bokeh, jacket collar",
+        "proof": "💫",
+        "image": "https://images.unsplash.com/photo-1562337404-3044c84ac061?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Denim Double Denim",
+        "nameZh": "丹宁双牛仔",
+        "subEn": "Indigo fade",
+        "subZh": "靛蓝褪色",
+        "prompt": "all-denim 90s portrait, double denim fashion, washed indigo",
+        "proof": "🌟",
+        "image": "https://images.unsplash.com/photo-1531750026848-8ada78f641c2?auto=format&w=400&h=600&fit=crop&q=85"
+      }
+    ],
+    "ar": [
+      {
+        "nameEn": "Oil Impasto",
+        "nameZh": "油画厚涂",
+        "subEn": "Palette knife",
+        "subZh": "刮刀肌理",
+        "prompt": "oil painting portrait, heavy impasto, visible brush ridges",
+        "proof": "🔥",
+        "image": "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Renaissance Chiaroscuro",
+        "nameZh": "文艺复兴明暗",
+        "subEn": "Deep shadow",
+        "subZh": "深暗部",
+        "prompt": "Renaissance portrait lighting, strong chiaroscuro, sfumato",
+        "proof": "⭐",
+        "image": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Watercolor Bleed",
+        "nameZh": "水彩晕染",
+        "subEn": "Wet edge",
+        "subZh": "湿边",
+        "prompt": "fine art watercolor portrait, pigment bleeding, cold press texture",
+        "proof": "✨",
+        "image": "https://images.unsplash.com/photo-1506863530036-1efeddceb993?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Charcoal Academic",
+        "nameZh": "素描学院派",
+        "subEn": "Smudge dust",
+        "subZh": "炭粉",
+        "prompt": "academic charcoal portrait, smudged shadows, atelier paper",
+        "proof": "💫",
+        "image": "https://images.unsplash.com/photo-1568038479111-87bf80659645?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Marble Sculpture",
+        "nameZh": "大理石雕塑感",
+        "subEn": "Cold spec",
+        "subZh": "冷高光",
+        "prompt": "sculptural marble bust look portrait, cold specular, museum",
+        "proof": "🌟",
+        "image": "https://images.unsplash.com/photo-1725288453683-3d3a6ec420ec?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Ukiyo-e Flat",
+        "nameZh": "浮世绘平涂",
+        "subEn": "Flat pattern",
+        "subZh": "平面纹样",
+        "prompt": "ukiyo-e inspired portrait, flat color planes, woodblock texture",
+        "proof": "🔥",
+        "image": "https://images.unsplash.com/photo-1496203695688-3b8985780d6a?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Art Nouveau Curve",
+        "nameZh": "新艺术曲线",
+        "subEn": "Gold filigree",
+        "subZh": "金卷草",
+        "prompt": "Art Nouveau portrait, sinuous lines, gold filigree frame hint",
+        "proof": "⭐",
+        "image": "https://images.unsplash.com/photo-1563170446-9c3c0622d8a9?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Cubist Facets",
+        "nameZh": "立体派切面",
+        "subEn": "Fractured plane",
+        "subZh": "破碎体面",
+        "prompt": "cubist inspired portrait, fractured planes, muted palette",
+        "proof": "✨",
+        "image": "https://images.unsplash.com/photo-1532170579297-281918c8ae72?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Impressionist Garden",
+        "nameZh": "印象派花园光",
+        "subEn": "Broken color",
+        "subZh": "并置纯色",
+        "prompt": "Monet-like impressionist portrait in garden light, dabs",
+        "proof": "💫",
+        "image": "https://images.unsplash.com/photo-1674932668403-33398b81c92f?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Surreal Soft",
+        "nameZh": "超现实柔焦",
+        "subEn": "Floating objects",
+        "subZh": "悬浮物",
+        "prompt": "surrealist portrait, soft focus, subtle impossible props",
+        "proof": "🌟",
+        "image": "https://images.unsplash.com/photo-1670324382035-f9cfacc3b59b?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Ink Wash Minimal",
+        "nameZh": "水墨极简",
+        "subEn": "Negative space",
+        "subZh": "留白",
+        "prompt": "Chinese ink wash portrait, minimal strokes, generous negative space",
+        "proof": "🔥",
+        "image": "https://images.unsplash.com/photo-1581841064838-a470c740e8ee?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Pastel Chalk",
+        "nameZh": "粉彩粉笔",
+        "subEn": "Paper grain",
+        "subZh": "纸颗粒",
+        "prompt": "soft pastel chalk portrait, dusty pigment, toothy paper",
+        "proof": "⭐",
+        "image": "https://images.unsplash.com/photo-1529218164294-0d21b06ea831?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Gouache Matte",
+        "nameZh": "水粉哑光",
+        "subEn": "Flat shape",
+        "subZh": "平涂块面",
+        "prompt": "matte gouache illustration portrait, crisp shapes, poster feel",
+        "proof": "✨",
+        "image": "https://images.unsplash.com/photo-1517462964-21fdcec3f25b?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Gold Leaf Icon",
+        "nameZh": "金箔圣像感",
+        "subEn": "Halos",
+        "subZh": "光晕",
+        "prompt": "byzantine icon inspired portrait, gold leaf accents, sacred symmetry",
+        "proof": "💫",
+        "image": "https://images.unsplash.com/photo-1727188213453-838ba46a4d5b?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Digital Matte Painting",
+        "nameZh": "数字绘景",
+        "subEn": "Epic vista",
+        "subZh": "远景史诗",
+        "prompt": "matte-painting style portrait with painted vista backdrop",
+        "proof": "🌟",
+        "image": "https://images.unsplash.com/photo-1727188214272-affbdeb168bc?auto=format&w=400&h=600&fit=crop&q=85"
+      }
+    ],
+    "mo": [
+      {
+        "nameEn": "Noir Key Light",
+        "nameZh": "黑色电影主光",
+        "subEn": "Venetian blind",
+        "subZh": "百叶窗影",
+        "prompt": "film noir portrait, venetian blind shadows, high contrast",
+        "proof": "🔥",
+        "image": "https://images.unsplash.com/photo-1638128807421-1fe4b5f4e7c0?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Epic Wide Anamorphic",
+        "nameZh": "史诗变形宽银幕",
+        "subEn": "Lens flare",
+        "subZh": "变形眩光",
+        "prompt": "cinematic anamorphic portrait, letterbox mood, flares",
+        "proof": "⭐",
+        "image": "https://images.unsplash.com/photo-1672832595545-efc155779a4f?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Teal Orange Blockbuster",
+        "nameZh": "青橙大片调色",
+        "subEn": "Explosion rim",
+        "subZh": "爆炸轮廓光",
+        "prompt": "Hollywood blockbuster grade portrait, teal shadows",
+        "proof": "✨",
+        "image": "https://images.unsplash.com/photo-1543436115-0d6fbe97ece0?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Indie 16mm Grain",
+        "nameZh": "独立16mm颗粒",
+        "subEn": "Natural skin",
+        "subZh": "自然肤色",
+        "prompt": "16mm indie film portrait, visible grain, honest skin",
+        "proof": "💫",
+        "image": "https://images.unsplash.com/photo-1558350499-3c74b90f4b78?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Sci-Fi Bridge",
+        "nameZh": "科幻舰桥蓝光",
+        "subEn": "Cool fill",
+        "subZh": "冷填充",
+        "prompt": "sci-fi movie portrait on starship bridge, cool ambient, rim",
+        "proof": "🌟",
+        "image": "https://images.unsplash.com/photo-1565970350234-0231bd6c6cdd?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Period Candlelit",
+        "nameZh": "古装烛光",
+        "subEn": "Warm flicker",
+        "subZh": "暖闪烁",
+        "prompt": "period drama portrait, candlelight flicker, velvet costume",
+        "proof": "🔥",
+        "image": "https://images.unsplash.com/photo-1614616488828-c579c56fee24?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Horror Cold Fill",
+        "nameZh": "惊悚冷填充",
+        "subEn": "Under-eye hollow",
+        "subZh": "眼下凹陷",
+        "prompt": "horror film portrait, cold side fill, unsettling calm",
+        "proof": "⭐",
+        "image": "https://images.unsplash.com/photo-1624517067867-2955a2190949?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Rom-Com Golden Hour",
+        "nameZh": "爱情喜剧黄金时刻",
+        "subEn": "Soft flare",
+        "subZh": "柔眩光",
+        "prompt": "romantic comedy portrait, golden hour park, soft flare",
+        "proof": "✨",
+        "image": "https://images.unsplash.com/photo-1629542001660-f18a056c32d3?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Action Rain Night",
+        "nameZh": "动作雨夜霓虹",
+        "subEn": "Wet skin",
+        "subZh": "湿皮肤高光",
+        "prompt": "action movie portrait in rain, neon reflections on wet skin",
+        "proof": "💫",
+        "image": "https://images.unsplash.com/photo-1629542002503-69b5baf4ba7e?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Western Dust Haze",
+        "nameZh": "西部尘雾",
+        "subEn": "Low sun",
+        "subZh": "低阳",
+        "prompt": "western film portrait, dust particles, rim lit hat brim",
+        "proof": "🌟",
+        "image": "https://images.unsplash.com/photo-1594023052145-c1eafb64da92?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Musical Spotlight",
+        "nameZh": "音乐剧追光",
+        "subEn": "Stage smoke",
+        "subZh": "舞台烟",
+        "prompt": "musical film portrait, single spotlight, theatrical smoke",
+        "proof": "🔥",
+        "image": "https://images.unsplash.com/photo-1629542000104-0f5e5fc11378?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Heist Vault Green",
+        "nameZh": "劫案金库绿",
+        "subEn": "Fluorescent sick",
+        "subZh": "病态荧光",
+        "prompt": "heist movie portrait, sickly green vault fluorescents",
+        "proof": "⭐",
+        "image": "https://images.unsplash.com/photo-1629542002518-9ce5b8d98807?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Space Opera Nebula",
+        "nameZh": "太空歌剧星云",
+        "subEn": "Cosmic rim",
+        "subZh": "宇宙轮廓光",
+        "prompt": "space opera portrait, nebula backdrop, cosmic rim light",
+        "proof": "✨",
+        "image": "https://images.unsplash.com/photo-1629542000056-948ba0cb6ea4?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Biopic Soft Window",
+        "nameZh": "传记片窗光",
+        "subEn": "Quiet dignity",
+        "subZh": "沉静尊严",
+        "prompt": "biopic portrait, soft window light, understated wardrobe",
+        "proof": "💫",
+        "image": "https://images.unsplash.com/photo-1702669010463-3f2088abc0e9?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Documentary Available Light",
+        "nameZh": "纪录自然光",
+        "subEn": "Truth palette",
+        "subZh": "真实肤色",
+        "prompt": "documentary portrait, available light, honest grade",
+        "proof": "🌟",
+        "image": "https://images.unsplash.com/photo-1702669010428-0063fa6eb5ed?auto=format&w=400&h=600&fit=crop&q=85"
+      }
+    ],
+    "ga": [
+      {
+        "nameEn": "JRPG Hero Key",
+        "nameZh": "JRPG 英雄主光",
+        "subEn": "Rim sword glint",
+        "subZh": "剑刃反光",
+        "prompt": "JRPG hero portrait, rim light, subtle armor glints",
+        "proof": "🔥",
+        "image": "https://images.unsplash.com/photo-1632007448892-640721d94c20?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "FPS Tactical Helmet",
+        "nameZh": "战术头盔面光",
+        "subEn": "HUD reflection",
+        "subZh": "HUD 反射",
+        "prompt": "tactical FPS portrait, helmet visor reflections, grit",
+        "proof": "⭐",
+        "image": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Open World Golden",
+        "nameZh": "开放世界黄金时刻",
+        "subEn": "Vista haze",
+        "subZh": "远景薄雾",
+        "prompt": "open-world RPG portrait, golden hour vista, adventure",
+        "proof": "✨",
+        "image": "https://images.unsplash.com/photo-1533619043865-1c2e2f32ff2f?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Fighting Game Impact",
+        "nameZh": "格斗游戏冲击",
+        "subEn": "Speed trail",
+        "subZh": "速度拖影",
+        "prompt": "fighting game portrait, impact freeze, motion trails",
+        "proof": "💫",
+        "image": "https://images.unsplash.com/photo-1627262899263-839fe9307c00?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Visual Novel Soft",
+        "nameZh": "视觉小说柔焦",
+        "subEn": "Cherry petals",
+        "subZh": "樱花瓣",
+        "prompt": "visual novel CG portrait, soft bloom, cherry blossom",
+        "proof": "🌟",
+        "image": "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Stealth Cold Moon",
+        "nameZh": "潜行冷月",
+        "subEn": "Blue fill",
+        "subZh": "蓝填充",
+        "prompt": "stealth game portrait, moonlit rooftop, cold blue fill",
+        "proof": "🔥",
+        "image": "https://images.unsplash.com/photo-1635098996118-1ae0b325024e?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Racing Helmet Glare",
+        "nameZh": "赛车头盔眩光",
+        "subEn": "Carbon fiber",
+        "subZh": "碳纤维",
+        "prompt": "racing game portrait, helmet visor streak glare, carbon suit",
+        "proof": "⭐",
+        "image": "https://images.unsplash.com/photo-1612821997318-bbe0e3b6813b?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Pixel Souls Gloom",
+        "nameZh": "像素魂系阴郁",
+        "subEn": "Fog vignette",
+        "subZh": "雾暗角",
+        "prompt": "dark fantasy game portrait, heavy fog vignette, torch rim",
+        "proof": "✨",
+        "image": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "MOBA Splash Art",
+        "nameZh": "MOBA 宣发立绘",
+        "subEn": "Rim explosion",
+        "subZh": "轮廓爆发光",
+        "prompt": "MOBA splash art portrait, explosive rim, saturated",
+        "proof": "💫",
+        "image": "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Cozy Farming Sim",
+        "nameZh": "种田模拟治愈",
+        "subEn": "Pastel noon",
+        "subZh": "粉彩正午",
+        "prompt": "cozy farming sim portrait, pastel noon, straw hat",
+        "proof": "🌟",
+        "image": "https://images.unsplash.com/photo-1617690032703-f991ed0e0ee6?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Cyberpunk HUD Face",
+        "nameZh": "赛博HUD映脸",
+        "subEn": "Cyan magenta",
+        "subZh": "青洋红",
+        "prompt": "cyberpunk game portrait, HUD reflections on cheeks",
+        "proof": "🔥",
+        "image": "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Horror Game Flashlight",
+        "nameZh": "恐怖手电底光",
+        "subEn": "Harsh upward",
+        "subZh": "硬底光",
+        "prompt": "survival horror portrait, flashlight underlight, dread",
+        "proof": "⭐",
+        "image": "https://images.unsplash.com/photo-1622627338344-135b8db27267?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "RTS Commander Map",
+        "nameZh": "RTS 指挥官地图光",
+        "subEn": "Table projection",
+        "subZh": "桌面投影",
+        "prompt": "RTS commander portrait, holographic map glow on face",
+        "proof": "✨",
+        "image": "https://images.unsplash.com/photo-1624444264186-6a745443cf51?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Gacha SSR Sparkle",
+        "nameZh": "抽卡SSR闪",
+        "subEn": "Prismatic bokeh",
+        "subZh": "棱镜焦外",
+        "prompt": "gacha SSR reveal portrait, prismatic sparkles, luxury",
+        "proof": "💫",
+        "image": "https://images.unsplash.com/photo-1619145224216-ea86cfb075f6?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Sandbox Voxel",
+        "nameZh": "沙盒体素风",
+        "subEn": "Chunky light",
+        "subZh": "块状光",
+        "prompt": "voxel sandbox game portrait, chunky voxel shading, playful",
+        "proof": "🌟",
+        "image": "https://images.unsplash.com/photo-1757621317562-94ed69f13de4?auto=format&w=400&h=600&fit=crop&q=85"
+      }
+    ],
+    "lo": [
+      {
+        "nameEn": "First Date Shy",
+        "nameZh": "初次约会腼腆",
+        "subEn": "Cafe blush",
+        "subZh": "咖啡馆脸红",
+        "prompt": "shy first-date portrait, warm café light, soft blush",
+        "proof": "🔥",
+        "image": "https://images.unsplash.com/photo-1593710367686-32533eb0cd7e?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Long Distance Letter",
+        "nameZh": "异地恋书信光",
+        "subEn": "Desk lamp",
+        "subZh": "台灯暖光",
+        "prompt": "romantic letter-writing portrait, desk lamp pool, longing",
+        "proof": "⭐",
+        "image": "https://images.unsplash.com/photo-1726002575476-00708f3c6aa1?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Proposal Ring Bokeh",
+        "nameZh": "求婚戒指焦外",
+        "subEn": "Spark highlights",
+        "subZh": "碎高光",
+        "prompt": "proposal moment portrait, ring bokeh, emotional eyes",
+        "proof": "✨",
+        "image": "https://images.unsplash.com/photo-1600107215508-1886e6e49c11?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Anniversary Candle",
+        "nameZh": "纪念日烛光",
+        "subEn": "Twin flames",
+        "subZh": "双烛芯",
+        "prompt": "anniversary dinner portrait, twin candles, intimate table",
+        "proof": "💫",
+        "image": "https://images.unsplash.com/photo-1660281117114-c9fc261c9046?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Wedding Aisle Glow",
+        "nameZh": "婚礼通道柔光",
+        "subEn": "Veil bloom",
+        "subZh": "头纱 bloom",
+        "prompt": "wedding aisle portrait, soft veil bloom, pastel flowers",
+        "proof": "🌟",
+        "image": "https://images.unsplash.com/photo-1660281117096-48c24a9b0181?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Rainy Umbrella Share",
+        "nameZh": "雨天共伞",
+        "subEn": "Wet reflections",
+        "subZh": "湿路反光",
+        "prompt": "couple sharing umbrella portrait, rainy street reflections",
+        "proof": "🔥",
+        "image": "https://images.unsplash.com/photo-1621095058332-3c71ce927ee5?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Slow Dance Sparkle",
+        "nameZh": "慢舞碎光",
+        "subEn": "Disco ball micro",
+        "subZh": "微迪斯科球",
+        "prompt": "slow dance portrait, micro glitter lights on skin",
+        "proof": "⭐",
+        "image": "https://images.unsplash.com/photo-1621095058736-e62ddccd9b13?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Morning Coffee Kiss",
+        "nameZh": "晨间咖啡吻",
+        "subEn": "Steam curl",
+        "subZh": "蒸汽卷曲",
+        "prompt": "morning kitchen portrait, steam curl, gentle kiss pose",
+        "proof": "✨",
+        "image": "https://images.unsplash.com/photo-1627997880075-c68ae87ad60a?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Polaroid Love Note",
+        "nameZh": "拍立得情书",
+        "subEn": "White frame",
+        "subZh": "白框",
+        "prompt": "polaroid-style love portrait, handwritten note prop, vintage",
+        "proof": "💫",
+        "image": "https://images.unsplash.com/photo-1674501499838-4957688b6018?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Sunset Rooftop Hug",
+        "nameZh": "天台日落拥抱",
+        "subEn": "City bokeh",
+        "subZh": "城市虚化",
+        "prompt": "rooftop hug portrait at sunset, city bokeh, wind",
+        "proof": "🌟",
+        "image": "https://images.unsplash.com/photo-1641550285400-4adeb895f896?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Beach Heart Trace",
+        "nameZh": "沙滩心形痕",
+        "subEn": "Footprints",
+        "subZh": "脚印",
+        "prompt": "beach romance portrait, traced heart in sand, turquoise sea",
+        "proof": "🔥",
+        "image": "https://images.unsplash.com/photo-1646589391055-06efac9ab4a7?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Snowflake On Nose",
+        "nameZh": "鼻尖雪花",
+        "subEn": "Cold pink cheeks",
+        "subZh": "冷粉颊",
+        "prompt": "winter playful portrait, snowflake on nose, laughter",
+        "proof": "⭐",
+        "image": "https://images.unsplash.com/photo-1522071820081-009f0019ac1a?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Train Window Goodbye",
+        "nameZh": "车窗告别",
+        "subEn": "Glass streak",
+        "subZh": "玻璃水痕",
+        "prompt": "emotional train window goodbye portrait, rain streaks",
+        "proof": "✨",
+        "image": "https://images.unsplash.com/photo-1472091755258-0e0edb4d5f7e?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Balcony String Lights",
+        "nameZh": "阳台串灯",
+        "subEn": "Warm LEDs",
+        "subZh": "暖LED",
+        "prompt": "balcony date portrait, string lights bokeh, cozy knit",
+        "proof": "💫",
+        "image": "https://images.unsplash.com/photo-1463459143558-af247c5bd540?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Forehead Touch Calm",
+        "nameZh": "额间相依",
+        "subEn": "Soft wrap",
+        "subZh": "柔包裹光",
+        "prompt": "calm forehead-to-forehead portrait, soft wrap light, trust",
+        "proof": "🌟",
+        "image": "https://images.unsplash.com/photo-1525086465268-403f2239b3f4?auto=format&w=400&h=600&fit=crop&q=85"
+      }
+    ],
+    "li": [
+      {
+        "nameEn": "Sunday Brunch Table",
+        "nameZh": "周日早午餐桌",
+        "subEn": "Natural window",
+        "subZh": "自然窗光",
+        "prompt": "lifestyle brunch portrait, natural window, ceramics",
+        "proof": "🔥",
+        "image": "https://images.unsplash.com/photo-1519085368723-43410a477e7d?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Yoga Mat Morning",
+        "nameZh": "瑜伽垫晨光",
+        "subEn": "Pastel mat",
+        "subZh": "淡色垫",
+        "prompt": "wellness lifestyle portrait, morning yoga mat, soft sun",
+        "proof": "⭐",
+        "image": "https://images.unsplash.com/photo-1521572260525-7a238d90eae6?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Plant Parent Corner",
+        "nameZh": "绿植角落地",
+        "subEn": "Leaf shadow",
+        "subZh": "叶影",
+        "prompt": "plant parent lifestyle portrait, monstera shadows, calm",
+        "proof": "✨",
+        "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Coffee Shop Remote",
+        "nameZh": "咖啡馆远程办公",
+        "subEn": "Laptop glow",
+        "subZh": "笔电微光",
+        "prompt": "digital nomad portrait, laptop glow on face, latte",
+        "proof": "💫",
+        "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Farmer Market Tote",
+        "nameZh": "农夫市集帆布袋",
+        "subEn": "Busy color",
+        "subZh": "缤纷色彩",
+        "prompt": "farmer's market lifestyle portrait, tote bag, produce color",
+        "proof": "🌟",
+        "image": "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Minimalist Bedroom",
+        "nameZh": "极简卧室",
+        "subEn": "White linen",
+        "subZh": "白亚麻",
+        "prompt": "minimal bedroom lifestyle portrait, white linen, airy",
+        "proof": "🔥",
+        "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "City Bike Commute",
+        "nameZh": "城市单车通勤",
+        "subEn": "Motion blur bg",
+        "subZh": "背景动感",
+        "prompt": "bike commute lifestyle portrait, motion blur street",
+        "proof": "⭐",
+        "image": "https://images.unsplash.com/photo-1580489976509-88e2c006643e?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Skincare Mirror Routine",
+        "nameZh": "护肤镜前日常",
+        "subEn": "Ring light soft",
+        "subZh": "环形灯柔光",
+        "prompt": "skincare routine portrait, ring light softness",
+        "proof": "✨",
+        "image": "https://images.unsplash.com/photo-1525186406830-8f8be0c7c0b0?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Bookstore Aisle",
+        "nameZh": "书店过道",
+        "subEn": "Warm tungsten",
+        "subZh": "暖钨丝",
+        "prompt": "bookstore lifestyle portrait, warm tungsten stacks, glasses",
+        "proof": "💫",
+        "image": "https://images.unsplash.com/photo-1517841904967-aa6cdb5f4cd8?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Kitchen Cook Steam",
+        "nameZh": "厨房烹饪蒸汽",
+        "subEn": "Overhead practical",
+        "subZh": "顶光实用",
+        "prompt": "cooking lifestyle portrait, steam wisps, overhead",
+        "proof": "🌟",
+        "image": "https://images.unsplash.com/photo-1520816712386-d5c37d15175e?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Hiking Trail Midday",
+        "nameZh": "徒步正午山径",
+        "subEn": "Hat brim shade",
+        "subZh": "帽檐阴影",
+        "prompt": "hiking lifestyle portrait, hat brim shade, trail dust",
+        "proof": "🔥",
+        "image": "https://images.unsplash.com/photo-1524501746516-b87a90a9c68a?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Record Listening Night",
+        "nameZh": "黑胶夜听",
+        "subEn": "Lamp pool",
+        "subZh": "台灯光区",
+        "prompt": "vinyl listening lifestyle portrait, warm lamp pool, cozy",
+        "proof": "⭐",
+        "image": "https://images.unsplash.com/photo-1521118226625-dd45fc39a09f?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Beach Volleyball Tan",
+        "nameZh": "沙滩排球日晒",
+        "subEn": "Hard sun",
+        "subZh": "硬阳光",
+        "prompt": "active beach lifestyle portrait, sporty tan, sand sparkle",
+        "proof": "✨",
+        "image": "https://images.unsplash.com/photo-1492684223066-ac91acf33c44?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Pottery Studio Clay",
+        "nameZh": "陶艺工作室",
+        "subEn": "Dust motes",
+        "subZh": "尘粒光束",
+        "prompt": "pottery studio lifestyle portrait, clay hands, dust motes",
+        "proof": "💫",
+        "image": "https://images.unsplash.com/photo-1517840904547-7d42caeb7d56?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Rainy Reading Nook",
+        "nameZh": "雨天阅读角",
+        "subEn": "Blanket wrap",
+        "subZh": "毯子包裹",
+        "prompt": "cozy reading nook portrait, rainy window, blanket wrap",
+        "proof": "🌟",
+        "image": "https://images.unsplash.com/photo-1526476228687-62f44f64942f?auto=format&w=400&h=600&fit=crop&q=85"
+      }
+    ],
+    "tr": [
+      {
+        "nameEn": "Night Train Berth",
+        "nameZh": "夜行列车铺位",
+        "subEn": "Blue cabin",
+        "subZh": "蓝车厢",
+        "prompt": "night train portrait, blue cabin light, travel solitude",
+        "proof": "🔥",
+        "image": "https://images.unsplash.com/photo-1534524037956-3032d2184e09?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Vintage Convertible",
+        "nameZh": "复古敞篷公路",
+        "subEn": "Wind hair",
+        "subZh": "风吹发",
+        "prompt": "road trip portrait in vintage convertible, golden highway",
+        "proof": "⭐",
+        "image": "https://images.unsplash.com/photo-1488426837692-54a4db28093c?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Airport Gate Wait",
+        "nameZh": "机场登机口等待",
+        "subEn": "Cool terminal",
+        "subZh": "冷航站楼",
+        "prompt": "airport gate portrait, cool terminal fluorescents, luggage",
+        "proof": "✨",
+        "image": "https://images.unsplash.com/photo-1438761681033-c1ded764b7c0?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Subway Motion Blur",
+        "nameZh": "地铁动感模糊",
+        "subEn": "Neon streak",
+        "subZh": "霓虹拖影",
+        "prompt": "subway portrait with motion blur streaks, urban rush",
+        "proof": "💫",
+        "image": "https://images.unsplash.com/photo-1544005313-31ddf4034676?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Ferry Deck Wind",
+        "nameZh": "渡轮甲板大风",
+        "subEn": "Sea spray",
+        "subZh": "飞沫",
+        "prompt": "ferry deck portrait, strong wind, sea spray backlight",
+        "proof": "🌟",
+        "image": "https://images.unsplash.com/photo-1501195250165-fb38450abd2d?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Scooter City Rain",
+        "nameZh": "踏板车雨城",
+        "subEn": "Wet visor",
+        "subZh": "湿面罩",
+        "prompt": "scooter commuter portrait in rain, wet visor reflections",
+        "proof": "🔥",
+        "image": "https://images.unsplash.com/photo-1469334030998-fb0a830773d0?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "SUV Desert Dune",
+        "nameZh": "越野沙丘",
+        "subEn": "Heat shimmer",
+        "subZh": "热浪",
+        "prompt": "SUV desert portrait, heat shimmer, burnt sienna dunes",
+        "proof": "⭐",
+        "image": "https://images.unsplash.com/photo-1502823403499-c9f2c3b79b01?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Bicycle Golden Alley",
+        "nameZh": "单车金色巷弄",
+        "subEn": "Long shadow",
+        "subZh": "长影",
+        "prompt": "bicycle portrait in golden alley, long shadow, Europe vibe",
+        "proof": "✨",
+        "image": "https://images.unsplash.com/photo-1447001668020-d4cf0d57778f?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Harbor Sail Sunset",
+        "nameZh": "港湾帆影日落",
+        "subEn": "Mast lines",
+        "subZh": "桅杆线",
+        "prompt": "sailboat harbor portrait at sunset, mast lines, warm haze",
+        "proof": "💫",
+        "image": "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Cable Car Mist",
+        "nameZh": "缆车穿雾",
+        "subEn": "Soft fog",
+        "subZh": "柔雾",
+        "prompt": "cable car portrait through mist, soft fog, mountain silhouette",
+        "proof": "🌟",
+        "image": "https://images.unsplash.com/photo-1525134479668-1bee5c7c6845?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Red Eye Flight",
+        "nameZh": "红眼航班",
+        "subEn": "Dim cabin",
+        "subZh": "暗舱",
+        "prompt": "red-eye flight portrait, dim cabin, tired glam",
+        "proof": "🔥",
+        "image": "https://images.unsplash.com/photo-1530785602389-07594beb8b73?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Motorcycle Leather Rim",
+        "nameZh": "摩托皮衣轮廓光",
+        "subEn": "Chrome bounce",
+        "subZh": "镀铬反光",
+        "prompt": "motorcycle portrait, leather jacket, chrome bounce",
+        "proof": "⭐",
+        "image": "https://images.unsplash.com/photo-1576695444267-40cdd214f06e?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Electric Bus Teal",
+        "nameZh": "电动巴士青绿",
+        "subEn": "Clean futurism",
+        "subZh": "干净未来感",
+        "prompt": "electric bus stop portrait, teal futurism, glass",
+        "proof": "✨",
+        "image": "https://images.unsplash.com/photo-1586965529163-8c7d69503892?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Helicopter Pad Wind",
+        "nameZh": "停机坪大风",
+        "subEn": "Rotor blur",
+        "subZh": "旋翼模糊",
+        "prompt": "helipad portrait, rotor blur overhead, heroic rim",
+        "proof": "💫",
+        "image": "https://images.unsplash.com/photo-1619300026534-8e8a76941138?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Spaceport Gate",
+        "nameZh": "太空港登机口",
+        "subEn": "Cool sci-fi",
+        "subZh": "冷科幻",
+        "prompt": "sci-fi spaceport portrait, cool gate lights, travel wonder",
+        "proof": "🌟",
+        "image": "https://images.unsplash.com/photo-1523476843875-43c2cb89aa85?auto=format&w=400&h=600&fit=crop&q=85"
+      }
+    ],
+    "st": [
+      {
+        "nameEn": "Medieval Castle Torch",
+        "nameZh": "中世纪城堡火把",
+        "subEn": "Warm flicker",
+        "subZh": "暖闪烁",
+        "prompt": "medieval tale portrait, torch flicker, stone hall",
+        "proof": "🔥",
+        "image": "https://images.unsplash.com/photo-1527082395-e939b847da0d?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Wandering Knight Mist",
+        "nameZh": "迷雾游侠",
+        "subEn": "Cape silhouette",
+        "subZh": "斗篷剪影",
+        "prompt": "knight errant portrait in mist, cape silhouette",
+        "proof": "⭐",
+        "image": "https://images.unsplash.com/photo-1535579710123-3c0f261c474e?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Fairy Tale Forest Path",
+        "nameZh": "童话森林小径",
+        "subEn": "Fireflies",
+        "subZh": "萤火虫",
+        "prompt": "fairy tale portrait on forest path, fireflies, moon",
+        "proof": "✨",
+        "image": "https://images.unsplash.com/photo-1601288496920-b6154fe3626a?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Ocean Tale Storm",
+        "nameZh": "海洋传说风暴",
+        "subEn": "Salt spray",
+        "subZh": "盐雾",
+        "prompt": "sea story portrait, stormy horizon, salt spray on skin",
+        "proof": "💫",
+        "image": "https://images.unsplash.com/photo-1513682121497-80211f36a7d3?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Space Odyssey Portal",
+        "nameZh": "太空奥德赛门",
+        "subEn": "Star rim",
+        "subZh": "星光轮廓",
+        "prompt": "sci-fi odyssey portrait near glowing portal, star rim",
+        "proof": "🌟",
+        "image": "https://images.unsplash.com/photo-1454923634634-bd1614719a7b?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Detective Foggy Street",
+        "nameZh": "侦探雾街",
+        "subEn": "Fedora shadow",
+        "subZh": "礼帽影",
+        "prompt": "noir detective story portrait, foggy street, fedora",
+        "proof": "🔥",
+        "image": "https://images.unsplash.com/photo-1513171920216-2640b288471b?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Samurai Dawn Duel",
+        "nameZh": "武士黎明对决",
+        "subEn": "Cold steel glint",
+        "subZh": "冷钢闪",
+        "prompt": "samurai story portrait at dawn, steel glint, tension",
+        "proof": "⭐",
+        "image": "https://images.unsplash.com/photo-1528642474498-1af0c17fd8c3?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Lost City Jungle Vine",
+        "nameZh": "失落城藤蔓",
+        "subEn": "Moss light",
+        "subZh": "苔藓光",
+        "prompt": "lost city explorer portrait, jungle vines, dappled moss",
+        "proof": "✨",
+        "image": "https://images.unsplash.com/photo-1517732306149-e8f829eb588a?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Steampunk Gear Light",
+        "nameZh": "蒸汽朋克齿轮光",
+        "subEn": "Brass bounce",
+        "subZh": "黄铜反光",
+        "prompt": "steampunk story portrait, gear shadows, brass bounce",
+        "proof": "💫",
+        "image": "https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Post Apocalyptic Dust",
+        "nameZh": "末世风沙",
+        "subEn": "Goggle tan",
+        "subZh": "护目镜晒痕",
+        "prompt": "post-apocalyptic survivor portrait, dust storm, goggles",
+        "proof": "🌟",
+        "image": "https://images.unsplash.com/photo-1416339306562-f3d12fefd36f?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Victorian Séance",
+        "nameZh": "维多利亚降灵会",
+        "subEn": "Candle smoke",
+        "subZh": "烛烟",
+        "prompt": "Victorian séance story portrait, candle smoke, mystery",
+        "proof": "🔥",
+        "image": "https://images.unsplash.com/photo-1417325384643-aac51acc9e5d?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Pirate Deck Sunset",
+        "nameZh": "海盗甲板日落",
+        "subEn": "Rope texture",
+        "subZh": "绳结肌理",
+        "prompt": "pirate tale portrait on deck at sunset, rope texture",
+        "proof": "⭐",
+        "image": "https://images.unsplash.com/photo-1479862863327-e4d9a0a83c3d?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Cyber Oracle Neon",
+        "nameZh": "赛博神谕霓虹",
+        "subEn": "Hologram face map",
+        "subZh": "全息面纹",
+        "prompt": "cyber oracle portrait, hologram lines on face",
+        "proof": "✨",
+        "image": "https://images.unsplash.com/photo-1627161683077-e34782c24d81?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Desert Caravan Silk",
+        "nameZh": "沙漠商队丝绸",
+        "subEn": "Sand glitter",
+        "subZh": "沙粒闪",
+        "prompt": "caravan tale portrait, silk scarves, glittering sand",
+        "proof": "💫",
+        "image": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Library Prophecy Scroll",
+        "nameZh": "图书馆预言卷轴",
+        "subEn": "Dust beam",
+        "subZh": "尘束光",
+        "prompt": "library prophecy portrait, dust beam, ancient scroll",
+        "proof": "🌟",
+        "image": "https://images.unsplash.com/photo-1629425733761-caae3b5f2e50?auto=format&w=400&h=600&fit=crop&q=85"
+      }
+    ],
+    "dr": [
+      {
+        "nameEn": "Cloud Nine Soft",
+        "nameZh": "九霄软云",
+        "subEn": "Pastel cumulus",
+        "subZh": "淡积云",
+        "prompt": "dream portrait floating in soft clouds, pastel cumulus",
+        "proof": "🔥",
+        "image": "https://images.unsplash.com/photo-1611432579699-484f7990b127?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Moon Bath Silver",
+        "nameZh": "月光浴银调",
+        "subEn": "Cool halo",
+        "subZh": "冷光晕",
+        "prompt": "moonlit dream portrait, silver halo, serene expression",
+        "proof": "⭐",
+        "image": "https://images.unsplash.com/photo-1699899657680-421c2c2d5064?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Underwater Drift",
+        "nameZh": "水下漂浮梦",
+        "subEn": "Caustic ribbons",
+        "subZh": "焦散带",
+        "prompt": "underwater dream portrait, caustic light ribbons, hair float",
+        "proof": "✨",
+        "image": "https://images.unsplash.com/photo-1595211877493-41a4e5f236b3?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Butterfly Garden Trance",
+        "nameZh": "蝶园出神",
+        "subEn": "Wing bokeh",
+        "subZh": "蝶翼虚化",
+        "prompt": "dream portrait in butterfly garden, wing-shaped bokeh",
+        "proof": "💫",
+        "image": "https://images.unsplash.com/photo-1705645930353-0e335311ef20?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Northern Lights Face",
+        "nameZh": "极光映脸",
+        "subEn": "Green curtain",
+        "subZh": "绿色幕",
+        "prompt": "aurora dream portrait, green aurora curtain on face map",
+        "proof": "🌟",
+        "image": "https://images.unsplash.com/photo-1573496358961-3c82861ab8f4?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Starry Eyelid Glitter",
+        "nameZh": "眼睑星尘闪",
+        "subEn": "Micro stars",
+        "subZh": "微星点",
+        "prompt": "dreamy portrait with glitter stars on eyelids, macro soft",
+        "proof": "🔥",
+        "image": "https://images.unsplash.com/photo-1540569014015-19a7be504e3a?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Mirage Heat Wave",
+        "nameZh": "热浪蜃景",
+        "subEn": "Ripple air",
+        "subZh": "空气波纹",
+        "prompt": "desert mirage dream portrait, heat shimmer, surreal horizon",
+        "proof": "⭐",
+        "image": "https://images.unsplash.com/photo-1543949806-2c9935e6aa78?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Paper Moon Studio",
+        "nameZh": "纸月亮影棚",
+        "subEn": "Cutout prop",
+        "subZh": "剪纸道具",
+        "prompt": "surreal paper moon prop portrait, studio whimsy",
+        "proof": "✨",
+        "image": "https://images.unsplash.com/photo-1632765854612-9b02b6ec2b15?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Crystal Cave Prism",
+        "nameZh": "水晶洞棱镜",
+        "subEn": "Rainbow caustics",
+        "subZh": "彩虹焦散",
+        "prompt": "crystal cave dream portrait, rainbow caustics on skin",
+        "proof": "💫",
+        "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Sleep Paralysis Soft",
+        "nameZh": "梦魇柔化版",
+        "subEn": "Gentle shadow",
+        "subZh": "柔和阴影",
+        "prompt": "softened sleep paralysis art portrait, gentle shadow",
+        "proof": "🌟",
+        "image": "https://images.unsplash.com/photo-1614204424926-196a80bf0be8?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Lucid Doorway Light",
+        "nameZh": "清醒梦门口光",
+        "subEn": "Tungsten spill",
+        "subZh": "钨丝溢出",
+        "prompt": "lucid dream portrait at glowing doorway, warm spill",
+        "proof": "🔥",
+        "image": "https://images.unsplash.com/photo-1581403341630-a6e0b9d2d257?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Feather Bed Descent",
+        "nameZh": "羽毛床坠落感",
+        "subEn": "Slow shutter",
+        "subZh": "慢门",
+        "prompt": "dream descent portrait among feathers, slow shutter blur",
+        "proof": "⭐",
+        "image": "https://images.unsplash.com/photo-1557053910-d9eadeed1c58?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Opal Haze Portrait",
+        "nameZh": "蛋白石雾人像",
+        "subEn": "Iridescent skin",
+        "subZh": "虹彩肤",
+        "prompt": "opal haze dream portrait, iridescent skin highlights",
+        "proof": "✨",
+        "image": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Milk Bath Stars",
+        "nameZh": "牛奶浴星屑",
+        "subEn": "Macro bubbles",
+        "subZh": "微气泡",
+        "prompt": "milk bath dream portrait, floating star glitter, macro",
+        "proof": "💫",
+        "image": "https://images.unsplash.com/photo-1526510747491-58f928ec870f?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Rainbow Fog Silhouette",
+        "nameZh": "彩虹雾剪影",
+        "subEn": "Edge glow",
+        "subZh": "边缘光",
+        "prompt": "silhouette in rainbow fog dream portrait, edge glow",
+        "proof": "🌟",
+        "image": "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&w=400&h=600&fit=crop&q=85"
+      }
+    ],
+    "sp": [
+      {
+        "nameEn": "Track Spike Start",
+        "nameZh": "田径起跑钉鞋",
+        "subEn": "Low sun rake",
+        "subZh": "低阳侧刷",
+        "prompt": "track athlete portrait at blocks, low sun rake, grit",
+        "proof": "🔥",
+        "image": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Basketball Arena Sweat",
+        "nameZh": "篮球馆汗光",
+        "subEn": "Overhead spots",
+        "subZh": "顶光点阵",
+        "prompt": "basketball portrait under arena spots, sweat sheen",
+        "proof": "⭐",
+        "image": "https://images.unsplash.com/photo-1430211748612-8e797fe026ab?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Swim Goggle Chrome",
+        "nameZh": "泳镜镀铬反光",
+        "subEn": "Pool caustics",
+        "subZh": "泳池焦散",
+        "prompt": "swimmer portrait, chrome goggles, pool caustics on skin",
+        "proof": "✨",
+        "image": "https://images.unsplash.com/photo-1453794741940-7980fd195f71?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Climbing Chalk Dust",
+        "nameZh": "攀岩镁粉尘",
+        "subEn": "Grip texture",
+        "subZh": "抓握肌理",
+        "prompt": "climber portrait, chalk dust cloud, cliff rim light",
+        "proof": "💫",
+        "image": "https://images.unsplash.com/photo-1492564443885-5c8139cc05c0?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Tennis Court Harsh Noon",
+        "nameZh": "网球场正午硬光",
+        "subEn": "Crisp shadow",
+        "subZh": "清晰影",
+        "prompt": "tennis portrait at noon, harsh crisp shadow, sweat",
+        "proof": "🌟",
+        "image": "https://images.unsplash.com/photo-1489424768847-e703d520d1cc?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Boxing Ring Rope Rim",
+        "nameZh": "拳台围绳轮廓光",
+        "subEn": "Red corner",
+        "subZh": "红角",
+        "prompt": "boxing portrait in ring, rope rim light, red corner",
+        "proof": "🔥",
+        "image": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Soccer Field Mud",
+        "nameZh": "足球场泥点",
+        "subEn": "Green cast",
+        "subZh": "绿色环境光",
+        "prompt": "soccer portrait with mud splatter, green field cast",
+        "proof": "⭐",
+        "image": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Yoga Inversion Glow",
+        "nameZh": "瑜伽倒立光",
+        "subEn": "Studio gradient",
+        "subZh": "棚渐变",
+        "prompt": "yoga inversion portrait, studio gradient backdrop, calm",
+        "proof": "✨",
+        "image": "https://images.unsplash.com/photo-1611432579402-7037e3e2c1e4?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Marathon Rain Poncho",
+        "nameZh": "马拉松雨披",
+        "subEn": "Neon bib",
+        "subZh": "荧光号码",
+        "prompt": "marathon runner portrait in rain, neon bib, motion",
+        "proof": "💫",
+        "image": "https://images.unsplash.com/photo-1558222218-b7b54eede3f3?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Skate Park Golden",
+        "nameZh": "滑板公园金色时刻",
+        "subEn": "Long lens comp",
+        "subZh": "长焦压缩",
+        "prompt": "skate portrait at golden hour, compression, flare",
+        "proof": "🌟",
+        "image": "https://images.unsplash.com/photo-1648474484044-bb82df2f5a1f?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Ski Goggle Mountain",
+        "nameZh": "滑雪镜雪山",
+        "subEn": "Cold air crisp",
+        "subZh": "冷空气清晰",
+        "prompt": "ski portrait, goggle reflection of peaks, crisp cold",
+        "proof": "🔥",
+        "image": "https://images.unsplash.com/photo-1676989880361-091e12efc056?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Rowing Crew Dawn",
+        "nameZh": "赛艇队黎明",
+        "subEn": "Water texture",
+        "subZh": "水纹",
+        "prompt": "rowing crew portrait at dawn, water texture, synchronized",
+        "proof": "⭐",
+        "image": "https://images.unsplash.com/photo-1580894732444-8ecded7900cd?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Gym Deadlift Chalk",
+        "nameZh": "健身房硬拉镁粉",
+        "subEn": "Industrial light",
+        "subZh": "工业风灯",
+        "prompt": "gym deadlift portrait, chalk puff, industrial lamps",
+        "proof": "✨",
+        "image": "https://images.unsplash.com/photo-1504253757408-1fef33cbfd32?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Surf Golden Curl",
+        "nameZh": "冲浪金色卷浪",
+        "subEn": "Spray backlight",
+        "subZh": "浪花逆光",
+        "prompt": "surfer portrait inside curling wave, spray backlight",
+        "proof": "💫",
+        "image": "https://images.unsplash.com/photo-1511361372084-d8778267775d?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Fencing Blade Spark",
+        "nameZh": "击剑剑尖火花",
+        "subEn": "Dark strip",
+        "subZh": "暗剑道",
+        "prompt": "fencing portrait, blade spark hint, dark piste strip",
+        "proof": "🌟",
+        "image": "https://images.unsplash.com/photo-1599565882619-4d4acfe92978?auto=format&w=400&h=600&fit=crop&q=85"
+      }
+    ],
+    "jo": [
+      {
+        "nameEn": "Big Laugh Sunflare",
+        "nameZh": "大笑阳光眩光",
+        "subEn": "Lens bloom",
+        "subZh": "镜头 bloom",
+        "prompt": "joyful big laugh portrait, sunflare bloom, park",
+        "proof": "🔥",
+        "image": "https://images.unsplash.com/photo-1618000890553-79a3742ecd77?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Confetti Pop Moment",
+        "nameZh": "纸屑迸发瞬间",
+        "subEn": "Color chips",
+        "subZh": "彩色碎片",
+        "prompt": "confetti pop celebration portrait, color chips on hair",
+        "proof": "⭐",
+        "image": "https://images.unsplash.com/photo-1552373356854-43f1907e9ac8?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Bubble Gum Pink",
+        "nameZh": "泡泡糖粉调",
+        "subEn": "Playful crop",
+        "subZh": "俏皮构图",
+        "prompt": "playful bubble gum portrait, pink grade, cheek puff",
+        "proof": "✨",
+        "image": "https://images.unsplash.com/photo-1488161628813-04466f872be2?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Birthday Cake Candle",
+        "nameZh": "生日蛋糕烛光",
+        "subEn": "Warm cheeks",
+        "subZh": "暖颊",
+        "prompt": "birthday joy portrait, candle glow on cheeks, frosting",
+        "proof": "💫",
+        "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Water Balloon Freeze",
+        "nameZh": "水球冻结瞬间",
+        "subEn": "Splash crown",
+        "subZh": "水花冠",
+        "prompt": "water balloon burst portrait frozen, splash crown",
+        "proof": "🌟",
+        "image": "https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Dog Park Genuine Smile",
+        "nameZh": "狗公园真诚笑",
+        "subEn": "Golden fur bokeh",
+        "subZh": "金毛虚化",
+        "prompt": "dog park joy portrait with pet, golden bokeh",
+        "proof": "🔥",
+        "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Rollercoaster Scream",
+        "nameZh": "过山车尖叫",
+        "subEn": "Wind cheeks",
+        "subZh": "风鼓脸颊",
+        "prompt": "rollercoaster scream portrait, wind-blown cheeks, thrill",
+        "proof": "⭐",
+        "image": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Splash Fight Summer",
+        "nameZh": "夏日泼水战",
+        "subEn": "Water sparkles",
+        "subZh": "水珠闪",
+        "prompt": "summer splash fight portrait, water sparkles, laughter",
+        "proof": "✨",
+        "image": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Karaoke Neon Joy",
+        "nameZh": "KTV霓虹欢乐",
+        "subEn": "RGB face",
+        "subZh": "RGB 映脸",
+        "prompt": "karaoke joy portrait, neon RGB on face, mic prop",
+        "proof": "💫",
+        "image": "https://images.unsplash.com/photo-1532635241-17e820acc59f?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Snow Angel Grin",
+        "nameZh": "雪地天使笑",
+        "subEn": "Sky blue contrast",
+        "subZh": "天蓝对比",
+        "prompt": "snow angel joy portrait, sky blue contrast, grin",
+        "proof": "🌟",
+        "image": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Paint War Color",
+        "nameZh": "彩粉大战",
+        "subEn": "Powder cloud",
+        "subZh": "粉雾",
+        "prompt": "color powder festival portrait, powder cloud, vibrant skin",
+        "proof": "🔥",
+        "image": "https://images.unsplash.com/photo-1542731764-7d0f5660b7e1?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Fairground Cotton Candy",
+        "nameZh": "游乐场棉花糖",
+        "subEn": "Pastel spin",
+        "subZh": "粉彩旋转",
+        "prompt": "fairground joy portrait, cotton candy pastel spin",
+        "proof": "⭐",
+        "image": "https://images.unsplash.com/photo-1572631382901-cf1a0a6087cb?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Jump Trampoline Blue",
+        "nameZh": "蹦床跃起蓝天",
+        "subEn": "Wide angle stretch",
+        "subZh": "广角拉伸",
+        "prompt": "trampoline jump portrait, blue sky stretch",
+        "proof": "✨",
+        "image": "https://images.unsplash.com/photo-1606122017369-d782bbb78f32?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Beach Cartwheel Sand",
+        "nameZh": "沙滩侧手翻",
+        "subEn": "Sand spray",
+        "subZh": "沙粒飞溅",
+        "prompt": "beach cartwheel joy portrait, sand spray, sun",
+        "proof": "💫",
+        "image": "https://images.unsplash.com/photo-1621621667797-e06afc217fb0?auto=format&w=400&h=600&fit=crop&q=85"
+      },
+      {
+        "nameEn": "Group Hug Stack",
+        "nameZh": "叠罗汉拥抱",
+        "subEn": "Warm tangle",
+        "subZh": "暖交织",
+        "prompt": "group hug stack portrait, warm tangled arms, smiles",
+        "proof": "🌟",
+        "image": "https://images.unsplash.com/photo-1629747490241-624f07d70e1e?auto=format&w=400&h=600&fit=crop&q=85"
+      }
+    ]
+  }
+}

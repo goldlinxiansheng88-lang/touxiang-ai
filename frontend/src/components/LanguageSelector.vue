@@ -2,7 +2,7 @@
   <div ref="root" class="relative">
     <button
       type="button"
-      class="inline-flex max-w-[9rem] items-center gap-1 rounded-full border border-stone-300 bg-white px-2.5 py-2 text-xs font-semibold text-stone-800 shadow-sm ring-1 ring-black/5 hover:bg-stone-50 sm:max-w-[11rem] sm:px-3 sm:text-sm"
+      class="hover-frame inline-flex max-w-[9rem] items-center gap-1 rounded-full border border-stone-300 bg-white px-2.5 py-2 text-xs font-semibold text-stone-800 shadow-sm ring-1 ring-black/5 hover:bg-stone-50 sm:max-w-[11rem] sm:px-3 sm:text-sm"
       :aria-expanded="open"
       aria-haspopup="listbox"
       :aria-label="$t('lang.selector')"
@@ -46,7 +46,7 @@
             :key="opt.code"
             type="button"
             role="option"
-            class="flex w-full items-center px-3 py-2 text-left text-sm hover:bg-stone-50"
+            class="hover-frame flex w-full items-center rounded-lg px-3 py-2 text-left text-sm hover:bg-stone-50"
             :class="opt.code === locale ? 'bg-stone-100 font-medium text-stone-900' : 'text-stone-700'"
             @click="select(opt.code)"
           >

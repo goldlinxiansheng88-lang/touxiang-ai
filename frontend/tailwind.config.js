@@ -28,6 +28,9 @@ export default {
           "inset 0 1px 0 0 rgba(255,255,255,0.85), 0 1px 2px rgba(28,25,23,0.04), 0 24px 48px -12px rgba(28,25,23,0.12)",
       },
       backgroundImage: {
+        /** 前台整站底色：暖灰 + 极淡光晕，避免平涂死白 */
+        "aura-canvas":
+          "radial-gradient(120% 85% at 50% -8%, rgba(212, 165, 165, 0.14) 0%, transparent 52%), radial-gradient(90% 60% at 100% 0%, rgba(231, 220, 210, 0.55) 0%, transparent 48%), linear-gradient(168deg, #faf9f7 0%, #f2ece5 38%, #e8e0d6 100%)",
         "admin-noise":
           "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E\")",
       },

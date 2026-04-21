@@ -1,7 +1,14 @@
 import type { ClonePack } from "./types";
+import { EXPLORE_PACKS_TH } from "./explorePacksByLocale";
 
 const pack: ClonePack = {
-  home: { title: "AuraShift", tagline: "ค้นหาบรรยากาศของคุณ", login: "เข้าสู่ระบบ", account: "บัญชี" },
+  home: {
+    title: "AuraShift",
+    tagline: "ค้นหาบรรยากาศของคุณ",
+    login: "เข้าสู่ระบบ",
+    account: "บัญชี",
+    explorePacks: EXPLORE_PACKS_TH,
+  },
   scene: {
     AVATAR: "อวตาร",
     WALLPAPER: "วอลเปเปอร์",

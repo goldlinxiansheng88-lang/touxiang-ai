@@ -114,7 +114,7 @@
         <!-- 氛围音开关：默认轻垫音 + 换句提示音；记忆偏好 -->
         <button
           type="button"
-          class="aura-sound-toggle"
+          class="aura-sound-toggle hover-frame"
           :aria-pressed="!ambientMuted"
           :aria-label="ambientMuted ? t('overlay.unmuteAmbient') : t('overlay.muteAmbient')"
           @click="toggleAmbient"

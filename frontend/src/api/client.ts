@@ -1,6 +1,7 @@
 import axios, { type AxiosError } from "axios";
 
 import { FALLBACK_PUBLIC_CONFIG } from "@/data/fallbackConfig";
+import { ALL_THEME_PACK_STYLE_ITEMS } from "@/data/themePackStyles";
 import { installAxiosHtmlResponseHint } from "@/utils/axiosHtmlHint";
 import type { Scene, StyleItem } from "@/types/aura";
 
@@ -38,12 +39,22 @@ export function getApiErrorMessage(err: unknown): string {
   return "Network error";
 }
 
+function mergeThemePackStyles(cfg: { scenes: Scene[]; styles: StyleItem[] }): {
+  scenes: Scene[];
+  styles: StyleItem[];
+} {
+  const have = new Set(cfg.styles.map((s) => s.id));
+  const extra = ALL_THEME_PACK_STYLE_ITEMS.filter((s) => !have.has(s.id));
+  if (extra.length === 0) return cfg;
+  return { ...cfg, styles: [...cfg.styles, ...extra] };
+}
+
 export async function fetchConfig(): Promise<{ scenes: Scene[]; styles: StyleItem[] }> {
   try {
     const { data } = await api.get<{ scenes: Scene[]; styles: StyleItem[] }>("/api/config");
-    return data;
+    return mergeThemePackStyles(data);
   } catch {
-    return FALLBACK_PUBLIC_CONFIG;
+    return mergeThemePackStyles(FALLBACK_PUBLIC_CONFIG);
   }
 }
 
@@ -115,11 +126,18 @@ export async function logoutAuth() {
   await api.post("/api/auth/logout");
 }
 
-export async function createTask(file: File, scene: string, style: string, ref?: string | null) {
+export async function createTask(
+  file: File,
+  scene: string,
+  style: string,
+  ref?: string | null,
+  aspectRatio?: string | null,
+) {
   const fd = new FormData();
   fd.append("image", file);
   fd.append("scene", scene);
   fd.append("style", style);
+  fd.append("aspect_ratio", (aspectRatio || "auto").trim() || "auto");
   if (ref) fd.append("aff_ref", ref);
   const q = ref ? `?ref=${encodeURIComponent(ref)}` : "";
   const { data } = await api.post<{ task_id: string; status: string }>(`/api/tasks${q}`, fd, {
@@ -143,6 +161,7 @@ export type PaymentMethodsResponse = {
 
 export type CreateCheckoutResponse =
   | { provider: "stripe"; checkout_url: string }
+  | { provider: "creem"; checkout_url: string }
   | { provider: "lemon_squeezy"; checkout_url: string }
   | {
       provider: "usdt";

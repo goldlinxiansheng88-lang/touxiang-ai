@@ -3,8 +3,27 @@
     "title": "AuraShift",
     "tagline": "发现你的气场",
     "login": "登录",
-    "account": "账号"
+    "account": "账号",
+    "clickToUse": "点击使用 >",
+    "explorePacks": {
+      "title": "探索主题包",
+      "couples": "情侣",
+      "cartoon": "卡通",
+      "anime": "动漫",
+      "retro": "复古",
+      "artwork": "艺术画",
+      "movies": "电影",
+      "games": "游戏",
+      "love": "恋爱",
+      "lifestyle": "生活方式",
+      "transport": "出行",
+      "stories": "故事感",
+      "dream": "梦境",
+      "sport": "运动",
+      "joy": "欢乐"
+    }
   },
+  "packStyles": {},
   "scene": {
     "AVATAR": "头像",
     "WALLPAPER": "壁纸",
@@ -84,11 +103,13 @@
   },
   "result": {
     "title": "你的 Aura",
+    "imageSpecUsed": "生图规格：{spec}",
     "tapReveal": "点击揭晓",
     "unlock": "🔓 解锁完整 Aura（{usd}）",
     "payNotConfigured": "尚未配置收款方式，请联系站点管理员。",
     "choosePayMethod": "收款方式",
     "payWithStripe": "Stripe",
+    "payWithCreem": "Creem（银行卡 / Apple Pay / Google Pay）",
     "payWithLemon": "Lemon Squeezy",
     "payWithUsdt": "USDT",
     "usdtTitle": "USDT 转账",
@@ -106,7 +127,35 @@
   "flow": {
     "styleSelectTitle": "选择你的风格",
     "pickImageFirst": "请先从首页选择场景并上传图片。",
-    "createFailedApi": "无法创建任务。{msg}"
+    "createFailedApi": "无法创建任务。{msg}",
+    "packExploreTitle": "{pack} — 风格",
+    "packExploreHint": "先点选一个风格，在弹窗里设置生图规格、上传照片，再点「气场转换」开始生成。",
+    "packExploreBack": "返回首页",
+    "packUnknown": "未找到该主题包。",
+    "packExploreSpecLead": "先选择生图规格，再进入选风格与上传照片。",
+    "packExploreGeneratePhoto": "生成照片",
+    "packExploreChangeSpec": "返回修改规格",
+    "packUploadPhoto": "上传照片",
+    "packAuraTransform": "气场转换",
+    "packPickPhotoFirst": "请先上传照片",
+    "packChangePhoto": "更换照片",
+    "generatePickStyleLabel": "画风",
+    "generatePanelTitleScene": "{scene} — 选择画风并上传照片",
+    "styleGenBackHome": "返回首页",
+    "styleGenBackPack": "返回主题包",
+    "styleGenBackChoose": "返回选风格",
+    "imageSpecTitle": "生图规格",
+    "imageSpecHint": "生成结果的宽高比（已随任务保存，接入模型后用于出图参数）。",
+    "imageSpec": {
+      "auto": "自动",
+      "1_1": "1:1",
+      "3_4": "3:4",
+      "4_3": "4:3",
+      "16_9": "16:9",
+      "9_16": "9:16",
+      "2_3": "2:3",
+      "3_2": "3:2"
+    }
   },
   "quick": {
     "title": "快速选择",
@@ -115,6 +164,7 @@
     "generate": "生成"
   },
   "common": {
+    "close": "关闭",
     "loading": "加载中…",
     "refresh": "刷新",
     "prev": "上一页",

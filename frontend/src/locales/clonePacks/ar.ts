@@ -1,7 +1,14 @@
 import type { ClonePack } from "./types";
+import { EXPLORE_PACKS_AR } from "./explorePacksByLocale";
 
 const pack: ClonePack = {
-  home: { title: "AuraShift", tagline: "اعثر على هالتك", login: "تسجيل الدخول", account: "الحساب" },
+  home: {
+    title: "AuraShift",
+    tagline: "اعثر على هالتك",
+    login: "تسجيل الدخول",
+    account: "الحساب",
+    explorePacks: EXPLORE_PACKS_AR,
+  },
   scene: {
     AVATAR: "الصورة الرمزية",
     WALLPAPER: "الخلفية",

@@ -1,7 +1,14 @@
 import type { ClonePack } from "./types";
+import { EXPLORE_PACKS_ID } from "./explorePacksByLocale";
 
 const pack: ClonePack = {
-  home: { title: "AuraShift", tagline: "Temukan auramu", login: "Masuk", account: "Akun" },
+  home: {
+    title: "AuraShift",
+    tagline: "Temukan auramu",
+    login: "Masuk",
+    account: "Akun",
+    explorePacks: EXPLORE_PACKS_ID,
+  },
   scene: {
     AVATAR: "Avatar",
     WALLPAPER: "Wallpaper",

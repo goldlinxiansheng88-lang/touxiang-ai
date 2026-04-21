@@ -1,4 +1,4 @@
-"""订单支付完成后的统一处理（Stripe / Lemon Squeezy / 管理员确认 USDT）。"""
+"""订单支付完成后的统一处理（Stripe / Creem / Lemon Squeezy / 管理员确认 USDT）。"""
 
 from __future__ import annotations
 

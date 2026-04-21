@@ -15,7 +15,11 @@
           <h2 class="text-lg font-semibold text-stone-900">
             {{ session.authenticated ? t("auth.titleAccount") : t("auth.titleLogin") }}
           </h2>
-          <button type="button" class="text-stone-400 hover:text-stone-700 text-xl leading-none" @click="close">
+          <button
+            type="button"
+            class="hover-frame rounded-lg px-2 py-0.5 text-stone-400 hover:text-stone-700 text-xl leading-none"
+            @click="close"
+          >
             ×
           </button>
         </div>
@@ -34,7 +38,7 @@
           </div>
           <button
             type="button"
-            class="w-full rounded-xl border border-stone-200 py-2.5 text-sm font-medium text-stone-800 hover:bg-stone-50"
+            class="hover-frame w-full rounded-xl border border-stone-200 py-2.5 text-sm font-medium text-stone-800 hover:bg-stone-50"
             :disabled="busy"
             @click="onLogout"
           >
@@ -46,7 +50,7 @@
         <div class="flex gap-2 mb-4">
           <button
             type="button"
-            class="flex-1 rounded-xl py-2 text-sm font-medium transition"
+            class="hover-frame flex-1 rounded-xl py-2 text-sm font-medium transition"
             :class="mode === 'login' ? 'bg-stone-900 text-white' : 'bg-stone-100 text-stone-600'"
             @click="mode = 'login'"
           >
@@ -54,7 +58,7 @@
           </button>
           <button
             type="button"
-            class="flex-1 rounded-xl py-2 text-sm font-medium transition"
+            class="hover-frame flex-1 rounded-xl py-2 text-sm font-medium transition"
             :class="mode === 'register' ? 'bg-stone-900 text-white' : 'bg-stone-100 text-stone-600'"
             @click="mode = 'register'"
           >
@@ -89,7 +93,7 @@
           <p v-if="err" class="text-xs text-red-600">{{ err }}</p>
           <button
             type="submit"
-            class="w-full rounded-xl bg-blush py-3 text-sm font-medium text-white shadow-md hover:opacity-95 disabled:opacity-50"
+            class="hover-frame w-full rounded-xl bg-blush py-3 text-sm font-medium text-white shadow-md hover:opacity-95 disabled:opacity-50"
             :disabled="busy"
           >
             {{ busy ? t("auth.submitting") : mode === "login" ? t("auth.emailLogin") : t("auth.registerAndLogin") }}
@@ -104,14 +108,14 @@
         <div class="space-y-2">
           <button
             type="button"
-            class="w-full flex items-center justify-center gap-2 rounded-xl border border-stone-200 py-2.5 text-sm font-medium text-stone-800 hover:bg-stone-50"
+            class="hover-frame w-full flex items-center justify-center gap-2 rounded-xl border border-stone-200 py-2.5 text-sm font-medium text-stone-800 hover:bg-stone-50"
             @click="goOAuth('/api/auth/oauth/google/start')"
           >
             {{ t("auth.google") }}
           </button>
           <button
             type="button"
-            class="w-full flex items-center justify-center gap-2 rounded-xl border border-stone-200 py-2.5 text-sm font-medium text-stone-800 hover:bg-stone-50"
+            class="hover-frame w-full flex items-center justify-center gap-2 rounded-xl border border-stone-200 py-2.5 text-sm font-medium text-stone-800 hover:bg-stone-50"
             @click="goOAuth('/api/auth/oauth/microsoft/start')"
           >
             {{ t("auth.microsoft") }}

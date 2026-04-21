@@ -1,6 +1,9 @@
 <template>
-  <div class="min-h-screen bg-[#F8F8F8] px-4 py-8 pb-16">
-    <h2 class="text-center text-lg font-semibold mb-6">{{ t("result.title") }}</h2>
+  <div class="min-h-screen px-4 py-8 pb-16">
+    <h2 class="text-center text-lg font-semibold mb-1">{{ t("result.title") }}</h2>
+    <p v-if="aspectLabel" class="mb-5 text-center text-[11px] font-medium text-stone-500">
+      {{ t("result.imageSpecUsed", { spec: aspectLabel }) }}
+    </p>
     <div class="max-w-[500px] mx-auto">
       <div
         class="relative rounded-2xl overflow-hidden shadow-md aspect-[3/4] bg-oat"
@@ -49,7 +52,7 @@
           </div>
           <button
             type="button"
-            class="w-full py-3 rounded-full bg-blush text-white font-medium shadow disabled:opacity-50"
+            class="hover-frame w-full py-3 rounded-full bg-blush text-white font-medium shadow disabled:opacity-50"
             :disabled="payBusy || !selectedProvider"
             @click="unlock"
           >
@@ -73,7 +76,7 @@
                 <span class="text-stone-500">{{ t("result.usdtAddress") }}</span>
                 <button
                   type="button"
-                  class="text-blush text-xs font-medium"
+                  class="hover-frame rounded-md px-1 py-0.5 text-blush text-xs font-medium"
                   @click="copyText(usdtPayload.address)"
                 >
                   {{ t("result.copy") }}
@@ -96,7 +99,7 @@
       </div>
       <button
         type="button"
-        class="mt-4 w-full py-2 text-stone-500 text-sm"
+        class="hover-frame mt-4 w-full rounded-xl py-2.5 text-stone-500 text-sm"
         @click="$router.push({ name: 'home' })"
       >
         {{ t("result.tryAnother") }}
@@ -122,6 +125,8 @@ const highres = ref<string | null>(null);
 const previewText = ref("");
 const fullText = ref("");
 const revealed = ref(false);
+/** 展示用「生图规格」文案（与 flow.imageSpec.* 对齐） */
+const aspectLabel = ref("");
 
 const payLoading = ref(true);
 const payMeta = ref<PaymentMethodsResponse | null>(null);
@@ -167,6 +172,10 @@ async function refresh() {
   highres.value = (task.highres_url as string) || null;
   previewText.value = String(task.preview_text || "");
   fullText.value = String(task.full_text || "");
+  const ar = String(task.aspect_ratio || "auto");
+  const i18nKey = `flow.imageSpec.${ar.replace(/:/g, "_")}`;
+  const localized = t(i18nKey);
+  aspectLabel.value = localized !== i18nKey ? localized : ar;
 }
 
 async function loadPayMeta() {
@@ -194,6 +203,7 @@ async function loadPayMeta() {
 
 function providerLabel(id: string) {
   if (id === "stripe") return t("result.payWithStripe");
+  if (id === "creem") return t("result.payWithCreem");
   if (id === "lemon_squeezy") return t("result.payWithLemon");
   if (id === "usdt") return t("result.payWithUsdt");
   return id;

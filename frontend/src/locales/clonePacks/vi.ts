@@ -1,7 +1,14 @@
 import type { ClonePack } from "./types";
+import { EXPLORE_PACKS_VI } from "./explorePacksByLocale";
 
 const pack: ClonePack = {
-  home: { title: "AuraShift", tagline: "Tìm vibe của bạn", login: "Đăng nhập", account: "Tài khoản" },
+  home: {
+    title: "AuraShift",
+    tagline: "Tìm vibe của bạn",
+    login: "Đăng nhập",
+    account: "Tài khoản",
+    explorePacks: EXPLORE_PACKS_VI,
+  },
   scene: {
     AVATAR: "Avatar",
     WALLPAPER: "Hình nền",

@@ -1,0 +1,683 @@
+# Aura / touxiangAI — STYLE_PARAMS 全量提示词（后端合并后）
+
+=== 主题包统一后缀 _THEME_PROMPT_TAIL（柔和版，不抢人）===
+, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+=== 基础风格（15）===
+
+[COTTAGECORE]
+cottagecore outdoor portrait, soft golden hour backlight, wildflower palette in creamy bokeh, radiant natural skin, gentle relaxed expression, same person as reference
+
+[CYBERPUNK]
+cyberpunk beauty portrait, magenta and cyan neon rim light on face, subtle tech-wear, light rain haze, shallow depth of field, dramatic contrast, preserve identity from reference
+
+[EXTRA_CELESTIAL]
+cosmic glamour portrait, soft iridescent highlights on cheekbones, gentle starry bokeh, ethereal but natural face, opalescent accents, preserve facial identity from reference
+
+[GHIBLI]
+Studio Ghibli inspired anime portrait, soft cel shading, watercolor wash in soft bokeh background, gentle diffuse daylight, dreamy atmosphere, preserve facial identity and expression from reference
+
+[GLAMORATTI]
+1980s power glamour portrait, sculpted contour, satin or strong-shoulder silhouette, champagne lobby lighting, confident expression, polished skin, match reference face and pose intent
+
+[GLITCHY_GLAM]
+editorial avant-garde beauty portrait, statement makeup, controlled RGB glitch on edges only, high-fashion key light, crisp detail on eyes and lips, preserve likeness from reference
+
+[OIL_PAINTING]
+fine art oil painting portrait, impressionist brushstrokes, visible canvas weave, museum-style warm light, painterly skin tones, subject-centered, faithful likeness to reference photo
+
+[PIXAR]
+3D animated film portrait in Pixar-like CGI, appealing character proportions, expressive eyes, subsurface skin scatter, soft studio key and rim light, same person as reference, clean backdrop
+
+[POETCORE]
+dark academia portrait, soft window sidelight, muted earth-tone wardrobe, contemplative calm, subtle film grain, natural skin texture, identity consistent with reference
+
+[SHONEN_ANIME]
+shonen anime portrait, crisp ink outlines, bold cel shading, saturated colors, heroic energy, face-forward composition, preserve facial structure and gaze from reference
+
+[SOFT_GRUNGE]
+90s soft grunge portrait, desaturated film grade, layered casual clothing, analog grain, moody but readable face, preserve identity and freckles or texture from reference
+
+[VAMP_ROMANTIC]
+romantic gothic glamour portrait, smoky kohl eyes, velvet or lace hints, warm candlelit shadows, intimate mood, sharp focus on eyes, same identity as reference
+
+[VINTAGE_POLAROID]
+vintage instant-film portrait, warm faded palette, soft vignette, 1970s nostalgic color cast, slight paper texture, intimate snapshot feel, same subject as reference photo
+
+[WHIMSIGOTHIC]
+whimsigothic mystical portrait, moonlit fairy-tale mood, subtle celestial accessories, soft mist, luminous eyes in focus, mystical without horror gore, likeness from reference
+
+[Y2K]
+Y2K chrome pop portrait, icy metallic highlights on lids and lips, glossy skin, early-2000s fashion cues, clean studio backdrop, playful confident vibe, preserve identity from reference
+
+=== 主题包风格（按 ID 排序）===
+
+[tp_an_01]
+shonen anime portrait, dramatic split lighting, intense gaze, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_an_02]
+anime portrait with vast sky, atmospheric perspective, subtle flare, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_an_03]
+otome game style portrait, soft bloom, romantic eyelashes, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_an_04]
+mecha pilot anime portrait, cockpit rim light, cool sci-fi UI, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_an_05]
+slice-of-life anime portrait, delicate skin tones, warm room, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_an_06]
+dark fantasy isekai portrait, glowing sigils, moody contrast, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_an_07]
+gentle watercolor anime portrait, soft edges, pastoral calm, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_an_08]
+battle anime portrait, motion lines, hot highlights, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_an_09]
+super-deformed chibi anime portrait, cute proportions, sparkle eyes, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_an_10]
+shojo manga portrait, falling petals, dreamy backlight, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_an_11]
+cyberpunk anime portrait, chrome body lines, magenta rim, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_an_12]
+dark shonen ink texture portrait, hatching, ember sparks, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_an_13]
+1980s OVA anime portrait, film grain, muted vintage grade, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_an_14]
+magical girl anime portrait, star circle background, glow, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_an_15]
+school anime portrait by pool, caustic light patterns, summer, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_ar_01]
+oil painting portrait, heavy impasto, visible brush ridges, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_ar_02]
+Renaissance portrait lighting, strong chiaroscuro, sfumato, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_ar_03]
+fine art watercolor portrait, pigment bleeding, cold press texture, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_ar_04]
+academic charcoal portrait, smudged shadows, atelier paper, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_ar_05]
+sculptural marble bust look portrait, cold specular, museum, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_ar_06]
+ukiyo-e inspired portrait, flat color planes, woodblock texture, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_ar_07]
+Art Nouveau portrait, sinuous lines, gold filigree frame hint, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_ar_08]
+cubist inspired portrait, fractured planes, muted palette, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_ar_09]
+Monet-like impressionist portrait in garden light, dabs, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_ar_10]
+surrealist portrait, soft focus, subtle impossible props, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_ar_11]
+Chinese ink wash portrait, minimal strokes, generous negative space, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_ar_12]
+soft pastel chalk portrait, dusty pigment, toothy paper, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_ar_13]
+matte gouache illustration portrait, crisp shapes, poster feel, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_ar_14]
+byzantine icon inspired portrait, gold leaf accents, sacred symmetry, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_ar_15]
+matte-painting style portrait with painted vista backdrop, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_ca_01]
+stylized 3D chibi portrait, soft subsurface scattering, candy colors, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_ca_02]
+classic cel-shaded anime portrait, crisp line art, flat color blocks, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_ca_03]
+American comic ink portrait, bold outlines, halftone shading, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_ca_04]
+1930s rubber hose cartoon style portrait, bendy exaggeration, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_ca_05]
+children's book watercolor portrait, soft pigment blooms, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_ca_06]
+stop-motion clay look portrait, tactile surface, warm key, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_ca_07]
+16-bit RPG portrait sprite upscale, crisp pixels, fantasy frame, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_ca_08]
+kawaii sticker aesthetic portrait, thick white outline, pastel flats, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_ca_09]
+fairytale princess cartoon lighting, magical sparkles, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_ca_10]
+friendly 3D cartoon portrait, expressive eyes, soft global illumination, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_ca_11]
+vaporwave cartoon bust, chrome highlights, retro grid horizon, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_ca_12]
+neon outline cartoon portrait, dark background, electric hues, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_ca_13]
+layered paper cut-out style portrait, craft texture, pop colors, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_ca_14]
+hand-drawn doodle kawaii portrait, imperfect charm, bright fills, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_ca_15]
+early-2000s flash cartoon avatar vibe, vector UI accents, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_co_01]
+romantic couple silhouette at golden hour, emotional closeness, cinematic rim light, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_co_02]
+couple in Chinese xiùhé wedding attire, ornate embroidery, soft studio light, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_co_03]
+K-style pre-wedding couple, pastel tulle, clean beauty lighting, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_co_04]
+couple on shoreline at blue hour, wind in hair, teal-orange grade, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_co_05]
+couple under city neon, shallow depth, urban romance, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_co_06]
+couple in sunlit apartment, 35mm film grain, candid intimacy, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_co_07]
+couple in winter street with lanterns, breath vapor, soft bokeh, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_co_08]
+couple across café table, window reflections, cozy palette, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_co_09]
+couple in pine forest clearing, dappled sunlight, organic tones, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_co_10]
+couple in 90s Hong Kong film look, teal shadows, amber highlights, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_co_11]
+couple in chapel with stained glass color cast, solemn romance, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_co_12]
+couple by tent and campfire, low key warm fill, adventure mood, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_co_13]
+couple walking busy market abroad, documentary framing, vivid colors, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_co_14]
+couple in bedhead morning light, linen sheets, tender calm, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_co_15]
+couple in classical Chinese garden, mist, jade-green palette, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_dr_01]
+dream portrait floating in soft clouds, pastel cumulus, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_dr_02]
+moonlit dream portrait, silver halo, serene expression, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_dr_03]
+underwater dream portrait, caustic light ribbons, hair float, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_dr_04]
+dream portrait in butterfly garden, wing-shaped bokeh, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_dr_05]
+aurora dream portrait, green aurora curtain on face map, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_dr_06]
+dreamy portrait with glitter stars on eyelids, macro soft, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_dr_07]
+desert mirage dream portrait, heat shimmer, surreal horizon, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_dr_08]
+surreal paper moon prop portrait, studio whimsy, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_dr_09]
+crystal cave dream portrait, rainbow caustics on skin, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_dr_10]
+softened sleep paralysis art portrait, gentle shadow, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_dr_11]
+lucid dream portrait at glowing doorway, warm spill, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_dr_12]
+dream descent portrait among feathers, slow shutter blur, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_dr_13]
+opal haze dream portrait, iridescent skin highlights, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_dr_14]
+milk bath dream portrait, floating star glitter, macro, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_dr_15]
+silhouette in rainbow fog dream portrait, edge glow, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_ga_01]
+JRPG hero portrait, rim light, subtle armor glints, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_ga_02]
+tactical FPS portrait, helmet visor reflections, grit, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_ga_03]
+open-world RPG portrait, golden hour vista, adventure, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_ga_04]
+fighting game portrait, impact freeze, motion trails, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_ga_05]
+visual novel CG portrait, soft bloom, cherry blossom, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_ga_06]
+stealth game portrait, moonlit rooftop, cold blue fill, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_ga_07]
+racing game portrait, helmet visor streak glare, carbon suit, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_ga_08]
+dark fantasy game portrait, heavy fog vignette, torch rim, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_ga_09]
+MOBA splash art portrait, explosive rim, saturated, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_ga_10]
+cozy farming sim portrait, pastel noon, straw hat, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_ga_11]
+cyberpunk game portrait, HUD reflections on cheeks, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_ga_12]
+survival horror portrait, flashlight underlight, dread, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_ga_13]
+RTS commander portrait, holographic map glow on face, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_ga_14]
+gacha SSR reveal portrait, prismatic sparkles, luxury, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_ga_15]
+voxel sandbox game portrait, chunky voxel shading, playful, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_jo_01]
+joyful big laugh portrait, sunflare bloom, park, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_jo_02]
+confetti pop celebration portrait, color chips on hair, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_jo_03]
+playful bubble gum portrait, pink grade, cheek puff, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_jo_04]
+birthday joy portrait, candle glow on cheeks, frosting, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_jo_05]
+water balloon burst portrait frozen, splash crown, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_jo_06]
+dog park joy portrait with pet, golden bokeh, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_jo_07]
+rollercoaster scream portrait, wind-blown cheeks, thrill, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_jo_08]
+summer splash fight portrait, water sparkles, laughter, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_jo_09]
+karaoke joy portrait, neon RGB on face, mic prop, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_jo_10]
+snow angel joy portrait, sky blue contrast, grin, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_jo_11]
+color powder festival portrait, powder cloud, vibrant skin, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_jo_12]
+fairground joy portrait, cotton candy pastel spin, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_jo_13]
+trampoline jump portrait, blue sky stretch, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_jo_14]
+beach cartwheel joy portrait, sand spray, sun, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_jo_15]
+group hug stack portrait, warm tangled arms, smiles, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_li_01]
+lifestyle brunch portrait, natural window, ceramics, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_li_02]
+wellness lifestyle portrait, morning yoga mat, soft sun, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_li_03]
+plant parent lifestyle portrait, monstera shadows, calm, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_li_04]
+digital nomad portrait, laptop glow on face, latte, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_li_05]
+farmer's market lifestyle portrait, tote bag, produce color, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_li_06]
+minimal bedroom lifestyle portrait, white linen, airy, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_li_07]
+bike commute lifestyle portrait, motion blur street, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_li_08]
+skincare routine portrait, ring light softness, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_li_09]
+bookstore lifestyle portrait, warm tungsten stacks, glasses, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_li_10]
+cooking lifestyle portrait, steam wisps, overhead, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_li_11]
+hiking lifestyle portrait, hat brim shade, trail dust, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_li_12]
+vinyl listening lifestyle portrait, warm lamp pool, cozy, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_li_13]
+active beach lifestyle portrait, sporty tan, sand sparkle, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_li_14]
+pottery studio lifestyle portrait, clay hands, dust motes, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_li_15]
+cozy reading nook portrait, rainy window, blanket wrap, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_lo_01]
+shy first-date portrait, warm café light, soft blush, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_lo_02]
+romantic letter-writing portrait, desk lamp pool, longing, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_lo_03]
+proposal moment portrait, ring bokeh, emotional eyes, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_lo_04]
+anniversary dinner portrait, twin candles, intimate table, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_lo_05]
+wedding aisle portrait, soft veil bloom, pastel flowers, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_lo_06]
+couple sharing umbrella portrait, rainy street reflections, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_lo_07]
+slow dance portrait, micro glitter lights on skin, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_lo_08]
+morning kitchen portrait, steam curl, gentle kiss pose, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_lo_09]
+polaroid-style love portrait, handwritten note prop, vintage, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_lo_10]
+rooftop hug portrait at sunset, city bokeh, wind, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_lo_11]
+beach romance portrait, traced heart in sand, turquoise sea, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_lo_12]
+winter playful portrait, snowflake on nose, laughter, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_lo_13]
+emotional train window goodbye portrait, rain streaks, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_lo_14]
+balcony date portrait, string lights bokeh, cozy knit, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_lo_15]
+calm forehead-to-forehead portrait, soft wrap light, trust, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_mo_01]
+film noir portrait, venetian blind shadows, high contrast, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_mo_02]
+cinematic anamorphic portrait, letterbox mood, flares, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_mo_03]
+Hollywood blockbuster grade portrait, teal shadows, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_mo_04]
+16mm indie film portrait, visible grain, honest skin, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_mo_05]
+sci-fi movie portrait on starship bridge, cool ambient, rim, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_mo_06]
+period drama portrait, candlelight flicker, velvet costume, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_mo_07]
+horror film portrait, cold side fill, unsettling calm, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_mo_08]
+romantic comedy portrait, golden hour park, soft flare, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_mo_09]
+action movie portrait in rain, neon reflections on wet skin, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_mo_10]
+western film portrait, dust particles, rim lit hat brim, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_mo_11]
+musical film portrait, single spotlight, theatrical smoke, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_mo_12]
+heist movie portrait, sickly green vault fluorescents, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_mo_13]
+space opera portrait, nebula backdrop, cosmic rim light, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_mo_14]
+biopic portrait, soft window light, understated wardrobe, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_mo_15]
+documentary portrait, available light, honest grade, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_re_01]
+1980s retro portrait, synthwave grid, magenta-cyan glow, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_re_02]
+VHS artifact portrait, tracking errors, nostalgic blur, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_re_03]
+1970s polaroid portrait, cream whites, burnt orange shadows, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_re_04]
+CRT monitor aesthetic portrait, subtle scanlines, green cast, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_re_05]
+disco era portrait, glitter makeup, mirror ball specks, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_re_06]
+80s street portrait with boombox, oversized jacket, teal grade, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_re_07]
+arcade neon portrait, cabinet reflections on face, saturated, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_re_08]
+1950s drive-in retro portrait, chrome bumper reflections, dusk sky, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_re_09]
+vintage newspaper halftone portrait, rough ink dots, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_re_10]
+super 8 film portrait, handheld micro-jitter, sun flares, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_re_11]
+90s office retro portrait, beige CRT, floppy disk props, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_re_12]
+roller disco retro portrait, glossy floor reflections, pink fog, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_re_13]
+90s mall portrait, food court lighting, nostalgic flatness, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_re_14]
+video rental store retro portrait, shelf bokeh, jacket collar, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_re_15]
+all-denim 90s portrait, double denim fashion, washed indigo, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_sp_01]
+track athlete portrait at blocks, low sun rake, grit, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_sp_02]
+basketball portrait under arena spots, sweat sheen, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_sp_03]
+swimmer portrait, chrome goggles, pool caustics on skin, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_sp_04]
+climber portrait, chalk dust cloud, cliff rim light, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_sp_05]
+tennis portrait at noon, harsh crisp shadow, sweat, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_sp_06]
+boxing portrait in ring, rope rim light, red corner, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_sp_07]
+soccer portrait with mud splatter, green field cast, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_sp_08]
+yoga inversion portrait, studio gradient backdrop, calm, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_sp_09]
+marathon runner portrait in rain, neon bib, motion, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_sp_10]
+skate portrait at golden hour, compression, flare, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_sp_11]
+ski portrait, goggle reflection of peaks, crisp cold, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_sp_12]
+rowing crew portrait at dawn, water texture, synchronized, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_sp_13]
+gym deadlift portrait, chalk puff, industrial lamps, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_sp_14]
+surfer portrait inside curling wave, spray backlight, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_sp_15]
+fencing portrait, blade spark hint, dark piste strip, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_st_01]
+medieval tale portrait, torch flicker, stone hall, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_st_02]
+knight errant portrait in mist, cape silhouette, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_st_03]
+fairy tale portrait on forest path, fireflies, moon, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_st_04]
+sea story portrait, stormy horizon, salt spray on skin, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_st_05]
+sci-fi odyssey portrait near glowing portal, star rim, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_st_06]
+noir detective story portrait, foggy street, fedora, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_st_07]
+samurai story portrait at dawn, steel glint, tension, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_st_08]
+lost city explorer portrait, jungle vines, dappled moss, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_st_09]
+steampunk story portrait, gear shadows, brass bounce, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_st_10]
+post-apocalyptic survivor portrait, dust storm, goggles, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_st_11]
+Victorian séance story portrait, candle smoke, mystery, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_st_12]
+pirate tale portrait on deck at sunset, rope texture, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_st_13]
+cyber oracle portrait, hologram lines on face, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_st_14]
+caravan tale portrait, silk scarves, glittering sand, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_st_15]
+library prophecy portrait, dust beam, ancient scroll, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_tr_01]
+night train portrait, blue cabin light, travel solitude, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_tr_02]
+road trip portrait in vintage convertible, golden highway, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_tr_03]
+airport gate portrait, cool terminal fluorescents, luggage, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_tr_04]
+subway portrait with motion blur streaks, urban rush, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_tr_05]
+ferry deck portrait, strong wind, sea spray backlight, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_tr_06]
+scooter commuter portrait in rain, wet visor reflections, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_tr_07]
+SUV desert portrait, heat shimmer, burnt sienna dunes, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_tr_08]
+bicycle portrait in golden alley, long shadow, Europe vibe, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_tr_09]
+sailboat harbor portrait at sunset, mast lines, warm haze, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_tr_10]
+cable car portrait through mist, soft fog, mountain silhouette, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_tr_11]
+red-eye flight portrait, dim cabin, tired glam, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_tr_12]
+motorcycle portrait, leather jacket, chrome bounce, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_tr_13]
+electric bus stop portrait, teal futurism, glass, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_tr_14]
+helipad portrait, rotor blur overhead, heroic rim, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin
+
+[tp_tr_15]
+sci-fi spaceport portrait, cool gate lights, travel wonder, same person as the reference image, preserve facial identity and key pose, portrait-led composition, subject-centered framing, background simplified and not distracting, subject clearly separated from background, natural skin

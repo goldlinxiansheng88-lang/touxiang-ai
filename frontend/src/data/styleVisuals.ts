@@ -1,5 +1,7 @@
 /** 渐变（图片加载失败时兜底）+ 风格参考：商用可用人像（Unsplash License） */
 
+import { ALL_THEME_PACK_STYLE_ITEMS } from "@/data/themePackStyles";
+
 const U = "https://images.unsplash.com";
 const q = "auto=format&w=400&h=600&fit=crop&q=85";
 
@@ -41,8 +43,12 @@ const THUMB_MAP: Record<string, string> = {
   VINTAGE_POLAROID: `${U}/photo-1544723795-3fb6469f5b39?${q}`,
 };
 
+const THEME_PACK_THUMB_BY_ID: Record<string, string> = Object.fromEntries(
+  ALL_THEME_PACK_STYLE_ITEMS.map((s) => [s.id, s.thumbnail_url]),
+);
+
 export function styleThumbUrl(id: string): string {
-  return THUMB_MAP[id] ?? THUMB_MAP.GHIBLI;
+  return THEME_PACK_THUMB_BY_ID[id] ?? THUMB_MAP[id] ?? THUMB_MAP.GHIBLI;
 }
 
 export const STYLE_GRADIENTS: Record<string, string> = {
@@ -63,8 +69,32 @@ export const STYLE_GRADIENTS: Record<string, string> = {
   VINTAGE_POLAROID: "linear-gradient(160deg, #efebe9 0%, #d7ccc8 50%, #bcaaa4 100%)",
 };
 
+/** 主题包风格无单独色板时用稳定哈希轮换 */
+const TP_GRADIENT_POOL = [
+  "linear-gradient(155deg, #fce4ec 0%, #f8bbd0 45%, #c2185b 100%)",
+  "linear-gradient(150deg, #e3f2fd 0%, #90caf9 50%, #0d47a1 100%)",
+  "linear-gradient(160deg, #fff8e1 0%, #ffe082 50%, #ff6f00 100%)",
+  "linear-gradient(145deg, #ede7f6 0%, #b39ddb 50%, #4527a0 100%)",
+  "linear-gradient(158deg, #e8f5e9 0%, #a5d6a7 50%, #1b5e20 100%)",
+  "linear-gradient(150deg, #fce4ec 0%, #f48fb1 50%, #880e4f 100%)",
+  "linear-gradient(160deg, #eceff1 0%, #cfd8dc 50%, #37474f 100%)",
+  "linear-gradient(155deg, #fff3e0 0%, #ffcc80 50%, #e65100 100%)",
+  "linear-gradient(160deg, #e0f7fa 0%, #4dd0e1 50%, #006064 100%)",
+  "linear-gradient(150deg, #f3e5f5 0%, #ce93d8 50%, #4a148c 100%)",
+  "linear-gradient(158deg, #efebe9 0%, #bcaaa4 50%, #3e2723 100%)",
+  "linear-gradient(155deg, #e8eaf6 0%, #9fa8da 50%, #1a237e 100%)",
+];
+
+function hashStyleId(s: string): number {
+  let h = 0;
+  for (let i = 0; i < s.length; i += 1) h = (h * 31 + s.charCodeAt(i)) | 0;
+  return Math.abs(h);
+}
+
 const FALLBACK = "linear-gradient(160deg, #f5f0eb 0%, #e8ddd4 100%)";
 
 export function styleGradient(id: string): string {
-  return STYLE_GRADIENTS[id] ?? FALLBACK;
+  if (STYLE_GRADIENTS[id]) return STYLE_GRADIENTS[id];
+  if (id.startsWith("tp_")) return TP_GRADIENT_POOL[hashStyleId(id) % TP_GRADIENT_POOL.length];
+  return FALLBACK;
 }

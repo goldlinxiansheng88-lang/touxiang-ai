@@ -5,6 +5,7 @@ from PIL import Image, ImageFilter
 
 from app.database import SessionLocal
 from app.models import Task
+from app.services.aura_prompt_builder import build_generation_prompts
 from app.workers.celery_app import celery_app
 
 
@@ -18,6 +19,12 @@ def process_aura_task(self, task_id: str):
             return
         task.status = "PROCESSING"
         db.commit()
+
+        prompts = build_generation_prompts(
+            scene=task.scene,
+            style=task.style,
+            aspect_ratio=task.aspect_ratio or "auto",
+        )
 
         # Dev placeholder: build blurred thumb from local upload if path resolvable
         blurred_url = task.input_image_url
@@ -51,10 +58,17 @@ def process_aura_task(self, task_id: str):
             pass
 
         task.result_json = {
+            **(task.result_json or {}),
+            "generation": {
+                "positive_prompt": prompts.positive,
+                "negative_prompt": prompts.negative,
+                "parts": prompts.parts,
+            },
             "vibe": "Your aura whispers of quiet mornings and untold stories.",
             "preview": "Your aura whispers of quiet mornings...",
             "full": "Your aura whispers of quiet mornings and untold stories. "
             "Soft light gathers where curiosity lingers.",
+            "aspect_ratio": task.aspect_ratio or "auto",
         }
         task.result_image_url = result_url
         task.blurred_image_url = blurred_url

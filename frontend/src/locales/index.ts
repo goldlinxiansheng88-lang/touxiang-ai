@@ -6,6 +6,7 @@ import zhCNBase from "./zh-CN.base.json";
 import zhTWPartial from "./zh-TW.json";
 
 import { CLONE_PACKS } from "./clonePacks";
+import { PACK_STYLE_I18N } from "./packStyleMessages";
 import { deepMerge } from "./merge";
 
 import type enShape from "./en.base.json";
@@ -17,10 +18,13 @@ type Messages = typeof enShape;
  * 同时将 zh-CN.admin 并入 en 与各克隆语言包：若 locale 仍停在 en（时序/回退），fallback 也能解析 admin.*，避免界面显示键名。
  */
 const enJson = deepMerge(
-  enBase as Record<string, unknown>,
-  zhCNAdmin as Record<string, unknown>,
+  deepMerge(enBase as Record<string, unknown>, zhCNAdmin as Record<string, unknown>),
+  { packStyles: PACK_STYLE_I18N.en as unknown as Record<string, unknown> },
 ) as Messages;
-const zhCN = deepMerge(zhCNBase as Record<string, unknown>, zhCNAdmin as Record<string, unknown>) as Messages;
+const zhCN = deepMerge(
+  deepMerge(zhCNBase as Record<string, unknown>, zhCNAdmin as Record<string, unknown>),
+  { packStyles: PACK_STYLE_I18N["zh-CN"] as unknown as Record<string, unknown> },
+) as Messages;
 
 function cloneEn(): Messages {
   return JSON.parse(JSON.stringify(enJson)) as Messages;
@@ -39,7 +43,12 @@ export const messages: Record<string, Messages> = {
   "zh-CN": zhCN,
   ja: deepMerge(enJson as Record<string, unknown>, jaPartial as Record<string, unknown>) as Messages,
   ko: deepMerge(enJson as Record<string, unknown>, koPartial as Record<string, unknown>) as Messages,
-  "zh-TW": deepMerge(enJson as Record<string, unknown>, zhTWPartial as Record<string, unknown>) as Messages,
+  "zh-TW": deepMerge(
+    deepMerge(enJson as Record<string, unknown>, {
+      packStyles: PACK_STYLE_I18N["zh-CN"] as unknown as Record<string, unknown>,
+    }),
+    zhTWPartial as Record<string, unknown>,
+  ) as Messages,
   es: cloneWithOverlay("es"),
   fr: cloneWithOverlay("fr"),
   de: cloneWithOverlay("de"),

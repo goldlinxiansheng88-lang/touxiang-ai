@@ -70,6 +70,8 @@ class Task(Base):
     input_image_url: Mapped[str] = mapped_column(Text, nullable=False)
     scene: Mapped[str] = mapped_column(String(50), nullable=False)
     style: Mapped[str] = mapped_column(String(50), nullable=False)
+    #: 生图规格：auto | 1:1 | 3:4 | 4:3 | 16:9 | 9:16 | 2:3 | 3:2
+    aspect_ratio: Mapped[str] = mapped_column(String(16), nullable=False, default="auto")
     status: Mapped[str] = mapped_column(String(30), default="QUEUED")
     retry_count: Mapped[int] = mapped_column(Integer, default=0)
     is_paid: Mapped[bool] = mapped_column(Boolean, default=False)
@@ -93,7 +95,7 @@ class Order(Base):
     task_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("tasks.id"), nullable=False)
     user_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("users.id"), nullable=False)
     stripe_session_id: Mapped[Optional[str]] = mapped_column(String(255), unique=True, nullable=True)
-    #: stripe | lemon_squeezy | usdt
+    #: stripe | creem | lemon_squeezy | usdt
     payment_channel: Mapped[Optional[str]] = mapped_column(String(32), nullable=True)
     amount: Mapped[float] = mapped_column(Numeric(10, 2), nullable=False)
     currency: Mapped[str] = mapped_column(String(3), default="usd")

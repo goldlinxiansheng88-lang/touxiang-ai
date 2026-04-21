@@ -1,4 +1,5 @@
 import type { ClonePack } from "./types";
+import { EXPLORE_PACKS_PT_BR } from "./explorePacksByLocale";
 
 const pack: ClonePack = {
   home: {
@@ -6,6 +7,7 @@ const pack: ClonePack = {
     tagline: "Encontre sua aura",
     login: "Entrar",
     account: "Conta",
+    explorePacks: EXPLORE_PACKS_PT_BR,
   },
   scene: {
     AVATAR: "Avatar",

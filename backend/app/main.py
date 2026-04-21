@@ -54,6 +54,11 @@ async def lifespan(app: FastAPI):
                         "ALTER TABLE orders ADD COLUMN IF NOT EXISTS payment_channel VARCHAR(32)"
                     )
                 )
+                conn.execute(
+                    text(
+                        "ALTER TABLE tasks ADD COLUMN IF NOT EXISTS aspect_ratio VARCHAR(16) NOT NULL DEFAULT 'auto'"
+                    )
+                )
         except Exception as e:
             logger.warning("users 表补列未完成（若为新库可忽略）：%s", e)
         db = SessionLocal()

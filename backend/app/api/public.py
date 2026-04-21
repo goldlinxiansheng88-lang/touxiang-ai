@@ -6,8 +6,9 @@ from fastapi import APIRouter, File, Form, HTTPException, Query, Request, Upload
 from fastapi.responses import JSONResponse
 
 from app.config import get_settings
-from app.data.static_config import SCENES, STYLES
+from app.data.static_config import SCENES, STYLES, STYLE_PARAMS
 from app.services import config_service
+from app.services.aura_prompt_builder import build_generation_prompts
 from app.api.auth_endpoints import get_optional_user_id
 from app.models import Affiliate, AffiliateClick, Task, User
 from app.utils.cookies import get_aff_ref, get_device_id, set_cookies
@@ -83,6 +84,9 @@ def get_config_registry_meta():
     }
 
 
+_ASPECT_RATIOS = frozenset({"auto", "1:1", "3:4", "4:3", "16:9", "9:16", "2:3", "3:2"})
+
+
 @router.post("/tasks")
 async def create_task(
     db: DbSession,
@@ -90,12 +94,21 @@ async def create_task(
     image: UploadFile = File(...),
     scene: str = Form(...),
     style: str = Form(...),
+    aspect_ratio: str | None = Form(None),
     ref: str | None = Query(None),
     aff_ref: str | None = Form(None),
 ):
     settings = get_settings()
     public_base = config_service.get("public_base_url", default=settings.public_base_url, db=db)
     aff = aff_ref or ref or get_aff_ref(request)
+    ar = (aspect_ratio or "auto").strip()
+    if ar not in _ASPECT_RATIOS:
+        ar = "auto"
+
+    style = (style or "").strip()
+    scene = (scene or "").strip()
+    if style not in STYLE_PARAMS:
+        raise HTTPException(status_code=400, detail=f"Unknown style: {style}")
 
     upload_dir = Path(__file__).resolve().parent.parent.parent / "uploads"
     upload_dir.mkdir(parents=True, exist_ok=True)
@@ -133,12 +146,22 @@ async def create_task(
                 )
             )
 
+    prompts = build_generation_prompts(scene=scene, style=style, aspect_ratio=ar)
+
     task = Task(
         user_id=user.id,
         input_image_url=public_url,
         scene=scene,
         style=style,
+        aspect_ratio=ar,
         status="QUEUED",
+        result_json={
+            "generation": {
+                "positive_prompt": prompts.positive,
+                "negative_prompt": prompts.negative,
+                "parts": prompts.parts,
+            }
+        },
     )
     db.add(task)
     db.commit()
@@ -183,10 +206,18 @@ def get_task_status(db: DbSession, request: Request, task_id: str):
 
     if task.status in ("QUEUED", "PROCESSING"):
         hint = PROGRESS_HINTS[hash(str(task.id)) % len(PROGRESS_HINTS)]
-        return {"status": task.status, "progress_hint": hint}
+        return {
+            "status": task.status,
+            "progress_hint": hint,
+            "aspect_ratio": task.aspect_ratio or "auto",
+        }
 
     if task.status == "FAILED":
-        return {"status": "FAILED", "error_message": task.error_message or "Unknown error"}
+        return {
+            "status": "FAILED",
+            "error_message": task.error_message or "Unknown error",
+            "aspect_ratio": task.aspect_ratio or "auto",
+        }
 
     def _vip_active(u) -> bool:
         return bool(u and u.is_vip)
@@ -204,6 +235,7 @@ def get_task_status(db: DbSession, request: Request, task_id: str):
     return {
         "status": task.status,
         "is_paid": task.is_paid,
+        "aspect_ratio": task.aspect_ratio or "auto",
         "blurred_image_url": task.blurred_image_url,
         "preview_text": preview,
         "full_text": full_text if unlocked else "",

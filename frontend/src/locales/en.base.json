@@ -3,8 +3,27 @@
     "title": "AuraShift",
     "tagline": "Find Your Aura",
     "login": "Log in",
-    "account": "Account"
+    "account": "Account",
+    "clickToUse": "Click to use >",
+    "explorePacks": {
+      "title": "Explore packs",
+      "couples": "Couples",
+      "cartoon": "Cartoon",
+      "anime": "Anime",
+      "retro": "Retro",
+      "artwork": "Artwork",
+      "movies": "Movies",
+      "games": "Games",
+      "love": "Love",
+      "lifestyle": "Lifestyle",
+      "transport": "Transport",
+      "stories": "Stories",
+      "dream": "Dream",
+      "sport": "Sport",
+      "joy": "Joy"
+    }
   },
+  "packStyles": {},
   "scene": {
     "AVATAR": "Avatar",
     "WALLPAPER": "Wallpaper",
@@ -84,11 +103,13 @@
   },
   "result": {
     "title": "Your Aura",
+    "imageSpecUsed": "Image size: {spec}",
     "tapReveal": "Tap to reveal",
     "unlock": "🔓 Unlock Full Aura ({usd})",
     "payNotConfigured": "Payment is not configured yet.",
     "choosePayMethod": "Payment method",
     "payWithStripe": "Stripe",
+    "payWithCreem": "Creem (card, Apple Pay, Google Pay)",
     "payWithLemon": "Lemon Squeezy",
     "payWithUsdt": "USDT",
     "usdtTitle": "Pay with USDT",
@@ -106,7 +127,35 @@
   "flow": {
     "styleSelectTitle": "Choose your style",
     "pickImageFirst": "Please pick a photo from the home scene first.",
-    "createFailedApi": "Could not create the task. {msg}"
+    "createFailedApi": "Could not create the task. {msg}",
+    "packExploreTitle": "{pack} — styles",
+    "packExploreHint": "Tap a look, then set image size, upload your photo, and tap Aura transform to generate.",
+    "packExploreBack": "Back to home",
+    "packUnknown": "This theme pack was not found.",
+    "packExploreSpecLead": "Choose the output size, then continue to pick a look and upload your photo.",
+    "packExploreGeneratePhoto": "Continue",
+    "packExploreChangeSpec": "Change image size",
+    "packUploadPhoto": "Upload photo",
+    "packAuraTransform": "Aura transform",
+    "packPickPhotoFirst": "Please upload a photo first.",
+    "packChangePhoto": "Change photo",
+    "generatePickStyleLabel": "Look",
+    "generatePanelTitleScene": "{scene} — pick a look & upload",
+    "styleGenBackHome": "Back",
+    "styleGenBackPack": "Back to pack",
+    "styleGenBackChoose": "Back to style list",
+    "imageSpecTitle": "Image size",
+    "imageSpecHint": "Output aspect ratio for generation (stored with your task).",
+    "imageSpec": {
+      "auto": "Auto",
+      "1_1": "1:1",
+      "3_4": "3:4",
+      "4_3": "4:3",
+      "16_9": "16:9",
+      "9_16": "9:16",
+      "2_3": "2:3",
+      "3_2": "3:2"
+    }
   },
   "quick": {
     "title": "Quick pick",
@@ -115,6 +164,7 @@
     "generate": "Generate"
   },
   "common": {
+    "close": "Close",
     "loading": "Loading…",
     "refresh": "Refresh",
     "prev": "Previous",

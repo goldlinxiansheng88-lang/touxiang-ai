@@ -28,6 +28,15 @@ function readStyleBlock(msgs: Record<string, unknown>, styleId: string): { name?
   return block as { name?: string; proof?: string };
 }
 
+/** 主题包风格 tp_xx_NN：与 styleItems 并列的扁平 packStyles[id] */
+function readPackStyleBlock(msgs: Record<string, unknown>, styleId: string): { name?: string; proof?: string } | undefined {
+  const packStyles = msgs.packStyles;
+  if (!packStyles || typeof packStyles !== "object") return undefined;
+  const block = (packStyles as Record<string, unknown>)[styleId];
+  if (!block || typeof block !== "object") return undefined;
+  return block as { name?: string; proof?: string };
+}
+
 function walkLocales(
   getLocaleMessage: GetLocaleMessage,
   preferredLocale: unknown,
@@ -63,6 +72,9 @@ export function styleItemName(
     getLocaleMessage,
     preferredLocale,
     (m) => {
+      const pb = readPackStyleBlock(m, styleId);
+      const pn = pb?.name;
+      if (typeof pn === "string" && pn.trim() !== "") return pn;
       const b = readStyleBlock(m, styleId);
       const n = b?.name;
       return typeof n === "string" && n.trim() !== "" ? n : undefined;
@@ -81,6 +93,9 @@ export function styleItemProof(
     getLocaleMessage,
     preferredLocale,
     (m) => {
+      const pb = readPackStyleBlock(m, styleId);
+      const pp = pb?.proof;
+      if (typeof pp === "string" && pp.trim() !== "") return pp;
       const b = readStyleBlock(m, styleId);
       const p = b?.proof;
       return typeof p === "string" && p.trim() !== "" ? p : undefined;

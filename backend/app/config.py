@@ -37,6 +37,11 @@ class Settings(BaseSettings):
     stripe_secret_key: str = ""
     stripe_webhook_secret: str = ""
 
+    creem_api_key: str = ""
+    creem_product_id: str = ""
+    creem_webhook_secret: str = ""
+    creem_api_base_url: str = "https://api.creem.io"
+
     #: 若将 API 标准输出重定向到某文件，可填绝对或相对路径；后台「终端运行日志」将读取该文件尾部。
     runtime_log_file: str = ""
 

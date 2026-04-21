@@ -5,4 +5,4 @@ from pydantic import BaseModel
 
 class CreateCheckoutBody(BaseModel):
     task_id: str
-    provider: Literal["stripe", "lemon_squeezy", "usdt"] | None = None
+    provider: Literal["stripe", "creem", "lemon_squeezy", "usdt"] | None = None

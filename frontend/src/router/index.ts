@@ -14,6 +14,16 @@ const router = createRouter({
   routes: [
     { path: "/", name: "home", component: () => import("@/views/HomePage.vue") },
     {
+      path: "/explore/:packId",
+      name: "pack-explore",
+      component: () => import("@/views/PackStylesPage.vue"),
+    },
+    {
+      path: "/generate/:styleId",
+      name: "style-generate",
+      component: () => import("@/views/StyleGeneratePage.vue"),
+    },
+    {
       path: "/choose-style",
       name: "choose-style",
       component: () => import("@/views/StyleSelectPage.vue"),

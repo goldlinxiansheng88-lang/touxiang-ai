@@ -15,7 +15,7 @@ from .deps import DbSession
 
 router = APIRouter(prefix="/api/payments", tags=["payments"])
 
-Provider = Literal["stripe", "lemon_squeezy", "usdt"]
+Provider = Literal["stripe", "creem", "lemon_squeezy", "usdt"]
 
 
 def _stripe_configured(db: Session, settings) -> bool:
@@ -35,16 +35,23 @@ def _usdt_configured(db: Session) -> bool:
     return bool(addr)
 
 
+def _creem_configured(db: Session) -> bool:
+    api = (config_service.get("creem_api_key", default="", db=db) or "").strip()
+    pid = (config_service.get("creem_product_id", default="", db=db) or "").strip()
+    return bool(api and pid)
+
+
 def payment_flags(db: Session, settings) -> dict[str, bool]:
     return {
         "stripe": _stripe_configured(db, settings),
+        "creem": _creem_configured(db),
         "lemon_squeezy": _lemon_configured(db),
         "usdt": _usdt_configured(db),
     }
 
 
 def _pick_default_provider(flags: dict[str, bool]) -> Provider | None:
-    for k in ("stripe", "lemon_squeezy", "usdt"):
+    for k in ("stripe", "creem", "lemon_squeezy", "usdt"):
         if flags.get(k):
             return k  # type: ignore[return-value]
     return None
@@ -97,6 +104,7 @@ def list_payment_methods(db: DbSession) -> dict[str, Any]:
     return {
         "methods": [
             {"id": "stripe", "enabled": flags["stripe"], "label": "Stripe"},
+            {"id": "creem", "enabled": flags["creem"], "label": "Creem"},
             {"id": "lemon_squeezy", "enabled": flags["lemon_squeezy"], "label": "Lemon Squeezy"},
             {"id": "usdt", "enabled": flags["usdt"], "label": "USDT"},
         ],
@@ -132,6 +140,8 @@ def create_checkout(db: DbSession, body: CreateCheckoutBody) -> dict[str, Any]:
 
     if provider == "stripe":
         return _checkout_stripe(db, settings, task)
+    if provider == "creem":
+        return _checkout_creem(db, settings, task)
     if provider == "lemon_squeezy":
         return _checkout_lemon(db, settings, task)
     return _checkout_usdt(db, task)
@@ -174,6 +184,61 @@ def _checkout_stripe(db: Session, settings, task: Task) -> dict[str, Any]:
     db.commit()
 
     return {"provider": "stripe", "checkout_url": session.url}
+
+
+def _checkout_creem(db: Session, settings, task: Task) -> dict[str, Any]:
+    api_key = (config_service.get("creem_api_key", default="", db=db) or "").strip()
+    product_id = (config_service.get("creem_product_id", default="", db=db) or "").strip()
+    base = (
+        config_service.get("creem_api_base_url", default="https://api.creem.io", db=db) or "https://api.creem.io"
+    ).rstrip("/")
+    if not (api_key and product_id):
+        raise HTTPException(status_code=503, detail="Creem not configured")
+
+    frontend = config_service.get("frontend_url", default=settings.frontend_url, db=db)
+    amount = float(config_service.get("checkout_amount_usd", default="2.99", db=db) or "2.99")
+
+    order = _create_pending_order(db, task=task, amount=amount, currency="usd", channel="creem")
+    fe = str(frontend).rstrip("/")
+    success_url = f"{fe}/result/{task.id}"
+
+    payload: dict[str, Any] = {
+        "product_id": product_id,
+        "request_id": str(order.id),
+        "success_url": success_url,
+        "metadata": {
+            "task_id": str(task.id),
+            "order_id": str(order.id),
+        },
+    }
+
+    try:
+        r = httpx.post(
+            f"{base}/v1/checkouts",
+            headers={"x-api-key": api_key, "Content-Type": "application/json"},
+            json=payload,
+            timeout=30.0,
+        )
+    except httpx.RequestError as e:
+        raise HTTPException(status_code=502, detail=f"Creem request failed: {e!s}") from e
+
+    if r.status_code >= 400:
+        raise HTTPException(
+            status_code=502,
+            detail=f"Creem error HTTP {r.status_code}: {r.text[:800]}",
+        )
+
+    try:
+        data = r.json()
+    except ValueError:
+        raise HTTPException(status_code=502, detail="Creem returned invalid JSON")
+
+    checkout_url = (data.get("checkout_url") or "").strip() if isinstance(data, dict) else ""
+    if not checkout_url:
+        raise HTTPException(status_code=502, detail="Creem did not return checkout_url")
+
+    db.commit()
+    return {"provider": "creem", "checkout_url": checkout_url}
 
 
 def _checkout_lemon(db: Session, settings, task: Task) -> dict[str, Any]:

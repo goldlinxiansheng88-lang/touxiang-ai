@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen flex flex-col items-center justify-center px-6 bg-[#F8F8F8]">
+  <div class="min-h-screen flex flex-col items-center justify-center px-6">
     <p class="text-stone-400 mb-4">✦ ✦ ✦</p>
     <p class="text-lg font-medium text-stone-700 text-center mb-6">{{ headline }}</p>
     <div

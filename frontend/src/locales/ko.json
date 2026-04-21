@@ -3,7 +3,25 @@
     "title": "AuraShift",
     "tagline": "나만의 아우라를 찾아보세요",
     "login": "로그인",
-    "account": "계정"
+    "account": "계정",
+    "clickToUse": "탭하여 사용 >",
+    "explorePacks": {
+      "title": "팩 둘러보기",
+      "couples": "커플",
+      "cartoon": "카툰",
+      "anime": "애니",
+      "retro": "레트로",
+      "artwork": "아트",
+      "movies": "영화",
+      "games": "게임",
+      "love": "러브",
+      "lifestyle": "라이프스타일",
+      "transport": "모빌리티",
+      "stories": "스토리",
+      "dream": "드림",
+      "sport": "스포츠",
+      "joy": "조이"
+    }
   },
   "scene": {
     "AVATAR": "아바타",
@@ -84,11 +102,13 @@
   },
   "result": {
     "title": "나의 오라",
+    "imageSpecUsed": "이미지 규격: {spec}",
     "tapReveal": "탭하여 공개",
     "unlock": "🔓 전체 오라 잠금 해제 ({usd})",
     "payNotConfigured": "결제가 설정되지 않았습니다.",
     "choosePayMethod": "결제 수단",
     "payWithStripe": "Stripe",
+    "payWithCreem": "Creem（카드 / Apple Pay / Google Pay）",
     "payWithLemon": "Lemon Squeezy",
     "payWithUsdt": "USDT",
     "usdtTitle": "USDT 결제",
@@ -106,10 +126,36 @@
   "flow": {
     "styleSelectTitle": "스타일 선택",
     "pickImageFirst": "홈에서 먼저 장면을 선택하고 사진을 업로드하세요.",
-    "createFailedApi": "작업을 만들 수 없습니다. {msg}"
+    "createFailedApi": "작업을 만들 수 없습니다. {msg}",
+    "packExploreSpecLead": "규격을 고른 뒤 스타일과 사진 단계로 이동합니다.",
+    "packExploreGeneratePhoto": "다음 — 스타일 선택",
+    "packExploreChangeSpec": "규격 다시 선택",
+    "packExploreHint": "스타일을 누른 뒤 규격을 정하고 사진을 올리고 「아우라 변환」으로 생성합니다.",
+    "packUploadPhoto": "사진 업로드",
+    "packAuraTransform": "아우라 변환",
+    "packPickPhotoFirst": "먼저 사진을 업로드해 주세요.",
+    "packChangePhoto": "사진 바꾸기",
+    "generatePickStyleLabel": "스타일",
+    "generatePanelTitleScene": "{scene} — 스타일 선택 및 업로드",
+    "styleGenBackHome": "뒤로",
+    "styleGenBackPack": "팩으로",
+    "styleGenBackChoose": "스타일 목록으로",
+    "imageSpecTitle": "이미지 규격",
+    "imageSpecHint": "결과물 화면비(작업에 함께 저장됩니다).",
+    "imageSpec": {
+      "auto": "자동",
+      "1_1": "1:1",
+      "3_4": "3:4",
+      "4_3": "4:3",
+      "16_9": "16:9",
+      "9_16": "9:16",
+      "2_3": "2:3",
+      "3_2": "3:2"
+    }
   },
   "quick": { "title": "빠른 선택", "scene": "장면", "style": "스타일", "generate": "생성" },
   "common": {
+    "close": "닫기",
     "loading": "로딩 중…",
     "refresh": "새로고침",
     "prev": "이전",

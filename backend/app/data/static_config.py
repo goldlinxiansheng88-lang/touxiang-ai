@@ -1,5 +1,7 @@
 """Public scenes + styles for GET /api/config (matches spec + appendix A)."""
 
+from app.data.theme_pack_data import THEME_PACK_STYLE_PARAMS, THEME_PACK_STYLES
+
 SCENES = [
     {"id": "AVATAR", "label": "Avatar", "icon": "👤", "ratio": "1:1"},
     {"id": "WALLPAPER", "label": "Wallpaper", "icon": "📱", "ratio": "9:16"},
@@ -138,80 +140,129 @@ STYLES = [
     },
 ]
 
+# 各风格「提示词」面向参考图人像迁移：强调身份保持、单主体优先、避免与肖像冲突的全景背景抢镜
 STYLE_PARAMS = {
     "GHIBLI": {
-        "prompt": "Studio Ghibli style, hand-drawn animation, soft watercolor background, gentle lighting",
+        "prompt": (
+            "Studio Ghibli inspired anime portrait, soft cel shading, watercolor wash in soft bokeh background, "
+            "gentle diffuse daylight, dreamy atmosphere, preserve facial identity and expression from reference"
+        ),
         "lora": "GhibliBackground:0.8",
         "color": "sat -10%, temp +200K",
     },
     "PIXAR": {
-        "prompt": "Pixar style 3D character, big expressive eyes, smooth CGI skin",
+        "prompt": (
+            "3D animated film portrait in Pixar-like CGI, appealing character proportions, expressive eyes, "
+            "subsurface skin scatter, soft studio key and rim light, same person as reference, clean backdrop"
+        ),
         "lora": "PixarStyle:0.9",
         "color": "sat +15%",
     },
     "OIL_PAINTING": {
-        "prompt": "oil painting style, impressionist brushstrokes, visible canvas texture",
+        "prompt": (
+            "fine art oil painting portrait, impressionist brushstrokes, visible canvas weave, museum-style warm light, "
+            "painterly skin tones, subject-centered, faithful likeness to reference photo"
+        ),
         "lora": "OilPainting:0.85",
         "color": "contrast -5%",
     },
     "CYBERPUNK": {
-        "prompt": "cyberpunk aesthetic, neon purple and cyan lighting, futuristic city",
+        "prompt": (
+            "cyberpunk beauty portrait, magenta and cyan neon rim light on face, subtle tech-wear, "
+            "light rain haze, shallow depth of field, dramatic contrast, preserve identity from reference"
+        ),
         "lora": "CyberpunkNeon:0.9",
         "color": "hue +10°, sat +30%",
     },
     "SHONEN_ANIME": {
-        "prompt": "shonen anime style, sharp lines, dramatic shading, vibrant colors",
+        "prompt": (
+            "shonen anime portrait, crisp ink outlines, bold cel shading, saturated colors, heroic energy, "
+            "face-forward composition, preserve facial structure and gaze from reference"
+        ),
         "lora": "ShonenStyle:0.8",
         "color": "contrast +20%",
     },
     "VAMP_ROMANTIC": {
-        "prompt": "romantic goth aesthetic, smudged kohl smoky eye, candlelit boudoir",
+        "prompt": (
+            "romantic gothic glamour portrait, smoky kohl eyes, velvet or lace hints, warm candlelit shadows, "
+            "intimate mood, sharp focus on eyes, same identity as reference"
+        ),
         "lora": "DarkRomance:0.9",
         "color": "shadow +30%",
     },
     "GLITCHY_GLAM": {
-        "prompt": "editorial avant-garde makeup, mismatched aesthetic, digital glitch",
+        "prompt": (
+            "editorial avant-garde beauty portrait, statement makeup, controlled RGB glitch on edges only, "
+            "high-fashion key light, crisp detail on eyes and lips, preserve likeness from reference"
+        ),
         "lora": "GlitchCore:0.7",
         "color": "RGB split",
     },
     "POETCORE": {
-        "prompt": "dark academia aesthetic, oversized turtleneck, muted earth tones",
+        "prompt": (
+            "dark academia portrait, soft window sidelight, muted earth-tone wardrobe, contemplative calm, "
+            "subtle film grain, natural skin texture, identity consistent with reference"
+        ),
         "lora": "DarkAcademia:0.85",
         "color": "sat -30%, temp -200K",
     },
     "EXTRA_CELESTIAL": {
-        "prompt": "holographic sheen, opalescent eyeshadow, cosmic silhouette",
+        "prompt": (
+            "cosmic glamour portrait, soft iridescent highlights on cheekbones, gentle starry bokeh, "
+            "ethereal but natural face, opalescent accents, preserve facial identity from reference"
+        ),
         "lora": "Holographic:0.8",
         "color": "rainbow highlight",
     },
     "GLAMORATTI": {
-        "prompt": "80s power dressing, oversized shoulder pads, luxury hotel lobby",
+        "prompt": (
+            "1980s power glamour portrait, sculpted contour, satin or strong-shoulder silhouette, champagne lobby lighting, "
+            "confident expression, polished skin, match reference face and pose intent"
+        ),
         "lora": "80sGlamour:0.85",
         "color": "contrast +15%",
     },
     "COTTAGECORE": {
-        "prompt": "cottagecore aesthetic, wildflower meadow, soft golden hour",
+        "prompt": (
+            "cottagecore outdoor portrait, soft golden hour backlight, wildflower palette in creamy bokeh, "
+            "radiant natural skin, gentle relaxed expression, same person as reference"
+        ),
         "lora": "CottagecoreV2:0.8",
         "color": "temp +400K",
     },
     "SOFT_GRUNGE": {
-        "prompt": "soft grunge aesthetic, faded band tee, film grain",
+        "prompt": (
+            "90s soft grunge portrait, desaturated film grade, layered casual clothing, analog grain, "
+            "moody but readable face, preserve identity and freckles or texture from reference"
+        ),
         "lora": "Grunge90s:0.85",
         "color": "sat -40%, vignette +30%",
     },
     "WHIMSIGOTHIC": {
-        "prompt": "whimsigothic aesthetic, mystical witchy vibes, celestial motifs",
+        "prompt": (
+            "whimsigothic mystical portrait, moonlit fairy-tale mood, subtle celestial accessories, "
+            "soft mist, luminous eyes in focus, mystical without horror gore, likeness from reference"
+        ),
         "lora": "Whimsigothic:0.9",
         "color": "hue -15°",
     },
     "Y2K": {
-        "prompt": "Y2K aesthetic, metallic silver, chrome reflections",
+        "prompt": (
+            "Y2K chrome pop portrait, icy metallic highlights on lids and lips, glossy skin, early-2000s fashion cues, "
+            "clean studio backdrop, playful confident vibe, preserve identity from reference"
+        ),
         "lora": "Y2KPop:0.8",
         "color": "VHS scanlines",
     },
     "VINTAGE_POLAROID": {
-        "prompt": "vintage polaroid photo, faded colors, 1970s warm nostalgic tone",
+        "prompt": (
+            "vintage instant-film portrait, warm faded palette, soft vignette, 1970s nostalgic color cast, "
+            "slight paper texture, intimate snapshot feel, same subject as reference photo"
+        ),
         "lora": "PolaroidVibe:0.7",
         "color": "polaroid frame",
     },
 }
+
+STYLES.extend(THEME_PACK_STYLES)
+STYLE_PARAMS.update(THEME_PACK_STYLE_PARAMS)

@@ -3,7 +3,25 @@
     "title": "AuraShift",
     "tagline": "找到你的氣場",
     "login": "登入",
-    "account": "帳號"
+    "account": "帳號",
+    "clickToUse": "點擊使用 >",
+    "explorePacks": {
+      "title": "探索主題包",
+      "couples": "情侶",
+      "cartoon": "卡通",
+      "anime": "動漫",
+      "retro": "復古",
+      "artwork": "藝術",
+      "movies": "電影",
+      "games": "遊戲",
+      "love": "戀愛",
+      "lifestyle": "生活風格",
+      "transport": "出行",
+      "stories": "故事感",
+      "dream": "夢境",
+      "sport": "運動",
+      "joy": "歡樂"
+    }
   },
   "scene": {
     "AVATAR": "頭像",
@@ -89,6 +107,7 @@
     "payNotConfigured": "尚未設定收款方式。",
     "choosePayMethod": "收款方式",
     "payWithStripe": "Stripe",
+    "payWithCreem": "Creem（銀行卡 / Apple Pay / Google Pay）",
     "payWithLemon": "Lemon Squeezy",
     "payWithUsdt": "USDT",
     "usdtTitle": "USDT 轉帳",
@@ -106,10 +125,36 @@
   "flow": {
     "styleSelectTitle": "選擇你的風格",
     "pickImageFirst": "請先從首頁選擇場景並上傳圖片。",
-    "createFailedApi": "無法建立任務。{msg}"
+    "createFailedApi": "無法建立任務。{msg}",
+    "packExploreSpecLead": "請先選擇生圖規格，再選風格並上傳照片。",
+    "packExploreGeneratePhoto": "生成照片",
+    "packExploreChangeSpec": "返回修改規格",
+    "packExploreHint": "先點選一種風格，在彈窗內設定生圖規格、上傳照片，再點「氣場轉換」開始生成。",
+    "packUploadPhoto": "上傳照片",
+    "packAuraTransform": "氣場轉換",
+    "packPickPhotoFirst": "請先上傳照片",
+    "packChangePhoto": "更換照片",
+    "generatePickStyleLabel": "畫風",
+    "generatePanelTitleScene": "{scene} — 選擇畫風並上傳照片",
+    "styleGenBackHome": "返回首頁",
+    "styleGenBackPack": "返回主題包",
+    "styleGenBackChoose": "返回選風格",
+    "imageSpecTitle": "生圖規格",
+    "imageSpecHint": "產出圖的寬高比（已隨任務儲存）。",
+    "imageSpec": {
+      "auto": "自動",
+      "1_1": "1:1",
+      "3_4": "3:4",
+      "4_3": "4:3",
+      "16_9": "16:9",
+      "9_16": "9:16",
+      "2_3": "2:3",
+      "3_2": "3:2"
+    }
   },
   "quick": { "title": "快速選擇", "scene": "場景", "style": "風格", "generate": "生成" },
   "common": {
+    "close": "關閉",
     "loading": "載入中…",
     "refresh": "重新整理",
     "prev": "上一頁",
