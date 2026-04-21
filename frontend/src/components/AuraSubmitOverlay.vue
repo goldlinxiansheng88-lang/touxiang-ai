@@ -329,29 +329,29 @@ onBeforeUnmount(() => {
   background: radial-gradient(ellipse 120% 80% at 50% 20%, #fdf8f5 0%, #f5f0eb 45%, #ebe3dc 100%);
 }
 .theme-rose .aura-mist {
-  background: radial-gradient(circle at 30% 40%, rgba(212, 165, 165, 0.18), transparent 55%),
+  background: radial-gradient(circle at 30% 40%, rgba(220, 38, 38, 0.18), transparent 55%),
     radial-gradient(circle at 70% 60%, rgba(156, 163, 175, 0.12), transparent 50%);
 }
 .theme-rose .aura-aurora {
   background: linear-gradient(
     125deg,
-    rgba(212, 165, 165, 0.35) 0%,
+    rgba(220, 38, 38, 0.35) 0%,
     rgba(245, 240, 235, 0.2) 25%,
     rgba(180, 200, 220, 0.25) 50%,
-    rgba(212, 165, 165, 0.2) 75%,
+    rgba(220, 38, 38, 0.2) 75%,
     rgba(245, 240, 235, 0.3) 100%
   );
 }
 .theme-rose .aura-orb-glow-main {
-  background: radial-gradient(circle, rgba(212, 165, 165, 0.55) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(220, 38, 38, 0.55) 0%, transparent 70%);
 }
 .theme-rose .aura-orb {
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.5) 0%, rgba(212, 165, 165, 0.45) 40%, rgba(180, 160, 170, 0.5) 100%);
-  box-shadow: 0 8px 40px rgba(212, 165, 165, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.5) 0%, rgba(220, 38, 38, 0.4) 40%, rgba(185, 90, 90, 0.45) 100%);
+  box-shadow: 0 8px 40px rgba(220, 38, 38, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 .theme-rose .aura-ring-outer {
   border-color: rgba(255, 255, 255, 0.45);
-  box-shadow: 0 0 0 1px rgba(212, 165, 165, 0.15);
+  box-shadow: 0 0 0 1px rgba(220, 38, 38, 0.15);
 }
 .theme-rose .sparkle-inner {
   color: rgba(255, 255, 255, 0.92);

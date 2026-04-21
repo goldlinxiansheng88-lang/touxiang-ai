@@ -13,7 +13,7 @@
         class="image-spec-btn flex flex-col items-center gap-0.5 rounded-lg border px-0.5 py-1 transition-all duration-150"
         :class="
           modelValue === opt.value
-            ? 'border-blush/65 bg-blush/[0.12] text-stone-800 shadow-[0_0_0_1px_rgba(212,165,165,0.35)]'
+            ? 'border-blush/65 bg-blush/[0.12] text-stone-800 shadow-[0_0_0_1px_rgba(220,38,38,0.35)]'
             : 'border-stone-200/95 bg-white/60 text-stone-600 hover:border-stone-300 hover:bg-white hover:text-stone-800'
         "
         @click="emit('update:modelValue', opt.value)"
@@ -95,7 +95,7 @@ function frameGeom(frame: { w: number; h: number }) {
 
 <style scoped>
 .image-spec-btn:focus-visible {
-  outline: 2px solid rgb(212 165 165 / 0.55);
+  outline: 2px solid rgb(220 38 38 / 0.55);
   outline-offset: 1px;
 }
 </style>

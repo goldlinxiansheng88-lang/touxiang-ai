@@ -3,7 +3,7 @@
     class="relative min-h-screen overflow-hidden bg-zinc-200/90 font-sans antialiased"
   >
     <div
-      class="pointer-events-none fixed inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_-10%,rgba(212,165,165,0.12),transparent_50%)]"
+      class="pointer-events-none fixed inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_-10%,rgba(220,38,38,0.1),transparent_50%)]"
       aria-hidden="true"
     />
     <div

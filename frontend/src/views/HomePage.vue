@@ -205,9 +205,9 @@ function onStylePick(styleId: string) {
   background: rgba(255, 255, 255, 0.88);
   box-shadow:
     inset 0 1px 0 0 rgba(255, 255, 255, 0.95),
-    inset 0 -2px 0 0 rgba(212, 165, 165, 0.55),
-    0 0 0 1px rgba(212, 165, 165, 0.25),
-    0 10px 28px -12px rgba(212, 165, 165, 0.2);
+    inset 0 -2px 0 0 rgba(220, 38, 38, 0.55),
+    0 0 0 1px rgba(220, 38, 38, 0.25),
+    0 10px 28px -12px rgba(220, 38, 38, 0.2);
 }
 .no-scrollbar::-webkit-scrollbar {
   display: none;
