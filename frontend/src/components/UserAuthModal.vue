@@ -136,7 +136,7 @@
 import { computed, ref, watch } from "vue";
 import { useI18n } from "vue-i18n";
 
-import { loginEmail, registerEmail } from "@/api/client";
+import { apiUrl, loginEmail, registerEmail } from "@/api/client";
 import { useUserSessionStore } from "@/stores/userSession";
 
 const { t } = useI18n();
@@ -184,7 +184,7 @@ async function onLogout() {
 }
 
 function goOAuth(path: string) {
-  window.location.href = `${window.location.origin}${path}`;
+  window.location.href = apiUrl(path);
 }
 
 async function onEmailSubmit() {

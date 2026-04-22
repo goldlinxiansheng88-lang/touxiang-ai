@@ -1,11 +1,12 @@
 import axios from "axios";
 
 import { installAxiosHtmlResponseHint } from "@/utils/axiosHtmlHint";
+import { API_BASE_URL } from "@/api/client";
 
 const KEY = "aurashift_admin_token";
 
 export const adminHttp = axios.create({
-  baseURL: "",
+  baseURL: API_BASE_URL,
   timeout: 60000,
 });
 installAxiosHtmlResponseHint(adminHttp);

@@ -7,12 +7,27 @@ import type { Scene, StyleItem } from "@/types/aura";
 
 export type { Scene, StyleItem } from "@/types/aura";
 
+function normalizeBaseUrl(raw: unknown): string {
+  const v = String(raw ?? "").trim();
+  if (!v) return "";
+  return v.endsWith("/") ? v.slice(0, -1) : v;
+}
+
+/** Production can set `VITE_API_BASE_URL=https://<your-backend-domain>` for cross-domain deploys. */
+export const API_BASE_URL = normalizeBaseUrl((import.meta as any).env?.VITE_API_BASE_URL);
+
 export const api = axios.create({
-  baseURL: "",
+  baseURL: API_BASE_URL,
   withCredentials: true,
   timeout: 60000,
 });
 installAxiosHtmlResponseHint(api);
+
+/** Resolve an API path to a full URL (used for OAuth redirects). */
+export function apiUrl(path: string): string {
+  if (!path.startsWith("/")) path = `/${path}`;
+  return API_BASE_URL ? `${API_BASE_URL}${path}` : `${window.location.origin}${path}`;
+}
 
 /** 优先使用 FastAPI 返回的 `detail`（503 时常为 Redis/Celery 说明），避免只显示 axios 默认英文。 */
 export function getApiErrorMessage(err: unknown): string {
