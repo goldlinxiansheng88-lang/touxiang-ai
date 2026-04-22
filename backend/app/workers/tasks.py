@@ -11,6 +11,7 @@ from app.models import Task
 from app.services.aura_prompt_builder import build_generation_prompts
 from app.services.aura_vibe_copywriter import generate_vibe_copy
 from app.services.fal_flux_img2img import DEFAULT_MODEL_ID, first_image_url, run_flux_img2img
+from app.services.storage_s3 import load_s3_config, put_bytes
 from app.workers.celery_app import celery_app
 
 
@@ -64,6 +65,7 @@ def process_aura_task(self, task_id: str):
 
         blurred_url = task.input_image_url
         result_url = task.input_image_url
+        s3cfg = load_s3_config(db=db)
 
         if fal_key:
             raw = run_flux_img2img(
@@ -80,10 +82,19 @@ def process_aura_task(self, task_id: str):
             out_path = upload_dir / out_name
             _download_image(remote_out, out_path)
 
-            public_base = str(
-                config_service.get("public_base_url", default=settings.public_base_url, db=db)
-            ).rstrip("/")
-            result_url = f"{public_base}/static/uploads/{out_name}"
+            if s3cfg:
+                result_url = put_bytes(
+                    cfg=s3cfg,
+                    key=f"outputs/result/{out_name}",
+                    data=out_path.read_bytes(),
+                    content_type="image/jpeg",
+                    cache_control="public, max-age=31536000, immutable",
+                )
+            else:
+                public_base = str(
+                    config_service.get("public_base_url", default=settings.public_base_url, db=db)
+                ).rstrip("/")
+                result_url = f"{public_base}/static/uploads/{out_name}"
 
             img = Image.open(out_path).convert("RGB")
             blurred = img.filter(ImageFilter.GaussianBlur(radius=20))
@@ -93,7 +104,16 @@ def process_aura_task(self, task_id: str):
             blur_name = f"blur_flux_{tid}.jpg"
             blur_path = upload_dir / blur_name
             blur_path.write_bytes(buf.getvalue())
-            blurred_url = f"{public_base}/static/uploads/{blur_name}"
+            if s3cfg:
+                blurred_url = put_bytes(
+                    cfg=s3cfg,
+                    key=f"outputs/blur/{blur_name}",
+                    data=blur_path.read_bytes(),
+                    content_type="image/jpeg",
+                    cache_control="public, max-age=31536000, immutable",
+                )
+            else:
+                blurred_url = f"{public_base}/static/uploads/{blur_name}"
 
             gen_meta["provider"] = "fal"
             gen_meta["fal_output_url"] = remote_out[:500]

@@ -8,7 +8,8 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "frontend" / "src" / "data" / "themePacks.catalog.json"
+OUT_FRONTEND = ROOT / "frontend" / "src" / "data" / "themePacks.catalog.json"
+OUT_BACKEND = ROOT / "backend" / "app" / "data" / "themePacks.catalog.json"
 
 PROOFS = ["🔥", "⭐", "✨", "💫", "🌟"]
 
@@ -302,9 +303,11 @@ def attach_unique_images(packs: dict[str, list[dict]]) -> dict[str, list[dict]]:
 def main() -> None:
     packs = attach_unique_images(PACKS_DATA)
     doc = {"packs": packs}
-    OUT.parent.mkdir(parents=True, exist_ok=True)
-    OUT.write_text(json.dumps(doc, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"Wrote {OUT} ({sum(len(v) for v in packs.values())} styles)")
+    payload = json.dumps(doc, ensure_ascii=False, indent=2) + "\n"
+    for out in (OUT_FRONTEND, OUT_BACKEND):
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_text(payload, encoding="utf-8")
+        print(f"Wrote {out} ({sum(len(v) for v in packs.values())} styles)")
 
 
 if __name__ == "__main__":

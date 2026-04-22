@@ -56,6 +56,14 @@ class Settings(BaseSettings):
     microsoft_oauth_client_id: str = ""
     microsoft_oauth_client_secret: str = ""
 
+    # —— 存储（S3 兼容，如 Cloudflare R2）——
+    s3_access_key: str = ""
+    s3_secret_key: str = ""
+    s3_bucket_name: str = ""
+    s3_region: str = "us-east-1"
+    s3_endpoint_url: str = ""
+    s3_public_base_url: str = ""
+
     @field_validator("database_url", "redis_url", "runtime_log_file", "database_sslmode", mode="before")
     @classmethod
     def strip_env_junk(cls, v: object) -> object:

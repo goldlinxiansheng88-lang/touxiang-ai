@@ -9,6 +9,7 @@ from app.config import get_settings
 from app.data.static_config import SCENES, STYLES, STYLE_PARAMS
 from app.services import config_service
 from app.services.aura_prompt_builder import build_generation_prompts
+from app.services.storage_s3 import load_s3_config, put_bytes
 from app.api.auth_endpoints import get_optional_user_id
 from app.models import Affiliate, AffiliateClick, Task, User
 from app.utils.cookies import get_aff_ref, get_device_id, set_cookies
@@ -110,17 +111,27 @@ async def create_task(
     if style not in STYLE_PARAMS:
         raise HTTPException(status_code=400, detail=f"Unknown style: {style}")
 
-    upload_dir = Path(__file__).resolve().parent.parent.parent / "uploads"
-    upload_dir.mkdir(parents=True, exist_ok=True)
     ext = Path(image.filename or "img.jpg").suffix or ".jpg"
     if ext.lower() not in (".jpg", ".jpeg", ".png", ".webp"):
         ext = ".jpg"
     fname = f"{uuid.uuid4()}{ext}"
-    dest = upload_dir / fname
     content = await image.read()
-    dest.write_bytes(content)
-
-    public_url = f"{str(public_base).rstrip('/')}/static/uploads/{fname}"
+    # Prefer S3/R2 public URL for fal to fetch. Fallback to local uploads if not configured.
+    s3cfg = load_s3_config(db=db)
+    if s3cfg:
+        public_url = put_bytes(
+            cfg=s3cfg,
+            key=f"uploads/input/{fname}",
+            data=content,
+            content_type=image.content_type or None,
+            cache_control="public, max-age=31536000, immutable",
+        )
+    else:
+        upload_dir = Path(__file__).resolve().parent.parent.parent / "uploads"
+        upload_dir.mkdir(parents=True, exist_ok=True)
+        dest = upload_dir / fname
+        dest.write_bytes(content)
+        public_url = f"{str(public_base).rstrip('/')}/static/uploads/{fname}"
 
     session_uid = get_optional_user_id(request)
     user = None

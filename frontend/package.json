@@ -4,7 +4,9 @@
   "version": "3.0.0",
   "type": "module",
   "scripts": {
+    "predev": "npm run gen:theme-packs",
     "dev": "vite",
+    "prebuild": "npm run gen:theme-packs",
     "build": "vite build",
     "preview": "vite preview",
     "gen:theme-packs": "cd .. && python scripts/build_theme_packs_catalog.py"

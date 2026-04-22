@@ -240,13 +240,22 @@ def run_connection_test(
             return False, "格式应为 fal endpoint，例如 fal-ai/flux/dev/image-to-image"
         return True, "格式有效（实际推理以 Worker 调用为准）"
 
-    if key in ("s3_access_key", "s3_secret_key", "s3_bucket_name", "s3_region"):
+    if key in (
+        "s3_access_key",
+        "s3_secret_key",
+        "s3_bucket_name",
+        "s3_region",
+        "s3_endpoint_url",
+        "s3_public_base_url",
+    ):
         ak = _related_get(related, "s3_access_key", db)
         sk = _related_get(related, "s3_secret_key", db)
         bucket = _related_get(related, "s3_bucket_name", db)
         region = _related_get(related, "s3_region", db) or "us-east-1"
-        if not ak or not sk or not bucket:
-            return False, "请填写 Access Key、Secret Key 与存储桶名称后再测"
+        endpoint = _related_get(related, "s3_endpoint_url", db)
+        public_base = _related_get(related, "s3_public_base_url", db)
+        if not ak or not sk or not bucket or not endpoint or not public_base:
+            return False, "请填写 Access/Secret、桶、Endpoint URL、公网前缀后再测"
         try:
             import boto3
             from botocore.exceptions import ClientError
@@ -256,6 +265,7 @@ def run_connection_test(
                 aws_access_key_id=ak,
                 aws_secret_access_key=sk,
                 region_name=region,
+                endpoint_url=str(endpoint).strip() or None,
             )
             client.head_bucket(Bucket=bucket)
             return True, "连接成功（S3 存储桶可访问）"

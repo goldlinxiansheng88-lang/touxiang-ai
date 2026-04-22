@@ -197,6 +197,22 @@ CONFIG_ENTRIES: tuple[ConfigEntry, ...] = (
         default="us-east-1",
         required=True,
     ),
+    ConfigEntry(
+        key="s3_endpoint_url",
+        label="对象存储 Endpoint URL",
+        description="S3 兼容 endpoint（R2 形如 https://<accountid>.r2.cloudflarestorage.com）。",
+        group="存储配置",
+        is_secret=False,
+        required=True,
+    ),
+    ConfigEntry(
+        key="s3_public_base_url",
+        label="对象存储公网访问前缀",
+        description="对外可访问的 URL 前缀（建议绑定自定义域名），如 https://img.yourdomain.com/bucket-or-prefix（末尾不带 /）。",
+        group="存储配置",
+        is_secret=False,
+        required=True,
+    ),
     # —— 支付与会员 ——
     ConfigEntry(
         key="stripe_secret_key",
@@ -354,6 +370,8 @@ VALUE_KIND_LABELS: dict[str, str] = {
     "s3_secret_key": "Secret Key",
     "s3_bucket_name": "存储桶名称",
     "s3_region": "Region 代码",
+    "s3_endpoint_url": "HTTPS Endpoint URL",
+    "s3_public_base_url": "公网 URL 前缀",
     "stripe_secret_key": "Secret Key（sk_…）",
     "stripe_webhook_secret": "Webhook 密钥（whsec_…）",
     "creem_api_key": "API Key（x-api-key）",

@@ -6,19 +6,21 @@ import json
 import logging
 from pathlib import Path
 
-_CATALOG_PATH = Path(__file__).resolve().parents[3] / "frontend" / "src" / "data" / "themePacks.catalog.json"
+# 单一数据源（部署友好）：优先读后端随镜像打包的 catalog；本地开发再回退读前端目录
+_CATALOG_PATH_BACKEND = Path(__file__).resolve().parent / "themePacks.catalog.json"
+_CATALOG_PATH_FRONTEND = (
+    Path(__file__).resolve().parents[3] / "frontend" / "src" / "data" / "themePacks.catalog.json"
+)
 
 logger = logging.getLogger(__name__)
 
 
 def _load_catalog() -> dict:
-    if not _CATALOG_PATH.is_file():
-        # Deploy-friendly fallback: backend may be deployed without frontend sources
-        # (e.g. Railway root-dir=/backend Docker context). In that case, skip theme packs
-        # rather than crash the API process.
-        logger.warning("Theme pack catalog missing, theme packs disabled: %s", _CATALOG_PATH)
+    path = _CATALOG_PATH_BACKEND if _CATALOG_PATH_BACKEND.is_file() else _CATALOG_PATH_FRONTEND
+    if not path.is_file():
+        logger.warning("Theme pack catalog missing, theme packs disabled: %s", path)
         return {"packs": {}, "thumbs": []}
-    return json.loads(_CATALOG_PATH.read_text(encoding="utf-8"))
+    return json.loads(path.read_text(encoding="utf-8"))
 
 
 def build_theme_pack_styles() -> list[dict[str, str]]:
