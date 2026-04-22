@@ -3,17 +3,21 @@
 from __future__ import annotations
 
 import json
+import logging
 from pathlib import Path
 
 _CATALOG_PATH = Path(__file__).resolve().parents[3] / "frontend" / "src" / "data" / "themePacks.catalog.json"
 
+logger = logging.getLogger(__name__)
+
 
 def _load_catalog() -> dict:
     if not _CATALOG_PATH.is_file():
-        raise FileNotFoundError(
-            f"Theme pack catalog missing: {_CATALOG_PATH}. "
-            "Run: python scripts/build_theme_packs_catalog.py"
-        )
+        # Deploy-friendly fallback: backend may be deployed without frontend sources
+        # (e.g. Railway root-dir=/backend Docker context). In that case, skip theme packs
+        # rather than crash the API process.
+        logger.warning("Theme pack catalog missing, theme packs disabled: %s", _CATALOG_PATH)
+        return {"packs": {}, "thumbs": []}
     return json.loads(_CATALOG_PATH.read_text(encoding="utf-8"))
 
 
