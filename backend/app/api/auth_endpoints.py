@@ -5,7 +5,7 @@ from __future__ import annotations
 import re
 import secrets
 from typing import Optional
-from urllib.parse import urlencode
+from urllib.parse import urlencode, urlparse
 from uuid import UUID, uuid4
 
 import httpx
@@ -59,14 +59,30 @@ def _frontend_base() -> str:
     return get_settings().frontend_url.rstrip("/")
 
 
+def _cookie_same_site_policy() -> tuple[str, bool]:
+    """
+    When the SPA is hosted on a different site than the API, browsers require
+    SameSite=None + Secure for cookies to be included in cross-site XHR/fetch
+    (axios withCredentials=true).
+    """
+    s = get_settings()
+    fe = urlparse((s.frontend_url or "").strip())
+    api = urlparse((s.public_base_url or "").strip())
+    if fe.scheme == "https" and api.scheme == "https" and fe.netloc and api.netloc and fe.netloc != api.netloc:
+        return "none", True
+    return "lax", False
+
+
 def _set_session_cookie(response: Response, user_id: UUID, email: str) -> None:
     token = encode_session_token(user_id=user_id, email=email)
+    same_site, secure = _cookie_same_site_policy()
     response.set_cookie(
         key=SESSION_COOKIE,
         value=token,
         max_age=30 * 24 * 60 * 60,
         httponly=True,
-        samesite="lax",
+        samesite=same_site,
+        secure=secure,
         path="/",
     )
 
@@ -108,7 +124,8 @@ def login_email(body: EmailLoginBody, db: Session = Depends(get_db)):
 @router.post("/logout")
 def logout():
     resp = JSONResponse(content={"ok": True})
-    resp.delete_cookie(SESSION_COOKIE, path="/")
+    same_site, secure = _cookie_same_site_policy()
+    resp.delete_cookie(SESSION_COOKIE, path="/", samesite=same_site, secure=secure)
     return resp
 
 
@@ -153,12 +170,14 @@ def oauth_google_start(request: Request):
     )
     url = f"https://accounts.google.com/o/oauth2/v2/auth?{q}"
     resp = RedirectResponse(url=url, status_code=302)
+    same_site, secure = _cookie_same_site_policy()
     resp.set_cookie(
         OAUTH_STATE_COOKIE,
         state,
         max_age=OAUTH_STATE_MAX_AGE,
         httponly=True,
-        samesite="lax",
+        samesite=same_site,
+        secure=secure,
         path="/",
     )
     return resp
@@ -227,7 +246,8 @@ async def oauth_google_callback(
             u.display_name = name
             db.commit()
     resp = RedirectResponse(url=f"{_frontend_base()}/?login=ok", status_code=302)
-    resp.delete_cookie(OAUTH_STATE_COOKIE, path="/")
+    same_site, secure = _cookie_same_site_policy()
+    resp.delete_cookie(OAUTH_STATE_COOKIE, path="/", samesite=same_site, secure=secure)
     _set_session_cookie(resp, u.id, email)
     return resp
 
@@ -257,12 +277,14 @@ def oauth_microsoft_start(request: Request):
     )
     url = f"https://login.microsoftonline.com/common/oauth2/v2.0/authorize?{q}"
     resp = RedirectResponse(url=url, status_code=302)
+    same_site, secure = _cookie_same_site_policy()
     resp.set_cookie(
         OAUTH_STATE_COOKIE,
         state,
         max_age=OAUTH_STATE_MAX_AGE,
         httponly=True,
-        samesite="lax",
+        samesite=same_site,
+        secure=secure,
         path="/",
     )
     return resp
@@ -332,6 +354,7 @@ async def oauth_microsoft_callback(
             u.display_name = name
             db.commit()
     resp = RedirectResponse(url=f"{_frontend_base()}/?login=ok", status_code=302)
-    resp.delete_cookie(OAUTH_STATE_COOKIE, path="/")
+    same_site, secure = _cookie_same_site_policy()
+    resp.delete_cookie(OAUTH_STATE_COOKIE, path="/", samesite=same_site, secure=secure)
     _set_session_cookie(resp, u.id, email)
     return resp

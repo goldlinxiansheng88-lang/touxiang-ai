@@ -24,7 +24,41 @@ from app.config import get_backend_root, get_loaded_env_file_paths, get_settings
 from app.database import Base, SessionLocal, get_engine, prepare_postgres_url
 
 logger = logging.getLogger(__name__)
-settings = get_settings()
+
+
+def _parse_cors_origins(raw: str) -> list[str]:
+    parts = [p.strip() for p in (raw or "").split(",")]
+    return [p for p in parts if p]
+
+
+def _build_cors_allow_origins() -> list[str]:
+    """
+    Browser security rule: you cannot use Access-Control-Allow-Origin: * together with credentials.
+
+    Our frontend axios uses withCredentials=true (cookies), so we must return an explicit Origin echo.
+    """
+    s = get_settings()
+    merged = []
+    merged.extend(_parse_cors_origins(s.cors_allowed_origins))
+    if (s.frontend_url or "").strip():
+        merged.append(str(s.frontend_url).strip().rstrip("/"))
+    if (s.public_base_url or "").strip():
+        merged.append(str(s.public_base_url).strip().rstrip("/"))
+
+    # De-dupe while preserving order
+    out: list[str] = []
+    seen: set[str] = set()
+    for o in merged:
+        if o in seen:
+            continue
+        seen.add(o)
+        out.append(o)
+
+    if not out:
+        # Sensible local defaults (dev)
+        out = ["http://localhost:5173", "http://127.0.0.1:5173"]
+
+    return out
 
 
 @asynccontextmanager
@@ -134,7 +168,7 @@ async def unhandled_exception_handler(request: Request, exc: Exception) -> JSONR
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=_build_cors_allow_origins(),
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

@@ -86,6 +86,7 @@ export const CONFIG_VALUE_KIND_BY_KEY: Record<string, string> = {
   encryption_key: "Fernet 主密钥",
   public_base_url: "HTTPS 根地址",
   frontend_url: "HTTPS 根地址",
+  cors_allowed_origins: "多个 HTTPS Origin（逗号分隔）",
   aura_llm_provider: "claude | gemini | deepseek",
   claude_api_key: "API Key",
   gemini_api_key: "API Key",
@@ -187,6 +188,16 @@ export function getFallbackConfigRegistry(): {
       readonly: false,
       is_secret: false,
       value_kind: CONFIG_VALUE_KIND_BY_KEY.frontend_url,
+    },
+    {
+      key: "cors_allowed_origins",
+      label: "CORS 允许的浏览器 Origin（逗号分隔）",
+      group: "数据库与 API 基础",
+      description:
+        "前后端分离部署时必填：填写浏览器地址栏的 Origin（scheme://host，不要带路径），多个用英文逗号分隔。示例：https://app.vercel.app,https://preview.vercel.app",
+      readonly: false,
+      is_secret: false,
+      value_kind: CONFIG_VALUE_KIND_BY_KEY.cors_allowed_origins,
     },
     {
       key: "aura_llm_provider",

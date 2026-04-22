@@ -31,6 +31,10 @@ class Settings(BaseSettings):
     admin_password: str = "changeme"
     public_base_url: str = "http://localhost:8000"
     frontend_url: str = "http://localhost:5173"
+    #: 逗号分隔的浏览器 Origin（scheme://host[:port]），用于 CORS（credentials=true 时不能用 *）
+    #: 例：https://your-app.vercel.app,http://localhost:5173
+    cors_allowed_origins: str = ""
+
 
     claude_api_key: str = ""
     #: 彩虹屁文案：claude | gemini | deepseek（与配置库 aura_llm_provider 一致）

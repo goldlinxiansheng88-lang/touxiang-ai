@@ -94,6 +94,18 @@ CONFIG_ENTRIES: tuple[ConfigEntry, ...] = (
         is_secret=False,
         required=True,
     ),
+    ConfigEntry(
+        key="cors_allowed_origins",
+        label="CORS 允许的浏览器 Origin（逗号分隔）",
+        description=(
+            "前后端分离部署时必须配置：浏览器 Origin 形如 https://app.xxx.com（不要带路径）。"
+            "前端 axios 使用 withCredentials=true 时，后端不能使用 Access-Control-Allow-Origin: *。"
+        ),
+        group="数据库与 API 基础",
+        is_secret=False,
+        readonly=False,
+        required=False,
+    ),
     # —— 彩虹屁大模型（文案）——
     ConfigEntry(
         key="aura_llm_provider",
