@@ -33,6 +33,10 @@ class Settings(BaseSettings):
     frontend_url: str = "http://localhost:5173"
 
     claude_api_key: str = ""
+    #: 彩虹屁文案：claude | gemini | deepseek（与配置库 aura_llm_provider 一致）
+    aura_llm_provider: str = "claude"
+    gemini_api_key: str = ""
+    deepseek_api_key: str = ""
     image_api_key: str = ""
     stripe_secret_key: str = ""
     stripe_webhook_secret: str = ""

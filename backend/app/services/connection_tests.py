@@ -20,8 +20,13 @@ TESTABLE_KEYS = frozenset(
         "public_base_url",
         "frontend_url",
         "claude_api_key",
+        "aura_llm_provider",
+        "gemini_api_key",
+        "deepseek_api_key",
         "image_api_key",
         "image_api_endpoint",
+        "fal_key",
+        "flux_img2img_model_id",
         "s3_access_key",
         "s3_secret_key",
         "s3_bucket_name",
@@ -138,6 +143,48 @@ def run_connection_test(
         except httpx.RequestError as e:
             return False, f"网络错误：{e!s}"[:500]
 
+    if key == "aura_llm_provider":
+        v = (resolve_value(key, body_value, db) or "").strip().lower()
+        if v in ("claude", "gemini", "deepseek"):
+            return True, f"已选择：{v}"
+        return False, "须为 claude、gemini 或 deepseek（小写）"
+
+    if key == "gemini_api_key":
+        api_key = resolve_value(key, body_value, db)
+        if not api_key:
+            return False, "未填写 Gemini API Key"
+        try:
+            r = httpx.get(
+                "https://generativelanguage.googleapis.com/v1beta/models",
+                params={"key": api_key},
+                timeout=20.0,
+            )
+            if r.status_code == 200:
+                return True, "连接成功（Gemini 密钥可用）"
+            if r.status_code in (400, 401, 403):
+                return False, "连接失败：密钥无效或无权限"
+            return False, f"连接失败：HTTP {r.status_code}"
+        except httpx.RequestError as e:
+            return False, f"网络错误：{e!s}"[:500]
+
+    if key == "deepseek_api_key":
+        api_key = resolve_value(key, body_value, db)
+        if not api_key:
+            return False, "未填写 DeepSeek API Key"
+        try:
+            r = httpx.get(
+                "https://api.deepseek.com/v1/models",
+                headers={"authorization": f"Bearer {api_key}"},
+                timeout=20.0,
+            )
+            if r.status_code == 200:
+                return True, "连接成功（DeepSeek 密钥可用）"
+            if r.status_code in (401, 403):
+                return False, "连接失败：密钥无效或无权限"
+            return False, f"连接失败：HTTP {r.status_code}"
+        except httpx.RequestError as e:
+            return False, f"网络错误：{e!s}"[:500]
+
     if key == "image_api_endpoint":
         endpoint = resolve_value(key, body_value, db)
         if not endpoint:
@@ -165,6 +212,33 @@ def run_connection_test(
             return False, f"连接失败：HTTP {r.status_code}"
         except httpx.RequestError as e:
             return False, f"网络错误：{e!s}"[:500]
+
+    if key == "fal_key":
+        token = resolve_value(key, body_value, db)
+        if not token:
+            return False, "未填写 Fal API Key"
+        try:
+            r = httpx.get(
+                "https://rest.fal.ai/v1/models",
+                headers={"Authorization": f"Key {token}"},
+                timeout=20.0,
+            )
+            if r.status_code == 200:
+                return True, "连接成功（Fal 密钥可用）"
+            if r.status_code in (401, 403):
+                return False, "连接失败：密钥无效或无权限"
+            return False, f"连接失败：HTTP {r.status_code}"
+        except httpx.RequestError as e:
+            return False, f"网络错误：{e!s}"[:500]
+
+    if key == "flux_img2img_model_id":
+        mid = resolve_value(key, body_value, db)
+        if not mid:
+            return False, "未填写模型 ID"
+        mid = mid.strip()
+        if "/" not in mid:
+            return False, "格式应为 fal endpoint，例如 fal-ai/flux/dev/image-to-image"
+        return True, "格式有效（实际推理以 Worker 调用为准）"
 
     if key in ("s3_access_key", "s3_secret_key", "s3_bucket_name", "s3_region"):
         ak = _related_get(related, "s3_access_key", db)

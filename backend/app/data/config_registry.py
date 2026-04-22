@@ -34,8 +34,15 @@ GROUP_HINTS: dict[str, str] = {
         "并尝试用新连接串在本进程内重建连接池；试连成功后请再保存一次，即可把其余项写入配置库。"
         "连接串勿留占位符；仍失败请打开 /health/db 看具体错误。独立 Celery 等进程若单独读 .env，修改后需各自重启。"
     ),
-    "彩虹屁大模型（文案）": "文案能力依赖 Claude API Key；未配置则彩虹屁相关能力不可用。",
-    "图片生成大模型": "头像 / 风格图依赖 API Key 与根地址；未配置则无法出图。",
+    "彩虹屁大模型（文案）": (
+        "在「彩虹屁文案模型」中选 Claude / Gemini / DeepSeek 之一，并填写对应 API Key。"
+        "未配置所选模型的密钥时，将使用内置占位文案。"
+    ),
+    "图片生成大模型": (
+        "生图：在后台填写 Fal API Key（或环境变量 FAL_KEY）后，Worker 会调用 fal 上 "
+        "FLUX.1 img2img（默认 fal-ai/flux/dev/image-to-image）。上传图 URL 须对公网可访问（public_base_url）。"
+        "未配置 Fal 时仍走本地占位模糊预览。"
+    ),
     "存储配置": "生成结果需写入对象存储；Access/Secret/桶/区域为主流程必填项。",
     "支付与会员": "Stripe / Creem / Lemon Squeezy / USDT 任选配置；任一填好即可在前台展示对应收款方式。",
     "管理后台": "左侧栏「管理密码」与 ADMIN_PASSWORD 一致，用于调用管理接口。",
@@ -89,12 +96,37 @@ CONFIG_ENTRIES: tuple[ConfigEntry, ...] = (
     ),
     # —— 彩虹屁大模型（文案）——
     ConfigEntry(
+        key="aura_llm_provider",
+        label="彩虹屁文案模型",
+        description="三选一：claude（Anthropic）、gemini（Google AI Studio）、deepseek（DeepSeek）。决定下方哪把 Key 生效。",
+        group="彩虹屁大模型（文案）",
+        is_secret=False,
+        default="claude",
+        required=False,
+    ),
+    ConfigEntry(
         key="claude_api_key",
         label="Claude API Key",
-        description="Anthropic：用于生成 aura 解读、彩虹屁文案等（与图片模型分开配置）。",
+        description="Anthropic：当「彩虹屁文案模型」为 claude 时使用。",
         group="彩虹屁大模型（文案）",
         is_secret=True,
-        required=True,
+        required=False,
+    ),
+    ConfigEntry(
+        key="gemini_api_key",
+        label="Gemini API Key",
+        description="Google AI Studio / Gemini API Key；当「彩虹屁文案模型」为 gemini 时使用。",
+        group="彩虹屁大模型（文案）",
+        is_secret=True,
+        required=False,
+    ),
+    ConfigEntry(
+        key="deepseek_api_key",
+        label="DeepSeek API Key",
+        description="DeepSeek OpenAI 兼容接口；当「彩虹屁文案模型」为 deepseek 时使用。",
+        group="彩虹屁大模型（文案）",
+        is_secret=True,
+        required=False,
     ),
     # —— 图片生成大模型 ——
     ConfigEntry(
@@ -108,11 +140,28 @@ CONFIG_ENTRIES: tuple[ConfigEntry, ...] = (
     ConfigEntry(
         key="image_api_endpoint",
         label="图像 API 根地址",
-        description="如 Replicate OpenAPI 前缀 https://api.replicate.com/v1",
+        description="如 Replicate OpenAPI 前缀 https://api.replicate.com/v1（与 Fal 并行：未用 Replicate 可保留默认）。",
         group="图片生成大模型",
         is_secret=False,
         default="https://api.replicate.com/v1",
         required=True,
+    ),
+    ConfigEntry(
+        key="fal_key",
+        label="Fal.ai API Key（FAL_KEY）",
+        description="fal.ai Dashboard 创建；Worker 用于 FLUX img2img。也可不设此项，仅在服务器环境变量中配置 FAL_KEY。",
+        group="图片生成大模型",
+        is_secret=True,
+        required=False,
+    ),
+    ConfigEntry(
+        key="flux_img2img_model_id",
+        label="FLUX img2img 模型 ID",
+        description="默认 fal-ai/flux/dev/image-to-image（FLUX.1 [dev] image-to-image）。勿随意更改除非迁移新 endpoint。",
+        group="图片生成大模型",
+        is_secret=False,
+        default="fal-ai/flux/dev/image-to-image",
+        required=False,
     ),
     # —— 存储配置 ——
     ConfigEntry(
@@ -293,9 +342,14 @@ VALUE_KIND_LABELS: dict[str, str] = {
     "encryption_key": "Fernet 主密钥",
     "public_base_url": "HTTPS 根地址",
     "frontend_url": "HTTPS 根地址",
+    "aura_llm_provider": "claude | gemini | deepseek",
     "claude_api_key": "API Key",
+    "gemini_api_key": "API Key",
+    "deepseek_api_key": "API Key",
     "image_api_key": "API Key",
     "image_api_endpoint": "API 根 URL",
+    "fal_key": "Fal API Key（FAL_KEY）",
+    "flux_img2img_model_id": "fal 模型 endpoint 名",
     "s3_access_key": "Access Key",
     "s3_secret_key": "Secret Key",
     "s3_bucket_name": "存储桶名称",

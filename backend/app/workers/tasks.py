@@ -1,12 +1,32 @@
 import uuid
 from io import BytesIO
+from pathlib import Path
+from urllib.parse import urlparse
 
+import httpx
 from PIL import Image, ImageFilter
 
 from app.database import SessionLocal
 from app.models import Task
 from app.services.aura_prompt_builder import build_generation_prompts
+from app.services.aura_vibe_copywriter import generate_vibe_copy
+from app.services.fal_flux_img2img import DEFAULT_MODEL_ID, first_image_url, run_flux_img2img
 from app.workers.celery_app import celery_app
+
+
+def _blur_upload_path(input_image_url: str) -> Path | None:
+    path = urlparse(input_image_url).path
+    if "/static/uploads/" not in path:
+        return None
+    local = Path(__file__).resolve().parent.parent.parent / "uploads" / Path(path).name
+    return local if local.exists() else None
+
+
+def _download_image(url: str, dest: Path) -> None:
+    with httpx.Client(timeout=120.0, follow_redirects=True) as client:
+        r = client.get(url)
+        r.raise_for_status()
+        dest.write_bytes(r.content)
 
 
 @celery_app.task(bind=True, max_retries=3)
@@ -26,48 +46,86 @@ def process_aura_task(self, task_id: str):
             aspect_ratio=task.aspect_ratio or "auto",
         )
 
-        # Dev placeholder: build blurred thumb from local upload if path resolvable
+        from app.config import get_settings
+        from app.services import config_service
+
+        settings = get_settings()
+        fal_key = (config_service.get("fal_key", default="", db=db) or "").strip()
+        model_id = (
+            config_service.get("flux_img2img_model_id", default=DEFAULT_MODEL_ID, db=db) or DEFAULT_MODEL_ID
+        ).strip()
+
+        gen_meta = {
+            "positive_prompt": prompts.positive,
+            "negative_prompt": prompts.negative,
+            "parts": prompts.parts,
+            "model_id": model_id,
+        }
+
         blurred_url = task.input_image_url
         result_url = task.input_image_url
-        try:
-            from pathlib import Path
-            from urllib.parse import urlparse
 
-            path = urlparse(task.input_image_url).path
-            if "/static/uploads/" in path:
-                local = Path(__file__).resolve().parent.parent.parent / "uploads" / Path(path).name
-                if local.exists():
+        if fal_key:
+            raw = run_flux_img2img(
+                fal_key=fal_key,
+                model_id=model_id,
+                image_url=task.input_image_url,
+                positive_prompt=prompts.positive,
+                negative_prompt=prompts.negative,
+            )
+            remote_out = first_image_url(raw)
+            upload_dir = Path(__file__).resolve().parent.parent.parent / "uploads"
+            upload_dir.mkdir(parents=True, exist_ok=True)
+            out_name = f"flux_{tid}.jpg"
+            out_path = upload_dir / out_name
+            _download_image(remote_out, out_path)
+
+            public_base = str(
+                config_service.get("public_base_url", default=settings.public_base_url, db=db)
+            ).rstrip("/")
+            result_url = f"{public_base}/static/uploads/{out_name}"
+
+            img = Image.open(out_path).convert("RGB")
+            blurred = img.filter(ImageFilter.GaussianBlur(radius=20))
+            buf = BytesIO()
+            blurred.save(buf, format="JPEG", quality=85)
+            buf.seek(0)
+            blur_name = f"blur_flux_{tid}.jpg"
+            blur_path = upload_dir / blur_name
+            blur_path.write_bytes(buf.getvalue())
+            blurred_url = f"{public_base}/static/uploads/{blur_name}"
+
+            gen_meta["provider"] = "fal"
+            gen_meta["fal_output_url"] = remote_out[:500]
+        else:
+            gen_meta["provider"] = "placeholder"
+            try:
+                local = _blur_upload_path(task.input_image_url)
+                if local:
                     img = Image.open(local).convert("RGB")
                     blurred = img.filter(ImageFilter.GaussianBlur(radius=20))
                     buf = BytesIO()
                     blurred.save(buf, format="JPEG", quality=85)
                     buf.seek(0)
                     out_name = f"blur_{local.stem}.jpg"
-                    out_dir = local.parent
-                    out_path = out_dir / out_name
+                    out_path = local.parent / out_name
                     out_path.write_bytes(buf.getvalue())
-                    from app.config import get_settings
-                    from app.services import config_service
-
-                    settings = get_settings()
                     base = str(
                         config_service.get("public_base_url", default=settings.public_base_url, db=db)
                     ).rstrip("/")
                     blurred_url = f"{base}/static/uploads/{out_name}"
-        except Exception:
-            pass
+            except Exception:
+                pass
+
+        preview_text, full_vibe, vibe_llm = generate_vibe_copy(scene=task.scene, style=task.style, db=db)
 
         task.result_json = {
             **(task.result_json or {}),
-            "generation": {
-                "positive_prompt": prompts.positive,
-                "negative_prompt": prompts.negative,
-                "parts": prompts.parts,
-            },
-            "vibe": "Your aura whispers of quiet mornings and untold stories.",
-            "preview": "Your aura whispers of quiet mornings...",
-            "full": "Your aura whispers of quiet mornings and untold stories. "
-            "Soft light gathers where curiosity lingers.",
+            "generation": gen_meta,
+            "vibe": full_vibe,
+            "preview": preview_text,
+            "full": full_vibe,
+            "vibe_llm": vibe_llm,
             "aspect_ratio": task.aspect_ratio or "auto",
         }
         task.result_image_url = result_url
