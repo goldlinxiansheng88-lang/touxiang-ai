@@ -218,16 +218,18 @@ def run_connection_test(
         if not token:
             return False, "未填写 Fal API Key"
         try:
-            r = httpx.get(
-                "https://api.fal.ai/v1/models",
-                headers={"Authorization": f"Key {token}"},
-                timeout=20.0,
-            )
-            if r.status_code == 200:
-                return True, "连接成功（Fal 密钥可用）"
-            if r.status_code in (401, 403):
-                return False, "连接失败：密钥无效或无权限"
-            return False, f"连接失败：HTTP {r.status_code}"
+            url = "https://api.fal.ai/v1/models"
+            for prefix in ("Key", "Bearer"):
+                r = httpx.get(
+                    url,
+                    headers={"Authorization": f"{prefix} {token}"},
+                    timeout=20.0,
+                )
+                if r.status_code == 200:
+                    return True, "连接成功（Fal 密钥可用）"
+                if r.status_code not in (401, 403):
+                    return False, f"连接失败：HTTP {r.status_code}"
+            return False, "连接失败：密钥无效或无权限"
         except httpx.RequestError as e:
             return False, f"网络错误：{e!s}"[:500]
 
