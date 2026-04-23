@@ -13,8 +13,26 @@ function normalizeBaseUrl(raw: unknown): string {
   return v.endsWith("/") ? v.slice(0, -1) : v;
 }
 
+function coerceHttpsOnSecurePage(base: string): string {
+  // If the SPA is served over HTTPS but API base is http://, browsers will block XHR (mixed content).
+  // Upgrade to https:// automatically to reduce misconfiguration pain in production.
+  if (typeof window === "undefined") return base;
+  if (!base) return base;
+  if (window.location.protocol !== "https:") return base;
+  try {
+    const u = new URL(base);
+    if (u.protocol === "http:") {
+      u.protocol = "https:";
+      return u.toString().replace(/\/$/, "");
+    }
+  } catch {
+    return base;
+  }
+  return base;
+}
+
 /** Production can set `VITE_API_BASE_URL=https://<your-backend-domain>` for cross-domain deploys. */
-export const API_BASE_URL = normalizeBaseUrl((import.meta as any).env?.VITE_API_BASE_URL);
+export const API_BASE_URL = coerceHttpsOnSecurePage(normalizeBaseUrl((import.meta as any).env?.VITE_API_BASE_URL));
 
 export const api = axios.create({
   baseURL: API_BASE_URL,
