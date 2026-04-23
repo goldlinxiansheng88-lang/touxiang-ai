@@ -5,7 +5,7 @@ from __future__ import annotations
 import re
 import secrets
 from typing import Optional
-from urllib.parse import urlencode, urlparse
+from urllib.parse import quote, urlencode, urlparse
 from uuid import UUID, uuid4
 
 import httpx
@@ -57,6 +57,23 @@ def _oauth_redirect_base() -> str:
 
 def _frontend_base() -> str:
     return get_settings().frontend_url.rstrip("/")
+
+
+def _oauth_start_accepts_json_only(request: Request) -> bool:
+    """OAuth /start is normally opened by the browser (window.location). JSON-only Accept → return API error body."""
+    a = (request.headers.get("accept") or "").lower()
+    if "text/html" in a or "application/xhtml+xml" in a:
+        return False
+    if "application/json" in a and "text/html" not in a:
+        return True
+    return False
+
+
+def _redirect_frontend_auth_error(detail: str) -> RedirectResponse:
+    return RedirectResponse(
+        url=f"{_frontend_base()}/?auth_error={quote(detail, safe='')}",
+        status_code=302,
+    )
 
 
 def _cookie_same_site_policy() -> tuple[str, bool]:
@@ -152,10 +169,10 @@ def me(request: Request, db: Session = Depends(get_db)):
 def oauth_google_start(request: Request):
     cid = (get_settings().google_oauth_client_id or "").strip()
     if not cid:
-        raise HTTPException(
-            status_code=503,
-            detail="未配置 GOOGLE_OAUTH_CLIENT_ID：请在 backend/.env 填写并在 Google Cloud Console 登记回调地址。",
-        )
+        detail = "未配置 GOOGLE_OAUTH_CLIENT_ID：请在 backend/.env 填写并在 Google Cloud Console 登记回调地址。"
+        if not _oauth_start_accepts_json_only(request):
+            return _redirect_frontend_auth_error(detail)
+        raise HTTPException(status_code=503, detail=detail)
     state = secrets.token_urlsafe(24)
     redirect_uri = f"{_oauth_redirect_base()}/api/auth/oauth/google/callback"
     q = urlencode(
@@ -259,10 +276,10 @@ async def oauth_google_callback(
 def oauth_microsoft_start(request: Request):
     cid = (get_settings().microsoft_oauth_client_id or "").strip()
     if not cid:
-        raise HTTPException(
-            status_code=503,
-            detail="未配置 MICROSOFT_OAUTH_CLIENT_ID：请在 Azure 门户注册应用并填写密钥与回调地址。",
-        )
+        detail = "未配置 MICROSOFT_OAUTH_CLIENT_ID：请在 Azure 门户注册应用并填写密钥与回调地址。"
+        if not _oauth_start_accepts_json_only(request):
+            return _redirect_frontend_auth_error(detail)
+        raise HTTPException(status_code=503, detail=detail)
     state = secrets.token_urlsafe(24)
     redirect_uri = f"{_oauth_redirect_base()}/api/auth/oauth/microsoft/callback"
     q = urlencode(
