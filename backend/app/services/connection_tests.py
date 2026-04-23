@@ -227,9 +227,24 @@ def run_connection_test(
                 )
                 if r.status_code == 200:
                     return True, "连接成功（Fal 密钥可用）"
-                if r.status_code not in (401, 403):
-                    return False, f"连接失败：HTTP {r.status_code}"
-            return False, "连接失败：密钥无效或无权限"
+                if r.status_code in (401, 403):
+                    # Try to surface Fal's error message if present.
+                    msg = ""
+                    try:
+                        data = r.json()
+                        if isinstance(data, dict):
+                            err = data.get("error")
+                            if isinstance(err, dict) and err.get("message"):
+                                msg = str(err["message"]).strip()
+                            elif data.get("message"):
+                                msg = str(data["message"]).strip()
+                    except Exception:
+                        msg = ""
+                    msg = (msg or "密钥无效或无权限").strip()
+                    last = f"{prefix} 方式返回 {r.status_code}：{msg}"
+                    continue
+                return False, f"连接失败：HTTP {r.status_code}"
+            return False, f"连接失败：{last if 'last' in locals() else '密钥无效或无权限'}"
         except httpx.RequestError as e:
             return False, f"网络错误：{e!s}"[:500]
 

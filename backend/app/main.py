@@ -230,7 +230,17 @@ app.include_router(admin.router)
 
 @app.get("/health")
 def health():
-    return {"status": "ok"}
+    # Provide a minimal build fingerprint to verify which commit is deployed.
+    # Railway commonly injects these; if missing, we still return status ok.
+    sha = (
+        os.environ.get("RAILWAY_GIT_COMMIT_SHA")
+        or os.environ.get("GIT_COMMIT_SHA")
+        or os.environ.get("COMMIT_SHA")
+        or os.environ.get("SOURCE_VERSION")
+        or os.environ.get("VERCEL_GIT_COMMIT_SHA")
+        or ""
+    ).strip()
+    return {"status": "ok", "commit": sha[:12] or None}
 
 
 @app.get("/health/cors")
