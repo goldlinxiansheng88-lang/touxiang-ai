@@ -207,6 +207,25 @@ def health():
     return {"status": "ok"}
 
 
+@app.get("/health/cors")
+def health_cors():
+    """诊断：当前进程实际生效的 CORS 配置（不含密钥）。"""
+    s = get_settings()
+    return {
+        "cors": {
+            "allow_origins": _build_cors_allow_origins(),
+            "allow_origin_regex": _build_cors_allow_origin_regex(),
+            "settings": {
+                "frontend_url": str(s.frontend_url or "").strip(),
+                "public_base_url": str(s.public_base_url or "").strip(),
+                "cors_allowed_origins": str(s.cors_allowed_origins or "").strip(),
+                "cors_allow_origin_regex": str(s.cors_allow_origin_regex or "").strip(),
+                "cors_enable_vercel_preview_regex": bool(s.cors_enable_vercel_preview_regex),
+            },
+        }
+    }
+
+
 @app.get("/healthy/db")
 def health_db_common_typo():
     """常见笔误 /healthy/db → 重定向到 /health/db。"""
