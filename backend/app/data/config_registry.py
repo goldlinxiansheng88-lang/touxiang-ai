@@ -23,6 +23,7 @@ GROUP_ORDER: tuple[str, ...] = (
     "图片生成大模型",
     "存储配置",
     "支付与会员",
+    "登录与 OAuth",
     "管理后台",
     "业务参数",
 )
@@ -45,6 +46,7 @@ GROUP_HINTS: dict[str, str] = {
     ),
     "存储配置": "生成结果需写入对象存储；Access/Secret/桶/区域为主流程必填项。",
     "支付与会员": "Stripe / Creem / Lemon Squeezy / USDT 任选配置；任一填好即可在前台展示对应收款方式。",
+    "登录与 OAuth": "第三方登录（Google / Microsoft）相关参数。仅需在 Railway Variables 或本页填入对应 Client ID/Secret。",
     "管理后台": "左侧栏「管理密码」与 ADMIN_PASSWORD 一致，用于调用管理接口。",
     "业务参数": "免费次数、运营策略相关数值。",
 }
@@ -362,6 +364,39 @@ CONFIG_ENTRIES: tuple[ConfigEntry, ...] = (
         is_secret=False,
         default="0.30",
     ),
+    # —— 登录与 OAuth ——
+    ConfigEntry(
+        key="google_oauth_client_id",
+        label="Google OAuth Client ID",
+        description="Google 登录用。来自 Google Cloud Console OAuth 2.0 客户端（Web application）。",
+        group="登录与 OAuth",
+        is_secret=False,
+        required=False,
+    ),
+    ConfigEntry(
+        key="google_oauth_client_secret",
+        label="Google OAuth Client Secret",
+        description="Google 登录用。与 Client ID 配对；建议作为环境变量或在本页加密保存。",
+        group="登录与 OAuth",
+        is_secret=True,
+        required=False,
+    ),
+    ConfigEntry(
+        key="microsoft_oauth_client_id",
+        label="Microsoft OAuth Client ID",
+        description="微软登录用。来自 Azure App Registration（Application (client) ID）。",
+        group="登录与 OAuth",
+        is_secret=False,
+        required=False,
+    ),
+    ConfigEntry(
+        key="microsoft_oauth_client_secret",
+        label="Microsoft OAuth Client Secret",
+        description="微软登录用。与 Client ID 配对；建议作为环境变量或在本页加密保存。",
+        group="登录与 OAuth",
+        is_secret=True,
+        required=False,
+    ),
     # —— 管理后台 ——
     ConfigEntry(
         key="admin_email",
@@ -428,6 +463,10 @@ VALUE_KIND_LABELS: dict[str, str] = {
     "checkout_amount_usd": "美元金额（数字）",
     "checkout_amount_usdt": "USDT 数量（数字）",
     "commission_default_rate": "比例 0～1",
+    "google_oauth_client_id": "Client ID",
+    "google_oauth_client_secret": "Client Secret",
+    "microsoft_oauth_client_id": "Client ID",
+    "microsoft_oauth_client_secret": "Client Secret",
     "admin_email": "邮箱地址",
     "admin_password": "口令",
     "free_daily_limit": "正整数",
