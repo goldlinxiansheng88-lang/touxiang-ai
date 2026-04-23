@@ -1,5 +1,6 @@
 import logging
 import os
+import re
 from contextlib import asynccontextmanager
 from pathlib import Path
 
@@ -74,7 +75,31 @@ def _build_cors_allow_origin_regex() -> str | None:
         return None
     # HTTPS only; matches typical Vercel preview/prod hostnames on vercel.app
     # Note: preview hostnames can contain multiple dot-separated labels before vercel.app.
-    return r"^https://(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.)+vercel\.app$"
+    parts: list[str] = [
+        r"^https://(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.)+vercel\.app$"
+    ]
+    # Also allow the configured frontend / API hostnames when they are real HTTPS origins.
+    # This helps teams using custom domains (or Vercel Preview Deployment Suffix) where the
+    # browser Origin is not *.vercel.app, without forcing every hostname into allow_origins.
+    for raw in (str(s.frontend_url or "").strip(), str(s.public_base_url or "").strip()):
+        if not raw:
+            continue
+        try:
+            u = urlparse(raw if "://" in raw else f"https://{raw}")
+        except Exception:
+            continue
+        if u.scheme != "https" or not u.hostname:
+            continue
+        host = u.hostname.lower()
+        if host.endswith(".vercel.app"):
+            continue
+        label = r"(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)"
+        escaped = re.escape(host).replace(r"\*", rf"{label}")
+        parts.append(rf"^https://{escaped}$")
+
+    if len(parts) == 1:
+        return parts[0]
+    return "(?:" + "|".join(parts) + ")"
 
 
 @asynccontextmanager

@@ -206,7 +206,7 @@ export function getFallbackConfigRegistry(): {
       label: "CORS 允许的 Origin 正则（可选）",
       group: "数据库与 API 基础",
       description:
-        "用于 Vercel Preview 等多变子域。留空则默认启用 `https://*.vercel.app`（多级子域，HTTPS only）。也可用 cors_enable_vercel_preview_regex=false 关闭默认规则。",
+        "用于 Vercel Preview 等多变子域。留空则默认启用内置规则：`https://*.vercel.app`（多级子域，HTTPS only）+（若 FRONTEND_URL / PUBLIC_BASE_URL 为 https）对应精确 Origin。也可用 cors_enable_vercel_preview_regex=false 关闭默认规则。",
       readonly: false,
       is_secret: false,
       value_kind: CONFIG_VALUE_KIND_BY_KEY.cors_allow_origin_regex,
@@ -215,7 +215,8 @@ export function getFallbackConfigRegistry(): {
       key: "cors_enable_vercel_preview_regex",
       label: "启用 Vercel 预览域名 CORS 正则（默认开）",
       group: "数据库与 API 基础",
-      description: "默认 true：放行 `https://*.vercel.app`。若你使用自定义域名前端，请用 cors_allowed_origins 精确列出。",
+      description:
+        "默认 true：放行 `https://*.vercel.app`，并在 https 场景下把 FRONTEND_URL / PUBLIC_BASE_URL 的域名并入正则。更复杂场景请填 cors_allow_origin_regex 覆盖默认，或继续用 cors_allowed_origins 精确列出。",
       readonly: false,
       is_secret: false,
       default: "true",

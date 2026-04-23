@@ -111,7 +111,8 @@ CONFIG_ENTRIES: tuple[ConfigEntry, ...] = (
         label="CORS 允许的 Origin 正则（可选）",
         description=(
             "用于 Vercel Preview 等多变子域：填写 Python/JS 风格的正则（不要带引号）。"
-            "留空时默认启用 `https://*.vercel.app`（多级子域）规则（可用 cors_enable_vercel_preview_regex=false 关闭）。"
+            "留空时默认启用内置规则：`https://*.vercel.app`（多级子域）+（若 FRONTEND_URL / PUBLIC_BASE_URL 为 https）对应精确 Origin。"
+            "可用 cors_enable_vercel_preview_regex=false 关闭默认规则。"
         ),
         group="数据库与 API 基础",
         is_secret=False,
@@ -121,7 +122,10 @@ CONFIG_ENTRIES: tuple[ConfigEntry, ...] = (
     ConfigEntry(
         key="cors_enable_vercel_preview_regex",
         label="启用 Vercel 预览域名 CORS 正则（默认开）",
-        description="默认开启：放行 `https://*.vercel.app`（多级子域，HTTPS only）。若你有自定义前端域名，请优先用 cors_allowed_origins 精确列出。",
+        description=(
+            "默认开启：放行 `https://*.vercel.app`（多级子域，HTTPS only），并在 https 场景下把 FRONTEND_URL / PUBLIC_BASE_URL 的域名并入正则。"
+            "若仍需更复杂匹配，请填写 cors_allow_origin_regex 覆盖默认；或继续用 cors_allowed_origins 精确列出。"
+        ),
         group="数据库与 API 基础",
         is_secret=False,
         readonly=False,
