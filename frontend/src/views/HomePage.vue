@@ -104,7 +104,6 @@
 
 <script setup lang="ts">
 import { computed, onMounted, ref } from "vue";
-import { useStyleGridAnchor } from "@/composables/useStyleGridAnchor";
 import { useI18n } from "vue-i18n";
 import { useRouter } from "vue-router";
 import { showFailToast } from "vant";
