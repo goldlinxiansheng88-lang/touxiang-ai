@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen pb-10">
     <header class="relative pt-10 pb-6 px-4">
-      <div class="absolute top-3 end-3 z-20 flex flex-row items-center gap-2">
+      <div class="absolute top-3 end-3 z-[60] flex flex-row items-center gap-2 pointer-events-auto">
         <LanguageSelector />
         <button
         type="button"
@@ -152,7 +152,8 @@ onMounted(async () => {
   }
   const authErr = q.get("auth_error");
   if (authErr) {
-    showFailToast(t("errors.authCallback", { msg: decodeURIComponent(authErr) }));
+    // get() 已是解码后的 UTF-8；再 decodeURIComponent 会在文案含「%」等字符时抛 URIError，打断后续初始化
+    showFailToast(t("errors.authCallback", { msg: authErr }));
     window.history.replaceState({}, "", window.location.pathname + window.location.hash);
   }
   await session.refresh();

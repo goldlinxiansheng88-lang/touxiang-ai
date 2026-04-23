@@ -160,11 +160,11 @@ const callbackHint = "PUBLIC_BASE_URL + /api/auth/oauth/.../callback";
 
 watch(
   () => props.show,
-  async (v) => {
-    if (v) {
-      err.value = "";
-      await session.refresh();
-    }
+  (v) => {
+    if (!v) return;
+    err.value = "";
+    // 不 await：避免 /api/auth/me 慢或挂起时拖住弹层更新；失败由 store 内部吞掉
+    void session.refresh().catch(() => {});
   },
 );
 
