@@ -35,9 +35,9 @@
       <table class="min-w-full text-left text-sm">
         <thead class="border-b border-stone-200/80 bg-stone-50/90 text-[11px] font-semibold uppercase tracking-wide text-stone-500">
           <tr>
+            <th class="px-4 py-3 font-medium">{{ t("admin.users.colName") }}</th>
             <th class="px-4 py-3 font-medium">{{ t("admin.users.colId") }}</th>
             <th class="px-4 py-3 font-medium">{{ t("admin.users.colDevice") }}</th>
-            <th class="px-4 py-3 font-medium">{{ t("admin.users.colName") }}</th>
             <th class="px-4 py-3 font-medium">{{ t("admin.users.colIp") }}</th>
             <th class="px-4 py-3 font-medium">{{ t("admin.users.colVip") }}</th>
             <th class="px-4 py-3 font-medium">{{ t("admin.users.colCreated") }}</th>
@@ -49,12 +49,12 @@
             :key="row.id"
             class="border-b border-stone-100/90 transition hover:bg-stone-50/80"
           >
+            <td class="max-w-[220px] truncate px-4 py-3 text-stone-700" :title="row.username ?? ''">
+              {{ row.username ?? "—" }}
+            </td>
             <td class="px-4 py-3 font-mono text-xs text-stone-800">{{ row.id }}</td>
             <td class="max-w-[200px] truncate px-4 py-3 font-mono text-xs text-stone-700" :title="row.device_id">
               {{ row.device_id }}
-            </td>
-            <td class="max-w-[220px] truncate px-4 py-3 text-stone-700" :title="row.username ?? ''">
-              {{ row.username ?? "—" }}
             </td>
             <td class="px-4 py-3 text-stone-600" :title="row.ip_address ?? ''">
               {{ row.country_code ?? "—" }}

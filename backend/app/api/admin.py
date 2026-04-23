@@ -9,7 +9,7 @@ from pathlib import Path
 import httpx
 from fastapi import APIRouter, Depends, HTTPException, Query, Request
 from fastapi.responses import StreamingResponse
-from sqlalchemy import func, text
+from sqlalchemy import case, func, text
 from sqlalchemy.exc import IntegrityError, SQLAlchemyError
 from sqlalchemy.orm import Session
 
@@ -216,8 +216,10 @@ def list_users(
 ):
     q = db.query(User)
     total = q.count()
+    # Default sort: registered (has email) first, then newest first.
+    reg_first = case((User.email.isnot(None), 0), else_=1)
     rows = (
-        q.order_by(User.created_at.desc())
+        q.order_by(reg_first.asc(), User.created_at.desc())
         .offset((page - 1) * page_size)
         .limit(page_size)
         .all()
