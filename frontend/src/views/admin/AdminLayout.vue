@@ -35,38 +35,6 @@
             {{ item.label }}
           </router-link>
 
-          <div class="space-y-0.5">
-            <button
-              type="button"
-              class="flex w-full items-center justify-between gap-2 rounded-lg px-3 py-2.5 text-left text-zinc-400 transition-colors duration-150 hover:bg-white/[0.05] hover:text-zinc-100"
-              :class="isConfigRoute ? 'bg-white/[0.06] font-medium text-zinc-100' : ''"
-              :aria-expanded="configExpanded"
-              aria-controls="admin-config-submenu"
-              @click="toggleConfigNav"
-            >
-              <span>{{ t("admin.layout.navConfig") }}</span>
-              <span class="text-[10px] text-zinc-500 tabular-nums select-none" aria-hidden="true">
-                {{ configExpanded ? "▾" : "▸" }}
-              </span>
-            </button>
-            <div
-              v-show="configExpanded"
-              id="admin-config-submenu"
-              class="ml-2 space-y-0.5 border-l border-zinc-700/60 py-0.5 pl-2.5"
-            >
-              <button
-                v-for="gid in configGroupIds"
-                :key="gid"
-                type="button"
-                class="block w-full rounded-md py-1.5 pl-1.5 text-left text-[12px] text-zinc-400 transition-colors duration-150 hover:bg-white/[0.05] hover:text-zinc-100"
-                :class="configSectionActive(gid) ? 'bg-white/[0.06] font-medium text-zinc-100' : ''"
-                @click="goConfigSection(gid)"
-              >
-                {{ configShortLabel(gid) }}
-              </button>
-            </div>
-          </div>
-
           <router-link
             :to="{ name: 'admin-logs' }"
             class="block rounded-lg px-3 py-2.5 text-zinc-400 transition-colors duration-150 hover:bg-white/[0.05] hover:text-zinc-100"
@@ -94,7 +62,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, ref, watch } from "vue";
+import { computed } from "vue";
 import { useI18n } from "vue-i18n";
 import { useRoute, useRouter } from "vue-router";
 
@@ -102,21 +70,16 @@ import { i18n } from "@/i18n";
 import { ADMIN_FORCED_LOCALE } from "@/locales/languages";
 import { applyDomLocale, applyVantLocale } from "@/utils/localeAdmin";
 import AdminSidebarAuth from "@/components/admin/AdminSidebarAuth.vue";
-import {
-  ADMIN_GROUP_ORDER,
-  CONFIG_SIDEBAR_SHORT_LABELS,
-  configGroupAnchorId,
-} from "@/data/adminConfigFallbackSchema";
-import { adminGroupPath } from "@/locales/adminI18n";
+// 系统配置页已移除：所有配置请在 Railway Variables 管理
 
 /** 首屏即渲染侧栏：必须在任何 t() 之前把 locale 钉在 zh-CN（避免仍处 en 时仅显示键名） */
 i18n.global.locale.value = ADMIN_FORCED_LOCALE;
 applyDomLocale(ADMIN_FORCED_LOCALE);
 applyVantLocale(ADMIN_FORCED_LOCALE);
 
-const route = useRoute();
-const router = useRouter();
-const { t, te } = useI18n();
+useRoute();
+useRouter();
+const { t } = useI18n();
 
 const primaryNav = computed(() => [
   { name: "admin-dash" as const, label: t("admin.layout.navDash") },
@@ -125,52 +88,5 @@ const primaryNav = computed(() => [
   { name: "admin-affiliates" as const, label: t("admin.layout.navAffiliates") },
 ]);
 
-function configShortLabel(gid: string): string {
-  const p = adminGroupPath(gid, "short");
-  if (p && te(p)) return t(p);
-  return CONFIG_SIDEBAR_SHORT_LABELS[gid] ?? gid;
-}
-
-const configGroupIds = ADMIN_GROUP_ORDER;
-
-const configExpanded = ref(false);
-
-const isConfigRoute = computed(() => route.name === "admin-config");
-
-function toggleConfigNav() {
-  if (configExpanded.value) {
-    configExpanded.value = false;
-    return;
-  }
-  configExpanded.value = true;
-  if (route.name !== "admin-config") {
-    router.push({ path: "/admin/config" });
-  }
-}
-
-function configSectionActive(gid: string): boolean {
-  if (route.name !== "admin-config") return false;
-  const h = route.hash || "";
-  return h === "#" + configGroupAnchorId(gid);
-}
-
-function goConfigSection(gid: string) {
-  configExpanded.value = true;
-  router.push({ name: "admin-config", hash: "#" + configGroupAnchorId(gid) });
-}
-
-watch(
-  () => route.name,
-  (name) => {
-    if (name !== "admin-config") {
-      configExpanded.value = false;
-    }
-  },
-);
-
-onMounted(() => {
-  if (route.name === "admin-config" && route.hash) {
-    configExpanded.value = true;
-  }
-});
+// no-op
 </script>
