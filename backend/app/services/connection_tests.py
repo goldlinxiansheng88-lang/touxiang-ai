@@ -220,7 +220,7 @@ def run_connection_test(
         try:
             r = httpx.get(
                 "https://api.fal.ai/v1/models",
-                headers={"Authorization": f"Bearer {token}"},
+                headers={"Authorization": f"Key {token}"},
                 timeout=20.0,
             )
             if r.status_code == 200:
