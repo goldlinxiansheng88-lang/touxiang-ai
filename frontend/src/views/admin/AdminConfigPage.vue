@@ -73,7 +73,6 @@
           {{ t("admin.config.discardReload") }}
         </button>
       </div>
-      <p v-if="infoBanner" class="mb-4 text-sm text-stone-600">{{ infoBanner }}</p>
 
       <!-- 按分类卡片展示：displayGroups 在带 hash 时仅一项，实现右侧内容归档 -->
       <div
