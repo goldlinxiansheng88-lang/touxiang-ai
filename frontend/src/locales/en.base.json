@@ -190,6 +190,16 @@
     "selector": "Language",
     "search": "Search languages…"
   },
+  "profile": {
+    "title": "My page",
+    "hint": "Your account and recent creations.",
+    "needLoginTitle": "Sign in to see your profile",
+    "needLoginHint": "After signing in, your creations and VIP status will sync across devices.",
+    "vipYes": "VIP active",
+    "vipNo": "VIP not active",
+    "myTasks": "My recent tasks",
+    "view": "View"
+  },
   "meta": {
     "pageTitle": "AuraShift — Find Your Aura",
     "adminTitle": "AuraShift Admin"

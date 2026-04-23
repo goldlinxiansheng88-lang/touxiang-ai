@@ -147,6 +147,39 @@ export async function fetchAuthMe() {
   return data;
 }
 
+export type MyProfileResponse =
+  | { authenticated: false; user: null }
+  | {
+      authenticated: boolean;
+      user: {
+        id: string;
+        device_id: string;
+        email: string | null;
+        display_name: string | null;
+        is_vip: boolean;
+        vip_expires_at: string | null;
+        created_at: string | null;
+      };
+    };
+
+export async function fetchMyProfile() {
+  const { data } = await api.get<MyProfileResponse>("/api/me");
+  return data;
+}
+
+export type MyTaskRow = {
+  id: string;
+  status: string;
+  scene: string;
+  style: string;
+  created_at: string | null;
+};
+
+export async function fetchMyTasks(params: { page?: number; page_size?: number }) {
+  const { data } = await api.get<{ total: number; page: number; items: MyTaskRow[] }>("/api/me/tasks", { params });
+  return data;
+}
+
 export async function registerEmail(email: string, password: string) {
   await api.post("/api/auth/email/register", { email, password });
 }

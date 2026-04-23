@@ -190,6 +190,16 @@
     "selector": "语言",
     "search": "搜索语言…"
   },
+  "profile": {
+    "title": "个人主页",
+    "hint": "查看账号信息与最近生成记录。",
+    "needLoginTitle": "登录后查看个人主页",
+    "needLoginHint": "登录后，你的生成记录与 VIP 状态会在多设备同步。",
+    "vipYes": "VIP 已开通",
+    "vipNo": "VIP 未开通",
+    "myTasks": "我的最近任务",
+    "view": "查看"
+  },
   "meta": {
     "pageTitle": "AuraShift — 发现你的气场",
     "adminTitle": "AuraShift 管理后台"

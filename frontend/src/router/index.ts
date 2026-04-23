@@ -13,6 +13,7 @@ const router = createRouter({
   },
   routes: [
     { path: "/", name: "home", component: () => import("@/views/HomePage.vue") },
+    { path: "/me", name: "profile", component: () => import("@/views/ProfilePage.vue") },
     {
       path: "/explore/:packId",
       name: "pack-explore",

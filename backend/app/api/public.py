@@ -33,6 +33,73 @@ def get_public_config():
     return {"scenes": SCENES, "styles": STYLES}
 
 
+def _resolve_current_user(db: DbSession, request: Request) -> User | None:
+    """
+    Resolve a user for "My page":
+    - If logged in, use session user id
+    - Else fallback to device_id cookie (anonymous user record)
+    """
+    session_uid = get_optional_user_id(request)
+    if session_uid:
+        u = db.query(User).filter(User.id == session_uid).first()
+        if u:
+            return u
+    device = get_device_id(request)
+    if device:
+        return db.query(User).filter(User.device_id == device).first()
+    return None
+
+
+@router.get("/me")
+def me_public(db: DbSession, request: Request):
+    """Current user's public profile (for personal homepage)."""
+    u = _resolve_current_user(db, request)
+    if not u:
+        return {"authenticated": False, "user": None}
+    return {
+        "authenticated": bool(u.email),
+        "user": {
+            "id": str(u.id),
+            "device_id": u.device_id,
+            "email": u.email,
+            "display_name": u.display_name,
+            "is_vip": bool(u.is_vip),
+            "vip_expires_at": u.vip_expires_at.isoformat() if u.vip_expires_at else None,
+            "created_at": u.created_at.isoformat() if u.created_at else None,
+        },
+    }
+
+
+@router.get("/me/tasks")
+def my_tasks(db: DbSession, request: Request, page: int = 1, page_size: int = 20):
+    """List recent tasks for current user/device."""
+    u = _resolve_current_user(db, request)
+    if not u:
+        return {"total": 0, "page": page, "items": []}
+    q = db.query(Task).filter(Task.user_id == u.id)
+    total = q.count()
+    rows = (
+        q.order_by(Task.created_at.desc())
+        .offset((page - 1) * page_size)
+        .limit(page_size)
+        .all()
+    )
+    return {
+        "total": total,
+        "page": page,
+        "items": [
+            {
+                "id": str(t.id),
+                "status": t.status,
+                "scene": t.scene,
+                "style": t.style,
+                "created_at": t.created_at.isoformat() if t.created_at else None,
+            }
+            for t in rows
+        ],
+    }
+
+
 def _mask_connection_url(url: str) -> str:
     """仅用于后台预览：去掉账号密码，避免未登录时完全空白、又不在响应里泄露密钥。"""
     if not url or not url.strip():

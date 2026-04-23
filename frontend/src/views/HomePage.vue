@@ -7,7 +7,7 @@
         type="button"
         class="hover-frame inline-flex min-h-[44px] min-w-[44px] items-center justify-center gap-2 rounded-full border border-stone-300 bg-white px-3.5 py-2 text-sm font-semibold text-stone-800 shadow-md ring-1 ring-black/5 hover:bg-stone-50 active:scale-[0.98]"
         :aria-label="session.authenticated ? t('home.account') : t('home.login')"
-        @click="showAuth = true"
+        @click="session.authenticated ? router.push({ name: 'profile' }) : (showAuth = true)"
       >
         <svg
           class="h-[22px] w-[22px] shrink-0 text-stone-700"
