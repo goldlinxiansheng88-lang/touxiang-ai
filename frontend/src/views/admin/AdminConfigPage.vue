@@ -274,9 +274,15 @@ const infraPreview = ref<Record<string, string>>({});
 /** 分类结构加载完即可编辑；配置值拉取失败/重试中不禁用表单，避免「保存更改」与输入框长期灰显 */
 const canEdit = computed(() => !schemaFatal.value);
 
+/**
+ * 生产环境这些由 Railway 等平台环境变量管理，不在前端后台展示，避免误操作与干扰其它配置。
+ * 仍可通过 /health/db、Railway Variables 排查。
+ */
+const HIDDEN_CONFIG_KEYS = new Set(["database_url", "redis_url", "encryption_key"]);
+
 const mergedItems = computed<AdminConfigItem[]>(() => {
   const fromServer = new Map(valueItems.value.map((i) => [i.key, i]));
-  return schemaItems.value.map((s) => {
+  return schemaItems.value.filter((s) => !HIDDEN_CONFIG_KEYS.has(s.key)).map((s) => {
     const v = fromServer.get(s.key);
     const valueKind = s.value_kind ?? CONFIG_VALUE_KIND_BY_KEY[s.key];
     const required = typeof s.required === "boolean" ? s.required : configItemRequired(s.key);
