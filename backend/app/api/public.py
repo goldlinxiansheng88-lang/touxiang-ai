@@ -2,7 +2,7 @@ import logging
 import uuid
 from pathlib import Path
 
-from fastapi import APIRouter, File, Form, HTTPException, Query, Request, UploadFile, status
+from fastapi import APIRouter, BackgroundTasks, File, Form, HTTPException, Query, Request, UploadFile, status
 from fastapi.responses import JSONResponse
 
 from app.config import get_settings
@@ -13,7 +13,7 @@ from app.services.storage_s3 import load_s3_config, put_bytes
 from app.api.auth_endpoints import get_optional_user_id
 from app.models import Affiliate, AffiliateClick, Task, User
 from app.utils.cookies import get_aff_ref, get_device_id, set_cookies
-from app.workers.tasks import process_aura_task
+from app.workers.tasks import process_aura_task, process_aura_task_inline
 
 from .deps import DbSession
 
@@ -159,6 +159,7 @@ _ASPECT_RATIOS = frozenset({"auto", "1:1", "3:4", "4:3", "16:9", "9:16", "2:3", 
 async def create_task(
     db: DbSession,
     request: Request,
+    background_tasks: BackgroundTasks,
     image: UploadFile = File(...),
     scene: str = Form(...),
     style: str = Form(...),
@@ -249,20 +250,13 @@ async def create_task(
         process_aura_task.delay(str(task.id))
     except Exception as e:
         logger.exception("Celery 入队失败（Redis 未启动或未运行 Worker 时常见）")
-        task.status = "FAILED"
+        # Fallback: run in-process to avoid hard failure on small deployments.
+        task.status = "QUEUED"
         task.error_message = (
-            f"任务无法入队：{e!s}"[:2000]
-            + "。请确认 Redis 可连，并已启动："
-            "celery -A app.workers.celery_app worker -l info"
+            f"队列不可用，已改为 API 进程处理（可能较慢）：{e!s}"[:2000]
         )
         db.commit()
-        raise HTTPException(
-            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
-            detail=(
-                "异步队列不可用：请确认 REDIS_URL 可连并在 .env 中配置，且已运行 Celery Worker；"
-                "仅启动 API 进程无法处理生成任务。"
-            ),
-        ) from e
+        background_tasks.add_task(process_aura_task_inline, str(task.id))
 
     resp = JSONResponse(
         status_code=status.HTTP_201_CREATED,

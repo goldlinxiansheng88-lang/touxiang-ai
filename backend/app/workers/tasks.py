@@ -30,8 +30,15 @@ def _download_image(url: str, dest: Path) -> None:
         dest.write_bytes(r.content)
 
 
-@celery_app.task(bind=True, max_retries=3)
-def process_aura_task(self, task_id: str):
+def process_aura_task_inline(task_id: str) -> None:
+    """
+    Fallback execution path when Celery/Redis is unavailable.
+    Runs the same logic as the Celery task in-process (use with care on small deployments).
+    """
+    _process_aura_task(task_id)
+
+
+def _process_aura_task(task_id: str, *, _celery_retry=None, _celery_self=None) -> None:
     db = SessionLocal()
     try:
         tid = uuid.UUID(task_id)
@@ -154,14 +161,27 @@ def process_aura_task(self, task_id: str):
         db.commit()
     except Exception as e:
         db.rollback()
-        if self.request.retries >= self.max_retries:
-            t2 = db.query(Task).filter(Task.id == uuid.UUID(task_id)).first()
-            if t2:
-                t2.status = "FAILED"
-                t2.error_message = str(e)
-                t2.retry_count = (t2.retry_count or 0) + 1
-                db.commit()
-            raise
-        raise self.retry(exc=e, countdown=60 * (2 ** self.request.retries)) from e
+        if _celery_self is not None and _celery_retry is not None:
+            if _celery_self.request.retries >= _celery_self.max_retries:
+                t2 = db.query(Task).filter(Task.id == uuid.UUID(task_id)).first()
+                if t2:
+                    t2.status = "FAILED"
+                    t2.error_message = str(e)
+                    t2.retry_count = (t2.retry_count or 0) + 1
+                    db.commit()
+                raise
+            raise _celery_retry(exc=e, countdown=60 * (2 ** _celery_self.request.retries)) from e
+        t2 = db.query(Task).filter(Task.id == uuid.UUID(task_id)).first()
+        if t2:
+            t2.status = "FAILED"
+            t2.error_message = str(e)
+            t2.retry_count = (t2.retry_count or 0) + 1
+            db.commit()
+        raise
     finally:
         db.close()
+
+
+@celery_app.task(bind=True, max_retries=3)
+def process_aura_task(self, task_id: str):
+    _process_aura_task(task_id, _celery_retry=self.retry, _celery_self=self)
