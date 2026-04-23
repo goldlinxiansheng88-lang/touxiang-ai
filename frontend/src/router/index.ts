@@ -74,7 +74,7 @@ const router = createRouter({
         {
           path: "config",
           name: "admin-config",
-          redirect: { name: "admin-dash" },
+          component: () => import("@/views/admin/AdminConfigPage.vue"),
         },
         {
           path: "logs",

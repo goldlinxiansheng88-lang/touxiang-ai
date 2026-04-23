@@ -36,6 +36,14 @@
           </router-link>
 
           <router-link
+            :to="{ name: 'admin-config' }"
+            class="block rounded-lg px-3 py-2.5 text-zinc-400 transition-colors duration-150 hover:bg-white/[0.05] hover:text-zinc-100"
+            active-class="bg-white/[0.06] font-medium text-zinc-100"
+          >
+            {{ t("admin.layout.navConfig") }}
+          </router-link>
+
+          <router-link
             :to="{ name: 'admin-logs' }"
             class="block rounded-lg px-3 py-2.5 text-zinc-400 transition-colors duration-150 hover:bg-white/[0.05] hover:text-zinc-100"
             active-class="bg-white/[0.06] font-medium text-zinc-100"
@@ -70,7 +78,7 @@ import { i18n } from "@/i18n";
 import { ADMIN_FORCED_LOCALE } from "@/locales/languages";
 import { applyDomLocale, applyVantLocale } from "@/utils/localeAdmin";
 import AdminSidebarAuth from "@/components/admin/AdminSidebarAuth.vue";
-// 系统配置页已移除：所有配置请在 Railway Variables 管理
+// 系统配置页保留，但已隐藏数据库相关项；基础设施仍建议在 Railway Variables 管理。
 
 /** 首屏即渲染侧栏：必须在任何 t() 之前把 locale 钉在 zh-CN（避免仍处 en 时仅显示键名） */
 i18n.global.locale.value = ADMIN_FORCED_LOCALE;
@@ -88,5 +96,4 @@ const primaryNav = computed(() => [
   { name: "admin-affiliates" as const, label: t("admin.layout.navAffiliates") },
 ]);
 
-// no-op
 </script>
