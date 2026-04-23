@@ -219,8 +219,8 @@ def run_connection_test(
             return False, "未填写 Fal API Key"
         try:
             r = httpx.get(
-                "https://rest.fal.ai/v1/models",
-                headers={"Authorization": f"Key {token}"},
+                "https://api.fal.ai/v1/models",
+                headers={"Authorization": f"Bearer {token}"},
                 timeout=20.0,
             )
             if r.status_code == 200:
