@@ -79,6 +79,23 @@ class Settings(BaseSettings):
         if v is None:
             return v
         s = str(v).strip().replace("\r", "").replace("\n", "")
+
+        # Guard against common copy/paste mistakes that break Celery/Redis parsing:
+        # - Pasting `redis-cli -u redis://...` into REDIS_URL
+        # - Using a nonstandard scheme like `redis-15499://...` (port leaked into scheme)
+        low = s.lower()
+        for good in ("rediss://", "redis://"):
+            idx = low.find(good)
+            if idx >= 0:
+                s = s[idx:]
+                low = s.lower()
+                break
+
+        # Normalize schemes like `redis-15499://...` or `rediss-123://...`
+        if low.startswith("redis-") and "://" in low:
+            s = "redis://" + s.split("://", 1)[1]
+        elif low.startswith("rediss-") and "://" in low:
+            s = "rediss://" + s.split("://", 1)[1]
         return s
 
 
