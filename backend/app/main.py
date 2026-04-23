@@ -309,9 +309,25 @@ def health_redis():
     try:
         import redis
 
-        r = redis.Redis.from_url(get_settings().redis_url, socket_connect_timeout=3, socket_timeout=3)
+        raw = str(get_settings().redis_url or "")
+        cleaned = raw.strip().strip('"').strip("'")
+        # Return a safe fingerprint for debugging common misconfigurations:
+        # leading/trailing spaces, quotes, wrong scheme, missing db suffix.
+        u = urlparse(cleaned)
+        meta = {
+            "scheme": u.scheme or None,
+            "host": u.hostname or None,
+            "port": u.port,
+            "db": (u.path or "").lstrip("/") or None,
+            "starts_with": cleaned[:16],
+            "has_leading_space": bool(raw[:1].isspace()) if raw else False,
+            "has_trailing_space": bool(raw[-1:].isspace()) if raw else False,
+            "process_env_has_redis_url": "REDIS_URL" in os.environ,
+        }
+
+        r = redis.Redis.from_url(cleaned, socket_connect_timeout=3, socket_timeout=3)
         r.ping()
-        return {"redis": "ok"}
+        return {"redis": "ok", **meta}
     except Exception as e:
         return JSONResponse(
             status_code=503,
