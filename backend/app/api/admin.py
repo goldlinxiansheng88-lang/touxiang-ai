@@ -1,10 +1,12 @@
 import asyncio
+import ipaddress
 import json
 import logging
 import uuid
 from datetime import datetime, timezone
 from pathlib import Path
 
+import httpx
 from fastapi import APIRouter, Depends, HTTPException, Query, Request
 from fastapi.responses import StreamingResponse
 from sqlalchemy import func, text
@@ -25,6 +27,45 @@ from .deps import DbSession, admin_token
 logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/api/admin", tags=["admin"], dependencies=[Depends(admin_token)])
+
+_GEOIP_COUNTRY_CACHE: dict[str, str | None] = {}
+
+
+def _geoip_country_code(ip: str | None) -> str | None:
+    """
+    Best-effort IP -> ISO country code, for admin display only.
+    Uses ip-api.com (same provider as /api/locale/detect).
+    """
+    ip = (ip or "").strip()
+    if not ip:
+        return None
+    if ip in _GEOIP_COUNTRY_CACHE:
+        return _GEOIP_COUNTRY_CACHE[ip]
+    try:
+        addr = ipaddress.ip_address(ip)
+        if addr.is_private or addr.is_loopback or addr.is_reserved or addr.is_link_local:
+            _GEOIP_COUNTRY_CACHE[ip] = None
+            return None
+    except ValueError:
+        _GEOIP_COUNTRY_CACHE[ip] = None
+        return None
+
+    try:
+        r = httpx.get(
+            f"http://ip-api.com/json/{ip}",
+            params={"fields": "status,countryCode"},
+            timeout=2.2,
+        )
+        data = r.json()
+        if data.get("status") != "success":
+            _GEOIP_COUNTRY_CACHE[ip] = None
+            return None
+        cc = (data.get("countryCode") or "").strip().upper()
+        _GEOIP_COUNTRY_CACHE[ip] = cc or None
+        return _GEOIP_COUNTRY_CACHE[ip]
+    except Exception:
+        _GEOIP_COUNTRY_CACHE[ip] = None
+        return None
 
 
 def _sync_keys_to_dotenv_or_raise(updates: dict[str, str]) -> None:
@@ -181,20 +222,24 @@ def list_users(
         .limit(page_size)
         .all()
     )
-    return {
-        "total": total,
-        "page": page,
-        "items": [
+    items = []
+    for u in rows:
+        ip = str(u.ip_address) if u.ip_address is not None else None
+        items.append(
             {
                 "id": str(u.id),
                 "device_id": u.device_id,
-                "ip_address": str(u.ip_address) if u.ip_address is not None else None,
+                "ip_address": ip,
+                "country_code": _geoip_country_code(ip),
                 "is_vip": u.is_vip,
                 "vip_expires_at": u.vip_expires_at.isoformat() if u.vip_expires_at else None,
                 "created_at": u.created_at.isoformat() if u.created_at else None,
             }
-            for u in rows
-        ],
+        )
+    return {
+        "total": total,
+        "page": page,
+        "items": items,
     }
 
 

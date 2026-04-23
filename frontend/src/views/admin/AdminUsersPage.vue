@@ -52,7 +52,9 @@
             <td class="max-w-[200px] truncate px-4 py-3 font-mono text-xs text-stone-700" :title="row.device_id">
               {{ row.device_id }}
             </td>
-            <td class="px-4 py-3 text-stone-600">{{ row.ip_address ?? "—" }}</td>
+            <td class="px-4 py-3 text-stone-600" :title="row.ip_address ?? ''">
+              {{ row.country_code ?? "—" }}
+            </td>
             <td class="px-4 py-3">{{ row.is_vip ? t("admin.users.vipYes") : t("admin.users.vipNo") }}</td>
             <td class="px-4 py-3 text-stone-600">{{ row.created_at ?? "—" }}</td>
           </tr>

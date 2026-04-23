@@ -49,7 +49,7 @@
       "refresh": "刷新",
       "colId": "用户 ID",
       "colDevice": "设备 ID",
-      "colIp": "IP",
+      "colIp": "国家",
       "colVip": "VIP",
       "colCreated": "创建时间",
       "err401": "401：请先完成左侧保存授权。",

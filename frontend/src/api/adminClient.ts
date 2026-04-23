@@ -36,6 +36,7 @@ export type AdminUserRow = {
   id: string;
   device_id: string;
   ip_address: string | null;
+  country_code?: string | null;
   is_vip: boolean;
   vip_expires_at: string | null;
   created_at: string | null;
