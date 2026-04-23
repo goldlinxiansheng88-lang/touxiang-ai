@@ -58,7 +58,7 @@
     "registerTab": "註冊",
     "email": "電子郵件",
     "password": "密碼（至少 8 碼）",
-    "emailPlaceholder": "you@example.com",
+    "emailPlaceholder": "you{'@'}example.com",
     "passwordPlaceholder": "••••••••",
     "submitting": "送出中…",
     "emailLogin": "以電子郵件登入",

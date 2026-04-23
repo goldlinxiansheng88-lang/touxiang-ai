@@ -44,7 +44,7 @@ const pack: ClonePack = {
     registerTab: "Registrarse",
     email: "Correo",
     password: "Contraseña (mín. 8 caracteres)",
-    emailPlaceholder: "you@example.com",
+    emailPlaceholder: "you{'@'}example.com",
     passwordPlaceholder: "••••••••",
     submitting: "Enviando…",
     emailLogin: "Entrar con correo",

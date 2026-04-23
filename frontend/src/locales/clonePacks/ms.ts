@@ -44,7 +44,7 @@ const pack: ClonePack = {
     registerTab: "Daftar",
     email: "E-mel",
     password: "Kata laluan (min. 8 aksara)",
-    emailPlaceholder: "you@example.com",
+    emailPlaceholder: "you{'@'}example.com",
     passwordPlaceholder: "••••••••",
     submitting: "Menghantar…",
     emailLogin: "Log masuk dengan e-mel",

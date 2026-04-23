@@ -59,7 +59,7 @@
     "registerTab": "Register",
     "email": "Email",
     "password": "Password (min. 8 characters)",
-    "emailPlaceholder": "you@example.com",
+    "emailPlaceholder": "you{'@'}example.com",
     "passwordPlaceholder": "••••••••",
     "submitting": "Submitting…",
     "emailLogin": "Sign in with email",

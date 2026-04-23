@@ -58,7 +58,7 @@
     "registerTab": "가입",
     "email": "이메일",
     "password": "비밀번호(8자 이상)",
-    "emailPlaceholder": "you@example.com",
+    "emailPlaceholder": "you{'@'}example.com",
     "passwordPlaceholder": "••••••••",
     "submitting": "처리 중…",
     "emailLogin": "이메일로 로그인",

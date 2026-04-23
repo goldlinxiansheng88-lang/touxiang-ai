@@ -58,7 +58,7 @@
     "registerTab": "新規登録",
     "email": "メール",
     "password": "パスワード（8文字以上）",
-    "emailPlaceholder": "you@example.com",
+    "emailPlaceholder": "you{'@'}example.com",
     "passwordPlaceholder": "••••••••",
     "submitting": "送信中…",
     "emailLogin": "メールでログイン",

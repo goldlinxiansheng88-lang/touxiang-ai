@@ -44,7 +44,7 @@ const pack: ClonePack = {
     registerTab: "ลงทะเบียน",
     email: "อีเมล",
     password: "รหัสผ่าน (อย่างน้อย 8 ตัว)",
-    emailPlaceholder: "you@example.com",
+    emailPlaceholder: "you{'@'}example.com",
     passwordPlaceholder: "••••••••",
     submitting: "กำลังส่ง…",
     emailLogin: "เข้าด้วยอีเมล",

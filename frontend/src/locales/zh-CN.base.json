@@ -59,7 +59,7 @@
     "registerTab": "注册",
     "email": "邮箱",
     "password": "密码（至少 8 位）",
-    "emailPlaceholder": "you@example.com",
+    "emailPlaceholder": "you{'@'}example.com",
     "passwordPlaceholder": "••••••••",
     "submitting": "提交中…",
     "emailLogin": "邮箱登录",

@@ -44,7 +44,7 @@ const pack: ClonePack = {
     registerTab: "Kayıt ol",
     email: "E-posta",
     password: "Şifre (en az 8 karakter)",
-    emailPlaceholder: "you@example.com",
+    emailPlaceholder: "you{'@'}example.com",
     passwordPlaceholder: "••••••••",
     submitting: "Gönderiliyor…",
     emailLogin: "E-posta ile giriş",

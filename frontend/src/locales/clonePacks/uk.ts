@@ -44,7 +44,7 @@ const pack: ClonePack = {
     registerTab: "Реєстрація",
     email: "Пошта",
     password: "Пароль (мін. 8 символів)",
-    emailPlaceholder: "you@example.com",
+    emailPlaceholder: "you{'@'}example.com",
     passwordPlaceholder: "••••••••",
     submitting: "Надсилання…",
     emailLogin: "Увійти через пошту",
