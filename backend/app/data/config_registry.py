@@ -106,6 +106,28 @@ CONFIG_ENTRIES: tuple[ConfigEntry, ...] = (
         readonly=False,
         required=False,
     ),
+    ConfigEntry(
+        key="cors_allow_origin_regex",
+        label="CORS 允许的 Origin 正则（可选）",
+        description=(
+            "用于 Vercel Preview 等多变子域：填写 Python/JS 风格的正则（不要带引号）。"
+            "留空时默认启用 `https://*.vercel.app` 规则（可用 cors_enable_vercel_preview_regex=false 关闭）。"
+        ),
+        group="数据库与 API 基础",
+        is_secret=False,
+        readonly=False,
+        required=False,
+    ),
+    ConfigEntry(
+        key="cors_enable_vercel_preview_regex",
+        label="启用 Vercel 预览域名 CORS 正则（默认开）",
+        description="默认开启：放行 `https://*.vercel.app`（HTTPS only）。若你有自定义前端域名，请优先用 cors_allowed_origins 精确列出。",
+        group="数据库与 API 基础",
+        is_secret=False,
+        readonly=False,
+        default="true",
+        required=False,
+    ),
     # —— 彩虹屁大模型（文案）——
     ConfigEntry(
         key="aura_llm_provider",
@@ -370,6 +392,9 @@ VALUE_KIND_LABELS: dict[str, str] = {
     "encryption_key": "Fernet 主密钥",
     "public_base_url": "HTTPS 根地址",
     "frontend_url": "HTTPS 根地址",
+    "cors_allowed_origins": "多个 HTTPS Origin（逗号分隔）",
+    "cors_allow_origin_regex": "正则（Origin 匹配）",
+    "cors_enable_vercel_preview_regex": "true | false",
     "aura_llm_provider": "claude | gemini | deepseek",
     "claude_api_key": "API Key",
     "gemini_api_key": "API Key",

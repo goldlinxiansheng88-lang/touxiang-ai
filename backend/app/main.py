@@ -61,6 +61,21 @@ def _build_cors_allow_origins() -> list[str]:
     return out
 
 
+def _build_cors_allow_origin_regex() -> str | None:
+    """
+    Vercel Preview domains change frequently. Regex-based allowlisting avoids needing to
+    update CORS for every new deployment hostname, while still avoiding wildcard '*'.
+    """
+    s = get_settings()
+    custom = (s.cors_allow_origin_regex or "").strip()
+    if custom:
+        return custom
+    if not bool(s.cors_enable_vercel_preview_regex):
+        return None
+    # HTTPS only; matches typical Vercel preview/prod hostnames on vercel.app
+    return r"^https://[a-zA-Z0-9-]+\.vercel\.app$"
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     try:
@@ -169,6 +184,7 @@ async def unhandled_exception_handler(request: Request, exc: Exception) -> JSONR
 app.add_middleware(
     CORSMiddleware,
     allow_origins=_build_cors_allow_origins(),
+    allow_origin_regex=_build_cors_allow_origin_regex(),
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

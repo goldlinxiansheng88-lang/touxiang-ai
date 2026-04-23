@@ -34,6 +34,10 @@ class Settings(BaseSettings):
     #: 逗号分隔的浏览器 Origin（scheme://host[:port]），用于 CORS（credentials=true 时不能用 *）
     #: 例：https://your-app.vercel.app,http://localhost:5173
     cors_allowed_origins: str = ""
+    #: 额外允许的 Origin 正则（用于 Vercel Preview 等多变子域）。留空则使用内置默认（仅 https 的 *.vercel.app）。
+    cors_allow_origin_regex: str = ""
+    #: 设为 false 可关闭 cors_allow_origin_regex 的默认行为（仅依赖 cors_allowed_origins / frontend_url）
+    cors_enable_vercel_preview_regex: bool = True
 
 
     claude_api_key: str = ""
