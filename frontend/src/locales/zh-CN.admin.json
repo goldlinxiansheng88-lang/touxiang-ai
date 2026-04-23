@@ -49,6 +49,7 @@
       "refresh": "刷新",
       "colId": "用户 ID",
       "colDevice": "设备 ID",
+      "colName": "用户名",
       "colIp": "国家",
       "colVip": "VIP",
       "colCreated": "创建时间",

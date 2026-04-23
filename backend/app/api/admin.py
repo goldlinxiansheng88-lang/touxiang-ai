@@ -225,10 +225,12 @@ def list_users(
     items = []
     for u in rows:
         ip = str(u.ip_address) if u.ip_address is not None else None
+        username = (u.display_name or "").strip() or (u.email or "").strip() or u.device_id
         items.append(
             {
                 "id": str(u.id),
                 "device_id": u.device_id,
+                "username": username,
                 "ip_address": ip,
                 "country_code": _geoip_country_code(ip),
                 "is_vip": u.is_vip,
