@@ -135,7 +135,8 @@ function configShortLabel(gid: string): string {
 // Hide the infra/db section in sidebar since those fields are not shown in UI.
 const configGroupIds = ADMIN_GROUP_ORDER.filter((gid) => gid !== "db");
 
-const configExpanded = ref(false);
+// Entering /admin/config should auto-expand category buttons.
+const configExpanded = ref(route.name === "admin-config");
 const isConfigRoute = computed(() => route.name === "admin-config");
 
 function toggleConfigNav() {
@@ -163,16 +164,8 @@ function goConfigSection(gid: string) {
 watch(
   () => route.name,
   (name) => {
-    if (name !== "admin-config") {
-      configExpanded.value = false;
-    }
+    configExpanded.value = name === "admin-config";
   },
 );
-
-onMounted(() => {
-  if (route.name === "admin-config" && route.hash) {
-    configExpanded.value = true;
-  }
-});
 
 </script>
