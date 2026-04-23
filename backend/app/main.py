@@ -73,7 +73,8 @@ def _build_cors_allow_origin_regex() -> str | None:
     if not bool(s.cors_enable_vercel_preview_regex):
         return None
     # HTTPS only; matches typical Vercel preview/prod hostnames on vercel.app
-    return r"^https://[a-zA-Z0-9-]+\.vercel\.app$"
+    # Note: preview hostnames can contain multiple dot-separated labels before vercel.app.
+    return r"^https://(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.)+vercel\.app$"
 
 
 @asynccontextmanager

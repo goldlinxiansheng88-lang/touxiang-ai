@@ -206,7 +206,7 @@ export function getFallbackConfigRegistry(): {
       label: "CORS 允许的 Origin 正则（可选）",
       group: "数据库与 API 基础",
       description:
-        "用于 Vercel Preview 等多变子域。留空则默认启用 `https://*.vercel.app`（HTTPS only）。也可用 cors_enable_vercel_preview_regex=false 关闭默认规则。",
+        "用于 Vercel Preview 等多变子域。留空则默认启用 `https://*.vercel.app`（多级子域，HTTPS only）。也可用 cors_enable_vercel_preview_regex=false 关闭默认规则。",
       readonly: false,
       is_secret: false,
       value_kind: CONFIG_VALUE_KIND_BY_KEY.cors_allow_origin_regex,

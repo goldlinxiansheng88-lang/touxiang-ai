@@ -245,11 +245,11 @@
       },
       "cors_allow_origin_regex": {
         "label": "CORS 允许的 Origin 正则（可选）",
-        "description": "用于 Vercel Preview 等多变子域：填写正则（不要带引号）。留空则默认启用 `https://*.vercel.app`（HTTPS only），可用 cors_enable_vercel_preview_regex=false 关闭。"
+        "description": "用于 Vercel Preview 等多变子域：填写正则（不要带引号）。留空则默认启用 `https://*.vercel.app`（多级子域，HTTPS only），可用 cors_enable_vercel_preview_regex=false 关闭。"
       },
       "cors_enable_vercel_preview_regex": {
         "label": "启用 Vercel 预览域名 CORS 正则（默认开）",
-        "description": "默认 true：放行 `https://*.vercel.app`。若你使用自定义域名前端，请优先用 cors_allowed_origins 精确列出。"
+        "description": "默认 true：放行 `https://*.vercel.app`（多级子域）。若你使用自定义域名前端，请优先用 cors_allowed_origins 精确列出。"
       },
       "aura_llm_provider": {
         "label": "彩虹屁文案模型",
