@@ -113,7 +113,7 @@
     },
     "config": {
       "title": "系统配置",
-      "intro": "保存后写配置库并刷新缓存；数据库 / Redis / 主密钥会同步 <code class=\"rounded bg-stone-100 px-0.5 text-[10px]\">backend/.env</code>。若数据库尚未连通，仍可先保存这三项到 .env；后端会刷新配置并重建数据库连接池，试连成功后<strong class=\"font-medium text-stone-700\">再点一次保存</strong>即可把其余项写入库。卡片上的「必填」表示<strong class=\"font-medium text-stone-700\">该配置项对主流程重要</strong>；数据库与 Redis 为<strong class=\"font-medium text-stone-700\">整段连接串</strong>保存。独立 Celery 等进程若单独读 .env，仍需各自重启。",
+      "intro": "在此配置大模型、支付、存储等业务参数；保存后写入配置库并刷新缓存。",
       "showAllGroups": "显示全部分类",
       "authBanner": "未授权：左侧栏底部填写管理密码并<strong>保存授权</strong>（与 <code class=\"bg-amber-100 px-0.5 rounded\">ADMIN_PASSWORD</code> 一致）。",
       "goAuth": "去授权区",
