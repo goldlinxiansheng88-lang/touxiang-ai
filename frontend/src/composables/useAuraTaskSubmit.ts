@@ -8,7 +8,7 @@ import { usePendingStore } from "@/stores/pending";
 
 export function useAuraTaskSubmit() {
   const router = useRouter();
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
   const pending = usePendingStore();
   const submitting = ref(false);
 
@@ -42,6 +42,7 @@ export function useAuraTaskSubmit() {
         params.style,
         refCookie ? decodeURIComponent(refCookie) : null,
         pending.aspectRatio,
+        String(locale.value || "en"),
       );
       pending.clear();
       await router.push({ name: "loading", params: { taskId: res.task_id } });

@@ -198,12 +198,14 @@ export async function createTask(
   style: string,
   ref?: string | null,
   aspectRatio?: string | null,
+  locale?: string | null,
 ) {
   const fd = new FormData();
   fd.append("image", file);
   fd.append("scene", scene);
   fd.append("style", style);
   fd.append("aspect_ratio", (aspectRatio || "auto").trim() || "auto");
+  if (locale) fd.append("locale", String(locale).trim());
   if (ref) fd.append("aff_ref", ref);
   const q = ref ? `?ref=${encodeURIComponent(ref)}` : "";
   const { data } = await api.post<{ task_id: string; status: string }>(`/api/tasks${q}`, fd, {

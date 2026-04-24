@@ -144,7 +144,18 @@ def _process_aura_task(task_id: str, *, _celery_retry=None, _celery_self=None) -
             except Exception:
                 pass
 
-        preview_text, full_vibe, vibe_llm = generate_vibe_copy(scene=task.scene, style=task.style, db=db)
+        task_locale = None
+        try:
+            if isinstance(task.result_json, dict):
+                task_locale = task.result_json.get("locale")
+        except Exception:
+            task_locale = None
+        preview_text, full_vibe, vibe_llm = generate_vibe_copy(
+            scene=task.scene,
+            style=task.style,
+            locale=str(task_locale) if task_locale else None,
+            db=db,
+        )
 
         task.result_json = {
             **(task.result_json or {}),

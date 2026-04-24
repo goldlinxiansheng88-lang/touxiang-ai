@@ -164,6 +164,7 @@ async def create_task(
     scene: str = Form(...),
     style: str = Form(...),
     aspect_ratio: str | None = Form(None),
+    locale: str | None = Form(None),
     ref: str | None = Query(None),
     aff_ref: str | None = Form(None),
 ):
@@ -235,6 +236,7 @@ async def create_task(
         aspect_ratio=ar,
         status="QUEUED",
         result_json={
+            "locale": (locale or "").strip() or None,
             "generation": {
                 "positive_prompt": prompts.positive,
                 "negative_prompt": prompts.negative,
