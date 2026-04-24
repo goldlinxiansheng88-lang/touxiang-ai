@@ -271,8 +271,19 @@ def run_connection_test(
         region = _related_get(related, "s3_region", db) or "us-east-1"
         endpoint = _related_get(related, "s3_endpoint_url", db)
         public_base = _related_get(related, "s3_public_base_url", db)
-        if not ak or not sk or not bucket or not endpoint or not public_base:
-            return False, "请填写 Access/Secret、桶、Endpoint URL、公网前缀后再测"
+        missing: list[str] = []
+        if not ak:
+            missing.append("对象存储 Access Key")
+        if not sk:
+            missing.append("对象存储 Secret Key")
+        if not bucket:
+            missing.append("存储桶名称")
+        if not endpoint:
+            missing.append("对象存储 Endpoint URL（S3 API）")
+        # 注意：public_base_url 对「fal 拉取图片」必需，但不影响 S3 连接本身；
+        # 这里允许先测试 S3 读写连通性，再去补公网前缀。
+        if missing:
+            return False, "缺少：" + "、".join(missing)
         try:
             import boto3
             from botocore.config import Config
@@ -304,7 +315,10 @@ def run_connection_test(
                 client.head_bucket(Bucket=bucket)
             except Exception:
                 client.list_objects_v2(Bucket=bucket, MaxKeys=1)
-            return True, "连接成功（S3 存储桶可访问）"
+            hint = "连接成功（S3 存储桶可访问）"
+            if not public_base:
+                hint += "；但尚未填写「对象存储公网访问前缀」，fal 将无法抓取上传图，请继续补上。"
+            return True, hint
         except ClientError as e:
             return False, f"S3 错误：{e!s}"[:500]
         except Exception as e:
