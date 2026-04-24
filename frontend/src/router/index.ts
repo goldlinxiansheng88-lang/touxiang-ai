@@ -47,6 +47,21 @@ const router = createRouter({
       props: true,
     },
     {
+      path: "/terms",
+      name: "terms",
+      component: () => import("@/views/TermsPage.vue"),
+    },
+    {
+      path: "/privacy",
+      name: "privacy",
+      component: () => import("@/views/PrivacyPage.vue"),
+    },
+    {
+      path: "/refund",
+      name: "refund",
+      component: () => import("@/views/RefundPage.vue"),
+    },
+    {
       path: "/admin",
       name: "admin",
       component: () => import("@/views/admin/AdminLayout.vue"),
