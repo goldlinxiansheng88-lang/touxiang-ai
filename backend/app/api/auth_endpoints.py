@@ -120,6 +120,13 @@ def register_email(body: EmailRegisterBody, db: Session = Depends(get_db)):
     db.add(u)
     db.commit()
     db.refresh(u)
+    try:
+        from app.services.credits import grant_signup_bonus_once
+
+        grant_signup_bonus_once(db, user_id=u.id)
+        db.commit()
+    except Exception:
+        db.rollback()
     resp = JSONResponse(content={"ok": True, "user_id": str(u.id)})
     _set_session_cookie(resp, u.id, email)
     return resp
@@ -258,6 +265,13 @@ async def oauth_google_callback(
         db.add(u)
         db.commit()
         db.refresh(u)
+        try:
+            from app.services.credits import grant_signup_bonus_once
+
+            grant_signup_bonus_once(db, user_id=u.id)
+            db.commit()
+        except Exception:
+            db.rollback()
     else:
         if name and not u.display_name:
             u.display_name = name

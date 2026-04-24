@@ -5,6 +5,26 @@
       @update:model-value="(v: string) => pending.setAspectRatio(v)"
     />
 
+    <ResolutionPicker
+      :model-value="pending.resolution"
+      @update:model-value="(v: number) => pending.setResolution(v)"
+    />
+
+    <label
+      class="flex items-center justify-between rounded-xl border border-stone-200/70 bg-[var(--aura-field)] px-3 py-2.5 text-xs text-stone-700 shadow-sm"
+    >
+      <span class="font-medium">Background removal</span>
+      <span class="flex items-center gap-2">
+        <span class="text-[11px] text-stone-500">+2 credits</span>
+        <input
+          type="checkbox"
+          class="h-4 w-4 accent-red-600"
+          :checked="pending.removeBackground"
+          @change="pending.setRemoveBackground(($event.target as HTMLInputElement).checked)"
+        />
+      </span>
+    </label>
+
     <div v-if="showStyleSelect" class="space-y-1">
       <label class="block text-[11px] font-medium text-stone-600">{{ t("flow.generatePickStyleLabel") }}</label>
       <select
@@ -49,6 +69,7 @@ import { useI18n } from "vue-i18n";
 import { showFailToast } from "vant";
 import AuraSubmitOverlay from "@/components/AuraSubmitOverlay.vue";
 import ImageSpecPicker from "@/components/ImageSpecPicker.vue";
+import ResolutionPicker from "@/components/ResolutionPicker.vue";
 import type { StyleItem } from "@/api/client";
 import { usePendingStore } from "@/stores/pending";
 import { useAuraTaskSubmit } from "@/composables/useAuraTaskSubmit";

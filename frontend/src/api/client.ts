@@ -199,6 +199,8 @@ export async function createTask(
   ref?: string | null,
   aspectRatio?: string | null,
   locale?: string | null,
+  resolution?: number | null,
+  removeBackground?: boolean | null,
 ) {
   const fd = new FormData();
   fd.append("image", file);
@@ -206,6 +208,8 @@ export async function createTask(
   fd.append("style", style);
   fd.append("aspect_ratio", (aspectRatio || "auto").trim() || "auto");
   if (locale) fd.append("locale", String(locale).trim());
+  if (resolution) fd.append("resolution", String(resolution));
+  if (removeBackground != null) fd.append("remove_background", removeBackground ? "true" : "false");
   if (ref) fd.append("aff_ref", ref);
   const q = ref ? `?ref=${encodeURIComponent(ref)}` : "";
   const { data } = await api.post<{ task_id: string; status: string }>(`/api/tasks${q}`, fd, {

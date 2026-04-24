@@ -23,6 +23,7 @@ def run_flux_img2img(
     image_url: str,
     positive_prompt: str,
     negative_prompt: str,
+    image_size: Any | None = None,
     strength: float = 0.9,
     num_inference_steps: int = 32,
     guidance_scale: float = 3.5,
@@ -45,6 +46,8 @@ def run_flux_img2img(
         "enable_safety_checker": True,
         "output_format": "jpeg",
     }
+    if image_size:
+        arguments["image_size"] = image_size
 
     prev = os.environ.get("FAL_KEY")
     try:

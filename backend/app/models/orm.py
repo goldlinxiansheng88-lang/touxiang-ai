@@ -35,6 +35,9 @@ class User(Base):
     ip_address: Mapped[Optional[str]] = mapped_column(INET, nullable=True)
     is_vip: Mapped[bool] = mapped_column(Boolean, default=False)
     vip_expires_at: Mapped[Optional[datetime]] = mapped_column(DateTime(timezone=True), nullable=True)
+    # Credits / points system
+    credits_balance: Mapped[int] = mapped_column(Integer, nullable=False, default=0)
+    signup_bonus_granted: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
     updated_at: Mapped[Optional[datetime]] = mapped_column(
         DateTime(timezone=True), onupdate=func.now(), nullable=True
@@ -42,6 +45,7 @@ class User(Base):
 
     tasks: Mapped[list["Task"]] = relationship(back_populates="user")
     orders: Mapped[list["Order"]] = relationship(back_populates="user")
+    credit_ledger: Mapped[list["CreditLedger"]] = relationship(back_populates="user")
 
 
 class Affiliate(Base):
@@ -86,6 +90,24 @@ class Task(Base):
 
     user: Mapped["User"] = relationship(back_populates="tasks")
     orders: Mapped[list["Order"]] = relationship(back_populates="task")
+
+
+class CreditLedger(Base):
+    __tablename__ = "credit_ledger"
+
+    id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), primary_key=True, default=_uuid)
+    user_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("users.id"), nullable=False, index=True)
+    # + credits for grants/purchases, - credits for consumption
+    delta: Mapped[int] = mapped_column(Integer, nullable=False)
+    balance_after: Mapped[int] = mapped_column(Integer, nullable=False)
+    # e.g. signup_bonus | consume_generate | purchase_pack | subscription_refill | refund
+    kind: Mapped[str] = mapped_column(String(50), nullable=False, index=True)
+    # Optional external id for idempotency (e.g. stripe event id)
+    source_id: Mapped[Optional[str]] = mapped_column(String(120), nullable=True, index=True)
+    meta: Mapped[Optional[dict[str, Any]]] = mapped_column(JSONB, nullable=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
+
+    user: Mapped["User"] = relationship(back_populates="credit_ledger")
 
 
 class Order(Base):

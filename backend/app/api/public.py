@@ -70,6 +70,15 @@ def me_public(db: DbSession, request: Request):
     }
 
 
+@router.get("/me/credits")
+def my_credits(db: DbSession, request: Request):
+    """Current user's credits balance (anonymous device users included)."""
+    u = _resolve_current_user(db, request)
+    if not u:
+        return {"authenticated": False, "credits_balance": 0}
+    return {"authenticated": bool(u.email), "credits_balance": int(getattr(u, "credits_balance", 0) or 0)}
+
+
 @router.get("/me/tasks")
 def my_tasks(db: DbSession, request: Request, page: int = 1, page_size: int = 20):
     """List recent tasks for current user/device."""
@@ -164,6 +173,9 @@ async def create_task(
     scene: str = Form(...),
     style: str = Form(...),
     aspect_ratio: str | None = Form(None),
+    resolution: int | None = Form(None),
+    remove_background: bool | None = Form(None),
+    regenerate_of: str | None = Form(None),
     locale: str | None = Form(None),
     ref: str | None = Query(None),
     aff_ref: str | None = Form(None),
@@ -174,11 +186,41 @@ async def create_task(
     ar = (aspect_ratio or "auto").strip()
     if ar not in _ASPECT_RATIOS:
         ar = "auto"
+    res = int(resolution or 1024)
+    remove_bg = bool(remove_background) if remove_background is not None else False
+    regen_of = (regenerate_of or "").strip() or None
 
     style = (style or "").strip()
     scene = (scene or "").strip()
     if style not in STYLE_PARAMS:
         raise HTTPException(status_code=400, detail=f"Unknown style: {style}")
+
+    session_uid = get_optional_user_id(request)
+    user = None
+    if session_uid:
+        user = db.query(User).filter(User.id == session_uid).first()
+    device = get_device_id(request) or str(uuid.uuid4())
+    if not user:
+        user = db.query(User).filter(User.device_id == device).first()
+    if not user:
+        user = User(device_id=device, ip_address=request.client.host if request.client else None)
+        db.add(user)
+        db.flush()
+
+    # Credits check before any heavy work (upload / enqueue)
+    from app.services.credits import compute_generation_cost, get_balance
+
+    cost = compute_generation_cost(
+        resolution=res,
+        remove_background=remove_bg,
+        is_regenerate=bool(regen_of),
+    )
+    bal = int(get_balance(db, user.id))
+    if bal < cost.total:
+        raise HTTPException(
+            status_code=402,
+            detail=f"积分不足：当前 {bal}，本次需要 {cost.total}。请购买积分包或订阅后再试。",
+        )
 
     ext = Path(image.filename or "img.jpg").suffix or ".jpg"
     if ext.lower() not in (".jpg", ".jpeg", ".png", ".webp"):
@@ -202,18 +244,6 @@ async def create_task(
         dest.write_bytes(content)
         public_url = f"{str(public_base).rstrip('/')}/static/uploads/{fname}"
 
-    session_uid = get_optional_user_id(request)
-    user = None
-    if session_uid:
-        user = db.query(User).filter(User.id == session_uid).first()
-    device = get_device_id(request) or str(uuid.uuid4())
-    if not user:
-        user = db.query(User).filter(User.device_id == device).first()
-    if not user:
-        user = User(device_id=device, ip_address=request.client.host if request.client else None)
-        db.add(user)
-        db.flush()
-
     if aff:
         aff_row = db.query(Affiliate).filter(Affiliate.code == aff).first()
         if aff_row:
@@ -228,6 +258,9 @@ async def create_task(
 
     prompts = build_generation_prompts(scene=scene, style=style, aspect_ratio=ar)
 
+    # Credits consumption (requires authenticated user or device-based user record).
+    from app.services.credits import consume_for_task
+
     task = Task(
         user_id=user.id,
         input_image_url=public_url,
@@ -237,6 +270,11 @@ async def create_task(
         status="QUEUED",
         result_json={
             "locale": (locale or "").strip() or None,
+            "credits": {
+                "resolution": res,
+                "remove_background": remove_bg,
+                "regenerate_of": regen_of,
+            },
             "generation": {
                 "positive_prompt": prompts.positive,
                 "negative_prompt": prompts.negative,
@@ -247,6 +285,30 @@ async def create_task(
     db.add(task)
     db.commit()
     db.refresh(task)
+
+    # Consume after task id is created, so we can reference it in the ledger.
+    try:
+        consume_for_task(
+            db,
+            user_id=user.id,
+            task_id=str(task.id),
+            cost=cost.total,
+            meta={
+                "resolution": res,
+                "aspect_ratio": ar,
+                "remove_background": remove_bg,
+                "regenerate_of": regen_of,
+            },
+        )
+        # Save cost snapshot onto task
+        task.result_json = {**(task.result_json or {}), "credit_cost": {"total": cost.total}}
+        db.commit()
+    except HTTPException:
+        # mark task failed and bubble up
+        task.status = "FAILED"
+        task.error_message = "Insufficient credits"
+        db.commit()
+        raise
 
     try:
         process_aura_task.delay(str(task.id))

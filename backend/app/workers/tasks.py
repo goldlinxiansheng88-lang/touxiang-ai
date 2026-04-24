@@ -11,6 +11,7 @@ from app.models import Task
 from app.services.aura_prompt_builder import build_generation_prompts
 from app.services.aura_vibe_copywriter import generate_vibe_copy
 from app.services.fal_flux_img2img import DEFAULT_MODEL_ID, first_image_url, run_flux_img2img
+from app.services.fal_rembg import first_image_url as first_rembg_url, run_rembg
 from app.services.storage_s3 import load_s3_config, put_bytes
 from app.workers.celery_app import celery_app
 
@@ -69,18 +70,54 @@ def _process_aura_task(task_id: str, *, _celery_retry=None, _celery_self=None) -
             "parts": prompts.parts,
             "model_id": model_id,
         }
+        # read credits options
+        opts = {}
+        try:
+            if isinstance(task.result_json, dict):
+                opts = (task.result_json.get("credits") or {}) if isinstance(task.result_json.get("credits"), dict) else {}
+        except Exception:
+            opts = {}
+        resolution = int(opts.get("resolution") or 1024)
+        remove_bg = bool(opts.get("remove_background") or False)
+        gen_meta["resolution"] = resolution
+        gen_meta["remove_background"] = remove_bg
+
+        def _round64(x: float) -> int:
+            v = int(round(x / 64.0) * 64)
+            return max(64, v)
+
+        def _dims_for_ratio(ar: str, max_edge: int) -> dict[str, int] | str | None:
+            ar = (ar or "auto").strip()
+            if ar == "auto":
+                return {"width": max_edge, "height": max_edge}
+            if ":" in ar:
+                try:
+                    a, b = ar.split(":", 1)
+                    w_r = float(a)
+                    h_r = float(b)
+                    if w_r <= 0 or h_r <= 0:
+                        return {"width": max_edge, "height": max_edge}
+                    m = max(w_r, h_r)
+                    w = _round64(max_edge * (w_r / m))
+                    h = _round64(max_edge * (h_r / m))
+                    return {"width": w, "height": h}
+                except Exception:
+                    return {"width": max_edge, "height": max_edge}
+            return {"width": max_edge, "height": max_edge}
 
         blurred_url = task.input_image_url
         result_url = task.input_image_url
         s3cfg = load_s3_config(db=db)
 
         if fal_key:
+            image_size = _dims_for_ratio(task.aspect_ratio or "auto", resolution)
             raw = run_flux_img2img(
                 fal_key=fal_key,
                 model_id=model_id,
                 image_url=task.input_image_url,
                 positive_prompt=prompts.positive,
                 negative_prompt=prompts.negative,
+                image_size=image_size,
             )
             remote_out = first_image_url(raw)
             upload_dir = Path(__file__).resolve().parent.parent.parent / "uploads"
@@ -89,12 +126,21 @@ def _process_aura_task(task_id: str, *, _celery_retry=None, _celery_self=None) -
             out_path = upload_dir / out_name
             _download_image(remote_out, out_path)
 
+            # Optional background removal add-on (outputs PNG with alpha)
+            if remove_bg:
+                rb = run_rembg(fal_key=fal_key, image_url=remote_out)
+                remote_out = first_rembg_url(rb)
+                # overwrite with background-removed png
+                out_name = f"flux_{tid}.png"
+                out_path = upload_dir / out_name
+                _download_image(remote_out, out_path)
+
             if s3cfg:
                 result_url = put_bytes(
                     cfg=s3cfg,
                     key=f"outputs/result/{out_name}",
                     data=out_path.read_bytes(),
-                    content_type="image/jpeg",
+                    content_type=("image/png" if out_name.endswith(".png") else "image/jpeg"),
                     cache_control="public, max-age=31536000, immutable",
                 )
             else:

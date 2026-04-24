@@ -134,6 +134,17 @@ async def lifespan(app: FastAPI):
                         "ALTER TABLE tasks ADD COLUMN IF NOT EXISTS aspect_ratio VARCHAR(16) NOT NULL DEFAULT 'auto'"
                     )
                 )
+                # Credits system
+                conn.execute(
+                    text(
+                        "ALTER TABLE users ADD COLUMN IF NOT EXISTS credits_balance INTEGER NOT NULL DEFAULT 0"
+                    )
+                )
+                conn.execute(
+                    text(
+                        "ALTER TABLE users ADD COLUMN IF NOT EXISTS signup_bonus_granted BOOLEAN NOT NULL DEFAULT FALSE"
+                    )
+                )
         except Exception as e:
             logger.warning("users 表补列未完成（若为新库可忽略）：%s", e)
         db = SessionLocal()

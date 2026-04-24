@@ -43,6 +43,8 @@ export function useAuraTaskSubmit() {
         refCookie ? decodeURIComponent(refCookie) : null,
         pending.aspectRatio,
         String(locale.value || "en"),
+        pending.resolution,
+        pending.removeBackground,
       );
       pending.clear();
       await router.push({ name: "loading", params: { taskId: res.task_id } });
