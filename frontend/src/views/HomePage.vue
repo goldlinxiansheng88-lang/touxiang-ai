@@ -1,36 +1,35 @@
 <template>
   <div class="min-h-screen pb-10">
     <header class="relative pt-10 pb-6 px-4">
-      <!-- Keep header controls aligned with the main grid width (not screen edge) -->
-      <div class="relative mx-auto w-full max-w-[1200px]">
-        <div class="absolute top-[-1.75rem] right-0 z-[60] flex flex-row items-center gap-2 pointer-events-auto">
-          <LanguageSelector />
-          <button
-            type="button"
-            class="hover-frame inline-flex min-h-[44px] min-w-[44px] items-center justify-center gap-2 rounded-full border border-stone-300 bg-white px-3.5 py-2 text-sm font-semibold text-stone-800 shadow-md ring-1 ring-black/5 hover:bg-stone-50 active:scale-[0.98]"
-            :aria-label="session.authenticated ? t('home.account') : t('home.login')"
-            @click="session.authenticated ? router.push({ name: 'profile' }) : (showAuth = true)"
-          >
-        <svg
-            class="h-[22px] w-[22px] shrink-0 text-stone-700"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            aria-hidden="true"
-        >
-            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-            <circle cx="12" cy="7" r="4" />
-        </svg>
-            <span v-if="!session.authenticated" class="max-w-[4.5rem] truncate">{{ t("home.login") }}</span>
-            <span v-else class="max-w-[4.5rem] truncate">{{
-              (session.displayName || session.email || t("auth.signedIn")).slice(0, 1).toUpperCase()
-            }}</span>
-          </button>
-        </div>
+      <div class="mx-auto w-full max-w-[1200px]">
         <div class="text-center">
+          <div class="mb-3 flex items-center justify-center gap-2 pointer-events-auto">
+            <LanguageSelector />
+            <button
+              type="button"
+              class="hover-frame inline-flex min-h-[40px] min-w-[40px] items-center justify-center gap-2 rounded-full border border-stone-300 bg-white px-3 py-2 text-sm font-semibold text-stone-800 shadow-md ring-1 ring-black/5 hover:bg-stone-50 active:scale-[0.98]"
+              :aria-label="session.authenticated ? t('home.account') : t('home.login')"
+              @click="session.authenticated ? router.push({ name: 'profile' }) : (showAuth = true)"
+            >
+              <svg
+                class="h-[20px] w-[20px] shrink-0 text-stone-700"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                <circle cx="12" cy="7" r="4" />
+              </svg>
+              <span v-if="!session.authenticated" class="max-w-[6rem] truncate">{{ t("home.login") }}</span>
+              <span v-else class="max-w-[6rem] truncate">{{
+                (session.displayName || session.email || t("auth.signedIn")).slice(0, 1).toUpperCase()
+              }}</span>
+            </button>
+          </div>
           <h1
             class="text-[1.65rem] font-semibold tracking-tight text-stone-900 sm:text-3xl [text-shadow:0_1px_0_rgba(255,255,255,0.55)]"
           >
