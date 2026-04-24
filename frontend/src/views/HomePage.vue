@@ -99,6 +99,19 @@
       :style-choices="stylesForHomeGrid"
       :initial-file="null"
     />
+
+    <footer class="mt-10 border-t border-stone-200/60 bg-white/50 px-4 py-8">
+      <div class="mx-auto flex w-full max-w-[1200px] flex-col items-center justify-between gap-4 sm:flex-row">
+        <nav class="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs font-medium text-stone-600">
+          <RouterLink class="hover:underline" to="/terms">Terms</RouterLink>
+          <RouterLink class="hover:underline" to="/privacy">Privacy</RouterLink>
+          <RouterLink class="hover:underline" to="/refund">Refund</RouterLink>
+        </nav>
+        <p class="text-center text-xs text-stone-500">
+          © {{ copyrightYear }} Aura / touxiangAI. All rights reserved.
+        </p>
+      </div>
+    </footer>
   </div>
 </template>
 
@@ -119,6 +132,7 @@ import { sceneLabel } from "@/utils/i18nDisplay";
 const router = useRouter();
 const { t, locale, getLocaleMessage } = useI18n();
 const session = useUserSessionStore();
+const copyrightYear = new Date().getFullYear();
 
 function scenePillLabel(s: Scene) {
   return sceneLabel(getLocaleMessage, locale.value, s.id, s.label);
