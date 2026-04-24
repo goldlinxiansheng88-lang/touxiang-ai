@@ -12,8 +12,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 COPY requirements.txt /app/requirements.txt
 RUN pip install --no-cache-dir -r /app/requirements.txt
 
-ARG CACHE_BUST=1
-RUN echo $CACHE_BUST
+ARG CACHE_BUST=2
+RUN echo "cache_bust=$CACHE_BUST"
 
 COPY . /app
 
