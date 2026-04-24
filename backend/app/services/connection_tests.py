@@ -278,9 +278,16 @@ def run_connection_test(
             from botocore.config import Config
             from botocore.exceptions import ClientError
 
-            # Supabase Storage 的 S3 兼容接口：path-style + s3v4
+            # Supabase / Cloudflare R2 的 S3 兼容接口：path-style + s3v4
             endpoint_s = str(endpoint).strip() or ""
-            addressing_style = "path" if (".supabase.co" in endpoint_s and "/storage/v1/s3" in endpoint_s) else "auto"
+            addressing_style = (
+                "path"
+                if (
+                    (".supabase.co" in endpoint_s and "/storage/v1/s3" in endpoint_s)
+                    or (".r2.cloudflarestorage.com" in endpoint_s)
+                )
+                else "auto"
+            )
             region_s = str(region).strip() or "us-east-1"
             if region_s.lower() == "auto":
                 region_s = "us-east-1"
@@ -292,7 +299,11 @@ def run_connection_test(
                 endpoint_url=endpoint_s or None,
                 config=Config(signature_version="s3v4", s3={"addressing_style": addressing_style}),
             )
-            client.head_bucket(Bucket=bucket)
+            # R2 对 head_bucket 的权限/行为在某些 token 配置下更容易失败，list_objects 更稳
+            try:
+                client.head_bucket(Bucket=bucket)
+            except Exception:
+                client.list_objects_v2(Bucket=bucket, MaxKeys=1)
             return True, "连接成功（S3 存储桶可访问）"
         except ClientError as e:
             return False, f"S3 错误：{e!s}"[:500]

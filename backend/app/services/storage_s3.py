@@ -48,6 +48,18 @@ def _is_supabase_s3_endpoint(endpoint_url: str) -> bool:
         return False
 
 
+def _is_cloudflare_r2_endpoint(endpoint_url: str) -> bool:
+    u = (endpoint_url or "").strip()
+    if not u:
+        return False
+    try:
+        p = urlparse(u)
+        host = (p.hostname or "").lower()
+        return host.endswith(".r2.cloudflarestorage.com")
+    except Exception:
+        return False
+
+
 def load_s3_config(*, db) -> S3Config | None:
     """读取 S3/R2 配置。缺任一关键项则返回 None。"""
     settings = get_settings()
@@ -88,8 +100,8 @@ def _client(cfg: S3Config):
     import boto3
     from botocore.config import Config
 
-    # Supabase Storage 的 S3 兼容接口使用 path-style 更稳（避免虚拟主机式 bucket 子域名解析）
-    addressing_style = "path" if _is_supabase_s3_endpoint(cfg.endpoint_url) else "auto"
+    # Supabase/R2 的 S3 兼容接口使用 path-style 更稳（避免虚拟主机式 bucket 子域名解析）
+    addressing_style = "path" if (_is_supabase_s3_endpoint(cfg.endpoint_url) or _is_cloudflare_r2_endpoint(cfg.endpoint_url)) else "auto"
     region = (cfg.region or "us-east-1").strip()
     if region.lower() in ("auto",):
         region = "us-east-1"
