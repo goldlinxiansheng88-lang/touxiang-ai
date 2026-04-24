@@ -275,14 +275,22 @@ def run_connection_test(
             return False, "请填写 Access/Secret、桶、Endpoint URL、公网前缀后再测"
         try:
             import boto3
+            from botocore.config import Config
             from botocore.exceptions import ClientError
 
+            # Supabase Storage 的 S3 兼容接口：path-style + s3v4
+            endpoint_s = str(endpoint).strip() or ""
+            addressing_style = "path" if (".supabase.co" in endpoint_s and "/storage/v1/s3" in endpoint_s) else "auto"
+            region_s = str(region).strip() or "us-east-1"
+            if region_s.lower() == "auto":
+                region_s = "us-east-1"
             client = boto3.client(
                 "s3",
                 aws_access_key_id=ak,
                 aws_secret_access_key=sk,
-                region_name=region,
-                endpoint_url=str(endpoint).strip() or None,
+                region_name=region_s,
+                endpoint_url=endpoint_s or None,
+                config=Config(signature_version="s3v4", s3={"addressing_style": addressing_style}),
             )
             client.head_bucket(Bucket=bucket)
             return True, "连接成功（S3 存储桶可访问）"

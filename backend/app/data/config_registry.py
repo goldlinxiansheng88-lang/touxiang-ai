@@ -44,7 +44,12 @@ GROUP_HINTS: dict[str, str] = {
         "FLUX.1 img2img（默认 fal-ai/flux/dev/image-to-image）。上传图 URL 须对公网可访问（public_base_url）。"
         "未配置 Fal 时仍走本地占位模糊预览。"
     ),
-    "存储配置": "生成结果需写入对象存储；Access/Secret/桶/区域为主流程必填项。",
+    "存储配置": (
+        "生成结果建议写入对象存储（S3 兼容）。"
+        "若用 Supabase Storage：Access Key 填 project ref，Secret Key 填 service_role key，"
+        "Endpoint 填 https://<project-ref>.supabase.co/storage/v1/s3，"
+        "公网前缀填 https://<project-ref>.supabase.co/storage/v1/object/public/<bucket>。"
+    ),
     "支付与会员": "Stripe / Creem / Lemon Squeezy / USDT 任选配置；任一填好即可在前台展示对应收款方式。",
     "登录与 OAuth": "第三方登录（Google / Microsoft）相关参数。仅需在 Railway Variables 或本页填入对应 Client ID/Secret。",
     "管理后台": "左侧栏「管理密码」与 ADMIN_PASSWORD 一致，用于调用管理接口。",
@@ -231,7 +236,7 @@ CONFIG_ENTRIES: tuple[ConfigEntry, ...] = (
     ConfigEntry(
         key="s3_region",
         label="区域 Region",
-        description="如 us-east-1。",
+        description="如 us-east-1；Supabase 可填 auto。",
         group="存储配置",
         is_secret=False,
         default="us-east-1",
@@ -240,7 +245,10 @@ CONFIG_ENTRIES: tuple[ConfigEntry, ...] = (
     ConfigEntry(
         key="s3_endpoint_url",
         label="对象存储 Endpoint URL",
-        description="S3 兼容 endpoint（R2 形如 https://<accountid>.r2.cloudflarestorage.com）。",
+        description=(
+            "S3 兼容 endpoint（R2 形如 https://<accountid>.r2.cloudflarestorage.com；"
+            "Supabase 形如 https://<project-ref>.supabase.co/storage/v1/s3）。"
+        ),
         group="存储配置",
         is_secret=False,
         required=True,
@@ -248,7 +256,11 @@ CONFIG_ENTRIES: tuple[ConfigEntry, ...] = (
     ConfigEntry(
         key="s3_public_base_url",
         label="对象存储公网访问前缀",
-        description="对外可访问的 URL 前缀（建议绑定自定义域名），如 https://img.yourdomain.com/bucket-or-prefix（末尾不带 /）。",
+        description=(
+            "对外可访问的 URL 前缀（末尾不带 /）。"
+            "例如 R2 自定义域名 https://img.yourdomain.com；"
+            "Supabase public bucket 形如 https://<project-ref>.supabase.co/storage/v1/object/public/<bucket>。"
+        ),
         group="存储配置",
         is_secret=False,
         required=True,
