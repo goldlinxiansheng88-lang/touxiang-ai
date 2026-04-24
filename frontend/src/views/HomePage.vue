@@ -2,8 +2,21 @@
   <div class="min-h-screen pb-10">
     <header class="relative pt-10 pb-6 px-4">
       <div class="mx-auto w-full max-w-[1200px]">
-        <div class="text-center">
-          <div class="mb-3 flex items-center justify-center gap-2 pointer-events-auto">
+        <div class="flex items-start justify-between gap-3">
+          <!-- Title block: align left with image grid -->
+          <div class="min-w-0 text-left">
+            <h1
+              class="text-[1.65rem] font-semibold tracking-tight text-stone-900 sm:text-3xl [text-shadow:0_1px_0_rgba(255,255,255,0.55)]"
+            >
+              {{ t("home.title") }}
+            </h1>
+            <p class="mt-2 text-[13px] font-medium uppercase tracking-[0.22em] text-stone-500/85 sm:text-sm">
+              {{ t("home.tagline") }}
+            </p>
+          </div>
+
+          <!-- Controls: keep top-right -->
+          <div class="flex shrink-0 items-center gap-2 pt-0.5 pointer-events-auto">
             <LanguageSelector />
             <button
               type="button"
@@ -30,14 +43,6 @@
               }}</span>
             </button>
           </div>
-          <h1
-            class="text-[1.65rem] font-semibold tracking-tight text-stone-900 sm:text-3xl [text-shadow:0_1px_0_rgba(255,255,255,0.55)]"
-          >
-            {{ t("home.title") }}
-          </h1>
-          <p class="mt-2 text-[13px] font-medium uppercase tracking-[0.22em] text-stone-500/85 sm:text-sm">
-            {{ t("home.tagline") }}
-          </p>
         </div>
       </div>
     </header>
