@@ -13,6 +13,29 @@
             <p class="mt-2 text-[13px] font-medium uppercase tracking-[0.22em] text-stone-500/85 sm:text-sm">
               {{ t("home.tagline") }}
             </p>
+            <nav
+              class="mt-3 flex flex-wrap items-center gap-2 border-t border-stone-200/40 pt-3 sm:gap-2.5"
+              :aria-label="t('home.nav.aria')"
+            >
+              <RouterLink
+                class="home-top-nav hover-frame inline-flex items-center rounded-full border border-stone-200/90 bg-white/80 px-3 py-1.5 text-xs font-semibold text-stone-700 shadow-sm sm:text-[13px]"
+                to="/packs"
+              >
+                {{ t("home.nav.packs") }}
+              </RouterLink>
+              <RouterLink
+                class="home-top-nav hover-frame inline-flex items-center rounded-full border border-stone-200/90 bg-white/80 px-3 py-1.5 text-xs font-semibold text-stone-700 shadow-sm sm:text-[13px]"
+                to="/tools"
+              >
+                {{ t("home.nav.tools") }}
+              </RouterLink>
+              <RouterLink
+                class="home-top-nav hover-frame inline-flex items-center rounded-full border border-stone-200/90 bg-white/80 px-3 py-1.5 text-xs font-semibold text-stone-700 shadow-sm sm:text-[13px]"
+                to="/pricing"
+              >
+                {{ t("home.nav.pricing") }}
+              </RouterLink>
+            </nav>
           </div>
 
           <!-- Controls: keep top-right -->
@@ -68,8 +91,9 @@
       </div>
 
       <section
-        v-if="explorePacksVisible.length"
-        class="explore-packs mb-6 w-full border-t border-stone-200/50 px-2 py-7 sm:px-4 sm:py-8"
+        v-if="explorePackBlocks.length"
+        id="photo-packs"
+        class="explore-packs mb-6 w-full scroll-mt-24 border-t border-stone-200/50 px-2 py-7 sm:px-4 sm:py-8"
         aria-labelledby="explore-packs-title"
       >
         <h2
@@ -78,24 +102,56 @@
         >
           {{ t("home.explorePacks.title") }}
         </h2>
-        <div class="explore-packs-cloud mx-auto mt-7 flex max-w-[920px] flex-wrap justify-center gap-x-2 gap-y-3 sm:gap-x-3">
-          <button
-            v-for="(p, idx) in explorePacksVisible"
-            :key="p.id"
-            type="button"
-            class="explore-chip hover-frame touch-manipulation"
-            :class="`explore-chip--s${idx % 5}`"
-            @click="goExplorePack(p.id)"
+        <p class="mx-auto mt-2 max-w-xl text-center text-xs text-stone-500 sm:text-sm">
+          {{ t("home.explorePacks.groupedHint") }}
+        </p>
+        <div v-for="block in explorePackBlocks" :key="block.sceneId" class="mt-8">
+          <h3
+            class="text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-stone-500/90 sm:text-xs"
           >
-            <span class="explore-chip-emoji" aria-hidden="true">{{ p.emoji }}</span>
-            <span class="explore-chip-label">{{ t(p.labelKey) }}</span>
-          </button>
+            {{ block.sceneLabel }}
+          </h3>
+          <div
+            class="explore-packs-cloud mx-auto mt-3 flex max-w-[920px] flex-wrap justify-center gap-x-2 gap-y-3 sm:gap-x-3"
+          >
+            <button
+              v-for="(p, idx) in block.packs"
+              :key="p.id"
+              type="button"
+              class="explore-chip hover-frame touch-manipulation"
+              :class="`explore-chip--s${idx % 5}`"
+              @click="goExplorePack(p.id)"
+            >
+              <span class="explore-chip-emoji" aria-hidden="true">{{ p.emoji }}</span>
+              <span class="explore-chip-label">{{ t(p.labelKey) }}</span>
+            </button>
+          </div>
         </div>
       </section>
 
       <div id="aura-style-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 scroll-mt-6">
         <StyleCard v-for="st in stylesForHomeGrid" :key="st.id" :item="st" @select="onStylePick(st.id)" />
       </div>
+
+      <section
+        id="free-tools"
+        class="mt-10 scroll-mt-24 rounded-2xl border border-stone-200/70 bg-white/55 px-4 py-6 shadow-sm backdrop-blur-sm sm:px-6 sm:py-7"
+      >
+        <h2 class="text-center text-base font-semibold tracking-tight text-stone-900 sm:text-lg">
+          {{ t("home.freeTools.title") }}
+        </h2>
+        <p class="mx-auto mt-2 max-w-xl text-center text-xs leading-relaxed text-stone-600 sm:text-sm">
+          {{ t("home.freeTools.lead") }}
+        </p>
+        <div class="mt-4 flex justify-center">
+          <RouterLink
+            class="hover-frame inline-flex items-center rounded-full border border-stone-300 bg-white px-4 py-2 text-xs font-semibold text-stone-800 shadow-sm sm:text-sm"
+            to="/tools"
+          >
+            {{ t("home.freeTools.cta") }}
+          </RouterLink>
+        </div>
+      </section>
     </div>
 
     <AuraGenerateSheet
@@ -113,6 +169,7 @@
           <RouterLink class="hover:underline" to="/terms">Terms</RouterLink>
           <RouterLink class="hover:underline" to="/privacy">Privacy</RouterLink>
           <RouterLink class="hover:underline" to="/refund">Refund</RouterLink>
+          <RouterLink class="hover:underline" to="/pricing">{{ t("home.nav.pricing") }}</RouterLink>
         </nav>
         <p class="text-center text-xs text-stone-500">
           © {{ copyrightYear }} Aura / touxiangAI. All rights reserved.
@@ -133,7 +190,7 @@ import UserAuthModal from "@/components/UserAuthModal.vue";
 import { fetchConfig, type Scene, type StyleItem } from "@/api/client";
 import StyleCard from "@/components/StyleCard.vue";
 import { useUserSessionStore } from "@/stores/userSession";
-import { filterExplorePacks } from "@/data/explorePacks";
+import { filterExplorePacks, packsGroupedByScene } from "@/data/explorePacks";
 import { sceneLabel } from "@/utils/i18nDisplay";
 
 const router = useRouter();
@@ -151,7 +208,18 @@ const scenes = ref<Scene[]>([]);
 const styles = ref<StyleItem[]>([]);
 /** 首页主网格不展示主题包专用风格（避免 200+ 张挤占首屏） */
 const stylesForHomeGrid = computed(() => styles.value.filter((s) => !s.id.startsWith("tp_")));
-const explorePacksVisible = computed(() => filterExplorePacks(scenes.value));
+const explorePackBlocks = computed(() => {
+  const packs = filterExplorePacks(scenes.value);
+  const order = scenes.value.map((s) => s.id);
+  return packsGroupedByScene(packs, order).map((b) => {
+    const sc = scenes.value.find((s) => s.id === b.sceneId);
+    return {
+      sceneId: b.sceneId,
+      packs: b.packs,
+      sceneLabel: sc ? sceneLabel(getLocaleMessage, locale.value, sc.id, sc.label) : b.sceneId,
+    };
+  });
+});
 const activeScene = ref("AVATAR");
 
 const panelOpen = ref(false);
@@ -316,5 +384,12 @@ function onStylePick(styleId: string) {
 .explore-chip--s3:active,
 .explore-chip--s4:active {
   transform: scale(0.98);
+}
+.home-top-nav.router-link-active {
+  border-color: rgba(220, 38, 38, 0.4);
+  color: rgb(41 37 36);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.95),
+    0 0 0 1px rgba(220, 38, 38, 0.2);
 }
 </style>

@@ -5,8 +5,20 @@
     "login": "로그인",
     "account": "계정",
     "clickToUse": "탭하여 사용 >",
+    "nav": {
+      "aria": "사이트 메뉴",
+      "packs": "포토 팩",
+      "tools": "무료 도구",
+      "pricing": "요금"
+    },
+    "freeTools": {
+      "title": "무료 이미지 도우미",
+      "lead": "화질 개선, 뷰티, 누끼 등 가벼운 CV/복원 파이프라인(채팅 LLM 불필요).",
+      "cta": "도구 보기"
+    },
     "explorePacks": {
       "title": "팩 둘러보기",
+      "groupedHint": "홈 상단 장면(아바타, 배경화면 등)과 같은 기준으로 묶었습니다.",
       "couples": "커플",
       "cartoon": "카툰",
       "anime": "애니",

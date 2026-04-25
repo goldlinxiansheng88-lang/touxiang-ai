@@ -62,6 +62,21 @@ const router = createRouter({
       component: () => import("@/views/RefundPage.vue"),
     },
     {
+      path: "/packs",
+      name: "packs",
+      component: () => import("@/views/PacksPage.vue"),
+    },
+    {
+      path: "/tools",
+      name: "tools",
+      component: () => import("@/views/ToolsPage.vue"),
+    },
+    {
+      path: "/pricing",
+      name: "pricing",
+      component: () => import("@/views/PricingPage.vue"),
+    },
+    {
       path: "/admin",
       name: "admin",
       component: () => import("@/views/admin/AdminLayout.vue"),

@@ -5,8 +5,20 @@
     "login": "登录",
     "account": "账号",
     "clickToUse": "点击使用 >",
+    "nav": {
+      "aria": "站点导航",
+      "packs": "照片包",
+      "tools": "免费工具",
+      "pricing": "定价"
+    },
+    "freeTools": {
+      "title": "免费修图小工具",
+      "lead": "画质增强、美颜、抠图、消除杂物等——走轻量 CV / 修复管线，无需对话大模型。",
+      "cta": "查看工具说明"
+    },
     "explorePacks": {
       "title": "探索主题包",
+      "groupedHint": "已按首页顶栏场景（头像、壁纸、时尚等）归类，便于按用途挑选主题包。",
       "couples": "情侣",
       "cartoon": "卡通",
       "anime": "动漫",
@@ -199,6 +211,72 @@
     "vipNo": "VIP 未开通",
     "myTasks": "我的最近任务",
     "view": "查看"
+  },
+  "packsPage": {
+    "back": "返回首页",
+    "title": "照片包",
+    "intro": "每个标签会进入该主题的风格列表。下列分区与首页场景 pill（头像、壁纸、时尚等）一致。",
+    "empty": "暂无可展示的主题包，请稍后再试。"
+  },
+  "toolsPage": {
+    "back": "返回首页",
+    "title": "免费工具",
+    "subtitle": "无需对话大模型的轻量修图能力：传统补图、超分修复、分割抠图与换脸管线的产品化说明。",
+    "disclaimer": "以下为产品路线图说明；实际上线前仍需接入算力、权限与合规审查（尤其是换脸与敏感内容）。",
+    "cards": {
+      "objectRemover": {
+        "title": "移除路人 / 前任（移除器）",
+        "tag": "IOPaint · LaMa",
+        "pain": "网红机位全是游客，或分手后想从合照里抹掉前任——典型强刚需。",
+        "stack": "稳定组合：粗笔刷选区 + LaMa 类补全（常见集成在 IOPaint 工具栈）。",
+        "product": "交互务必「傻瓜化」：涂抹即遮罩，松手即消除并尽量无缝补背景。"
+      },
+      "restoreUpscale": {
+        "title": "拯救高糊自拍 / 老照片",
+        "tag": "Real-ESRGAN · CodeFormer",
+        "pain": "夜景前置、几年前存图、社交软件反复压缩后的糊图，用户对「变清晰」执念很强。",
+        "stack": "Real-ESRGAN 负责整体与衣物纹理放大；CodeFormer 专注面部可感知修复。",
+        "product": "可包装为「一键 4K 焕颜」「网图无损放大」等单按钮预设。"
+      },
+      "beauty": {
+        "title": "美颜与肤质整理",
+        "tag": "CV 美颜",
+        "pain": "希望肤色更干净、瑕疵更弱，但不想打开专业修图软件。",
+        "stack": "引导滤波、双边/保边平滑、曲线与局部对比——参数得当可在 CPU 上跑得很快。",
+        "product": "提供「自然 / 清透 / 立体」等弱干预预设，并限制强度避免塑料脸。"
+      },
+      "bgRemove": {
+        "title": "一键抠图做表情包 / 贴纸",
+        "tag": "rembg · U²-Net",
+        "pain": "抠人像或宠物做聊天贴纸、拼贴素材，比做海报更常见。",
+        "stack": "rembg（U²-Net 系）在 CPU 上也能约两秒内出透明底。",
+        "product": "速度优先，预览后突出「透明背景下载」按钮。"
+      },
+      "faceSwap": {
+        "title": "换脸（高风险）",
+        "tag": "FaceFusion · roop",
+        "pain": "娱乐传播强，但滥用与合规成本同样高。",
+        "stack": "FaceFusion / roop 类方案适合 API 封装与队列化。",
+        "product": "必须叠加敏感内容拦截、明确同意与水印；免费档限频，日志可追溯。"
+      }
+    }
+  },
+  "pricingPage": {
+    "back": "返回首页",
+    "title": "定价",
+    "intro": "AuraShift 按「积分 / credits」计费；输出分辨率越高，单次生成消耗越多。",
+    "creditsTitle": "单次生成参考消耗（短边像素）",
+    "tier512": "512 px",
+    "tier512Credits": "2 积分",
+    "tier1024": "1024 px",
+    "tier1024Credits": "4 积分",
+    "tier2048": "2048 px",
+    "tier2048Credits": "9 积分",
+    "tier4096": "4096 px",
+    "tier4096Credits": "20 积分",
+    "addonBg": "可选加购：生成时勾选「去背景」在分辨率消耗基础上额外 +2 积分。",
+    "regenerate": "基于已有任务的再次生成可能享受折扣，具体以后台与结账配置为准。",
+    "checkoutNote": "以上数字与前台选择器默认一致；实际扣费以结账页与账户流水为准。"
   },
   "meta": {
     "pageTitle": "AuraShift — 发现你的气场",

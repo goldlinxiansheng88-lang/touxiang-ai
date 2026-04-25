@@ -5,8 +5,20 @@
     "login": "ログイン",
     "account": "アカウント",
     "clickToUse": "タップして使う >",
+    "nav": {
+      "aria": "サイト内ナビ",
+      "packs": "フォトパック",
+      "tools": "無料ツール",
+      "pricing": "料金"
+    },
+    "freeTools": {
+      "title": "無料の画像補助",
+      "lead": "高画質化・美容・切り抜きなど、軽量な CV / 修復モデル向け（チャット LLM 不要）。",
+      "cta": "ツール一覧を見る"
+    },
     "explorePacks": {
       "title": "パックを探す",
+      "groupedHint": "ホーム上部のシーン（アバター、壁紙など）と同じ区分けです。",
       "couples": "カップル",
       "cartoon": "カートゥーン",
       "anime": "アニメ",

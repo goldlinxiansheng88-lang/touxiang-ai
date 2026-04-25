@@ -5,8 +5,20 @@
     "login": "Log in",
     "account": "Account",
     "clickToUse": "Click to use >",
+    "nav": {
+      "aria": "Site sections",
+      "packs": "Photo packs",
+      "tools": "Free tools",
+      "pricing": "Pricing"
+    },
+    "freeTools": {
+      "title": "Free image helpers",
+      "lead": "Upscale, beauty, cutout, and cleanup — fast CV / restoration stacks, not chat LLMs.",
+      "cta": "See tool lineup"
+    },
     "explorePacks": {
       "title": "Explore packs",
+      "groupedHint": "Grouped by the same scenes as the top row (Avatar, Wallpaper, Fashion, …).",
       "couples": "Couples",
       "cartoon": "Cartoon",
       "anime": "Anime",
@@ -199,6 +211,72 @@
     "vipNo": "VIP not active",
     "myTasks": "My recent tasks",
     "view": "View"
+  },
+  "packsPage": {
+    "back": "Back to home",
+    "title": "Photo packs",
+    "intro": "Each chip opens a curated style grid for that theme. Below, packs are sorted under the same scene lanes as the homepage.",
+    "empty": "No packs are available right now. Please try again later."
+  },
+  "toolsPage": {
+    "back": "Back to home",
+    "title": "Free tools",
+    "subtitle": "Lightweight editors you can ship without a conversational LLM — classic inpainting, super-resolution, segmentation, and swap pipelines.",
+    "disclaimer": "Roadmap descriptions only: wiring to GPU workers, consent checks, and rate limits still belong in product and legal review before launch.",
+    "cards": {
+      "objectRemover": {
+        "title": "Object remover",
+        "tag": "IOPaint · LaMa",
+        "pain": "Landmarks packed with tourists, or an ex in an old couple shot — users want them gone in one gesture.",
+        "stack": "Stable stack: coarse brush mask + LaMa-style inpainting (often packaged via IOPaint).",
+        "product": "Keep it foolproof: scribble on what to remove, release, and show an instant patch preview."
+      },
+      "restoreUpscale": {
+        "title": "Rescue blurry shots",
+        "tag": "Real-ESRGAN · CodeFormer",
+        "pain": "Night selfies, compressed chat saves, and aged camera rolls that deserve a second life.",
+        "stack": "Real-ESRGAN for global upscale/detail recovery, CodeFormer when faces need believable reconstruction.",
+        "product": "Market as “One-tap 4K glow” or “lossless enlargement for social saves” with a single preset slider."
+      },
+      "beauty": {
+        "title": "Beauty & skin polish",
+        "tag": "CV retouch",
+        "pain": "Users want brighter skin and cleaner texture without launching a full creative suite.",
+        "stack": "Guided filters, bilateral / guided smoothing, tone curves — all CPU-friendly when tuned.",
+        "product": "Offer subtle “studio skin” presets plus intensity guardrails so faces stay recognizable."
+      },
+      "bgRemove": {
+        "title": "Background remover",
+        "tag": "rembg · U²-Net",
+        "pain": "Stickers, memes, and collage layers — not poster design — are the real C-end use case.",
+        "stack": "rembg on top of U²-Net (or similar) for crisp alpha mattes in a couple of seconds on CPU.",
+        "product": "Prioritize speed and a obvious “Download transparent PNG” button after preview."
+      },
+      "faceSwap": {
+        "title": "Face swap (high risk)",
+        "tag": "FaceFusion · roop",
+        "pain": "Viral jokes and mashups drive shares, but misuse scales just as fast.",
+        "stack": "FaceFusion / roop-class pipelines behind an API with strict logging.",
+        "product": "Treat as compliance-heavy: block NSFW targets, require clear consent, watermark outputs, and throttle free tier."
+      }
+    }
+  },
+  "pricingPage": {
+    "back": "Back to home",
+    "title": "Pricing",
+    "intro": "AuraShift bills generation in credits. Higher output resolutions consume more credits per run.",
+    "creditsTitle": "Example credit costs per generation",
+    "tier512": "512 px short edge",
+    "tier512Credits": "2 credits",
+    "tier1024": "1024 px short edge",
+    "tier1024Credits": "4 credits",
+    "tier2048": "2048 px short edge",
+    "tier2048Credits": "9 credits",
+    "tier4096": "4096 px short edge",
+    "tier4096Credits": "20 credits",
+    "addonBg": "Optional add-on: background removal adds +2 credits on top of the resolution cost.",
+    "regenerate": "Regenerations from an existing task may receive a discount depending on your plan — values are enforced server-side.",
+    "checkoutNote": "Displayed numbers mirror the current picker defaults; final charges follow whatever is configured at checkout and in your account ledger."
   },
   "meta": {
     "pageTitle": "AuraShift — Find Your Aura",

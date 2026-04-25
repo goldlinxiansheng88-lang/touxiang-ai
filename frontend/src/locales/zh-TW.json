@@ -5,8 +5,20 @@
     "login": "登入",
     "account": "帳號",
     "clickToUse": "點擊使用 >",
+    "nav": {
+      "aria": "網站導覽",
+      "packs": "照片包",
+      "tools": "免費工具",
+      "pricing": "定價"
+    },
+    "freeTools": {
+      "title": "免費修圖小工具",
+      "lead": "畫質增強、美顏、去背等——輕量 CV／修復流程，不必接對話大模型。",
+      "cta": "查看工具說明"
+    },
     "explorePacks": {
       "title": "探索主題包",
+      "groupedHint": "依首頁頂部場景（頭像、桌布、時尚等）分組，方便依用途挑主題包。",
       "couples": "情侶",
       "cartoon": "卡通",
       "anime": "動漫",
