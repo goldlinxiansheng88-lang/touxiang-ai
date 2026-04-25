@@ -282,8 +282,33 @@
     "regenerate": "携带「再次生成」标记时，按（基础分辨率消耗 + 去背景加价）总价的 50% 计费，结果向上取整到整数积分；明细写入任务与流水。",
     "signupTitle": "注册赠送",
     "signupBody": "新用户首次注册/登录成功后一次性赠送 {credits} 积分（写入流水，同一账号不重复发放）。",
-    "subscriptionTitle": "积分包与订阅",
-    "subscriptionBody": "付费积分包与订阅续费拟通过 Stripe 等结账与 Webhook 向账户充值（流水类型如 purchase_pack、subscription_refill）。具体 SKU、每月发放积分数、自动续订与退订规则以结账页与订单确认邮件为准，本站摘要页不替代合同条款。",
+    "plansTitle": "订阅套餐（按月 / 按年）",
+    "plansLead": "订阅到期自动续费；续费成功后每月即时发放对应积分到余额（按自然月/账单周期发放，以结账页为准）。",
+    "planFree": {
+      "name": "Free",
+      "price": "免费",
+      "desc": "注册赠送 + 免费额度（如有）"
+    },
+    "planPro": {
+      "name": "Pro",
+      "price": "$19/月 或 $159/年",
+      "credits": "每月 200 积分",
+      "desc": "适合稳定日常出图"
+    },
+    "planMax": {
+      "name": "Max",
+      "price": "$39/月 或 $299/年",
+      "credits": "每月 600 积分",
+      "desc": "适合高频创作者"
+    },
+    "packsTitle": "积分包（永久不过期）",
+    "packsLead": "一次性购买，积分永不过期，适合偶尔使用或补充。",
+    "pack100": "100 积分",
+    "pack100Price": "$8",
+    "pack300": "300 积分",
+    "pack300Price": "$20",
+    "pack1000": "1000 积分",
+    "pack1000Price": "$55",
     "linksTitle": "订阅与积分包入口",
     "linksLead": "订阅与充值入口会在此处显示；若尚未上架，将以禁用按钮展示（不依赖后台配置也会显示该模块）。",
     "linkSubscribe": "前往订阅结账",

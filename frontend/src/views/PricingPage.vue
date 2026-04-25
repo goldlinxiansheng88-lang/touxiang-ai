@@ -129,11 +129,62 @@
 
       <section class="rounded-2xl border border-stone-200/75 bg-white/85 p-5 shadow-sm">
         <h2 class="text-base font-semibold text-stone-900">
-          {{ t("pricingPage.subscriptionTitle") }}
+          {{ t("pricingPage.plansTitle") }}
         </h2>
         <p class="mt-2 text-sm leading-relaxed text-stone-600">
-          {{ t("pricingPage.subscriptionBody") }}
+          {{ t("pricingPage.plansLead") }}
         </p>
+
+        <div class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <div class="rounded-2xl border border-stone-200/70 bg-white p-4 shadow-sm">
+            <div class="flex items-baseline justify-between gap-2">
+              <h3 class="text-sm font-semibold text-stone-900">{{ t("pricingPage.planFree.name") }}</h3>
+              <p class="text-sm font-bold text-stone-900">{{ t("pricingPage.planFree.price") }}</p>
+            </div>
+            <p class="mt-2 text-xs leading-relaxed text-stone-600">{{ t("pricingPage.planFree.desc") }}</p>
+          </div>
+
+          <div class="rounded-2xl border border-blush/40 bg-rose-50/40 p-4 shadow-sm ring-1 ring-rose-100/70">
+            <div class="flex items-baseline justify-between gap-2">
+              <h3 class="text-sm font-semibold text-stone-900">{{ t("pricingPage.planPro.name") }}</h3>
+              <p class="text-sm font-bold text-stone-900">{{ t("pricingPage.planPro.price") }}</p>
+            </div>
+            <p class="mt-2 text-xs leading-relaxed text-stone-600">{{ t("pricingPage.planPro.desc") }}</p>
+            <p class="mt-2 text-xs font-semibold text-stone-800">{{ t("pricingPage.planPro.credits") }}</p>
+          </div>
+
+          <div class="rounded-2xl border border-stone-200/70 bg-white p-4 shadow-sm">
+            <div class="flex items-baseline justify-between gap-2">
+              <h3 class="text-sm font-semibold text-stone-900">{{ t("pricingPage.planMax.name") }}</h3>
+              <p class="text-sm font-bold text-stone-900">{{ t("pricingPage.planMax.price") }}</p>
+            </div>
+            <p class="mt-2 text-xs leading-relaxed text-stone-600">{{ t("pricingPage.planMax.desc") }}</p>
+            <p class="mt-2 text-xs font-semibold text-stone-800">{{ t("pricingPage.planMax.credits") }}</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="rounded-2xl border border-stone-200/75 bg-white/85 p-5 shadow-sm">
+        <h2 class="text-base font-semibold text-stone-900">
+          {{ t("pricingPage.packsTitle") }}
+        </h2>
+        <p class="mt-2 text-sm leading-relaxed text-stone-600">
+          {{ t("pricingPage.packsLead") }}
+        </p>
+        <ul class="mt-4 divide-y divide-stone-100 rounded-xl border border-stone-100 bg-stone-50/40 text-sm text-stone-800">
+          <li class="flex items-center justify-between gap-3 px-3 py-2.5">
+            <span>{{ t("pricingPage.pack100") }}</span>
+            <span class="shrink-0 font-semibold tabular-nums text-stone-900">{{ t("pricingPage.pack100Price") }}</span>
+          </li>
+          <li class="flex items-center justify-between gap-3 px-3 py-2.5">
+            <span>{{ t("pricingPage.pack300") }}</span>
+            <span class="shrink-0 font-semibold tabular-nums text-stone-900">{{ t("pricingPage.pack300Price") }}</span>
+          </li>
+          <li class="flex items-center justify-between gap-3 px-3 py-2.5">
+            <span>{{ t("pricingPage.pack1000") }}</span>
+            <span class="shrink-0 font-semibold tabular-nums text-stone-900">{{ t("pricingPage.pack1000Price") }}</span>
+          </li>
+        </ul>
       </section>
 
       <section class="rounded-2xl border border-stone-200/60 bg-stone-50/90 p-5 text-sm leading-relaxed text-stone-700">

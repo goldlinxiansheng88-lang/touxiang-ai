@@ -282,8 +282,33 @@
     "regenerate": "When you regenerate from an existing task (same flow, with regenerate flag), the service charges 50% of the full price (resolution + background add-on if applicable), rounded up to the next whole credit. The breakdown is stored on the task for auditing.",
     "signupTitle": "Signup bonus",
     "signupBody": "New accounts receive {credits} bonus credits once (first login / registration). The grant is recorded in your credit ledger and is not repeated.",
-    "subscriptionTitle": "Subscriptions & credit packs",
-    "subscriptionBody": "Paid credit packs and subscription renewals are intended to top up your balance through checkout (e.g. Stripe) and webhooks. Exact SKUs, monthly credit amounts, and auto-renew terms are defined at purchase time on the checkout page and in your order confirmation — not on this static summary.",
+    "plansTitle": "Subscription plans (monthly / yearly)",
+    "plansLead": "Subscriptions auto-renew. On each renewal, monthly credits are granted to your balance right away (billing-cycle rules shown at checkout).",
+    "planFree": {
+      "name": "Free",
+      "price": "Free",
+      "desc": "Signup bonus + free quota (if available)"
+    },
+    "planPro": {
+      "name": "Pro",
+      "price": "$19/mo or $159/yr",
+      "credits": "200 credits / month",
+      "desc": "For steady everyday generation"
+    },
+    "planMax": {
+      "name": "Max",
+      "price": "$39/mo or $299/yr",
+      "credits": "600 credits / month",
+      "desc": "For heavy creators"
+    },
+    "packsTitle": "Credit packs (never expire)",
+    "packsLead": "One-time purchase. Credits never expire — great for occasional use or top-ups.",
+    "pack100": "100 credits",
+    "pack100Price": "$8",
+    "pack300": "300 credits",
+    "pack300Price": "$20",
+    "pack1000": "1000 credits",
+    "pack1000Price": "$55",
     "linksTitle": "Subscribe or buy credits",
     "linksLead": "Subscription and top-up entry points show here. If they’re not launched yet, the buttons appear disabled (this block is always visible).",
     "linkSubscribe": "Open subscription checkout",
