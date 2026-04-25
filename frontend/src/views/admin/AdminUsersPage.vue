@@ -36,7 +36,6 @@
         <thead class="border-b border-stone-200/80 bg-stone-50/90 text-[11px] font-semibold uppercase tracking-wide text-stone-500">
           <tr>
             <th class="px-4 py-3 font-medium">{{ t("admin.users.colName") }}</th>
-            <th class="px-4 py-3 font-medium">{{ t("admin.users.colPublicId") }}</th>
             <th class="px-4 py-3 font-medium">{{ t("admin.users.colId") }}</th>
             <th class="px-4 py-3 font-medium">{{ t("admin.users.colDevice") }}</th>
             <th class="px-4 py-3 font-medium">{{ t("admin.users.colIp") }}</th>
@@ -54,7 +53,6 @@
               {{ row.username ?? "—" }}
             </td>
             <td class="px-4 py-3 font-mono text-xs text-stone-800">{{ row.public_id ?? "—" }}</td>
-            <td class="px-4 py-3 font-mono text-xs text-stone-800">{{ row.id }}</td>
             <td class="max-w-[200px] truncate px-4 py-3 font-mono text-xs text-stone-700" :title="row.device_id">
               {{ row.device_id }}
             </td>
@@ -65,7 +63,7 @@
             <td class="px-4 py-3 text-stone-600">{{ row.created_at ?? "—" }}</td>
           </tr>
           <tr v-if="items.length === 0">
-            <td colspan="7" class="px-4 py-12 text-center text-sm text-stone-500">{{ t("common.noData") }}</td>
+            <td colspan="6" class="px-4 py-12 text-center text-sm text-stone-500">{{ t("common.noData") }}</td>
           </tr>
         </tbody>
       </table>

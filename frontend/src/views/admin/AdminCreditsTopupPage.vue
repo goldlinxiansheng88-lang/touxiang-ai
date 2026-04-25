@@ -37,9 +37,6 @@
         <div class="flex flex-wrap items-center justify-between gap-2">
           <div class="min-w-0">
             <p class="font-semibold text-stone-900">{{ user.username }}</p>
-            <p class="mt-0.5 text-xs text-stone-600">
-              UUID: <span class="font-mono">{{ user.id }}</span>
-            </p>
             <p v-if="user.created_at" class="mt-0.5 text-xs text-stone-600">
               Created: <span class="font-mono">{{ user.created_at }}</span>
             </p>

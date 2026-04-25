@@ -225,9 +225,23 @@ def list_users(
         .all()
     )
     items = []
+    updated_any = False
     for u in rows:
         ip = str(u.ip_address) if u.ip_address is not None else None
         username = (u.display_name or "").strip() or (u.email or "").strip() or u.device_id
+        # Backfill public_id lazily so the UI can rely on a single “用户ID”
+        if not (u.public_id or "").strip():
+            try:
+                from app.services.public_user_id import ensure_public_user_id
+
+                cc = (u.signup_country or "").strip() or (_geoip_country_code(ip) or "")
+                if cc and not (u.signup_country or "").strip():
+                    u.signup_country = cc[:2].upper()
+                ensure_public_user_id(db, user=u, country_code=cc or None)
+                updated_any = True
+            except Exception:
+                # never block listing
+                pass
         items.append(
             {
                 "id": str(u.id),
@@ -242,6 +256,8 @@ def list_users(
                 "credits_balance": int(getattr(u, "credits_balance", 0) or 0),
             }
         )
+    if updated_any:
+        db.commit()
     return {
         "total": total,
         "page": page,
