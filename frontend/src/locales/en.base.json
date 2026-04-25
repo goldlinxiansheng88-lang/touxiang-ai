@@ -205,6 +205,7 @@
   "profile": {
     "title": "My page",
     "hint": "Your account and recent creations.",
+    "creditsBalance": "Credits balance",
     "needLoginTitle": "Sign in to see your profile",
     "needLoginHint": "After signing in, your creations and VIP status will sync across devices.",
     "vipYes": "VIP active",

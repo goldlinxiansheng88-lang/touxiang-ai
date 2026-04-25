@@ -167,6 +167,13 @@ export async function fetchMyProfile() {
   return data;
 }
 
+export type MyCreditsResponse = { authenticated: boolean; credits_balance: number };
+
+export async function fetchMyCredits() {
+  const { data } = await api.get<MyCreditsResponse>("/api/me/credits");
+  return data;
+}
+
 export type MyTaskRow = {
   id: string;
   status: string;

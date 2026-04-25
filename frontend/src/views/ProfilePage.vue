@@ -59,6 +59,12 @@
                 </span>
               </div>
             </div>
+            <div class="ml-auto shrink-0 text-right">
+              <p class="text-xs font-semibold text-stone-500">{{ t("profile.creditsBalance") }}</p>
+              <p class="mt-1 text-xl font-bold tabular-nums text-stone-900">
+                {{ creditsBalance }}
+              </p>
+            </div>
           </div>
         </section>
 
@@ -111,7 +117,7 @@ import { useI18n } from "vue-i18n";
 import { useRouter } from "vue-router";
 
 import UserAuthModal from "@/components/UserAuthModal.vue";
-import { fetchMyProfile, fetchMyTasks, type MyProfileResponse, type MyTaskRow } from "@/api/client";
+import { fetchMyCredits, fetchMyProfile, fetchMyTasks, type MyProfileResponse, type MyTaskRow } from "@/api/client";
 import { useUserSessionStore } from "@/stores/userSession";
 
 const { t } = useI18n();
@@ -125,6 +131,7 @@ const busy = ref(false);
 
 const tasksLoading = ref(false);
 const tasks = ref<MyTaskRow[]>([]);
+const creditsBalance = ref(0);
 
 const displayName = computed(() => {
   const u = (profile.value as any)?.user as MyProfileResponse["user"] | undefined;
@@ -138,6 +145,12 @@ async function reloadProfile() {
   loading.value = true;
   try {
     profile.value = await fetchMyProfile();
+    try {
+      const c = await fetchMyCredits();
+      creditsBalance.value = Number(c.credits_balance || 0);
+    } catch {
+      creditsBalance.value = 0;
+    }
   } finally {
     loading.value = false;
   }

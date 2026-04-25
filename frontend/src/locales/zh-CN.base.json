@@ -205,6 +205,7 @@
   "profile": {
     "title": "个人主页",
     "hint": "查看账号信息与最近生成记录。",
+    "creditsBalance": "积分余额",
     "needLoginTitle": "登录后查看个人主页",
     "needLoginHint": "登录后，你的生成记录与 VIP 状态会在多设备同步。",
     "vipYes": "VIP 已开通",
