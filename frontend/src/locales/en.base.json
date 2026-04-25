@@ -45,21 +45,81 @@
     "DAILY": "Daily"
   },
   "styleItems": {
-    "GHIBLI": { "name": "Soft & Dreamy", "subtitle": "Ghibli-inspired", "proof": "🔥 1.2M views" },
-    "PIXAR": { "name": "3D Pixar", "subtitle": "Pixar CGI", "proof": "⭐ 900k+" },
-    "OIL_PAINTING": { "name": "Oil Portrait", "subtitle": "Impressionist", "proof": "🔥 800k views" },
-    "CYBERPUNK": { "name": "Neon Edge", "subtitle": "Cyberpunk", "proof": "⭐ 500k+" },
-    "SHONEN_ANIME": { "name": "Action Anime", "subtitle": "Shonen", "proof": "🔥 600k views" },
-    "VAMP_ROMANTIC": { "name": "Dark Glamour", "subtitle": "Romantic goth", "proof": "⭐ 400k+" },
-    "GLITCHY_GLAM": { "name": "Glitch Glam", "subtitle": "Avant-garde", "proof": "🔥 350k views" },
-    "POETCORE": { "name": "Poetcore", "subtitle": "Dark academia", "proof": "⭐ 300k+" },
-    "EXTRA_CELESTIAL": { "name": "Cosmic", "subtitle": "Holographic", "proof": "🔥 450k views" },
-    "GLAMORATTI": { "name": "Power Glam", "subtitle": "80s power", "proof": "⭐ 280k+" },
-    "COTTAGECORE": { "name": "Sunlit Meadow", "subtitle": "Cottagecore", "proof": "🔥 520k views" },
-    "SOFT_GRUNGE": { "name": "Soft Grunge", "subtitle": "90s grunge", "proof": "⭐ 310k+" },
-    "WHIMSIGOTHIC": { "name": "Mystic Aura", "subtitle": "Whimsigothic", "proof": "🔥 290k views" },
-    "Y2K": { "name": "Y2K Pop", "subtitle": "Chrome Y2K", "proof": "⭐ 410k+" },
-    "VINTAGE_POLAROID": { "name": "Retro Polaroid", "subtitle": "1970s warm", "proof": "🔥 360k views" }
+    "GHIBLI": {
+      "name": "Soft & Dreamy",
+      "subtitle": "Ghibli-inspired",
+      "proof": "🔥 1.2M views"
+    },
+    "PIXAR": {
+      "name": "3D Pixar",
+      "subtitle": "Pixar CGI",
+      "proof": "⭐ 900k+"
+    },
+    "OIL_PAINTING": {
+      "name": "Oil Portrait",
+      "subtitle": "Impressionist",
+      "proof": "🔥 800k views"
+    },
+    "CYBERPUNK": {
+      "name": "Neon Edge",
+      "subtitle": "Cyberpunk",
+      "proof": "⭐ 500k+"
+    },
+    "SHONEN_ANIME": {
+      "name": "Action Anime",
+      "subtitle": "Shonen",
+      "proof": "🔥 600k views"
+    },
+    "VAMP_ROMANTIC": {
+      "name": "Dark Glamour",
+      "subtitle": "Romantic goth",
+      "proof": "⭐ 400k+"
+    },
+    "GLITCHY_GLAM": {
+      "name": "Glitch Glam",
+      "subtitle": "Avant-garde",
+      "proof": "🔥 350k views"
+    },
+    "POETCORE": {
+      "name": "Poetcore",
+      "subtitle": "Dark academia",
+      "proof": "⭐ 300k+"
+    },
+    "EXTRA_CELESTIAL": {
+      "name": "Cosmic",
+      "subtitle": "Holographic",
+      "proof": "🔥 450k views"
+    },
+    "GLAMORATTI": {
+      "name": "Power Glam",
+      "subtitle": "80s power",
+      "proof": "⭐ 280k+"
+    },
+    "COTTAGECORE": {
+      "name": "Sunlit Meadow",
+      "subtitle": "Cottagecore",
+      "proof": "🔥 520k views"
+    },
+    "SOFT_GRUNGE": {
+      "name": "Soft Grunge",
+      "subtitle": "90s grunge",
+      "proof": "⭐ 310k+"
+    },
+    "WHIMSIGOTHIC": {
+      "name": "Mystic Aura",
+      "subtitle": "Whimsigothic",
+      "proof": "🔥 290k views"
+    },
+    "Y2K": {
+      "name": "Y2K Pop",
+      "subtitle": "Chrome Y2K",
+      "proof": "⭐ 410k+"
+    },
+    "VINTAGE_POLAROID": {
+      "name": "Retro Polaroid",
+      "subtitle": "1970s warm",
+      "proof": "🔥 360k views"
+    }
   },
   "auth": {
     "titleLogin": "Sign in to AuraShift",
@@ -264,59 +324,102 @@
   },
   "pricingPage": {
     "back": "Back to home",
-    "title": "Pricing & credits",
-    "intro": "Generation uses credits. The rules below match the live API (resolution tier, optional background removal, regenerate discount, signup bonus).",
-    "creditsTitle": "Credits per generation (by resolution tier)",
-    "creditsLead": "The picker labels 512 / 1024 / 2048 / 4096 are the output size tiers; each successful task deducts the listed credits.",
-    "tier512": "512 px tier",
-    "tier512Credits": "2 credits",
-    "tier1024": "1024 px tier",
-    "tier1024Credits": "4 credits",
-    "tier2048": "2048 px tier",
-    "tier2048Credits": "9 credits",
-    "tier4096": "4096 px tier",
-    "tier4096Credits": "20 credits",
-    "addonTitle": "Add-on: background removal",
-    "addonBg": "If you enable background removal on a new generation, +2 credits are added to the resolution cost before deduction.",
-    "regenTitle": "Regenerate discount",
-    "regenerate": "When you regenerate from an existing task (same flow, with regenerate flag), the service charges 50% of the full price (resolution + background add-on if applicable), rounded up to the next whole credit. The breakdown is stored on the task for auditing.",
-    "signupTitle": "Signup bonus",
-    "signupBody": "New accounts receive {credits} bonus credits once (first login / registration). The grant is recorded in your credit ledger and is not repeated.",
-    "plansTitle": "Subscription plans (monthly / yearly)",
-    "plansLead": "Subscriptions auto-renew. On each renewal, monthly credits are granted to your balance right away (billing-cycle rules shown at checkout).",
-    "planFree": {
-      "name": "Free",
+    "heroTitle": "Simple, transparent pricing",
+    "heroSubtitle": "Start free. Upgrade when you're ready. Credit packs never expire.",
+    "billingLabel": "Billing",
+    "billingMonthly": "Monthly",
+    "billingYearly": "Yearly",
+    "yearlySaveBadge": "save 35%",
+    "planStarter": {
+      "name": "STARTER",
       "price": "Free",
-      "desc": "Signup bonus + free quota (if available)"
+      "subPrice": "No card required",
+      "highlight": "{credits} credits on signup ≈ 2 portraits at 512px",
+      "cta": "Get started free"
+    },
+    "starter": {
+      "inc1": "512px output only",
+      "inc2": "20 base styles",
+      "inc3": "Watermarked output",
+      "strike1": "Aura reading",
+      "strike2": "HD / 4K output"
     },
     "planPro": {
-      "name": "Pro",
-      "price": "$19/mo or $159/yr",
-      "credits": "200 credits / month",
-      "desc": "For steady everyday generation"
+      "name": "PRO",
+      "popular": "Most popular",
+      "priceMonthly": "$29/mo",
+      "priceYearly": "$19/mo",
+      "billedMonthly": "Billed monthly",
+      "billedYearly": "Billed $228/year · save $120 vs monthly",
+      "highlight": "200 credits / month ≈ 50 portraits at 1024px",
+      "cta": "Get Pro"
+    },
+    "pro": {
+      "f1": "Up to 2K resolution",
+      "f2": "No watermark",
+      "f3": "180+ styles unlocked",
+      "f4": "Background removal",
+      "f5": "Aura reading (AI-written vibe)",
+      "f6": "Priority queue"
     },
     "planMax": {
-      "name": "Max",
-      "price": "$39/mo or $299/yr",
-      "credits": "600 credits / month",
-      "desc": "For heavy creators"
+      "name": "MAX",
+      "priceMonthly": "$59/mo",
+      "priceYearly": "$39/mo",
+      "billedMonthly": "Billed monthly",
+      "billedYearly": "Billed $468/year · save $240 vs monthly",
+      "highlight": "600 credits / month ≈ 150 portraits at 1024px",
+      "cta": "Get Max"
     },
-    "packsTitle": "Credit packs (never expire)",
-    "packsLead": "One-time purchase. Credits never expire — great for occasional use or top-ups.",
+    "max": {
+      "f1": "Everything in Pro",
+      "f2": "Up to 4K resolution",
+      "f3": "Commercial license",
+      "f4": "Early styles access · extended Aura reading"
+    },
+    "auraTitle": "Aura reading — what is it?",
+    "auraBody": "The AI writes a short personalized reading (energy, mood, story) alongside your portrait so the result feels more human and shareable.",
+    "auraSample": "\"Sample: warm-side lighting, relaxed face but sharp eyes — like it's saying you can stay soft and still flip to steel whenever you choose.\"",
+    "topupsTitle": "Credit top-ups — never expire",
+    "topupsLead": "One-time packs add to your balance and stay valid; great for occasional bursts or topping up after subscription use.",
     "pack100": "100 credits",
     "pack100Price": "$8",
     "pack300": "300 credits",
     "pack300Price": "$20",
     "pack1000": "1000 credits",
     "pack1000Price": "$55",
-    "linksTitle": "Subscribe or buy credits",
-    "linksLead": "Subscription and top-up entry points show here. If they’re not launched yet, the buttons appear disabled (this block is always visible).",
+    "creditsTitle": "Credits per generation",
+    "creditsLead": "Same as the creator panel: base cost by output tier; +2 credits when you enable background removal on a new task.",
+    "tableColOutput": "Output",
+    "tableColCredits": "Credits",
+    "tableColNote": "Notes",
+    "tier512": "512 px",
+    "tier512Credits": "2 cr",
+    "tier512Tag": "Preview · Starter",
+    "tier1024": "1024 px",
+    "tier1024Credits": "4 cr",
+    "tier1024Tag": "Standard · Pro+",
+    "tier2048": "2048 px",
+    "tier2048Credits": "9 cr",
+    "tier2048Tag": "HD · Pro+",
+    "tier4096": "4096 px",
+    "tier4096Credits": "20 cr",
+    "tier4096Tag": "4K · Max only",
+    "addonTitle": "Background removal (add-on)",
+    "addonCreditsShort": "+2 cr",
+    "addonNoteShort": "Stacked on top of the resolution base cost",
+    "regenShort": "Regenerating from the same task charges 50% of (resolution + background add-on), rounded up to whole credits.",
+    "signupShort": "New accounts receive {credits} bonus credits once after first successful sign-in (not repeated per account).",
+    "guarantee1Title": "Cancel anytime",
+    "guarantee1Body": "No long-term lock-in; renewals follow checkout terms.",
+    "guarantee2Title": "Credits never expire",
+    "guarantee2Body": "Pack top-ups stay in your balance; subscription monthly allotments follow product copy at checkout.",
+    "guarantee3Title": "Refund on failure",
+    "guarantee3Body": "If a paid generation fails on our side without a successful output, we refund or re-credit per policy.",
     "linkSubscribe": "Open subscription checkout",
     "linkCreditsPack": "Open credit packs",
     "linksEmpty": "No subscription or credit-pack URL is configured yet. Add HTTPS links in the admin payment settings to show buttons here.",
-    "ledgerTitle": "Balance & ledger",
-    "ledgerBody": "Your remaining credits and every grant or consumption appear in the account ledger (kinds such as signup_bonus, consume_generate, and future purchase_pack / subscription_refill). The server enforces balance before each task; insufficient credits return HTTP 402.",
-    "checkoutNote": "If checkout or subscription products are not configured yet, you may still use bonus or admin-granted credits. This page reflects the technical rules implemented in the API today."
+    "checkoutNote": "If checkout is not configured yet, you may still use bonus or admin-granted credits. Numbers match the live credits service in the API."
   },
   "meta": {
     "pageTitle": "AuraShift — Find Your Aura",
