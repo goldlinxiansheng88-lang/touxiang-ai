@@ -285,7 +285,7 @@
     "subscriptionTitle": "Subscriptions & credit packs",
     "subscriptionBody": "Paid credit packs and subscription renewals are intended to top up your balance through checkout (e.g. Stripe) and webhooks. Exact SKUs, monthly credit amounts, and auto-renew terms are defined at purchase time on the checkout page and in your order confirmation — not on this static summary.",
     "linksTitle": "Subscribe or buy credits",
-    "linksLead": "Your operator configures these URLs in Admin → Payments (\"Pricing page · subscription URL\" / \"credit pack URL\"). Links open in a new tab.",
+    "linksLead": "Subscription and top-up entry points show here. If they’re not launched yet, the buttons appear disabled (this block is always visible).",
     "linkSubscribe": "Open subscription checkout",
     "linkCreditsPack": "Open credit packs",
     "linksEmpty": "No subscription or credit-pack URL is configured yet. Add HTTPS links in the admin payment settings to show buttons here.",

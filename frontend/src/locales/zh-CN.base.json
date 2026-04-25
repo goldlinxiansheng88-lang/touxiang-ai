@@ -285,7 +285,7 @@
     "subscriptionTitle": "积分包与订阅",
     "subscriptionBody": "付费积分包与订阅续费拟通过 Stripe 等结账与 Webhook 向账户充值（流水类型如 purchase_pack、subscription_refill）。具体 SKU、每月发放积分数、自动续订与退订规则以结账页与订单确认邮件为准，本站摘要页不替代合同条款。",
     "linksTitle": "订阅与积分包入口",
-    "linksLead": "由运营在管理后台「支付与会员」填写「定价页 · 订阅链接」「定价页 · 积分包链接」（完整 https 地址）。保存后此处显示按钮，新标签页打开。",
+    "linksLead": "订阅与充值入口会在此处显示；若尚未上架，将以禁用按钮展示（不依赖后台配置也会显示该模块）。",
     "linkSubscribe": "前往订阅结账",
     "linkCreditsPack": "前往积分包 / 充值",
     "linksEmpty": "尚未配置订阅或积分包外链。请在管理后台「支付与会员」中填写上述两项 HTTPS 链接后刷新本页。",

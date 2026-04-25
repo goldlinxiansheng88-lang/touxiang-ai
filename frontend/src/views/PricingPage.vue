@@ -18,7 +18,6 @@
 
     <main class="mx-auto max-w-[760px] space-y-5">
       <section
-        v-if="linksLoaded"
         class="rounded-2xl border border-blush/35 bg-gradient-to-b from-white to-rose-50/40 p-5 shadow-sm ring-1 ring-rose-100/60"
       >
         <h2 class="text-base font-semibold text-stone-900">
@@ -28,7 +27,6 @@
           {{ t("pricingPage.linksLead") }}
         </p>
         <div
-          v-if="subscriptionHref || creditsPackHref"
           class="mt-4 flex flex-wrap items-center justify-center gap-3 sm:justify-start"
         >
           <a
@@ -40,6 +38,15 @@
           >
             {{ t("pricingPage.linkSubscribe") }}
           </a>
+          <button
+            v-else
+            type="button"
+            class="inline-flex min-h-[44px] items-center justify-center rounded-full bg-blush/60 px-5 py-2.5 text-sm font-semibold text-white/90 shadow-sm ring-1 ring-black/5 opacity-60"
+            disabled
+          >
+            {{ t("pricingPage.linkSubscribe") }}
+          </button>
+
           <a
             v-if="creditsPackHref"
             class="hover-frame inline-flex min-h-[44px] items-center justify-center rounded-full border border-stone-300 bg-white px-5 py-2.5 text-sm font-semibold text-stone-800 shadow-sm"
@@ -49,8 +56,19 @@
           >
             {{ t("pricingPage.linkCreditsPack") }}
           </a>
+          <button
+            v-else
+            type="button"
+            class="inline-flex min-h-[44px] items-center justify-center rounded-full border border-stone-300 bg-white px-5 py-2.5 text-sm font-semibold text-stone-800 shadow-sm opacity-60"
+            disabled
+          >
+            {{ t("pricingPage.linkCreditsPack") }}
+          </button>
         </div>
-        <p v-else class="mt-4 rounded-lg border border-dashed border-stone-200 bg-white/70 px-3 py-2.5 text-sm text-stone-500">
+        <p
+          v-if="linksLoaded && !subscriptionHref && !creditsPackHref"
+          class="mt-4 rounded-lg border border-dashed border-stone-200 bg-white/70 px-3 py-2.5 text-sm text-stone-500"
+        >
           {{ t("pricingPage.linksEmpty") }}
         </p>
       </section>
