@@ -137,11 +137,13 @@ const creditRows = computed(() => [
         </div>
       </header>
 
-      <!-- Plans -->
+      <!-- Plans: whole card is the hit target (same as bottom CTA) -->
       <section class="mt-12 grid gap-6 lg:grid-cols-3 lg:items-stretch">
         <!-- Starter -->
-        <article
-          class="flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+        <RouterLink
+          to="/"
+          class="group flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6 text-left shadow-sm no-underline transition hover:border-slate-300 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500"
+          :aria-label="`${t('pricingPage.planStarter.name')}: ${t('pricingPage.planStarter.cta')}`"
         >
           <div class="text-xs font-semibold uppercase tracking-wider text-slate-500">
             {{ t('pricingPage.planStarter.name') }}
@@ -161,20 +163,24 @@ const creditRows = computed(() => [
               <span>{{ t(k) }}</span>
             </li>
           </ul>
-          <RouterLink
-            to="/"
-            class="mt-6 inline-flex w-full items-center justify-center rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-50"
+          <span
+            class="mt-6 inline-flex w-full cursor-pointer items-center justify-center rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm font-semibold text-slate-900 transition group-hover:bg-slate-50"
           >
             {{ t('pricingPage.planStarter.cta') }}
-          </RouterLink>
-        </article>
+          </span>
+        </RouterLink>
 
         <!-- Pro -->
-        <article
-          class="relative flex flex-col rounded-2xl border-2 border-blue-500 bg-white p-6 shadow-md ring-4 ring-blue-500/10"
+        <a
+          v-if="subscriptionHref"
+          :href="subscriptionHref"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group relative flex h-full flex-col rounded-2xl border-2 border-blue-500 bg-white p-6 text-left shadow-md no-underline ring-4 ring-blue-500/10 transition hover:border-blue-600 hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500"
+          :aria-label="`${t('pricingPage.planPro.name')}: ${t('pricingPage.planPro.cta')}`"
         >
           <span
-            class="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-blue-600 px-3 py-1 text-xs font-bold uppercase tracking-wide text-white"
+            class="pointer-events-none absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-blue-600 px-3 py-1 text-xs font-bold uppercase tracking-wide text-white"
           >
             {{ t('pricingPage.planPro.popular') }}
           </span>
@@ -198,28 +204,59 @@ const creditRows = computed(() => [
               <span>{{ t(k) }}</span>
             </li>
           </ul>
-          <a
-            v-if="subscriptionHref"
-            class="mt-6 inline-flex w-full items-center justify-center rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700"
-            :href="subscriptionHref"
-            target="_blank"
-            rel="noopener noreferrer"
+          <span
+            class="mt-6 inline-flex w-full cursor-pointer items-center justify-center rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white shadow-sm transition group-hover:bg-blue-700"
           >
             {{ t('pricingPage.planPro.cta') }}
-          </a>
-          <button
-            v-else
-            type="button"
-            disabled
+          </span>
+        </a>
+        <div
+          v-else
+          class="relative flex h-full flex-col rounded-2xl border-2 border-slate-200 bg-slate-50/80 p-6 text-left shadow-sm"
+          role="group"
+          :aria-label="t('pricingPage.linksEmpty')"
+          :title="t('pricingPage.linksEmpty')"
+        >
+          <span
+            class="pointer-events-none absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-slate-400 px-3 py-1 text-xs font-bold uppercase tracking-wide text-white"
+          >
+            {{ t('pricingPage.planPro.popular') }}
+          </span>
+          <div class="mt-2 text-xs font-semibold uppercase tracking-wider text-slate-500">
+            {{ t('pricingPage.planPro.name') }}
+          </div>
+          <div class="mt-2 text-3xl font-bold text-slate-900">
+            <template v-if="billing === 'yearly'">{{ t('pricingPage.planPro.priceYearly') }}</template>
+            <template v-else>{{ t('pricingPage.planPro.priceMonthly') }}</template>
+          </div>
+          <p v-if="billing === 'yearly'" class="mt-1 text-sm text-emerald-700">
+            {{ t('pricingPage.planPro.billedYearly') }}
+          </p>
+          <p v-else class="mt-1 text-sm text-slate-500">{{ t('pricingPage.planPro.billedMonthly') }}</p>
+          <p class="mt-4 rounded-xl bg-blue-50/80 px-3 py-2 text-sm font-medium text-blue-900">
+            {{ t('pricingPage.planPro.highlight') }}
+          </p>
+          <ul class="mt-5 flex-1 space-y-2 text-sm text-slate-700">
+            <li v-for="k in proFeatureKeys" :key="k" class="flex gap-2">
+              <span class="mt-0.5 text-emerald-600" aria-hidden="true">✓</span>
+              <span>{{ t(k) }}</span>
+            </li>
+          </ul>
+          <span
             class="mt-6 inline-flex w-full cursor-not-allowed items-center justify-center rounded-xl bg-slate-200 px-4 py-3 text-sm font-semibold text-slate-500"
           >
             {{ t('pricingPage.planPro.cta') }}
-          </button>
-        </article>
+          </span>
+        </div>
 
         <!-- Max -->
-        <article
-          class="flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+        <a
+          v-if="subscriptionHref"
+          :href="subscriptionHref"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6 text-left shadow-sm no-underline transition hover:border-slate-300 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500"
+          :aria-label="`${t('pricingPage.planMax.name')}: ${t('pricingPage.planMax.cta')}`"
         >
           <div class="text-xs font-semibold uppercase tracking-wider text-slate-500">
             {{ t('pricingPage.planMax.name') }}
@@ -241,24 +278,45 @@ const creditRows = computed(() => [
               <span>{{ t(k) }}</span>
             </li>
           </ul>
-          <a
-            v-if="subscriptionHref"
-            class="mt-6 inline-flex w-full items-center justify-center rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-50"
-            :href="subscriptionHref"
-            target="_blank"
-            rel="noopener noreferrer"
+          <span
+            class="mt-6 inline-flex w-full cursor-pointer items-center justify-center rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm font-semibold text-slate-900 transition group-hover:bg-slate-50"
           >
             {{ t('pricingPage.planMax.cta') }}
-          </a>
-          <button
-            v-else
-            type="button"
-            disabled
-            class="mt-6 inline-flex w-full cursor-not-allowed items-center justify-center rounded-xl border border-dashed border-slate-200 bg-slate-50 px-4 py-3 text-sm font-semibold text-slate-400"
+          </span>
+        </a>
+        <div
+          v-else
+          class="flex h-full flex-col rounded-2xl border border-dashed border-slate-200 bg-slate-50/80 p-6 text-left shadow-sm"
+          role="group"
+          :aria-label="t('pricingPage.linksEmpty')"
+          :title="t('pricingPage.linksEmpty')"
+        >
+          <div class="text-xs font-semibold uppercase tracking-wider text-slate-500">
+            {{ t('pricingPage.planMax.name') }}
+          </div>
+          <div class="mt-2 text-3xl font-bold text-slate-900">
+            <template v-if="billing === 'yearly'">{{ t('pricingPage.planMax.priceYearly') }}</template>
+            <template v-else>{{ t('pricingPage.planMax.priceMonthly') }}</template>
+          </div>
+          <p v-if="billing === 'yearly'" class="mt-1 text-sm text-emerald-700">
+            {{ t('pricingPage.planMax.billedYearly') }}
+          </p>
+          <p v-else class="mt-1 text-sm text-slate-500">{{ t('pricingPage.planMax.billedMonthly') }}</p>
+          <p class="mt-4 rounded-xl bg-slate-50 px-3 py-2 text-sm font-medium text-slate-700">
+            {{ t('pricingPage.planMax.highlight') }}
+          </p>
+          <ul class="mt-5 flex-1 space-y-2 text-sm text-slate-700">
+            <li v-for="k in maxFeatureKeys" :key="k" class="flex gap-2">
+              <span class="mt-0.5 text-emerald-600" aria-hidden="true">✓</span>
+              <span>{{ t(k) }}</span>
+            </li>
+          </ul>
+          <span
+            class="mt-6 inline-flex w-full cursor-not-allowed items-center justify-center rounded-xl border border-dashed border-slate-200 bg-slate-100 px-4 py-3 text-sm font-semibold text-slate-400"
           >
             {{ t('pricingPage.planMax.cta') }}
-          </button>
-        </article>
+          </span>
+        </div>
       </section>
 
       <!-- Aura explainer -->
