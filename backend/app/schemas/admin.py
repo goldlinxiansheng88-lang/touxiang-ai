@@ -29,3 +29,10 @@ class CreateAffiliateBody(BaseModel):
 
 class PayoutActionBody(BaseModel):
     status: str  # COMPLETED / REJECTED
+
+
+class CreditTopupBody(BaseModel):
+    public_id: str
+    confirm_username: str
+    credits: int = Field(ge=1, le=1_000_000)
+    note: str | None = None

@@ -145,6 +145,22 @@ async def lifespan(app: FastAPI):
                         "ALTER TABLE users ADD COLUMN IF NOT EXISTS signup_bonus_granted BOOLEAN NOT NULL DEFAULT FALSE"
                     )
                 )
+                # Public user id + signup country (for admin verification / manual topups)
+                conn.execute(text("ALTER TABLE users ADD COLUMN IF NOT EXISTS public_id VARCHAR(32)"))
+                conn.execute(text("ALTER TABLE users ADD COLUMN IF NOT EXISTS signup_country VARCHAR(2)"))
+                conn.execute(text("CREATE UNIQUE INDEX IF NOT EXISTS ix_users_public_id ON users(public_id)"))
+                conn.execute(
+                    text(
+                        """
+                        CREATE TABLE IF NOT EXISTS user_public_id_counters(
+                          day VARCHAR(8) NOT NULL,
+                          country_code VARCHAR(2) NOT NULL,
+                          seq INTEGER NOT NULL,
+                          PRIMARY KEY(day, country_code)
+                        )
+                        """
+                    )
+                )
         except Exception as e:
             logger.warning("users 表补列未完成（若为新库可忽略）：%s", e)
         db = SessionLocal()

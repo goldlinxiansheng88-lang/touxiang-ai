@@ -34,6 +34,7 @@ export async function fetchAdminDashboard() {
 
 export type AdminUserRow = {
   id: string;
+  public_id?: string | null;
   device_id: string;
   username?: string | null;
   ip_address: string | null;
@@ -41,12 +42,40 @@ export type AdminUserRow = {
   is_vip: boolean;
   vip_expires_at: string | null;
   created_at: string | null;
+  credits_balance?: number;
 };
 
 export async function fetchAdminUsers(params: { page?: number; page_size?: number }) {
   const { data } = await adminHttp.get<{ total: number; page: number; items: AdminUserRow[] }>(
     "/api/admin/users",
     { params },
+  );
+  return data;
+}
+
+export type AdminUserLookup = {
+  id: string;
+  public_id: string | null;
+  username: string;
+  email: string | null;
+  created_at: string | null;
+  credits_balance: number;
+};
+
+export async function lookupAdminUserByPublicId(public_id: string) {
+  const { data } = await adminHttp.get<AdminUserLookup>("/api/admin/users/lookup", { params: { public_id } });
+  return data;
+}
+
+export async function adminTopupCredits(body: {
+  public_id: string;
+  confirm_username: string;
+  credits: number;
+  note?: string;
+}) {
+  const { data } = await adminHttp.post<{ ok: boolean; balance_after: number; user_id: string; public_id: string }>(
+    "/api/admin/credits/topup",
+    body,
   );
   return data;
 }

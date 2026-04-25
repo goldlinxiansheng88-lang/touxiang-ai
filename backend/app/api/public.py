@@ -206,6 +206,20 @@ async def create_task(
         user = User(device_id=device, ip_address=request.client.host if request.client else None)
         db.add(user)
         db.flush()
+        try:
+            from app.services.public_user_id import ensure_public_user_id
+
+            cc = (
+                (request.headers.get("cf-ipcountry") or "")
+                or (request.headers.get("x-vercel-ip-country") or "")
+                or (request.headers.get("x-country") or "")
+            ).strip()
+            if cc:
+                user.signup_country = cc[:2].upper()
+            ensure_public_user_id(db, user=user, country_code=cc or None)
+        except Exception:
+            # anonymous creation should never block generation
+            pass
 
     # Credits check before any heavy work (upload / enqueue)
     from app.services.credits import compute_generation_cost, get_balance

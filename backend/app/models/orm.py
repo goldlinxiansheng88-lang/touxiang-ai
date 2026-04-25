@@ -27,12 +27,15 @@ class User(Base):
     __tablename__ = "users"
 
     id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), primary_key=True, default=_uuid)
+    # 对外展示 ID：按注册时间 + 国家 + 序列编码（管理后台用于核对与充值）
+    public_id: Mapped[Optional[str]] = mapped_column(String(32), nullable=True, unique=True, index=True)
     device_id: Mapped[str] = mapped_column(String(255), nullable=False, index=True)
     #: 邮箱登录 / OAuth 用户可填；匿名仅 device_id 时为空
     email: Mapped[Optional[str]] = mapped_column(String(320), nullable=True, unique=True, index=True)
     password_hash: Mapped[Optional[str]] = mapped_column(String(255), nullable=True)
     display_name: Mapped[Optional[str]] = mapped_column(String(255), nullable=True)
     ip_address: Mapped[Optional[str]] = mapped_column(INET, nullable=True)
+    signup_country: Mapped[Optional[str]] = mapped_column(String(2), nullable=True)
     is_vip: Mapped[bool] = mapped_column(Boolean, default=False)
     vip_expires_at: Mapped[Optional[datetime]] = mapped_column(DateTime(timezone=True), nullable=True)
     # Credits / points system

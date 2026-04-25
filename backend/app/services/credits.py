@@ -108,6 +108,29 @@ def consume_for_task(
     )
 
 
+def grant_admin_topup(
+    db: Session,
+    *,
+    user_id,
+    credits: int,
+    note: str | None = None,
+    source_id: str | None = None,
+) -> int:
+    amt = int(credits)
+    if amt <= 0:
+        raise HTTPException(status_code=400, detail="credits must be > 0")
+    if amt > 1_000_000:
+        raise HTTPException(status_code=400, detail="credits too large")
+    return _apply_delta(
+        db,
+        user_id=user_id,
+        delta=amt,
+        kind="admin_topup",
+        meta={"note": (note or "").strip()[:500] or None},
+        source_id=(source_id or None),
+    )
+
+
 def grant_signup_bonus_once(db: Session, *, user_id) -> int:
     u = db.query(User).filter(User.id == user_id).with_for_update().first()
     if not u:

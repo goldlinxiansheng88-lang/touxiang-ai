@@ -92,6 +92,11 @@ const router = createRouter({
           component: () => import("@/views/admin/AdminUsersPage.vue"),
         },
         {
+          path: "credits-topup",
+          name: "admin-credits-topup",
+          component: () => import("@/views/admin/AdminCreditsTopupPage.vue"),
+        },
+        {
           path: "orders",
           name: "admin-orders",
           component: () => import("@/views/admin/AdminOrdersPage.vue"),

@@ -15,7 +15,7 @@ from sqlalchemy.orm import Session
 
 from app.models import Affiliate, Order, PayoutRequest, SystemConfig, Task, User
 from app.services.payment_finalize import finalize_order_paid
-from app.schemas.admin import ConfigBatchPatch, ConnectionTestBody, CreateAffiliateBody, PayoutActionBody
+from app.schemas.admin import ConfigBatchPatch, ConnectionTestBody, CreateAffiliateBody, CreditTopupBody, PayoutActionBody
 from app.config import clear_settings_cache, get_settings
 from app.data.config_registry import CONFIG_ENTRIES, GROUP_HINTS, GROUP_ORDER, entry_by_key, should_encrypt_on_write
 from app.services import config_service
@@ -231,6 +231,7 @@ def list_users(
         items.append(
             {
                 "id": str(u.id),
+                "public_id": (u.public_id or "").strip() or None,
                 "device_id": u.device_id,
                 "username": username,
                 "ip_address": ip,
@@ -238,6 +239,7 @@ def list_users(
                 "is_vip": u.is_vip,
                 "vip_expires_at": u.vip_expires_at.isoformat() if u.vip_expires_at else None,
                 "created_at": u.created_at.isoformat() if u.created_at else None,
+                "credits_balance": int(getattr(u, "credits_balance", 0) or 0),
             }
         )
     return {
@@ -245,6 +247,56 @@ def list_users(
         "page": page,
         "items": items,
     }
+
+
+@router.get("/users/lookup")
+def lookup_user_by_public_id(db: DbSession, public_id: str):
+    pid = (public_id or "").strip()[:32]
+    if not pid:
+        raise HTTPException(status_code=400, detail="public_id required")
+    u = db.query(User).filter(User.public_id == pid).first()
+    if not u:
+        raise HTTPException(status_code=404, detail="User not found")
+    username = (u.display_name or "").strip() or (u.email or "").strip() or u.device_id
+    return {
+        "id": str(u.id),
+        "public_id": (u.public_id or "").strip() or None,
+        "username": username,
+        "email": u.email,
+        "created_at": u.created_at.isoformat() if u.created_at else None,
+        "credits_balance": int(getattr(u, "credits_balance", 0) or 0),
+    }
+
+
+@router.post("/credits/topup")
+def admin_credit_topup(db: DbSession, body: CreditTopupBody, request: Request):
+    pid = (body.public_id or "").strip()[:32]
+    confirm = (body.confirm_username or "").strip()
+    if not pid or not confirm:
+        raise HTTPException(status_code=400, detail="public_id and confirm_username required")
+    u = db.query(User).filter(User.public_id == pid).with_for_update().first()
+    if not u:
+        raise HTTPException(status_code=404, detail="User not found")
+    username = (u.display_name or "").strip() or (u.email or "").strip() or u.device_id
+    if username != confirm:
+        raise HTTPException(status_code=400, detail="用户名核对失败：昵称与 ID 不匹配")
+    from app.services.credits import grant_admin_topup
+
+    ip = request.client.host if request.client else None
+    new_bal = grant_admin_topup(
+        db,
+        user_id=u.id,
+        credits=int(body.credits),
+        note=body.note,
+        source_id=f"admin_manual:{pid}",
+    )
+    # Best-effort: also store signup_country if empty (admin view derived)
+    if not (u.signup_country or "").strip():
+        cc = _geoip_country_code(str(u.ip_address) if u.ip_address is not None else None)
+        if cc:
+            u.signup_country = cc[:2].upper()
+    db.commit()
+    return {"ok": True, "balance_after": int(new_bal), "user_id": str(u.id), "public_id": pid}
 
 
 @router.get("/orders")

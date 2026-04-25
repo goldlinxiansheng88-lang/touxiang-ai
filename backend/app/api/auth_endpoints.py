@@ -105,7 +105,7 @@ def _set_session_cookie(response: Response, user_id: UUID, email: str) -> None:
 
 
 @router.post("/email/register")
-def register_email(body: EmailRegisterBody, db: Session = Depends(get_db)):
+def register_email(body: EmailRegisterBody, request: Request, db: Session = Depends(get_db)):
     email = _validate_email(body.email)
     exists = db.query(User).filter(User.email == email).first()
     if exists:
@@ -120,6 +120,20 @@ def register_email(body: EmailRegisterBody, db: Session = Depends(get_db)):
     db.add(u)
     db.commit()
     db.refresh(u)
+    try:
+        from app.services.public_user_id import ensure_public_user_id
+
+        cc = (
+            (request.headers.get("cf-ipcountry") or "")
+            or (request.headers.get("x-vercel-ip-country") or "")
+            or (request.headers.get("x-country") or "")
+        ).strip()
+        if cc:
+            u.signup_country = cc[:2].upper()
+        ensure_public_user_id(db, user=u, country_code=cc or None)
+        db.commit()
+    except Exception:
+        db.rollback()
     try:
         from app.services.credits import grant_signup_bonus_once
 
@@ -266,6 +280,20 @@ async def oauth_google_callback(
         db.commit()
         db.refresh(u)
         try:
+            from app.services.public_user_id import ensure_public_user_id
+
+            cc = (
+                (request.headers.get("cf-ipcountry") or "")
+                or (request.headers.get("x-vercel-ip-country") or "")
+                or (request.headers.get("x-country") or "")
+            ).strip()
+            if cc:
+                u.signup_country = cc[:2].upper()
+            ensure_public_user_id(db, user=u, country_code=cc or None)
+            db.commit()
+        except Exception:
+            db.rollback()
+        try:
             from app.services.credits import grant_signup_bonus_once
 
             grant_signup_bonus_once(db, user_id=u.id)
@@ -380,6 +408,20 @@ async def oauth_microsoft_callback(
         db.add(u)
         db.commit()
         db.refresh(u)
+        try:
+            from app.services.public_user_id import ensure_public_user_id
+
+            cc = (
+                (request.headers.get("cf-ipcountry") or "")
+                or (request.headers.get("x-vercel-ip-country") or "")
+                or (request.headers.get("x-country") or "")
+            ).strip()
+            if cc:
+                u.signup_country = cc[:2].upper()
+            ensure_public_user_id(db, user=u, country_code=cc or None)
+            db.commit()
+        except Exception:
+            db.rollback()
     else:
         if name and not u.display_name:
             u.display_name = name

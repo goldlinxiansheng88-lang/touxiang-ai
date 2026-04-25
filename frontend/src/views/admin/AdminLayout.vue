@@ -122,6 +122,7 @@ const { t, te } = useI18n();
 const primaryNav = computed(() => [
   { name: "admin-dash" as const, label: t("admin.layout.navDash") },
   { name: "admin-users" as const, label: t("admin.layout.navUsers") },
+  { name: "admin-credits-topup" as const, label: t("admin.layout.navCreditsTopup") },
   { name: "admin-orders" as const, label: t("admin.layout.navOrders") },
   { name: "admin-affiliates" as const, label: t("admin.layout.navAffiliates") },
 ]);
