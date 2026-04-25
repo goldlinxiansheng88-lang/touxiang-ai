@@ -283,6 +283,11 @@
     "signupBody": "New accounts receive {credits} bonus credits once (first login / registration). The grant is recorded in your credit ledger and is not repeated.",
     "subscriptionTitle": "Subscriptions & credit packs",
     "subscriptionBody": "Paid credit packs and subscription renewals are intended to top up your balance through checkout (e.g. Stripe) and webhooks. Exact SKUs, monthly credit amounts, and auto-renew terms are defined at purchase time on the checkout page and in your order confirmation — not on this static summary.",
+    "linksTitle": "Subscribe or buy credits",
+    "linksLead": "Your operator configures these URLs in Admin → Payments (\"Pricing page · subscription URL\" / \"credit pack URL\"). Links open in a new tab.",
+    "linkSubscribe": "Open subscription checkout",
+    "linkCreditsPack": "Open credit packs",
+    "linksEmpty": "No subscription or credit-pack URL is configured yet. Add HTTPS links in the admin payment settings to show buttons here.",
     "ledgerTitle": "Balance & ledger",
     "ledgerBody": "Your remaining credits and every grant or consumption appear in the account ledger (kinds such as signup_bonus, consume_generate, and future purchase_pack / subscription_refill). The server enforces balance before each task; insufficient credits return HTTP 402.",
     "checkoutNote": "If checkout or subscription products are not configured yet, you may still use bonus or admin-granted credits. This page reflects the technical rules implemented in the API today."

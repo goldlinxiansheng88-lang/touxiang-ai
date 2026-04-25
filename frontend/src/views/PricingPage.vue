@@ -17,6 +17,44 @@
     </header>
 
     <main class="mx-auto max-w-[760px] space-y-5">
+      <section
+        v-if="linksLoaded"
+        class="rounded-2xl border border-blush/35 bg-gradient-to-b from-white to-rose-50/40 p-5 shadow-sm ring-1 ring-rose-100/60"
+      >
+        <h2 class="text-base font-semibold text-stone-900">
+          {{ t("pricingPage.linksTitle") }}
+        </h2>
+        <p class="mt-2 text-xs leading-relaxed text-stone-600 sm:text-sm">
+          {{ t("pricingPage.linksLead") }}
+        </p>
+        <div
+          v-if="subscriptionHref || creditsPackHref"
+          class="mt-4 flex flex-wrap items-center justify-center gap-3 sm:justify-start"
+        >
+          <a
+            v-if="subscriptionHref"
+            class="hover-frame inline-flex min-h-[44px] items-center justify-center rounded-full bg-blush px-5 py-2.5 text-sm font-semibold text-white shadow-md ring-1 ring-black/10"
+            :href="subscriptionHref"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {{ t("pricingPage.linkSubscribe") }}
+          </a>
+          <a
+            v-if="creditsPackHref"
+            class="hover-frame inline-flex min-h-[44px] items-center justify-center rounded-full border border-stone-300 bg-white px-5 py-2.5 text-sm font-semibold text-stone-800 shadow-sm"
+            :href="creditsPackHref"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {{ t("pricingPage.linkCreditsPack") }}
+          </a>
+        </div>
+        <p v-else class="mt-4 rounded-lg border border-dashed border-stone-200 bg-white/70 px-3 py-2.5 text-sm text-stone-500">
+          {{ t("pricingPage.linksEmpty") }}
+        </p>
+      </section>
+
       <section class="rounded-2xl border border-stone-200/80 bg-white/90 p-5 shadow-sm">
         <h2 class="text-base font-semibold text-stone-900">
           {{ t("pricingPage.creditsTitle") }}
@@ -96,12 +134,32 @@
 </template>
 
 <script setup lang="ts">
+import { onMounted, ref } from "vue";
 import { useI18n } from "vue-i18n";
 import { useRouter } from "vue-router";
+import { getPaymentMethods } from "@/api/client";
 
 const router = useRouter();
 const { t } = useI18n();
 
 /** 与 backend/app/services/credits.py grant_signup_bonus_once 中 bonus 常量保持一致 */
 const signupBonusCredits = 5;
+
+const linksLoaded = ref(false);
+const subscriptionHref = ref<string | null>(null);
+const creditsPackHref = ref<string | null>(null);
+
+onMounted(async () => {
+  try {
+    const m = await getPaymentMethods();
+    const pl = m.pricing_links;
+    subscriptionHref.value = pl?.subscription ?? null;
+    creditsPackHref.value = pl?.credits_pack ?? null;
+  } catch {
+    subscriptionHref.value = null;
+    creditsPackHref.value = null;
+  } finally {
+    linksLoaded.value = true;
+  }
+});
 </script>

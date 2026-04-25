@@ -229,6 +229,11 @@ export type PaymentMethodsResponse = {
   checkout_amount_usdt: string;
   usdt_network: string;
   default_provider: string | null;
+  /** 管理后台配置的定价页外链；可能均为 null */
+  pricing_links?: {
+    subscription: string | null;
+    credits_pack: string | null;
+  };
 };
 
 export type CreateCheckoutResponse =

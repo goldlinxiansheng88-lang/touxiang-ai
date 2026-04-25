@@ -117,6 +117,8 @@ export const CONFIG_VALUE_KIND_BY_KEY: Record<string, string> = {
   usdt_network: "网络名称",
   checkout_amount_usd: "美元金额（数字）",
   checkout_amount_usdt: "USDT 数量（数字）",
+  pricing_subscription_url: "HTTPS 完整链接",
+  pricing_credits_pack_url: "HTTPS 完整链接",
   commission_default_rate: "比例 0～1",
   google_oauth_client_id: "Client ID",
   google_oauth_client_secret: "Client Secret",
@@ -135,7 +137,8 @@ export const ADMIN_GROUP_HINTS: Record<string, string> = {
   图片生成大模型:
     "生图：配置 Fal API Key（FAL_KEY）后 Worker 调用 fal 上 FLUX.1 img2img；上传图 URL 须公网可访问。未配置则仍为占位模糊预览。",
   存储配置: "生成结果需写入对象存储；Access/Secret/桶/区域为主流程必填项。",
-  支付与会员: "Stripe / Creem / Lemon Squeezy / USDT 任选配置；任一填好即可在前台展示对应收款方式。",
+  支付与会员:
+    "Stripe / Creem / Lemon Squeezy / USDT 任选配置；任一填好即可在前台展示对应收款方式。另可填「定价页 · 订阅链接 / 积分包链接」，用于 /pricing 页面对外跳转。",
   "登录与 OAuth": "第三方登录（Google / Microsoft）相关参数。填入对应 Client ID/Secret 后即可启用。",
   管理后台: "左侧栏「管理密码」与 ADMIN_PASSWORD 一致，用于调用管理接口。",
   业务参数: "免费次数、运营策略相关数值。",
@@ -427,6 +430,24 @@ export function getFallbackConfigRegistry(): {
       readonly: false,
       is_secret: false,
       value_kind: CONFIG_VALUE_KIND_BY_KEY.checkout_amount_usdt,
+    },
+    {
+      key: "pricing_subscription_url",
+      label: "定价页 · 订阅链接",
+      group: "支付与会员",
+      description: "完整 HTTPS URL；前台 /pricing 展示「订阅」外链。留空则隐藏。",
+      readonly: false,
+      is_secret: false,
+      value_kind: CONFIG_VALUE_KIND_BY_KEY.pricing_subscription_url,
+    },
+    {
+      key: "pricing_credits_pack_url",
+      label: "定价页 · 积分包链接",
+      group: "支付与会员",
+      description: "完整 HTTPS URL；前台 /pricing 展示「积分包」外链。留空则隐藏。",
+      readonly: false,
+      is_secret: false,
+      value_kind: CONFIG_VALUE_KIND_BY_KEY.pricing_credits_pack_url,
     },
     {
       key: "commission_default_rate",

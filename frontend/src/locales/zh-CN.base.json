@@ -283,6 +283,11 @@
     "signupBody": "新用户首次注册/登录成功后一次性赠送 {credits} 积分（写入流水，同一账号不重复发放）。",
     "subscriptionTitle": "积分包与订阅",
     "subscriptionBody": "付费积分包与订阅续费拟通过 Stripe 等结账与 Webhook 向账户充值（流水类型如 purchase_pack、subscription_refill）。具体 SKU、每月发放积分数、自动续订与退订规则以结账页与订单确认邮件为准，本站摘要页不替代合同条款。",
+    "linksTitle": "订阅与积分包入口",
+    "linksLead": "由运营在管理后台「支付与会员」填写「定价页 · 订阅链接」「定价页 · 积分包链接」（完整 https 地址）。保存后此处显示按钮，新标签页打开。",
+    "linkSubscribe": "前往订阅结账",
+    "linkCreditsPack": "前往积分包 / 充值",
+    "linksEmpty": "尚未配置订阅或积分包外链。请在管理后台「支付与会员」中填写上述两项 HTTPS 链接后刷新本页。",
     "ledgerTitle": "余额与流水",
     "ledgerBody": "账户剩余积分与每笔发放/消耗均在后台流水中有记录。创建任务前服务端会校验余额；不足时返回 HTTP 402，与前端展示一致。",
     "checkoutNote": "若暂未上架结账商品，仍可使用注册赠送或运营发放的积分。本页数值与后端 `credits` 服务实现保持一致。"
