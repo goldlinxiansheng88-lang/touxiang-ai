@@ -45,8 +45,15 @@
             :key="row.id"
             class="border-b border-stone-100/90 transition hover:bg-stone-50/80"
           >
-            <td class="max-w-[220px] truncate px-4 py-3 text-stone-700" :title="row.username ?? ''">
-              {{ row.username ?? "—" }}
+            <td class="max-w-[260px] px-4 py-3 text-stone-700">
+              <div class="min-w-0">
+                <p class="truncate font-medium text-stone-800" :title="row.username ?? ''">
+                  {{ row.username ?? "—" }}
+                </p>
+                <p class="mt-0.5 font-mono text-[11px] text-stone-500">
+                  {{ formatDateYmd(row.created_at) }}
+                </p>
+              </div>
             </td>
             <td class="px-4 py-3 font-mono text-xs text-stone-800">{{ row.public_id ?? "—" }}</td>
           </tr>
@@ -96,6 +103,14 @@ const items = ref<AdminUserRow[]>([]);
 const total = ref(0);
 const page = ref(1);
 const pageSize = 20;
+
+function formatDateYmd(iso: string | null | undefined): string {
+  const s = String(iso || "").trim();
+  if (!s) return "—";
+  // ISO: 2026-04-23T02:41:10.916389+00:00
+  if (s.length >= 10) return s.slice(0, 10);
+  return s;
+}
 
 function formatErr(e: unknown): string {
   if (typeof e === "object" && e !== null && "response" in e) {
