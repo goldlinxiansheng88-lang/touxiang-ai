@@ -37,6 +37,7 @@
           <tr>
             <th class="px-4 py-3 font-medium">{{ t("admin.users.colName") }}</th>
             <th class="px-4 py-3 font-medium">{{ t("admin.users.colId") }}</th>
+            <th class="px-4 py-3 text-right font-medium">{{ t("admin.users.colCredits") }}</th>
           </tr>
         </thead>
         <tbody>
@@ -56,9 +57,12 @@
               </div>
             </td>
             <td class="px-4 py-3 font-mono text-xs text-stone-800">{{ row.public_id ?? "—" }}</td>
+            <td class="px-4 py-3 text-right font-mono text-xs text-stone-800 tabular-nums">
+              {{ typeof row.credits_balance === "number" ? row.credits_balance : 0 }}
+            </td>
           </tr>
           <tr v-if="items.length === 0">
-            <td colspan="2" class="px-4 py-12 text-center text-sm text-stone-500">{{ t("common.noData") }}</td>
+            <td colspan="3" class="px-4 py-12 text-center text-sm text-stone-500">{{ t("common.noData") }}</td>
           </tr>
         </tbody>
       </table>

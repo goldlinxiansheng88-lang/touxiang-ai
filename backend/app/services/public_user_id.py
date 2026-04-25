@@ -82,3 +82,30 @@ def ensure_public_user_id(
     db.flush()
     return str(user.public_id)
 
+
+def ensure_system_display_name(db: Session, *, user: User) -> str:
+    """
+    Ensure a short system username (<=16 chars) when the user hasn't set one.
+    Format: Aura{MMDD}{CC}{SEQ4}
+    Example: Aura0425CN0001
+    """
+    cur = (user.display_name or "").strip()
+    if cur:
+        return cur[:255]
+
+    pid = (user.public_id or "").strip()
+    if pid.startswith("U") and len(pid) >= 17:
+        day = pid[1:9]  # YYYYMMDD
+        cc = pid[9:11]  # CC
+        seq = pid[-6:]  # SEQ6
+        name = f"Aura{day[4:]}{cc}{seq[-4:]}"
+    else:
+        # fallback: Aura + last 12 of UUID hex
+        raw = str(getattr(user, "id", "")).replace("-", "")
+        name = "Aura" + (raw[-12:] if raw else "User")
+
+    name = name[:16]
+    user.display_name = name
+    db.flush()
+    return name
+

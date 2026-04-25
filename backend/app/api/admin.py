@@ -228,7 +228,7 @@ def list_users(
     updated_any = False
     for u in rows:
         ip = str(u.ip_address) if u.ip_address is not None else None
-        username = (u.display_name or "").strip() or (u.email or "").strip() or u.device_id
+        username = (u.display_name or "").strip()
         # Backfill public_id lazily so the UI can rely on a single “用户ID”
         if not (u.public_id or "").strip():
             try:
@@ -242,6 +242,15 @@ def list_users(
             except Exception:
                 # never block listing
                 pass
+        # System username when user didn't set one
+        if not username:
+            try:
+                from app.services.public_user_id import ensure_system_display_name
+
+                username = ensure_system_display_name(db, user=u)
+                updated_any = True
+            except Exception:
+                username = (u.email or "").strip() or u.device_id
         items.append(
             {
                 "id": str(u.id),

@@ -49,6 +49,7 @@
       "authBanner": "请先在<strong>左侧栏底部</strong>填写管理密码并点「保存授权」。",
       "refresh": "刷新",
       "colId": "用户 ID",
+      "colCredits": "积分余额",
       "colDevice": "设备 ID",
       "colName": "用户名",
       "colIp": "国家",
