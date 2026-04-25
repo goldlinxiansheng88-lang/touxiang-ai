@@ -37,10 +37,6 @@
           <tr>
             <th class="px-4 py-3 font-medium">{{ t("admin.users.colName") }}</th>
             <th class="px-4 py-3 font-medium">{{ t("admin.users.colId") }}</th>
-            <th class="px-4 py-3 font-medium">{{ t("admin.users.colDevice") }}</th>
-            <th class="px-4 py-3 font-medium">{{ t("admin.users.colIp") }}</th>
-            <th class="px-4 py-3 font-medium">{{ t("admin.users.colVip") }}</th>
-            <th class="px-4 py-3 font-medium">{{ t("admin.users.colCreated") }}</th>
           </tr>
         </thead>
         <tbody>
@@ -53,17 +49,9 @@
               {{ row.username ?? "—" }}
             </td>
             <td class="px-4 py-3 font-mono text-xs text-stone-800">{{ row.public_id ?? "—" }}</td>
-            <td class="max-w-[200px] truncate px-4 py-3 font-mono text-xs text-stone-700" :title="row.device_id">
-              {{ row.device_id }}
-            </td>
-            <td class="px-4 py-3 text-stone-600" :title="row.ip_address ?? ''">
-              {{ row.country_code ?? "—" }}
-            </td>
-            <td class="px-4 py-3">{{ row.is_vip ? t("admin.users.vipYes") : t("admin.users.vipNo") }}</td>
-            <td class="px-4 py-3 text-stone-600">{{ row.created_at ?? "—" }}</td>
           </tr>
           <tr v-if="items.length === 0">
-            <td colspan="6" class="px-4 py-12 text-center text-sm text-stone-500">{{ t("common.noData") }}</td>
+            <td colspan="2" class="px-4 py-12 text-center text-sm text-stone-500">{{ t("common.noData") }}</td>
           </tr>
         </tbody>
       </table>
