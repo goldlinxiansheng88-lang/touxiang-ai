@@ -90,14 +90,11 @@
         </div>
       </div>
 
-      <div id="aura-style-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 scroll-mt-6">
-        <StyleCard v-for="st in stylesForHomeGrid" :key="st.id" :item="st" @select="onStylePick(st.id)" />
-      </div>
-
+      <!-- 与早期首页一致：先「探索主题包」，再主风格网格 -->
       <section
         v-if="explorePackBlocks.length"
         id="photo-packs"
-        class="explore-packs mt-8 w-full scroll-mt-24 border-t border-stone-200/50 px-1 py-6 sm:px-3 sm:py-7"
+        class="explore-packs mb-6 w-full scroll-mt-24 border-t border-stone-200/50 px-1 py-6 sm:px-3 sm:py-7"
         aria-labelledby="explore-packs-title"
       >
         <h2
@@ -133,6 +130,10 @@
           </div>
         </div>
       </section>
+
+      <div id="aura-style-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 scroll-mt-6">
+        <StyleCard v-for="st in stylesForHomeGrid" :key="st.id" :item="st" @select="onStylePick(st.id)" />
+      </div>
 
       <section
         id="free-tools"
