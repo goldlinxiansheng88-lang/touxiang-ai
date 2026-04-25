@@ -18,7 +18,7 @@
     },
     "explorePacks": {
       "title": "팩 둘러보기",
-      "groupedHint": "홈 상단 장면(아바타, 배경화면 등)과 같은 기준으로 묶었습니다.",
+      "groupedHint": "아래 카드에서 장면별로 정리했습니다. 탭하면 팩 스타일로 이동합니다.",
       "couples": "커플",
       "cartoon": "카툰",
       "anime": "애니",

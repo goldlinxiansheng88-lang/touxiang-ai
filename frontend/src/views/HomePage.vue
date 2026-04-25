@@ -2,44 +2,44 @@
   <div class="min-h-screen pb-10">
     <header class="relative pt-10 pb-6 px-4">
       <div class="mx-auto w-full max-w-[1200px]">
-        <div class="flex items-start justify-between gap-3">
-          <!-- Title block: align left with image grid -->
-          <div class="min-w-0 text-left">
+        <!-- 顶栏：左品牌 | 中间导航（视口居中）| 右语言与账号 -->
+        <div class="relative flex min-h-[3rem] items-center justify-between gap-2 sm:min-h-[3.25rem]">
+          <div class="relative z-10 min-w-0 max-w-[46%] pr-1 text-left sm:max-w-[38%] sm:pr-2">
             <h1
               class="text-[1.65rem] font-semibold tracking-tight text-stone-900 sm:text-3xl [text-shadow:0_1px_0_rgba(255,255,255,0.55)]"
             >
               {{ t("home.title") }}
             </h1>
-            <p class="mt-2 text-[13px] font-medium uppercase tracking-[0.22em] text-stone-500/85 sm:text-sm">
+            <p class="mt-1.5 text-[12px] font-medium uppercase tracking-[0.2em] text-stone-500/85 sm:mt-2 sm:text-sm">
               {{ t("home.tagline") }}
             </p>
-            <nav
-              class="mt-3 flex flex-wrap items-center gap-2 border-t border-stone-200/40 pt-3 sm:gap-2.5"
-              :aria-label="t('home.nav.aria')"
-            >
-              <RouterLink
-                class="home-top-nav hover-frame inline-flex items-center rounded-full border border-stone-200/90 bg-white/80 px-3 py-1.5 text-xs font-semibold text-stone-700 shadow-sm sm:text-[13px]"
-                to="/packs"
-              >
-                {{ t("home.nav.packs") }}
-              </RouterLink>
-              <RouterLink
-                class="home-top-nav hover-frame inline-flex items-center rounded-full border border-stone-200/90 bg-white/80 px-3 py-1.5 text-xs font-semibold text-stone-700 shadow-sm sm:text-[13px]"
-                to="/tools"
-              >
-                {{ t("home.nav.tools") }}
-              </RouterLink>
-              <RouterLink
-                class="home-top-nav hover-frame inline-flex items-center rounded-full border border-stone-200/90 bg-white/80 px-3 py-1.5 text-xs font-semibold text-stone-700 shadow-sm sm:text-[13px]"
-                to="/pricing"
-              >
-                {{ t("home.nav.pricing") }}
-              </RouterLink>
-            </nav>
           </div>
 
-          <!-- Controls: keep top-right -->
-          <div class="flex shrink-0 items-center gap-2 pt-0.5 pointer-events-auto">
+          <nav
+            class="pointer-events-none absolute inset-0 flex items-center justify-center gap-1.5 px-1 sm:gap-2"
+            :aria-label="t('home.nav.aria')"
+          >
+            <RouterLink
+              class="home-top-nav pointer-events-auto hover-frame inline-flex items-center rounded-full border border-stone-200/90 bg-white/90 px-2.5 py-1.5 text-[11px] font-semibold text-stone-700 shadow-sm backdrop-blur-sm sm:px-3.5 sm:text-[13px]"
+              to="/packs"
+            >
+              {{ t("home.nav.packs") }}
+            </RouterLink>
+            <RouterLink
+              class="home-top-nav pointer-events-auto hover-frame inline-flex items-center rounded-full border border-stone-200/90 bg-white/90 px-2.5 py-1.5 text-[11px] font-semibold text-stone-700 shadow-sm backdrop-blur-sm sm:px-3.5 sm:text-[13px]"
+              to="/tools"
+            >
+              {{ t("home.nav.tools") }}
+            </RouterLink>
+            <RouterLink
+              class="home-top-nav pointer-events-auto hover-frame inline-flex items-center rounded-full border border-stone-200/90 bg-white/90 px-2.5 py-1.5 text-[11px] font-semibold text-stone-700 shadow-sm backdrop-blur-sm sm:px-3.5 sm:text-[13px]"
+              to="/pricing"
+            >
+              {{ t("home.nav.pricing") }}
+            </RouterLink>
+          </nav>
+
+          <div class="relative z-10 flex shrink-0 items-center gap-2 pointer-events-auto">
             <LanguageSelector />
             <button
               type="button"
@@ -90,10 +90,14 @@
         </div>
       </div>
 
+      <div id="aura-style-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 scroll-mt-6">
+        <StyleCard v-for="st in stylesForHomeGrid" :key="st.id" :item="st" @select="onStylePick(st.id)" />
+      </div>
+
       <section
         v-if="explorePackBlocks.length"
         id="photo-packs"
-        class="explore-packs mb-6 w-full scroll-mt-24 border-t border-stone-200/50 px-2 py-7 sm:px-4 sm:py-8"
+        class="explore-packs mt-8 w-full scroll-mt-24 border-t border-stone-200/50 px-1 py-6 sm:px-3 sm:py-7"
         aria-labelledby="explore-packs-title"
       >
         <h2
@@ -102,36 +106,33 @@
         >
           {{ t("home.explorePacks.title") }}
         </h2>
-        <p class="mx-auto mt-2 max-w-xl text-center text-xs text-stone-500 sm:text-sm">
+        <p class="mx-auto mt-1 max-w-2xl text-center text-[11px] leading-snug text-stone-500 sm:text-xs">
           {{ t("home.explorePacks.groupedHint") }}
         </p>
-        <div v-for="block in explorePackBlocks" :key="block.sceneId" class="mt-8">
-          <h3
-            class="text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-stone-500/90 sm:text-xs"
-          >
-            {{ block.sceneLabel }}
-          </h3>
+        <div class="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           <div
-            class="explore-packs-cloud mx-auto mt-3 flex max-w-[920px] flex-wrap justify-center gap-x-2 gap-y-3 sm:gap-x-3"
+            v-for="block in explorePackBlocks"
+            :key="block.sceneId"
+            class="explore-scene-card rounded-2xl border border-stone-200/65 bg-white/55 p-3 shadow-sm backdrop-blur-sm sm:p-3.5"
           >
-            <button
-              v-for="(p, idx) in block.packs"
-              :key="p.id"
-              type="button"
-              class="explore-chip hover-frame touch-manipulation"
-              :class="`explore-chip--s${idx % 5}`"
-              @click="goExplorePack(p.id)"
-            >
-              <span class="explore-chip-emoji" aria-hidden="true">{{ p.emoji }}</span>
-              <span class="explore-chip-label">{{ t(p.labelKey) }}</span>
-            </button>
+            <h3 class="mb-2.5 border-b border-stone-200/60 pb-1.5 text-left text-xs font-semibold tracking-wide text-stone-700">
+              {{ block.sceneLabel }}
+            </h3>
+            <div class="flex flex-wrap gap-1.5">
+              <button
+                v-for="p in block.packs"
+                :key="p.id"
+                type="button"
+                class="explore-chip explore-chip--compact hover-frame touch-manipulation"
+                @click="goExplorePack(p.id)"
+              >
+                <span class="explore-chip-emoji" aria-hidden="true">{{ p.emoji }}</span>
+                <span class="explore-chip-label">{{ t(p.labelKey) }}</span>
+              </button>
+            </div>
           </div>
         </div>
       </section>
-
-      <div id="aura-style-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 scroll-mt-6">
-        <StyleCard v-for="st in stylesForHomeGrid" :key="st.id" :item="st" @select="onStylePick(st.id)" />
-      </div>
 
       <section
         id="free-tools"
@@ -355,6 +356,23 @@ function onStylePick(styleId: string) {
 }
 .explore-chip-label {
   line-height: 1.2;
+}
+.explore-chip--compact {
+  padding: 0.35rem 0.65rem;
+  font-size: 0.8125rem;
+  gap: 0.3rem;
+}
+.explore-chip--compact .explore-chip-emoji {
+  font-size: 0.95rem;
+}
+.explore-scene-card {
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.explore-scene-card:hover {
+  border-color: rgba(214, 211, 209, 0.95);
+  box-shadow:
+    0 1px 2px rgba(28, 25, 23, 0.04),
+    0 8px 22px -8px rgba(28, 25, 23, 0.08);
 }
 .explore-chip--s0 {
   transform: translateY(0);

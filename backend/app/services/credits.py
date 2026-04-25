@@ -115,7 +115,7 @@ def grant_signup_bonus_once(db: Session, *, user_id) -> int:
     if bool(u.signup_bonus_granted):
         return int(u.credits_balance or 0)
     u.signup_bonus_granted = True
-    bonus = 5
+    bonus = 5  # keep in sync with frontend PricingPage.vue `signupBonusCredits`
     # Use internal helper to also write ledger.
     # We already hold a row lock; call _apply_delta via SQL-level lock bypass by updating directly.
     # Simpler: do it manually to avoid nested locking logic.

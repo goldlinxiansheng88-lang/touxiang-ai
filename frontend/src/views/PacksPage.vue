@@ -23,27 +23,30 @@
       {{ t("packsPage.empty") }}
     </div>
 
-    <div v-else class="mx-auto max-w-[1200px] space-y-10">
-      <section v-for="block in blocks" :key="block.sceneId" class="scroll-mt-8">
-        <h2
-          class="border-b border-stone-200/70 pb-2 text-center text-xs font-semibold uppercase tracking-[0.22em] text-stone-500 sm:text-sm"
+    <div v-else class="mx-auto max-w-[1200px]">
+      <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <section
+          v-for="block in blocks"
+          :key="block.sceneId"
+          class="scroll-mt-8 rounded-2xl border border-stone-200/65 bg-white/55 p-3 shadow-sm backdrop-blur-sm sm:p-3.5"
         >
-          {{ block.sceneLabel }}
-        </h2>
-        <div class="mt-4 flex flex-wrap justify-center gap-2 sm:gap-3">
-          <button
-            v-for="(p, idx) in block.packs"
-            :key="p.id"
-            type="button"
-            class="explore-chip hover-frame touch-manipulation"
-            :class="`explore-chip--s${idx % 5}`"
-            @click="goPack(p.id)"
-          >
-            <span class="explore-chip-emoji" aria-hidden="true">{{ p.emoji }}</span>
-            <span class="explore-chip-label">{{ t(p.labelKey) }}</span>
-          </button>
-        </div>
-      </section>
+          <h2 class="mb-2.5 border-b border-stone-200/60 pb-1.5 text-left text-xs font-semibold tracking-wide text-stone-700">
+            {{ block.sceneLabel }}
+          </h2>
+          <div class="flex flex-wrap gap-1.5">
+            <button
+              v-for="p in block.packs"
+              :key="p.id"
+              type="button"
+              class="explore-chip explore-chip--compact hover-frame touch-manipulation"
+              @click="goPack(p.id)"
+            >
+              <span class="explore-chip-emoji" aria-hidden="true">{{ p.emoji }}</span>
+              <span class="explore-chip-label">{{ t(p.labelKey) }}</span>
+            </button>
+          </div>
+        </section>
+      </div>
     </div>
   </div>
 </template>
@@ -131,33 +134,12 @@ function goPack(packId: string) {
 .explore-chip-label {
   line-height: 1.2;
 }
-.explore-chip--s0 {
-  transform: translateY(0);
+.explore-chip--compact {
+  padding: 0.35rem 0.65rem;
+  font-size: 0.8125rem;
+  gap: 0.3rem;
 }
-.explore-chip--s1 {
-  transform: translateY(4px);
-}
-.explore-chip--s2 {
-  transform: translateY(1px);
-}
-.explore-chip--s3 {
-  transform: translateY(5px);
-}
-.explore-chip--s4 {
-  transform: translateY(2px);
-}
-.explore-chip--s0:hover,
-.explore-chip--s1:hover,
-.explore-chip--s2:hover,
-.explore-chip--s3:hover,
-.explore-chip--s4:hover {
-  transform: translateY(0) scale(1.01);
-}
-.explore-chip--s0:active,
-.explore-chip--s1:active,
-.explore-chip--s2:active,
-.explore-chip--s3:active,
-.explore-chip--s4:active {
-  transform: scale(0.98);
+.explore-chip--compact .explore-chip-emoji {
+  font-size: 0.95rem;
 }
 </style>
