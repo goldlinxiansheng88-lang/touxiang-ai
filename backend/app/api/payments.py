@@ -93,7 +93,6 @@ def _create_pending_order(
     return order
 
 
-@router.get("/methods")
 def _public_https_url(db: Session, key: str) -> str | None:
     raw = (config_service.get(key, default="", db=db) or "").strip()
     if not raw:
@@ -104,6 +103,7 @@ def _public_https_url(db: Session, key: str) -> str | None:
     return None
 
 
+@router.get("/methods")
 def list_payment_methods(db: DbSession) -> dict[str, Any]:
     """公开：根据后台已填密钥/地址，返回当前可用的收款方式（不含密钥）。"""
     settings = get_settings()
